@@ -4,11 +4,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Referances")]
-    [SerializeField] private GameObject targetObject;
+    [SerializeField] public GameObject targetObject;
     [SerializeField] private PlayerHealth playerHealth;
 
     [Header("Movement")]
-    [SerializeField] private float speed = 5;
+    public bool movementEnabled = true;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private float targetDistanceOnMove = 0.5f;
 
     [Header("Input")]
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float targetSetPositionX;
     private float targetSetPositionY;
+    [HideInInspector] public float modifier = 1f;
 
     void Awake()
     {
@@ -38,21 +40,26 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveTarget()
     {
-        if (Input.GetKey(keyCodeUp))
+        if (movementEnabled == true)
         {
-            targetSetPositionY = transform.position.y + targetDistanceOnMove;
-        }
-        if (Input.GetKey(keyCodeDown))
-        {
-            targetSetPositionY = transform.position.y - targetDistanceOnMove;
-        }
-        if (Input.GetKey(keyCodeLeft))
-        {
-            targetSetPositionX = transform.position.x - targetDistanceOnMove;
-        }
-        if (Input.GetKey(keyCodeRight))
-        {
-            targetSetPositionX = transform.position.x + targetDistanceOnMove;
+            targetSetPositionY = transform.position.y;
+            targetSetPositionX = transform.position.x;
+            if (Input.GetKey(keyCodeUp))
+            {
+                targetSetPositionY = transform.position.y + targetDistanceOnMove;
+            }
+            if (Input.GetKey(keyCodeDown))
+            {
+                targetSetPositionY = transform.position.y - targetDistanceOnMove;
+            }
+            if (Input.GetKey(keyCodeLeft))
+            {
+                targetSetPositionX = transform.position.x - targetDistanceOnMove;
+            }
+            if (Input.GetKey(keyCodeRight))
+            {
+                targetSetPositionX = transform.position.x + targetDistanceOnMove;
+            }
         }
     }
 
@@ -86,25 +93,38 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Hazard"))
         {
-            HazardScript hazard = collision.gameObject.GetComponent<HazardScript>();
-            if (hazard != null)
+            if (playerHealth.death == false && playerHealth.invinsible == false)
             {
-                playerHealth.LoseHealth(hazard.damageAmount);
-                if (hazard.destroyOnTrigger == true)
-                    Destroy(collision.gameObject);
+                HazardScript hazard = collision.gameObject.GetComponent<HazardScript>();
+                if (hazard != null)
+                {
+                    playerHealth.LoseHealth(hazard.damageAmount, hazard.damageTime);
+
+                    if (hazard.dealKnockback == true)
+                        playerHealth.StartCoroutine(playerHealth.Knockback(collision, hazard.knockbackAmount));
+
+                    if (hazard.destroyOnTrigger == true)
+                        Destroy(collision.gameObject);    
+                }
             }
+            
         } 
     }
 
     //Moves the player to the target position
     void MovePlayer()
     {
-        targetObject.transform.position = new Vector3(
+        if (movementEnabled == true)
+        {
+            targetObject.transform.position = new Vector3(
                 targetSetPositionX,
                 targetSetPositionY,
                 0);
+            
+        }
+            
         Vector2 targetPosition = targetObject.transform.position;
-        float step = speed * Time.deltaTime;
+        float step = speed * modifier * Time.deltaTime;
 
         Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, step);
         rb.MovePosition(newPosition);
