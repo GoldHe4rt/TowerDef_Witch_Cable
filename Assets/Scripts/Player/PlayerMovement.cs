@@ -1,16 +1,16 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Referances")]
-    [SerializeField] public GameObject targetObject;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private GameObject aimDirection;
 
     [Header("Movement")]
     public bool movementEnabled = true;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float targetDistanceOnMove = 0.5f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float rotationSpeed = 500f;
 
     [Header("Input")]
     [SerializeField] private KeyCode keyCodeUp = KeyCode.W;
@@ -19,9 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode keyCodeRight = KeyCode.D;
 
     private Rigidbody2D rb;
-    private float targetSetPositionX;
-    private float targetSetPositionY;
-    [HideInInspector] public float modifier = 1f;
+    private Vector2 moveInput;
+    private bool isKnockback;
 
     void Awake()
     {
@@ -30,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        MoveTarget();
+        MoveTargetInput();
     }
 
     void FixedUpdate()
@@ -38,97 +37,82 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    void MoveTarget()
+    void MoveTargetInput()
     {
-        if (movementEnabled == true)
-        {
-            targetSetPositionY = transform.position.y;
-            targetSetPositionX = transform.position.x;
-            if (Input.GetKey(keyCodeUp))
-            {
-                targetSetPositionY = transform.position.y + targetDistanceOnMove;
-            }
-            if (Input.GetKey(keyCodeDown))
-            {
-                targetSetPositionY = transform.position.y - targetDistanceOnMove;
-            }
-            if (Input.GetKey(keyCodeLeft))
-            {
-                targetSetPositionX = transform.position.x - targetDistanceOnMove;
-            }
-            if (Input.GetKey(keyCodeRight))
-            {
-                targetSetPositionX = transform.position.x + targetDistanceOnMove;
-            }
-        }
-    }
+        if (Input.GetKeyUp(keyCodeUp)||Input.GetKeyUp(keyCodeDown))
+            moveInput.y = 0;
+        
+        if (Input.GetKeyUp(keyCodeLeft)||Input.GetKeyUp(keyCodeRight))
+            moveInput.x = 0;
+        
+        if (!movementEnabled) return;
+        if (isKnockback) return;
 
-    //Detect which side the collition happend to prevent drag
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        Vector2 normal = collision.GetContact(0).normal;
-        //Up
-        if (normal.y > 0.5f && targetSetPositionY < transform.position.y)
-        {
-            targetSetPositionY = transform.position.y;
-        } 
-        //Down
-        else if (normal.y < -0.5f && targetSetPositionY > transform.position.y)
-        {
-            targetSetPositionY = transform.position.y;
-        } 
-        //Right
-        else if (normal.x > 0.5f && targetSetPositionX < transform.position.x)
-        {
-            targetSetPositionX = transform.position.x;
-        } 
-        //Left
-        else if (normal.x < -0.5f && targetSetPositionX > transform.position.x)
-        {
-            targetSetPositionX = transform.position.x;
-        } 
-    }
+        if (Input.GetKey(keyCodeUp))
+            moveInput.y = 1;
+        
+        if (Input.GetKey(keyCodeDown))
+            moveInput.y = -1;
+        
+        if (Input.GetKey(keyCodeLeft))
+            moveInput.x = -1;
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Hazard"))
-        {
-            if (playerHealth.death == false && playerHealth.invinsible == false)
-            {
-                HazardScript hazard = collision.gameObject.GetComponent<HazardScript>();
-                if (hazard != null)
-                {
-                    playerHealth.LoseHealth(hazard.damageAmount, hazard.damageTime);
-
-                    if (hazard.dealKnockback == true)
-                        playerHealth.StartCoroutine(playerHealth.Knockback(collision, hazard.knockbackAmount));
-
-                    if (hazard.destroyOnTrigger == true)
-                        Destroy(collision.gameObject);    
-                }
-            }
-            
-        } 
+        if (Input.GetKey(keyCodeRight))
+            moveInput.x = 1;
+        
+        
     }
 
     //Moves the player to the target position
     void MovePlayer()
     {
-        if (movementEnabled == true)
-        {
-            targetObject.transform.position = new Vector3(
-                targetSetPositionX,
-                targetSetPositionY,
-                0);
-            
-        }
-            
-        Vector2 targetPosition = targetObject.transform.position;
-        float step = speed * modifier * Time.deltaTime;
+        if (!movementEnabled) return;
+        if (isKnockback) return;
+        rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * Time.fixedDeltaTime);
 
-        Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, step);
-        rb.MovePosition(newPosition);
+        if (moveInput != Vector2.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, moveInput);
+            aimDirection.transform.rotation = Quaternion.RotateTowards(aimDirection.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
     }
+    
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Hazard")) return;
+        if (playerHealth.death) return;
+        if (playerHealth.invinsible) return;
+        HazardScript hazard = collision.gameObject.GetComponent<HazardScript>();
+        if (hazard == null) {
+            Debug.LogWarning("Hazard is missing script"); return; }
+                
+        playerHealth.LoseHealth(hazard.damageAmount, hazard.damageTime);
+
+        if (hazard.dealKnockback == true)
+        {
+            Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
+            ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
+        }
+        if (hazard.destroyOnTrigger == true)
+            Destroy(collision.gameObject);        
+    }
+
+    public void ApplyKnockback(Vector2 direction, float force, float duration, float stun) {
+        StartCoroutine(KnockbackCoroutine(direction, force, duration, stun));
+    }
+
+    private IEnumerator KnockbackCoroutine(Vector2 direction, float force, float duration, float stun) {
+        isKnockback = true;
+        rb.linearVelocity = Vector2.zero; // Reset velocity for consistency
+        rb.AddForce(direction * force, ForceMode2D.Impulse); // Apply instant force
+        yield return new WaitForSeconds(duration);
+        rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(stun);
+        isKnockback = false;
+    }
+
+
 
     
 }

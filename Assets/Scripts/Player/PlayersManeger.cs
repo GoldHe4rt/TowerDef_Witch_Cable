@@ -39,10 +39,20 @@ public class PlayerManegers : MonoBehaviour
 
     void Start()
     {
+        if (playerObj1 == null)
+            player1IsActive = false;
+        if (playerObj2 == null)
+            player2IsActive = false;
+        if (playerObj3 == null)
+            player3IsActive = false;
+        if (playerObj4 == null)
+            player4IsActive = false;
+        
         PlayerAmount_0();
-        UpdatePlayer();
+        UpdatePlayerAmount();
     }
-    public void UpdatePlayer()
+
+    public void UpdatePlayerAmount()
     {
         if (dropdown.value == 0)
             PlayerAmount_1();
@@ -53,36 +63,47 @@ public class PlayerManegers : MonoBehaviour
         if (dropdown.value == 3)
             PlayerAmount_4();
     }
+
     void PlayerAmount_0()
     {
         //Player Visibility
+        
         if (player1IsActive)
         {
+            if (playerObj1 == null) return;
             player1IsActive = false;
             playerObj1.SetActive(false);
             playerChar1.transform.position = playerSpawn1.transform.position;
         }
+        
         if (player2IsActive)
         {
+            if (playerObj2 == null) return;
             player2IsActive = false;
             playerObj2.SetActive(false);
+            playerChar2.transform.position = playerSpawn2.transform.position;
         }
+        
         if (player3IsActive)
         {
+            if (playerObj3 == null) return;
             player3IsActive = false;
             playerObj3.SetActive(false);
+            playerChar3.transform.position = playerSpawn3.transform.position;
         }
+        
         if (player4IsActive)
         {
+            if (playerObj4 == null) return;
             player4IsActive = false;
             playerObj4.SetActive(false);
+            playerChar4.transform.position = playerSpawn4.transform.position;
         }
-
-        Debug.Log("1 Player active");
     }
 
     void PlayerAmount_1()
     {
+        if (playerObj1 == null) return;
         //Change Camera
         playerCam1.rect = new Rect(0.0f, 0.0f, 1.0f, 1.0f);
 
@@ -114,6 +135,7 @@ public class PlayerManegers : MonoBehaviour
 
     void PlayerAmount_2()
     {
+        if (playerObj2 == null) return;
         //Change Camera
         playerCam1.rect = new Rect(0.0f, 0.25f, 0.5f, 0.5f);
         playerCam2.rect = new Rect(0.5f, 0.25f, 0.5f, 0.5f);
@@ -147,6 +169,7 @@ public class PlayerManegers : MonoBehaviour
 
     void PlayerAmount_3()
     {
+        if (playerObj3 == null) return;
         //Change Camera
         playerCam1.rect = new Rect(0.0f, 0.5f, 0.5f, 0.5f);
         playerCam2.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
@@ -182,6 +205,7 @@ public class PlayerManegers : MonoBehaviour
 
     void PlayerAmount_4()
     {
+        if (playerObj4 == null) return;
         //Change Camera
         playerCam1.rect = new Rect(0.0f, 0.5f, 0.5f, 0.5f);
         playerCam2.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
