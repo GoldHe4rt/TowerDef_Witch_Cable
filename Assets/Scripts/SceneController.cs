@@ -15,6 +15,12 @@ public class SceneController : MonoBehaviour
         Debug.Log("StartButton was pressed");
         SceneManager.LoadScene("Level 1");
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("The button is working");
+    }
     
     //Used for MAIN_MENU_BUTTON. Loads Main_menu Scene.
     public void MainMenu()
@@ -24,13 +30,12 @@ public class SceneController : MonoBehaviour
     }
     
     //Used for SETTINGS_BUTTON. Loads the settings scene. No scene yet.
-    //public void SettingsScene() { SceneManager.LoadScene("Settings"); }
+    public void SettingsScene() { SceneManager.LoadScene("Settings"); }
 
-    //Run this when EXIT_BUTTON or ESC is pressed
+    //Run this when EXIT_BUTTON
     public void Exit()
     {
         Debug.Log("ExitButton was pressed");
         Application.Quit();
-        if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
     }
 }
