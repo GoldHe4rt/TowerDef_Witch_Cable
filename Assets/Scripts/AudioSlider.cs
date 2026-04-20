@@ -1,50 +1,40 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class AudioSlider : MonoBehaviour
 {
-   [SerializeField] private AudioMixer Mixer;
-   [SerializeField] private AudioSource AudioSource;
-   [SerializeField] private TextMeshProUGUI ValueText;
-   [SerializeField] private AudioMixMode MixMode;
-
+   [SerializeField] private AudioMixer mixer;
+   [SerializeField] private AudioSource audioSource;
+   [SerializeField] private TextMeshProUGUI valueText;
+   [SerializeField] private AudioMixMode mixMode;
 
    private void Start()
    {
-      Mixer.SetFloat("Volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume", 1) * 20));
+      mixer.SetFloat("Volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume", 1) * 20));
    }
 
+   
+   //Save master volume across saves
    public void MasterVolume()
    {
       PlayerPrefs.SetFloat("Volume", 0);
       PlayerPrefs.Save();
    }
 
-   public void OnChangeSlider(float Value)
+   public void OnChangeSlider(float value)
    {
       //Shows slider value up to 4 decimals
-      ValueText.SetText($"{Value:N4}");
+      valueText.SetText($"{value:N4}");
       
-      switch (MixMode)
+      switch (mixMode)
       {
-         case AudioMixMode.LinearAudioSourceVolume:
-            AudioSource.volume = Value;
-            break;
-         case AudioMixMode.LinearMixerVolume:
-            Mixer.SetFloat("Volume", (-80 + Value * 80));
-            break;
          case AudioMixMode.LogarithmicMixerVolume:
-            Mixer.SetFloat("Volume", Mathf.Log10(Value) * 20);
+            mixer.SetFloat("Volume", Mathf.Log10(value) * 20);
             break;
       }
    }
    
    public enum AudioMixMode
-   {
-      LinearAudioSourceVolume,
-      LinearMixerVolume,
-      LogarithmicMixerVolume
-   }
+   { LogarithmicMixerVolume }
 }
