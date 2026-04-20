@@ -4,7 +4,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    private bool isPaused;
+    public bool isPaused;
     
     //Pause is false and the menu does not show at start.
     private void Start() 
@@ -30,7 +30,7 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
     }
 
-    void Pause()
+   public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
