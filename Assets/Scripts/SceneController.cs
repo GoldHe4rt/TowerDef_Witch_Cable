@@ -1,7 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+//So that event system is not forgotten when putting SceneManager prefab in the scene. (Easy to forget & spend long time figuring out)
+/*[RequireComponent(typeof(EventSystem))]*/
 public class SceneController : MonoBehaviour
 {
 
