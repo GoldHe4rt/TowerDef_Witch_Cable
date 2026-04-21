@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 
 namespace AudioScripts
@@ -8,7 +6,7 @@ namespace AudioScripts
     public class PitchRandomizer : MonoBehaviour
     {
         [SerializeField] private SoundManager soundManager;
-        [SerializeField] private float pitchVariation;
+        private float pitchVariation = 0.7f;
         private float basePitch;
         
         
@@ -18,9 +16,10 @@ namespace AudioScripts
             basePitch = soundManager.GetComponent<AudioSource>().pitch;
         }
 
-        public void Randomize()
+        public void RandomPitch()
         {
-            soundManager.GetComponent<AudioSource>().pitch = basePitch + Random.Range(-pitchVariation, pitchVariation);
+            float _randomPitch = Random.Range(1f - pitchVariation, 1f + pitchVariation);
+            soundManager.GetComponent<AudioSource>().pitch = basePitch + _randomPitch;
         }
     }
 }

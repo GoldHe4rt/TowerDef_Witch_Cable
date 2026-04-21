@@ -44,9 +44,7 @@ namespace AudioScripts
         }
 
         public static void StopAudio()
-        {
-            _instance._audioSource.mute = true;
-        }
+        { _instance._audioSource.mute = true; }
 
 #if UNITY_EDITOR
         private void OnEnable()

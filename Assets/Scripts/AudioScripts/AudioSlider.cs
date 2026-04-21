@@ -86,51 +86,27 @@ public class AudioSlider : MonoBehaviour
    {
       //Shows slider value up to 4 decimals
       mastervalueText.SetText($"{value:N4}");
-
-      switch (mixMode)
-      {
-         case AudioMixMode.LogarithmicMixerVolume:
-            mixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
-            break;
-      }
+      if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
    }
 
    public void OnChangeMusicSlider(float value)
    {
       musicvalueText.SetText($"{value:N4}");
-      switch (mixMode)
-      {
-         case AudioMixMode.LogarithmicMixerVolume:
-            mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
-            break;
-      }
+      if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
    }
 
    public void OnChangeSfxSlider(float value)
    {
       sfxvalueText.SetText($"{value:N4}");
-      switch (mixMode)
-      {
-         case AudioMixMode.LogarithmicMixerVolume:
-            mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
-            break;
-      }
+      if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
    }
 
    public void OnChangeUiSlider(float value)
    {
       uivalueText.SetText($"{value:N4}");
-      switch (mixMode)
-      {
-         case AudioMixMode.LogarithmicMixerVolume:
-            mixer.SetFloat("UIVolume", Mathf.Log10(value) * 20);
-            break;
-      }
+      if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("UIVolume", Mathf.Log10(value) * 20);
    }
 
    private enum AudioMixMode
-   {
-      LogarithmicMixerVolume
-   }
-    
+   { LogarithmicMixerVolume }
 }
