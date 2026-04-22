@@ -6,9 +6,9 @@ namespace AudioScripts
     public class PlaySound : MonoBehaviour
     {
         [SerializeField] private SoundType sound;
-        [SerializeField] private SoundManager soundManager;
+        private SoundManager soundManager;
         [SerializeField] private AudioSlider audioSlider;
-        [SerializeField] private PitchRandomizer pitchRandomizer;
+        private PitchRandomizer pitchRandomizer;
 
         void Start()
         {

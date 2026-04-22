@@ -5,7 +5,7 @@ namespace AudioScripts
 {
     public class PitchRandomizer : MonoBehaviour
     {
-        [SerializeField] private SoundManager soundManager;
+        private SoundManager soundManager;
         private float pitchVariation = 0.7f;
         private float basePitch;
         
@@ -18,8 +18,8 @@ namespace AudioScripts
 
         public void RandomPitch()
         {
-            float _randomPitch = Random.Range(1f - pitchVariation, 1f + pitchVariation);
-            soundManager.GetComponent<AudioSource>().pitch = basePitch + _randomPitch;
+            float randomPitch = Random.Range(1f - pitchVariation, 1f + pitchVariation);
+            soundManager.GetComponent<AudioSource>().pitch = basePitch + randomPitch;
         }
     }
 }
