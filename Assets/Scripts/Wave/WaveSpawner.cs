@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 [System.Serializable]
+
 public class Wave
 {
-    public string waveName;
-    public int noOfEnemies;
-    public GameObject[] typeOfEnemies;
-    public float spawnInterval;
+    [SerializeField] public string waveName;
+    [SerializeField] public int noOfEnemies;
+    [SerializeField] public GameObject[] typeOfEnemies;
+    [SerializeField] public float spawnInterval;
 }
 
 public class WaveSpawner : MonoBehaviour
@@ -17,7 +19,6 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] Wave currentWave;
     [SerializeField] int currentWaveNumber;
 
-    [SerializeField]
     bool canSpawn = true;
 
     private void Update()
@@ -42,11 +43,11 @@ public class WaveSpawner : MonoBehaviour
     {
         if (canSpawn)
         {
-            GameObject randomEnemy = currentWave.typeOfEnemies[Random.range(0, currentWave.typeOfEnemies.Length)];
+            GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
             Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
             currentWave.noOfEnemies--;
-            nextSpawnTime = Time.time + currentWave.spawnInterval;
+            //nextSpawnTime = Time.time + currentWave.spawnInterval;
             if (currentWave.noOfEnemies == 0)
             {
                 canSpawn = false;
