@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,14 +14,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 500f;
 
     [Header("Input")]
-    [SerializeField] private KeyCode keyCodeUp = KeyCode.W;
-    [SerializeField] private KeyCode keyCodeDown = KeyCode.S;
-    [SerializeField] private KeyCode keyCodeLeft = KeyCode.A;
-    [SerializeField] private KeyCode keyCodeRight = KeyCode.D;
+    [SerializeField] private KeyCode keyCodeUp = KeyCode.W, keyCodeDown = KeyCode.S, keyCodeLeft = KeyCode.A, keyCodeRight = KeyCode.D;
 
+
+    private PlayerInput playerInput;
     private Rigidbody2D rb;
     private Vector2 moveInput;
+    private Vector2 lookInput;
     private bool isKnockback;
+    
 
     void Awake()
     {
@@ -29,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        MoveTargetInput();
+        //MoveTargetInput();
     }
 
     void FixedUpdate()
@@ -63,6 +65,26 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    public void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+        Debug.Log("Move!");
+    }
+
+    public void OnLook(InputValue value)
+    {
+        lookInput = value.Get<Vector2>();
+        Debug.Log("Look!");
+    }
+
+    public void OnJump(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            Debug.Log("Jump!");
+        }
+    }
+
     //Moves the player to the target position
     void MovePlayer()
     {
@@ -70,7 +92,11 @@ public class PlayerMovement : MonoBehaviour
         if (isKnockback) return;
         rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * Time.fixedDeltaTime);
 
-        if (moveInput != Vector2.zero)
+        if (lookInput != Vector2.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, lookInput);
+            aimDirection.transform.rotation = Quaternion.RotateTowards(aimDirection.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        } else if (moveInput != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, moveInput);
             aimDirection.transform.rotation = Quaternion.RotateTowards(aimDirection.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);

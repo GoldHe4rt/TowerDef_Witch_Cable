@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd4dcb37d979c649b37d54057d39bff, type: 3}
+  m_Name: Database
+  m_EditorClassIdentifier: 
+  objectData:
+  - <Name>k__BackingField: Floor
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 4197277469607999623, guid: 63bc2bc47895b4b4f8de42dd0ed68a06, type: 3}
+  - <Name>k__BackingField: Grass
+    <ID>k__BackingField: 1
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 503583416656909262, guid: be41f0e829d7b6043a0c953431154c6e, type: 3}
+  - <Name>k__BackingField: Bush
+    <ID>k__BackingField: 2
+    <Size>k__BackingField: {x: 1, y: 3}
+    <Prefab>k__BackingField: {fileID: 6057054492143265882, guid: 080acf69dbafc5f478b6ebc4652070df, type: 3}
