@@ -27,38 +27,66 @@ public class InputManager : MonoBehaviour
 
     public PlayerInput[] players; // assign in inspector
 
-    private List<Gamepad> joinedGamepads = new List<Gamepad>();
-    private int nextPlayerIndex = 0;
+    private Dictionary<Gamepad, int> gamepadToPlayer = new Dictionary<Gamepad, int>();
+    private HashSet<int> takenSlots = new HashSet<int>();
 
     void JoinGamepad()
     {
         foreach (var gamepad in Gamepad.all)
         {
-            // Skip already joined controllers
-            if (joinedGamepads.Contains(gamepad))
-                continue;
-
-            // Check if A button was pressed
-            if (gamepad.buttonSouth.wasPressedThisFrame)
+            // JOIN (A button)
+            if (!gamepadToPlayer.ContainsKey(gamepad) &&
+                gamepad.buttonSouth.wasPressedThisFrame)
             {
-                JoinPlayer(gamepad);
+                TryJoin(gamepad);
+            }
+
+            // LEAVE (B button)
+            if (gamepadToPlayer.ContainsKey(gamepad) &&
+                gamepad.buttonEast.wasPressedThisFrame)
+            {
+                Leave(gamepad);
             }
         }
     }
 
-    void JoinPlayer(Gamepad gamepad)
+    void TryJoin(Gamepad gamepad)
     {
-        if (nextPlayerIndex >= players.Length)
-            return;
+        int freeIndex = GetFreePlayerIndex();
+        if (freeIndex == -1) return;
 
-        var player = players[nextPlayerIndex];
+        var player = players[freeIndex];
 
         player.enabled = true;
         player.SwitchCurrentControlScheme(gamepad);
 
-        joinedGamepads.Add(gamepad);
-        nextPlayerIndex++;
+        gamepadToPlayer.Add(gamepad, freeIndex);
+        takenSlots.Add(freeIndex);
 
-        Debug.Log("Player joined with: " + gamepad.displayName);
+        Debug.Log($"Player {freeIndex + 1} joined");
+    }
+
+    void Leave(Gamepad gamepad)
+    {
+        int index = gamepadToPlayer[gamepad];
+        var player = players[index];
+
+        // Disable input (or whole player if you want)
+        player.enabled = false;
+
+        gamepadToPlayer.Remove(gamepad);
+        takenSlots.Remove(index);
+
+        Debug.Log($"Player {index + 1} left");
+    }
+
+    int GetFreePlayerIndex()
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (!takenSlots.Contains(i))
+                return i;
+        }
+        return -1;
     }
 }
