@@ -4,7 +4,7 @@ namespace AudioScripts.StateMachineAudioScripts
 {
     public class PlaySoundExit : StateMachineBehaviour
     {
-        [SerializeField] private SoundType sound;
+        [SerializeField] private SoundManager.SoundType sound;
         [SerializeField, Range(0, 1)] private float volume = 1f;
 
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

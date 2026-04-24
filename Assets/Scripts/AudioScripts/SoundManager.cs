@@ -1,22 +1,33 @@
 using UnityEngine;
 using System;
-public enum SoundType
-{
-    //Examples of type of sounds
-    Magic,
-    Land,
-    Jump,
-    Hurt,
-    Footstep,
-    Button,
-    Music
-}
+
 
 namespace AudioScripts
 {
     [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
     public class SoundManager : MonoBehaviour
     {
+        public enum SoundType
+        {
+            //Examples of type of sounds
+            Magic,
+            Land,
+            Jump,
+            Hurt,
+            Footstep,
+            Button,
+            Music
+        }
+
+
+        public struct SoundList
+        {
+            public AudioClip[] Sounds { get => sounds; }
+            [HideInInspector] public string name;
+            [SerializeField] private AudioClip[] sounds;
+            //aaa
+        }
+
         [SerializeField] private SoundList[] soundList;
         private static SoundManager _instance;
         private AudioSource _audioSource;
@@ -54,13 +65,9 @@ namespace AudioScripts
             for (int i = 0; i < soundList.Length; i++)
             { soundList[i].name = names[i]; }
         }
-    }
 #endif
+    }
+
 }
-[Serializable]
-public struct SoundList
-{
-    public AudioClip[] Sounds { get => sounds; }
-    [HideInInspector] public string name;
-    [SerializeField] private AudioClip[] sounds;
-}
+
+//bbbb

@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 lookInput;
     private bool isKnockback;
-    
+
 
     void Awake()
     {
@@ -41,28 +41,28 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveTargetInput()
     {
-        if (Input.GetKeyUp(keyCodeUp)||Input.GetKeyUp(keyCodeDown))
+        if (Input.GetKeyUp(keyCodeUp) || Input.GetKeyUp(keyCodeDown))
             moveInput.y = 0;
-        
-        if (Input.GetKeyUp(keyCodeLeft)||Input.GetKeyUp(keyCodeRight))
+
+        if (Input.GetKeyUp(keyCodeLeft) || Input.GetKeyUp(keyCodeRight))
             moveInput.x = 0;
-        
+
         if (!movementEnabled) return;
         if (isKnockback) return;
 
         if (Input.GetKey(keyCodeUp))
             moveInput.y = 1;
-        
+
         if (Input.GetKey(keyCodeDown))
             moveInput.y = -1;
-        
+
         if (Input.GetKey(keyCodeLeft))
             moveInput.x = -1;
 
         if (Input.GetKey(keyCodeRight))
             moveInput.x = 1;
-        
-        
+
+
     }
 
     public void OnMove(InputValue value)
@@ -84,6 +84,17 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Jump!");
         }
     }
+    [SerializeField] private PauseManager pauseManager;
+    public void OnPause(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            Debug.Log("Pause!");
+            if (!pauseManager.isPaused)
+                pauseManager.Pause();
+            else pauseManager.Resume();
+        }
+    }
 
     //Moves the player to the target position
     void MovePlayer()
@@ -96,13 +107,14 @@ public class PlayerMovement : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, lookInput);
             aimDirection.transform.rotation = Quaternion.RotateTowards(aimDirection.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        } else if (moveInput != Vector2.zero)
+        }
+        else if (moveInput != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, moveInput);
             aimDirection.transform.rotation = Quaternion.RotateTowards(aimDirection.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
-    
+
 
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -110,9 +122,11 @@ public class PlayerMovement : MonoBehaviour
         if (playerHealth.death) return;
         if (playerHealth.invinsible) return;
         HazardScript hazard = collision.gameObject.GetComponent<HazardScript>();
-        if (hazard == null) {
-            Debug.LogWarning("Hazard is missing script"); return; }
-                
+        if (hazard == null)
+        {
+            Debug.LogWarning("Hazard is missing script"); return;
+        }
+
         playerHealth.LoseHealth(hazard.damageAmount, hazard.damageTime);
 
         if (hazard.dealKnockback == true)
@@ -121,14 +135,16 @@ public class PlayerMovement : MonoBehaviour
             ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
         }
         if (hazard.destroyOnTrigger == true)
-            Destroy(collision.gameObject);        
+            Destroy(collision.gameObject);
     }
 
-    public void ApplyKnockback(Vector2 direction, float force, float duration, float stun) {
+    public void ApplyKnockback(Vector2 direction, float force, float duration, float stun)
+    {
         StartCoroutine(KnockbackCoroutine(direction, force, duration, stun));
     }
 
-    private IEnumerator KnockbackCoroutine(Vector2 direction, float force, float duration, float stun) {
+    private IEnumerator KnockbackCoroutine(Vector2 direction, float force, float duration, float stun)
+    {
         isKnockback = true;
         rb.linearVelocity = Vector2.zero; // Reset velocity for consistency
         rb.AddForce(direction * force, ForceMode2D.Impulse); // Apply instant force
@@ -140,5 +156,5 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    
+
 }

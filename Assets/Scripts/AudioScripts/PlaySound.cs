@@ -5,7 +5,7 @@ namespace AudioScripts
 {
     public class PlaySound : MonoBehaviour
     {
-        [SerializeField] private SoundType sound;
+        [SerializeField] private SoundManager.SoundType sound;
         private SoundManager soundManager;
         [SerializeField] private AudioSlider audioSlider;
         private PitchRandomizer pitchRandomizer;
@@ -23,7 +23,7 @@ namespace AudioScripts
             if (Mathf.Approximately(audioSlider.uiSlider.value, 0.1f))
             { Stop(); }
             else
-            {pitchRandomizer.RandomPitch(); SoundManager.PlayRandomSound(SoundType.Button, volume: audioSlider.uiSlider.value); }
+            { pitchRandomizer.RandomPitch(); SoundManager.PlayRandomSound(SoundManager.SoundType.Button, volume: audioSlider.uiSlider.value); }
         }
 
         //Might need to the StateMachineFunction sound scripts instead.
@@ -42,7 +42,7 @@ namespace AudioScripts
             if (Mathf.Approximately(audioSlider.musicSlider.value, 0.1f))
             { Stop(); }
             else
-            { SoundManager.PlayRandomSound(SoundType.Music, volume: audioSlider.musicSlider.value); }
+            { SoundManager.PlayRandomSound(SoundManager.SoundType.Music, volume: audioSlider.musicSlider.value); }
         }
 
         private void Stop()
