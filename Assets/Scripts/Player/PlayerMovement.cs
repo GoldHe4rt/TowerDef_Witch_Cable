@@ -7,21 +7,23 @@ public class PlayerMovement : MonoBehaviour
     [Header("Referances")]
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private GameObject aimDirection;
+    
 
     [Header("Movement")]
     public bool movementEnabled = true;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 500f;
 
-    [Header("Input")]
-    [SerializeField] private KeyCode keyCodeUp = KeyCode.W, keyCodeDown = KeyCode.S, keyCodeLeft = KeyCode.A, keyCodeRight = KeyCode.D;
+    //[Header("Input")]
+    //[SerializeField] private KeyCode keyCodeUp = KeyCode.W, keyCodeDown = KeyCode.S, keyCodeLeft = KeyCode.A, keyCodeRight = KeyCode.D;
 
 
-    private PlayerInput playerInput;
+    //private PlayerInput playerInput;
     private Rigidbody2D rb;
-    private Vector2 moveInput;
-    private Vector2 lookInput;
+    [HideInInspector] public Vector2 moveInput;
+    [HideInInspector] public  Vector2 lookInput;
     private bool isKnockback;
+    
 
 
     void Awake()
@@ -34,12 +36,7 @@ public class PlayerMovement : MonoBehaviour
         //MoveTargetInput();
     }
 
-    void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-    void MoveTargetInput()
+    /*/void MoveTargetInput()
     {
         if (Input.GetKeyUp(keyCodeUp) || Input.GetKeyUp(keyCodeDown))
             moveInput.y = 0;
@@ -61,39 +58,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(keyCodeRight))
             moveInput.x = 1;
+    }/*/
 
 
-    }
-
-    public void OnMove(InputValue value)
+    void FixedUpdate()
     {
-        moveInput = value.Get<Vector2>();
-        Debug.Log("Move!");
-    }
-
-    public void OnLook(InputValue value)
-    {
-        lookInput = value.Get<Vector2>();
-        Debug.Log("Look!");
-    }
-
-    public void OnJump(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            Debug.Log("Jump!");
-        }
-    }
-    [SerializeField] private PauseManager pauseManager;
-    public void OnPause(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            Debug.Log("Pause!");
-            if (!pauseManager.isPaused)
-                pauseManager.Pause();
-            else pauseManager.Resume();
-        }
+        MovePlayer();
     }
 
     //Moves the player to the target position
@@ -115,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    //Hurt Player when hit Hazard
     void OnTriggerStay2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Hazard")) return;
@@ -138,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
     }
 
+    //Knockback
     public void ApplyKnockback(Vector2 direction, float force, float duration, float stun)
     {
         StartCoroutine(KnockbackCoroutine(direction, force, duration, stun));
@@ -153,8 +124,5 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(stun);
         isKnockback = false;
     }
-
-
-
 
 }

@@ -1,34 +1,23 @@
 using System;
 using UnityEngine;
+
+using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
-public class InputManager : MonoBehaviour
+public class ControllerManager : MonoBehaviour
 {
-
-    public event Action OnClicked, OnExit;
-
-    private void Update()
-    {
-        JoinGamepad();
-        
-        if (Input.GetMouseButtonDown(0))
-            OnClicked?.Invoke();
-        if (Input.GetKeyDown(KeyCode.Escape))
-            OnExit?.Invoke();
-    }
-
-    public bool IsPointerOverUI()
-        => EventSystem.current.IsPointerOverGameObject();
-
-
-
-
+    
     public PlayerInput[] players; // assign in inspector
 
     private Dictionary<Gamepad, int> gamepadToPlayer = new Dictionary<Gamepad, int>();
     private HashSet<int> takenSlots = new HashSet<int>();
+
+    private void Update()
+    {
+        JoinGamepad();
+    }
 
     void JoinGamepad()
     {
@@ -36,18 +25,33 @@ public class InputManager : MonoBehaviour
         {
             // JOIN (A button)
             if (!gamepadToPlayer.ContainsKey(gamepad) &&
-                gamepad.buttonSouth.wasPressedThisFrame)
+                gamepad.aButton.wasPressedThisFrame)
             {
                 TryJoin(gamepad);
             }
 
             // LEAVE (B button)
             if (gamepadToPlayer.ContainsKey(gamepad) &&
-                gamepad.buttonEast.wasPressedThisFrame)
+                gamepad.selectButton.wasPressedThisFrame)
             {
-                Leave(gamepad);
+                StartCoroutine(LeaveTimer(gamepad));
             }
         }
+    }
+
+    private IEnumerator LeaveTimer(Gamepad gamepad)
+    {       
+        int index = gamepadToPlayer[gamepad];
+        for (int i = 0; i < 30; i++)
+        {
+            Debug.Log($"Player {index + 1} is leaving in {(30f - i) / 10f} seconds");
+            if (!gamepad.selectButton.isPressed)
+            {
+                yield break;
+            }
+            yield return new WaitForSeconds(0.1f); // Adjust the delay as needed
+        }
+        Leave(gamepad);
     }
 
     void TryJoin(Gamepad gamepad)
