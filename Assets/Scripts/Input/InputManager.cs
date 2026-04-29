@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private PlayerBuildSystem playerBuildSystem;
     [SerializeField] private PauseManager pauseManager;
     private bool isBuilding = false;
+    private bool dismantleMode = false;
 
 
     public void OnMove(InputValue value)
@@ -43,15 +44,39 @@ public class InputManager : MonoBehaviour
         {
             if (!isBuilding)
             {
+                dismantleMode = false;
                 playerBuildSystem.StartPlacement(0);
                 isBuilding = true;
                 Debug.Log("Starting build mode.");
             }
             else
             {
+                dismantleMode = false;
                 playerBuildSystem.StopPlacement();
                 isBuilding = false;
                 Debug.Log("Stopping build mode.");
+            }
+        }
+    }
+
+    public void OnDismantleToggle(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if (isBuilding)
+            {
+                if (!dismantleMode)
+                {
+                    playerBuildSystem.StartRemoving();
+                    dismantleMode = true;
+                    Debug.Log("Starting dismantle mode.");
+                }
+                else
+                {
+                    playerBuildSystem.StartPlacement(0);
+                    dismantleMode = false;
+                    Debug.Log("Stopping dismantle mode.");
+                }
             }
         }
     }
@@ -64,6 +89,11 @@ public class InputManager : MonoBehaviour
             {
                 playerBuildSystem.IncreaseObjectID();
                 Debug.Log("Select Right!");
+                if (dismantleMode)
+                {
+                    dismantleMode = false;
+                    Debug.Log("Stopping dismantle mode.");
+                }
             }
         }
     }
@@ -76,6 +106,11 @@ public class InputManager : MonoBehaviour
             {
                 playerBuildSystem.DecreaseObjectID();
                 Debug.Log("Select Left!");
+                if (dismantleMode)
+                {
+                    dismantleMode = false;
+                    Debug.Log("Stopping dismantle mode.");
+                }
             }
         }
     }

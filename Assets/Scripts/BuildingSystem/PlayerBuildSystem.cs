@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerBuildSystem : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerBuildSystem : MonoBehaviour
     private int selectedObjectID = -1;
     private GridPlacementManager gridPlacementManager;
     private Vector3Int lastDetectedPosition = Vector3Int.zero;
+    private bool isPlacing = false;
+    private bool isRemoving = false;
 
     private void Start()
     {
@@ -37,6 +40,13 @@ public class PlayerBuildSystem : MonoBehaviour
         }
         Debug.Log($"Starting placement for object with ID {objectID}");
         selectedObjectID = objectID;
+        isPlacing = true;
+        isRemoving = false;
+        
+        gridPlacementManager.StartPlacementState(objectID);
+        // Don't pass preview to state - we'll handle preview updates locally
+        gridPlacementManager.SetPreviewSystem(null);
+        
         BuildingUI.SetActive(true);
         FightingUI.SetActive(false);
         
@@ -45,29 +55,49 @@ public class PlayerBuildSystem : MonoBehaviour
             gridPlacementManager.databaseSO.objectData[selectedObjectID].Size);
     }
 
+    public void StartRemoving()
+    {
+        StopPlacement();
+        isPlacing = false;
+        isRemoving = true;
+        
+        gridPlacementManager.StartRemovingState();
+        // Don't pass preview to state - we'll handle preview updates locally
+        gridPlacementManager.SetPreviewSystem(null);
+        
+        BuildingUI.SetActive(true);
+        FightingUI.SetActive(false);
+        
+        previewSystem.StartShowingRemovePreview();
+    }
+
     public void PlaceStructure()
     {
+        if (!isPlacing && !isRemoving)
+            return;
+            
         placementPosition = placementObject.transform.position;
         Grid grid = gridPlacementManager.GetGrid();
         Vector3Int gridPosition = grid.WorldToCell(placementPosition);
 
-        // Check with the shared placement manager
-        if (!gridPlacementManager.CanPlaceObjectAt(gridPosition, selectedObjectID))
-            return;
-
-        // Place the object through the shared placement manager
-        gridPlacementManager.PlaceObjectAt(gridPosition, selectedObjectID);
-        previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), false);
+        gridPlacementManager.ExecuteStateAction(gridPosition, selectedObjectID);
     }
 
     public void StopPlacement()
     {
         selectedObjectID = -1;
+        isPlacing = false;
+        isRemoving = false;
 
         BuildingUI.SetActive(false);
         FightingUI.SetActive(true);
         previewSystem.StopShowingPreview();
         lastDetectedPosition = Vector3Int.zero;
+        
+        if (gridPlacementManager != null)
+        {
+            gridPlacementManager.StopState();
+        }
     }
 
     public void IncreaseObjectID()
@@ -94,19 +124,20 @@ public class PlayerBuildSystem : MonoBehaviour
 
     void Update()
     {
-        if (selectedObjectID < 0 || gridPlacementManager == null)
-            return;
+        if (!isRemoving)
+            if (selectedObjectID < 0 || gridPlacementManager == null)
+                return;
         placementPosition = placementObject.transform.position;
         Grid grid = gridPlacementManager.GetGrid();
         Vector3Int gridPosition = grid.WorldToCell(placementPosition);
+        Debug.Log("Wall 1");
         if(lastDetectedPosition != gridPosition)
         {
             lastDetectedPosition = gridPosition;
-            // Check validity with the shared placement manager
-            bool placementValidity = gridPlacementManager.CanPlaceObjectAt(gridPosition, selectedObjectID);
-
-            grid.CellToWorld(gridPosition);
-            previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), placementValidity);
+            // Get the validity from the state
+            bool isValid = gridPlacementManager.CheckPlacementValidity(gridPosition, selectedObjectID);
+            previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), isValid);
+            Debug.Log("Move");
         }
     }
 }

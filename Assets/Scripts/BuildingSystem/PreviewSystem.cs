@@ -11,14 +11,14 @@ public class PreviewSystem : MonoBehaviour
     private GameObject previewObject, displayObject;
 
     [SerializeField] 
-    private Material previewMaterialsPrefab;
+    private Material previewMaterialPrefab;
     private Material previewMaterialInstance;
 
     private Renderer cellIndicatorRenderer;
 
     private void Start()
     {
-        previewMaterialInstance = new Material(previewMaterialsPrefab);
+        previewMaterialInstance = new Material(previewMaterialPrefab);
         cellIndicator.SetActive(false);
         cellIndicatorRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
@@ -32,6 +32,13 @@ public class PreviewSystem : MonoBehaviour
         PrepareDisplay(displayObject, size);
         
         cellIndicator.SetActive(true);
+    }
+
+    internal void StartShowingRemovePreview()
+    {
+        cellIndicator.SetActive(true);
+        PrepareCursor(Vector2Int.one);
+        ApplyFeedbackToCursor(false);
     }
 
     private void PrepareDisplay(GameObject displayObject, Vector2Int size)
@@ -100,23 +107,38 @@ public class PreviewSystem : MonoBehaviour
     public void StopShowingPreview()
     {
         cellIndicator.SetActive(false);
-        Destroy(previewObject);
-        Destroy(displayObject);
+        if(previewObject!= null)
+            Destroy(previewObject);
+        if(displayObject!= null)
+            Destroy(displayObject);
     }
 
     public void UpdatePosition(Vector3 position, bool validity)
     {
-        MovePreview(position);
+        if(previewObject != null)
+        {
+            MovePreview(position);
+            ApplyFeedbackToPreview(validity);
+        }
+        
         MoveCursor(position);
-        ApplyFeedback(validity);
+        ApplyFeedbackToCursor(validity);
     }
 
-    private void ApplyFeedback(bool validity)
+    private void ApplyFeedbackToPreview(bool validity)
     {
         Color c = validity ? Color.white : Color.red;
-        cellIndicatorRenderer.material.color = c;
+        
         c.a = 0.5f;
         previewMaterialInstance.color = c;
+    }
+
+    private void ApplyFeedbackToCursor(bool validity)
+    {
+        Color c = validity ? Color.white : Color.red;
+
+        c.a = 0.5f;
+        cellIndicatorRenderer.material.color = c;
     }
 
     private void MoveCursor(Vector3 position)

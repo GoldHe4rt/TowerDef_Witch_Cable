@@ -1058,6 +1058,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DismantleToggle",
+                    "type": "Button",
+                    "id": "37d67b79-05ce-4ff0-97d4-60d4985ea8d7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1135,6 +1144,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Place",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a926c91-6714-4194-b388-f9c0bb7a9914",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DismantleToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Waypoints
-  - Undefined
-  - Enemy
   - Hazard
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,6 +13,12 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Player 1 Only
+  - Player 2 Only
+  - Player 3 Only
+  - Player 4 Only
+  - Hide in Game
   - 
   - 
   - 
@@ -26,12 +30,6 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - Layer 1
-  - Layer 2
-  - Layer 3
   - 
   - 
   - 
@@ -42,29 +40,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 4227733003
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackGround
-    uniqueID: 2425651459
-    locked: 0
-  - name: Ground
-    uniqueID: 283544777
-    locked: 0
-  - name: Wall
-    uniqueID: 4250941897
-    locked: 0
-  - name: Misc
-    uniqueID: 4197869523
-    locked: 0
-  - name: Enemy
-    uniqueID: 2263933307
-    locked: 0
   - name: Player
-    uniqueID: 2012807883
+    uniqueID: 1074096755
     locked: 0
-  - name: ForGround
-    uniqueID: 4189426099
+  - name: Forground
+    uniqueID: 424891663
     locked: 0
   m_RenderingLayers:
   - Default
