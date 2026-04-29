@@ -2,8 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Waypoints
+  - Undefined
+  - Enemy
+  - Hazard
   layers:
   - Default
   - TransparentFX
@@ -41,12 +45,26 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Layer 1
+  - name: BackGround
     uniqueID: 2425651459
     locked: 0
-  - name: Layer 2
+  - name: Ground
+    uniqueID: 283544777
+    locked: 0
+  - name: Wall
     uniqueID: 4250941897
     locked: 0
-  - name: Layer 3
+  - name: Misc
+    uniqueID: 4197869523
+    locked: 0
+  - name: Enemy
+    uniqueID: 2263933307
+    locked: 0
+  - name: Player
+    uniqueID: 2012807883
+    locked: 0
+  - name: ForGround
     uniqueID: 4189426099
     locked: 0
+  m_RenderingLayers:
+  - Default
