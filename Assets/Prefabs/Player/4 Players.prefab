@@ -834,6 +834,7 @@ GameObject:
   - component: {fileID: 8298901021600101212}
   - component: {fileID: 4521002386769745254}
   - component: {fileID: 5051237792626410319}
+  - component: {fileID: 72765542183187708}
   m_Layer: 0
   m_Name: Players Maneger
   m_TagString: Untagged
@@ -904,6 +905,20 @@ MonoBehaviour:
   - {fileID: 234174207331881604}
   - {fileID: 2342133183056962239}
   - {fileID: 8692728114940050312}
+--- !u!114 &72765542183187708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016769322637255794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bd72c6b43c189448e8e9736afd2e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseManager: {fileID: 0}
+  controlsMenuManager: {fileID: 0}
 --- !u!1 &3033541837073334196
 GameObject:
   m_ObjectHideFlags: 0
@@ -18045,7 +18060,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -105541197
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -18153,6 +18168,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalInput
+      value: 
+      objectReference: {fileID: 72765542183187708}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a
@@ -18505,6 +18525,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalInput
+      value: 
+      objectReference: {fileID: 72765542183187708}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a
@@ -18884,6 +18909,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalInput
+      value: 
+      objectReference: {fileID: 72765542183187708}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a
@@ -19261,6 +19291,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalInput
+      value: 
+      objectReference: {fileID: 72765542183187708}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a

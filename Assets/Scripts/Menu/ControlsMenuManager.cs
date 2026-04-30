@@ -7,15 +7,17 @@ namespace Menu
     {
         public Button controlsButton;
         public GameObject controlsMenuUi;
-    
+        public bool isActive;
 
         private void Start()
-        { controlsMenuUi.SetActive(false); }
+        { HideControls(); }
 
         public void ShowControls()
-        { controlsMenuUi.SetActive(true); }
+        { controlsMenuUi.SetActive(true); 
+        isActive = true;}
 
         public void HideControls()
-        { controlsMenuUi.SetActive(false); }
+        { controlsMenuUi.SetActive(false); 
+        isActive = false;}
     }
 }

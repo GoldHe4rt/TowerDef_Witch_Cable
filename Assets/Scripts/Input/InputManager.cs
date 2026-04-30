@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerBuildSystem playerBuildSystem;
-    [SerializeField] private PauseManager pauseManager;
+    [SerializeField] private GlobalInput globalInput;
     private bool isBuilding = false;
     private bool dismantleMode = false;
 
@@ -120,9 +120,16 @@ public class InputManager : MonoBehaviour
         if (value.isPressed)
         {
             Debug.Log("Pause!");
-            if (!pauseManager.isPaused)
-                pauseManager.Pause();
-            else pauseManager.Resume();
+            globalInput.Pause();
+        }
+    }
+
+    public void OnShowControlls(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            Debug.Log("Pause!");
+            globalInput.Pause();
         }
     }
 }

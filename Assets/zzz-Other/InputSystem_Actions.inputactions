@@ -1067,6 +1067,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ShowControlls",
+                    "type": "Button",
+                    "id": "b6d085bc-a7f9-4635-b2c8-66736d91a8c3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1155,6 +1164,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "DismantleToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ff490ac-483d-4b45-a64c-83d177e2f12d",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "ShowControlls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
