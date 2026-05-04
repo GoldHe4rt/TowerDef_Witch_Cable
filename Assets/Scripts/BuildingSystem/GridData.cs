@@ -1,22 +1,21 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GridData
 {
     Dictionary<Vector3Int, PlacementData> placedObjects = new();
 
-    public void AddObjectAt(Vector3Int gridPosition, 
-                            Vector2Int objectSize, 
-                            int ID, 
+    public void AddObjectAt(Vector3Int gridPosition,
+                            Vector2Int objectSize,
+                            int ID,
                             int placedObjectIndex)
     {
         List<Vector3Int> positionToOccupy = CalculatePositions(gridPosition, objectSize);
         PlacementData data = new PlacementData(positionToOccupy, ID, placedObjectIndex);
         foreach (var pos in positionToOccupy)
         {
-            if(placedObjects.ContainsKey(pos))
+            if (placedObjects.ContainsKey(pos))
                 throw new Exception($"Dictionary already contains this cell position {pos}");
             placedObjects[pos] = data;
         }

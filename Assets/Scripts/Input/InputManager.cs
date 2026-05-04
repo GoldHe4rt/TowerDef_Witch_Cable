@@ -114,7 +114,7 @@ public class InputManager : MonoBehaviour
             }
         }
     }
-    
+
     public void OnPause(InputValue value)
     {
         if (value.isPressed)
@@ -128,8 +128,8 @@ public class InputManager : MonoBehaviour
     {
         if (value.isPressed)
         {
-            Debug.Log("Pause!");
-            globalInput.Pause();
+            Debug.Log("ShowControlls!");
+            globalInput.ShowControlls();
         }
     }
 }
