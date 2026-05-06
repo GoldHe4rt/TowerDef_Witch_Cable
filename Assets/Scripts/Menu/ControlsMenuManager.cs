@@ -13,11 +13,15 @@ namespace Menu
         { HideControls(); }
 
         public void ShowControls()
-        { controlsMenuUi.SetActive(true); 
-        isActive = true;}
+        { 
+            controlsMenuUi.SetActive(true);
+            isActive = true;
+        }
 
         public void HideControls()
-        { controlsMenuUi.SetActive(false); 
-        isActive = false;}
+        { 
+            controlsMenuUi.SetActive(false);
+            isActive = false;
+        }
     }
 }
