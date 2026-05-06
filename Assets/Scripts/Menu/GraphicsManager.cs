@@ -33,18 +33,13 @@ namespace Menu
       {
          brightnessSlider.value = PlayerPrefs.GetFloat("Brightness");
       }
-    
-      //For graphics button
-      public void ShowGraphicsMenu()
-      { graphicsMenu.SetActive(true); }
-    
-      //For brightness slider
+     //For brightness slider
       public void OnChangeBrightness(float value)
       {
          brightnessvalueText.SetText($"{brightnessSlider.value}");
          lighting.intensity = brightnessSlider.value;
          PlayerPrefs.SetFloat("Brightness", brightnessSlider.value);
          PlayerPrefs.Save();
-      }
+      } 
    }
 }
