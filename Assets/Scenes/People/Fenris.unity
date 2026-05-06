@@ -530,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   playerBuildSystem: {fileID: 0}
+  playerCombatSystem: {fileID: 0}
   globalInput: {fileID: 0}
 --- !u!114 &1006436948 stripped
 MonoBehaviour:
@@ -669,10 +670,30 @@ PrefabInstance:
       propertyPath: settingsMenu
       value: 
       objectReference: {fileID: 1111099020}
+    - target: {fileID: 3285575231288032525, guid: 137a34d069a5cc74f83067ae3a57c8c2,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285575231288032525, guid: 137a34d069a5cc74f83067ae3a57c8c2,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285575231288032525, guid: 137a34d069a5cc74f83067ae3a57c8c2,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.83137256
+      objectReference: {fileID: 0}
     - target: {fileID: 4771466467178036805, guid: 137a34d069a5cc74f83067ae3a57c8c2,
         type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590855251086225898, guid: 137a34d069a5cc74f83067ae3a57c8c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
