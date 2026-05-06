@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerBuildSystem playerBuildSystem;
+    [SerializeField] private PlayerCombatSystem playerCombatSystem;
     [SerializeField] private GlobalInput globalInput;
     private bool isBuilding = false;
     private bool dismantleMode = false;
@@ -26,7 +27,7 @@ public class InputManager : MonoBehaviour
         //Debug.Log("Look!");
     }
 
-    public void OnPlace(InputValue value)
+    public void OnPlaceAttack(InputValue value)
     {
         if (value.isPressed)
         {
@@ -35,6 +36,19 @@ public class InputManager : MonoBehaviour
                 playerBuildSystem.PlaceStructure();
                 Debug.Log("Place!");
             }
+            if (!isBuilding)
+            {
+                Debug.Log("Attack!");
+                playerCombatSystem.Attack();
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerCombatSystem.Attack();
         }
     }
 

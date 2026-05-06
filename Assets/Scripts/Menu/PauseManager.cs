@@ -7,7 +7,10 @@ public class PauseManager : MonoBehaviour
     
     //Pause is false and the menu does not show at start.
     private void Start() 
-    { pauseMenuUI.SetActive(false); isPaused = false; }
+    { 
+        pauseMenuUI.SetActive(false); isPaused = false; 
+        Time.timeScale = 1f;
+    }
 
     private void Update()
     {

@@ -14,6 +14,16 @@ public class ControllerManager : MonoBehaviour
     private Dictionary<Gamepad, int> gamepadToPlayer = new Dictionary<Gamepad, int>();
     private HashSet<int> takenSlots = new HashSet<int>();
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        foreach (var player in players)
+        {
+            if (player != null)
+                DontDestroyOnLoad(player.gameObject);
+        }
+    }
+
     private void Update()
     {
         JoinGamepad();

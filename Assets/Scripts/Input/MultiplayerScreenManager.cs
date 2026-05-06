@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 
 
-public class PlayerManegers : MonoBehaviour
+public class MultiplayerScreenManager : MonoBehaviour
 {
     [Header("Referances")]
     [SerializeField] private TMP_Dropdown dropdown;

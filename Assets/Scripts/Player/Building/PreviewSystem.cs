@@ -43,6 +43,7 @@ public class PreviewSystem : MonoBehaviour
 
     private void PrepareDisplay(GameObject displayObject, Vector2Int size)
     {
+        // Disable function component if it exists
         var function = displayObject.transform.Find("Function");
         if (function != null)
             function.gameObject.SetActive(false);
@@ -52,6 +53,7 @@ public class PreviewSystem : MonoBehaviour
             child.gameObject.layer = displayLocation.gameObject.layer;
         }
 
+        // Adjust scale and position based on size
         float scale = 1f;
         Vector2 offset = Vector2.zero;
         if (size.x > size.y)

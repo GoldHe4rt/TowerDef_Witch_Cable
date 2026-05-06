@@ -14,9 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 500f;
 
-    //[Header("Input")]
-    //[SerializeField] private KeyCode keyCodeUp = KeyCode.W, keyCodeDown = KeyCode.S, keyCodeLeft = KeyCode.A, keyCodeRight = KeyCode.D;
-
+    
 
     //private PlayerInput playerInput;
     private Rigidbody2D rb;
@@ -33,10 +31,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //MoveTargetInput();
+        MoveTargetInput();
     }
 
-    /*/void MoveTargetInput()
+    [Header("Input")]
+    [SerializeField] private KeyCode keyCodeUp = KeyCode.W, keyCodeDown = KeyCode.S, keyCodeLeft = KeyCode.A, keyCodeRight = KeyCode.D;
+
+    void MoveTargetInput()
     {
         if (Input.GetKeyUp(keyCodeUp) || Input.GetKeyUp(keyCodeDown))
             moveInput.y = 0;
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(keyCodeRight))
             moveInput.x = 1;
-    }/*/
+    }
 
 
     void FixedUpdate()

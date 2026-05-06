@@ -1016,7 +1016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6845802695265779747}
   m_Layer: 0
-  m_Name: 4 Players
+  m_Name: Players
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17273,7 +17273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 3516156995997124173}
-  databaseSO: {fileID: 11400000, guid: 5bac5be5446e84c4cbc9b528b31ec6fb, type: 2}
+  databaseSO: {fileID: 0}
   objectPlacer: {fileID: 6297656050138529911}
 --- !u!114 &6297656050138529911
 MonoBehaviour:
@@ -18059,8 +18059,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -105541197
-  m_SortingLayer: 0
+  m_SortingLayerID: 424891663
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -18211,7 +18211,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 1143
+      value: 29815
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -18341,7 +18341,7 @@ PrefabInstance:
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.4
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -18573,7 +18573,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 247
+      value: 28919
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -18678,7 +18678,7 @@ PrefabInstance:
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.4
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -18952,7 +18952,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 631
+      value: 29303
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -19077,7 +19077,7 @@ PrefabInstance:
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.4
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -19329,7 +19329,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 375
+      value: 29047
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -19449,7 +19449,7 @@ PrefabInstance:
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.4
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 8512889905551733787, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}

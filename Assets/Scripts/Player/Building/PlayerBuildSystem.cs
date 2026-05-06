@@ -105,8 +105,7 @@ public class PlayerBuildSystem : MonoBehaviour
         int index = selectedObjectID + 1;
         if (gridPlacementManager.GetObjectData(index) == null)
         {
-            Debug.LogError($"The ID {index} is too high.");
-            index--;
+            index = gridPlacementManager.databaseSO.objectData[0].ID;
         }
         StartPlacement(index);
     }
@@ -116,8 +115,7 @@ public class PlayerBuildSystem : MonoBehaviour
         int index = selectedObjectID - 1;
         if (gridPlacementManager.GetObjectData(index) == null)
         {
-            Debug.LogError($"The ID {index} is too low.");
-            index++;
+            index = gridPlacementManager.databaseSO.objectData[gridPlacementManager.databaseSO.objectData.Count - 1].ID;
         }
         StartPlacement(index);
     }

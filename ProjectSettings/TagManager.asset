@@ -20,9 +20,9 @@ TagManager:
   - Player 3 Only
   - Player 4 Only
   - Hide in Game
-  - 
-  - 
-  - 
+  - Good Bullets
+  - Bad Bullets
+  - Enemys
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Forground
     uniqueID: 424891663
+    locked: 0
+  - name: UI
+    uniqueID: 898635481
     locked: 0
   - name: Default
     uniqueID: 0
