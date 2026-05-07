@@ -128,14 +128,12 @@ public class PlayerBuildSystem : MonoBehaviour
         placementPosition = placementObject.transform.position;
         Grid grid = gridPlacementManager.GetGrid();
         Vector3Int gridPosition = grid.WorldToCell(placementPosition);
-        Debug.Log("Wall 1");
         if(lastDetectedPosition != gridPosition)
         {
             lastDetectedPosition = gridPosition;
             // Get the validity from the state
             bool isValid = gridPlacementManager.CheckPlacementValidity(gridPosition, selectedObjectID);
             previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), isValid);
-            Debug.Log("Move");
         }
     }
 }
