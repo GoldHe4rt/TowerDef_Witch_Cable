@@ -14,7 +14,7 @@ namespace Menu
         public void ShowSettings()
         {
             settingsMenu.SetActive(true); 
-            selectedUI.SetSelectedUI(settingsMenu);
+            selectedUI.SetSelectedUI(uiElement : selectedUI.firstSettingsObject);
         }
 
         public void HideSettings()

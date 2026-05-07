@@ -41,7 +41,7 @@ namespace Menu
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             isPaused = true;
-            selectedUI.SetSelectedUI(uiElement: pauseMenuUI);
+            selectedUI.SetSelectedUI(uiElement: selectedUI.firstPauseObject);
         }
     }
 }
