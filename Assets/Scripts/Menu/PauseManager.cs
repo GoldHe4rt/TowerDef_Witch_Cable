@@ -25,6 +25,13 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    public void TogglePause()
+    {
+        if (!isPaused)
+            Pause();
+        else Resume();
+    }
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);

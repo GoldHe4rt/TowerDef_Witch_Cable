@@ -14,24 +14,8 @@ public class PlayerCombatSystem : MonoBehaviour
     private float currentAttackSpeed;
     private float shootTimer;
 
-
-    [SerializeField] private int tempWeaponID = -1; // Temporary: Assign a weapon ID in the inspector for testing
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            NewWeapon(tempWeaponID); // Temporary: Use the assigned weapon ID for testing
-        }
-        if (Input.GetKeyDown(KeyCode.Comma))
-        {
-            DecreaseWeaponID();
-        }
-        if (Input.GetKeyDown(KeyCode.Period))
-        {
-            IncreaseWeaponID();
-        }
-
         if (shootTimer > 0)
             shootTimer -= Time.deltaTime;
         
@@ -81,14 +65,17 @@ public class PlayerCombatSystem : MonoBehaviour
         // Implement attack logic here
         Debug.Log("Player is attacking!");
 
+        //Spawn Damage dealer
         GameObject currentAttack;
         currentAttack = Instantiate(currentHitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation);
 
+        //Add Velocity to Damage dealer
         Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
         rb.linearVelocity = weaponHolder.transform.rotation * Vector2.up * currentHitboxSpeed;
 
-        shootTimer = currentAttackSpeed; // Reset the attack cooldown
+        //Destroy after set time
         StartCoroutine(DestroyHitboxAfterTime(currentAttack, databaseSO.weaponData[currentWeaponID].Lifetime));
+        shootTimer = currentAttackSpeed; // Reset the attack cooldown
     }
 
     private IEnumerator DestroyHitboxAfterTime(GameObject currentAttack, float lifetime)

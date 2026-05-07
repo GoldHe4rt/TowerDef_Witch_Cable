@@ -22,7 +22,7 @@ MonoBehaviour:
     <HitboxSpeed>k__BackingField: 0
     <AttackSpeed>k__BackingField: 0.15
     <DestroyOnHit>k__BackingField: 0
-    <Lifetime>k__BackingField: 1
+    <Lifetime>k__BackingField: 0.25
   - <Name>k__BackingField: Bow
     <ID>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 7338093106453869921, guid: 48d5a5d96cecef14eb65d1aade70d973,

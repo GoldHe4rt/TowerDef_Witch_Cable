@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HazardScript : MonoBehaviour
+public class EnemyHazard : MonoBehaviour
 {
     [Header("Damage")]
     public int damageAmount = 1;

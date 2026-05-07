@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public  Vector2 lookInput;
-    private bool isKnockback;
     
 
 
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
             moveInput.x = 0;
 
         if (!movementEnabled) return;
-        if (isKnockback) return;
 
         if (Input.GetKey(keyCodeUp))
             moveInput.y = 1;
@@ -71,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         if (!movementEnabled) return;
-        if (isKnockback) return;
         rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * Time.fixedDeltaTime);
 
         if (lookInput != Vector2.zero)
@@ -92,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         if (!collision.gameObject.CompareTag("Hazard")) return;
         if (playerHealth.death) return;
         if (playerHealth.invinsible) return;
-        HazardScript hazard = collision.gameObject.GetComponent<HazardScript>();
+        Hazard hazard = collision.gameObject.GetComponent<Hazard>();
         if (hazard == null)
         {
             Debug.LogWarning("Hazard is missing script"); return;
@@ -115,15 +112,20 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(KnockbackCoroutine(direction, force, duration, stun));
     }
 
-    private IEnumerator KnockbackCoroutine(Vector2 direction, float force, float duration, float stun)
+    private IEnumerator KnockbackCoroutine(Vector2 direction, float force, float duration, float stunTime)
     {
-        isKnockback = true;
+        movementEnabled = false;
         rb.linearVelocity = Vector2.zero; // Reset velocity for consistency
         rb.AddForce(direction * force, ForceMode2D.Impulse); // Apply instant force
         yield return new WaitForSeconds(duration);
         rb.linearVelocity = Vector2.zero;
-        yield return new WaitForSeconds(stun);
-        isKnockback = false;
+        StartCoroutine(StunCoroutine(stunTime));
+    }
+
+    private IEnumerator StunCoroutine(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        movementEnabled = true;
     }
 
 }

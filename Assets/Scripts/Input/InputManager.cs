@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerBuildSystem playerBuildSystem;
     [SerializeField] private PlayerCombatSystem playerCombatSystem;
-    [SerializeField] private GlobalInput globalInput;
+    [SerializeField] private GlobalReferanceManager globalReferanceManager;
     private bool isBuilding = false;
     private bool dismantleMode = false;
 
@@ -56,6 +56,11 @@ public class InputManager : MonoBehaviour
     {
         if (value.isPressed)
         {
+            if (globalReferanceManager.buildingEnabled == false)
+            {
+                Debug.LogError("Building is disabled.");
+                return; 
+            } 
             if (!isBuilding)
             {
                 dismantleMode = false;
@@ -108,6 +113,10 @@ public class InputManager : MonoBehaviour
                     dismantleMode = false;
                     Debug.Log("Stopping dismantle mode.");
                 }
+            } else
+            {
+                playerCombatSystem.IncreaseWeaponID();
+                Debug.Log("Select Right!");
             }
         }
     }
@@ -126,6 +135,11 @@ public class InputManager : MonoBehaviour
                     Debug.Log("Stopping dismantle mode.");
                 }
             }
+            else
+            {
+                playerCombatSystem.DecreaseWeaponID();
+                Debug.Log("Select Left!");
+            }
         }
     }
 
@@ -134,7 +148,7 @@ public class InputManager : MonoBehaviour
         if (value.isPressed)
         {
             Debug.Log("Pause!");
-            globalInput.Pause();
+            globalReferanceManager.pauseManager.TogglePause();
         }
     }
 
@@ -143,7 +157,7 @@ public class InputManager : MonoBehaviour
         if (value.isPressed)
         {
             Debug.Log("ShowControlls!");
-            globalInput.ShowControlls();
+            globalReferanceManager.controlsMenuManager.ControlsToggle();
         }
     }
 }

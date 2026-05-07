@@ -12,6 +12,13 @@ namespace Menu
         private void Start()
         { HideControls(); }
 
+        public void ControlsToggle()
+        {
+            if (!isActive)
+                ShowControls();
+            else HideControls();
+        }
+
         public void ShowControls()
         { 
             controlsMenuUi.SetActive(true);
