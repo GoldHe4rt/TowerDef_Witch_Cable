@@ -761,7 +761,7 @@ MonoBehaviour:
   playerHealth: {fileID: 5456439724232751079}
   aimDirection: {fileID: 3332914648679311552}
   movementEnabled: 1
-  moveSpeed: 5
+  moveSpeed: 7
   rotationSpeed: 9999
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
@@ -784,7 +784,7 @@ MonoBehaviour:
   playerMovement: {fileID: 2170188157618631205}
   playerBuildSystem: {fileID: 5452035923029203647}
   playerCombatSystem: {fileID: 1445228770092813555}
-  globalInput: {fileID: 0}
+  globalReferanceManager: {fileID: 0}
 --- !u!114 &8916526288399621392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,7 +2107,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3163,7 +3163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   databaseSO: {fileID: 11400000, guid: 18f2af41f1f3b174ead9d4e4b8d85bdd, type: 2}
   weaponHolder: {fileID: 5980672397994601241}
-  tempWeaponID: -1
 --- !u!1 &7887715099286301454
 GameObject:
   m_ObjectHideFlags: 0

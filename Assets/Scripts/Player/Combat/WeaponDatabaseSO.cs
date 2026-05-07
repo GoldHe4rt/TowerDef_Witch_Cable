@@ -24,8 +24,6 @@ public class WeaponData
     [field: SerializeField]
     public float AttackSpeed { get; private set;} = 0f;
     [field: SerializeField]
-    public bool DestroyOnHit { get; private set;} = false;
-    [field: SerializeField]
     public float Lifetime { get; private set;} = 3f;
 
 }

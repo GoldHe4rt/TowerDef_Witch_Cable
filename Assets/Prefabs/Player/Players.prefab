@@ -1187,6 +1187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6845802695265779747}
+  - component: {fileID: 2410402825229013825}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -1215,6 +1216,21 @@ Transform:
   - {fileID: 8392395284137284745}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2410402825229013825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092810883886807551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8762a72e3281d6e45a815ee38c2be71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseManager: {fileID: 0}
+  controlsMenuManager: {fileID: 0}
+  buildingEnabled: 1
 --- !u!1 &3223335146510788573
 GameObject:
   m_ObjectHideFlags: 0
@@ -43370,6 +43386,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalReferanceManager
+      value: 
+      objectReference: {fileID: 2410402825229013825}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a
@@ -43722,6 +43743,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalReferanceManager
+      value: 
+      objectReference: {fileID: 2410402825229013825}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a
@@ -44101,6 +44127,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalReferanceManager
+      value: 
+      objectReference: {fileID: 2410402825229013825}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a
@@ -44478,6 +44509,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: globalReferanceManager
+      value: 
+      objectReference: {fileID: 2410402825229013825}
     - target: {fileID: 4067557822260728563, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Color.a

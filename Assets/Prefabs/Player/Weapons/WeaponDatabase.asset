@@ -21,7 +21,6 @@ MonoBehaviour:
       type: 3}
     <HitboxSpeed>k__BackingField: 0
     <AttackSpeed>k__BackingField: 0.15
-    <DestroyOnHit>k__BackingField: 0
     <Lifetime>k__BackingField: 0.25
   - <Name>k__BackingField: Bow
     <ID>k__BackingField: 1
@@ -31,5 +30,4 @@ MonoBehaviour:
       type: 3}
     <HitboxSpeed>k__BackingField: 7
     <AttackSpeed>k__BackingField: 0.25
-    <DestroyOnHit>k__BackingField: 0
     <Lifetime>k__BackingField: 3
