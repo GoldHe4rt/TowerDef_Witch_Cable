@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,15 +6,17 @@ namespace GameConrollers
 {
     public class SceneController : MonoBehaviour
     {
-        public Scene currentScene = SceneManager.GetActiveScene();
+        public Scene currentScene;
+        
+        private void Start()
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+        }
 
-        //Used for START_BUTTON (might change name). Loads the player selection. No scene yet.
-        //public void SelectPlayerScene() { SceneManager.LoadScene("Player_Select"); }
-
-        //To be used after players have selected their characters. Loads level1.
-        //Temporarily used to start game before we have player selection in place.
+        //Loads level1.
         public void StartGame()
         {
+            
             Debug.Log("StartButton was pressed");
             SceneManager.LoadScene("Level 1");
         }
