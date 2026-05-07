@@ -1,38 +1,42 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+namespace GameConrollers
 {
+    public class SceneController : MonoBehaviour
+    {
+        public Scene currentScene = SceneManager.GetActiveScene();
 
-    //Used for START_BUTTON (might change name). Loads the player selection. No scene yet.
-    //public void SelectPlayerScene() { SceneManager.LoadScene("Player_Select"); }
+        //Used for START_BUTTON (might change name). Loads the player selection. No scene yet.
+        //public void SelectPlayerScene() { SceneManager.LoadScene("Player_Select"); }
 
-    //To be used after players have selected their characters. Loads level1.
-    //Temporarily used to start game before we have player selection in place.
-    public void StartGame()
-    {
-        Debug.Log("StartButton was pressed");
-        SceneManager.LoadScene("Level 1");
-    }
+        //To be used after players have selected their characters. Loads level1.
+        //Temporarily used to start game before we have player selection in place.
+        public void StartGame()
+        {
+            Debug.Log("StartButton was pressed");
+            SceneManager.LoadScene("Level 1");
+        }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("The button is working");
-    }
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("The button is working");
+        }
     
-    public void MainMenu()
-    {
-        Debug.Log("MainMenuButton was pressed");
-        SceneManager.LoadScene("Main_menu");
-    }
+        public void MainMenu()
+        {
+            Debug.Log("MainMenuButton was pressed");
+            SceneManager.LoadScene("Main_menu");
+        }
     
-    //Used for SETTINGS_BUTTON. Loads the settings scene. No scene yet.
-    public void SettingsScene() { SceneManager.LoadScene("Settings"); }
+        //Used for SETTINGS_BUTTON. Loads the settings scene. No scene yet.
+        public void SettingsScene() { SceneManager.LoadScene("Settings"); }
     
-    public void Exit()
-    {
-        Debug.Log("ExitButton was pressed");
-        Application.Quit();
+        public void Exit()
+        {
+            Debug.Log("ExitButton was pressed");
+            Application.Quit();
+        }
     }
 }
