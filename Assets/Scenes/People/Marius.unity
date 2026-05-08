@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &15482898
 Transform:
   m_ObjectHideFlags: 0
@@ -245849,7 +245849,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294143172
+    rgba: 4291100818
   m_fontColor: {r: 0.573363, g: 0, b: 0.7735849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -502800,7 +502800,7 @@ MonoBehaviour:
   currentWaveNumber: 0
   nextSpawnTime: 0
   canSpawn: 1
-  canAnimate: 0
+  canAnimate: 1
 --- !u!4 &1610056803
 Transform:
   m_ObjectHideFlags: 0
