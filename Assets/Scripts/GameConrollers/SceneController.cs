@@ -18,7 +18,7 @@ namespace GameConrollers
         {
             
             Debug.Log("StartButton was pressed");
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene(sceneBuildIndex: 1);
         }
 
         public void Restart()
@@ -30,7 +30,7 @@ namespace GameConrollers
         public void MainMenu()
         {
             Debug.Log("MainMenuButton was pressed");
-            SceneManager.LoadScene("Main_menu");
+            SceneManager.LoadScene(sceneBuildIndex: 0);
         }
     
         //Used for SETTINGS_BUTTON. Loads the settings scene. No scene yet.
