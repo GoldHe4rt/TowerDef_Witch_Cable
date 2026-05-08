@@ -502772,14 +502772,14 @@ MonoBehaviour:
     noOfEnemies: 3
     typeOfEnemies:
     - {fileID: 1295023271220459993, guid: 37ea119d56fdc9b4ea14f98bfc2ec967, type: 3}
-    - {fileID: 5096691780100643470, guid: ee6bc9a9a8cc19c4a9825e32773912d1, type: 3}
+    - {fileID: 8339355161052070810, guid: d629b2f8d39e08c4a81477a5399fbb76, type: 3}
     - {fileID: 4488594314790034692, guid: c805eeae54f1b28429a7bc4ff68ced0b, type: 3}
     spawnInterval: 3
   - waveName: 2
     noOfEnemies: 5
     typeOfEnemies:
     - {fileID: 1295023271220459993, guid: 37ea119d56fdc9b4ea14f98bfc2ec967, type: 3}
-    - {fileID: 5096691780100643470, guid: ee6bc9a9a8cc19c4a9825e32773912d1, type: 3}
+    - {fileID: 8339355161052070810, guid: d629b2f8d39e08c4a81477a5399fbb76, type: 3}
     spawnInterval: 5
   - waveName: Final Wave
     noOfEnemies: 10
