@@ -586,6 +586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8085184619303367856}
+  - component: {fileID: 2698176669483185939}
   m_Layer: 0
   m_Name: ControlMenuHolder
   m_TagString: Untagged
@@ -609,3 +610,18 @@ Transform:
   - {fileID: 2948456941246695086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2698176669483185939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5856487965130437581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41e15a01510da419d63f2a8f7bbc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsButton: {fileID: 4147459733886745443}
+  controlsMenuUi: {fileID: 1964773776007660334}
+  isActive: 0
