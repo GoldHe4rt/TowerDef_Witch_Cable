@@ -27,47 +27,25 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] bool canSpawn = true;
     [SerializeField] private bool canAnimate = true;
 
-    private void Start()
-    {
-        Animate();
-    }
     private void Update()
     {
         currentWave = waves[currentWaveNumber];
         SpawnWave();
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (totalEnemies.Length == 0)
+        if (totalEnemies.Length == 0 && currentWaveNumber + 1 != waves.Length && canAnimate)
         {
-            Debug.Log("Test 0");
-            if (currentWaveNumber + 1 != waves.Length)
-            {
-                Debug.Log("Test waveName " + canAnimate + " currentWave " + currentWaveNumber);
-                if (canAnimate)
-                {
-                    SpawnNextWave();
-                    Animate();
-                    Debug.Log("Test 1");
-                }
+            waveName.text = waves[currentWaveNumber + 1].waveName;
+            animator.SetBool("WaveComplete", canAnimate);
+            canSpawn = true;
+            canAnimate = false;
 
-            }
-            else
-            {
-                Debug.Log("GameFinish");
-            }
         }
     }
-    void Animate()
-    {
-        Debug.Log(currentWaveNumber + " " + waves[currentWaveNumber] + " " + waves[currentWaveNumber].waveName);
-        waveName.text = waves[currentWaveNumber].waveName;
-        animator.SetTrigger("WaveComplete");
-        canAnimate = false;
-    }
-    void SpawnNextWave()
+
+    void SpwanNextWave()
     {
         currentWaveNumber++;
-        canSpawn = true;
-        Debug.Log("Test 2");
+
     }
 
     void SpawnWave()
