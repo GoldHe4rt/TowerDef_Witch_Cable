@@ -1,14 +1,13 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace Menu
 {
    public class GraphicsManager : MonoBehaviour
    {
-      /*public TextMeshProUGUI brightnessvalueText;*/
       public Slider brightnessSlider;
-      public Light lighting;
+      public Light2D lighting;
       
       private void Start()
       {
@@ -31,7 +30,6 @@ namespace Menu
      //For brightness slider
       public void OnChangeBrightness(float value)
       {
-         /*brightnessvalueText.SetText($"{brightnessSlider.value}");*/
          lighting.intensity = brightnessSlider.value;
          PlayerPrefs.SetFloat("Brightness", brightnessSlider.value);
          PlayerPrefs.Save();
