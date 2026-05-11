@@ -15,14 +15,24 @@ using System.Collections.Generic;
     public int currentPlayerOrder;
 }
 
+[Serializable] public class UIFliper
+{
+    [SerializeField] public int playerID;
+    [SerializeField] public List<Transform> flipObj;
+}
+
 public class MultiplayerScreenManager : MonoBehaviour
 {
     [Header("Referances")]
     [SerializeField] private ControllerManager controllerManager;
 
     [Header("UI Elements")]
+    [SerializeField] private Camera miniMap;
     [SerializeField] private GameObject playerCountObj;
     [SerializeField] private TextMeshProUGUI playerCountText;
+
+    [Header("UI Settings")]
+    [SerializeField] private List<UIFliper> flipUI;
 
     [Header("Player Data")]
     [SerializeField] public List<PlayerData> playerData;
@@ -32,6 +42,14 @@ public class MultiplayerScreenManager : MonoBehaviour
         if (playerCountText != null)
             playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
         UpdatePlayerAmount();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            UpdatePlayerAmount();
+        }
     }
 
     public void UpdatePlayerAmount()
@@ -52,6 +70,9 @@ public class MultiplayerScreenManager : MonoBehaviour
     private void TestForActivePlayers()
     {
         int playerOrder = 0;
+        if (miniMap != null)
+            miniMap.gameObject.SetActive(true);
+        
         for (int i = 0; i < playerData.Count; i++)
         {
             if (playerData[i].playerObj == null) return;
@@ -62,6 +83,22 @@ public class MultiplayerScreenManager : MonoBehaviour
                 playerData[i].playerObj.SetActive(true);
                 playerData[i].currentPlayerOrder = playerOrder;
                 playerOrder++;
+
+                //Flip UI
+                for (int f = 0; f < flipUI.Count; f++)
+                {
+                    if (playerData[flipUI[f].playerID].isActive)
+                        if (flipUI[f].flipObj != null)
+                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
+                            {
+                                if (flipUI[f].flipObj[o].localScale.x < 0)
+                                {
+                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
+                                    flipObject.x *= -1;
+                                    flipUI[f].flipObj[o].localScale = flipObject;
+                                }
+                            }
+                }
             } else
             {
                 //Deactivate Player Object
@@ -74,6 +111,9 @@ public class MultiplayerScreenManager : MonoBehaviour
 
     void PlayerAmount_0()
     {
+        if (miniMap != null)
+            miniMap.gameObject.SetActive(false);
+
         //Player Visibility
         for (int i = 0; i < playerData.Count; i++)
         {
@@ -84,7 +124,6 @@ public class MultiplayerScreenManager : MonoBehaviour
         }
         
         //Update Text
-        
         if (playerCountText != null)
         {
             playerCountObj.transform.localPosition = new Vector2(0,0);
@@ -99,12 +138,22 @@ public class MultiplayerScreenManager : MonoBehaviour
     {
         for (int i = 0; i < playerData.Count; i++)
         {
-            //Change Camera
+            
             if (playerData[i].playerObj == null) return;
-            if (playerData[i].isActive) 
+            if (playerData[i].isActive)
+            {
+                //Change Camera
                 if (playerData[i].currentPlayerOrder == 0)
                     playerData[i].playerCam.rect = new Rect(0.0f, 0.0f, 1.0f, 1.0f);
                 else Debug.LogError("Invalid player order in PlayerAmount_1");
+            }
+                
+        }
+
+        //Update MiniMap
+        if (miniMap != null)
+        {
+            miniMap.rect = new Rect(0.814f, 0.67f, 0.3f * Screen.height / Screen.width, 0.3f);
         }
 
         //Update Text
@@ -121,14 +170,42 @@ public class MultiplayerScreenManager : MonoBehaviour
     {
         for (int i = 0; i < playerData.Count; i++)
         {
-            //Change Camera
+            
             if (playerData[i].playerObj == null) return;
-            if (playerData[i].isActive) 
+            if (playerData[i].isActive)
+            {
+                //Change Camera
                 if (playerData[i].currentPlayerOrder == 0)
                     playerData[i].playerCam.rect = new Rect(0.0f, 0.25f, 0.5f, 0.5f);
                 else if (playerData[i].currentPlayerOrder == 1)
                     playerData[i].playerCam.rect = new Rect(0.5f, 0.25f, 0.5f, 0.5f);
                 else Debug.LogError("Invalid player order in PlayerAmount_2");
+
+                //Flip UI
+                if (playerData[i].currentPlayerOrder == 1)
+                    for (int f = 0; f < flipUI.Count; f++)
+                    {
+                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
+                        {
+                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
+                            {
+                                if (flipUI[f].flipObj[o] != null)
+                                {
+                                    Vector3 flipObject = flipUI[f].flipObj[o].localScale;
+                                    flipObject.x *= -1;
+                                    flipUI[f].flipObj[o].localScale = flipObject;
+                                }
+                            }
+                        }
+                    }
+            }
+                
+        }
+
+        //Update MiniMap
+        if (miniMap != null)
+        {
+            miniMap.rect = new Rect(0.5f - (0.3f * Screen.height / Screen.width)/2, 0.01f, 0.3f * Screen.height / Screen.width, 0.3f);
         }
 
         //Update Text
@@ -145,9 +222,11 @@ public class MultiplayerScreenManager : MonoBehaviour
     {
         for (int i = 0; i < playerData.Count; i++)
         {
-            //Change Camera
+            
             if (playerData[i].playerObj == null) return;
             if (playerData[i].isActive)
+            {
+                //Change Camera
                 if (playerData[i].currentPlayerOrder == 0)
                     playerData[i].playerCam.rect = new Rect(0.0f, 0.5f, 0.5f, 0.5f);
                 else if (playerData[i].currentPlayerOrder == 1)
@@ -155,6 +234,32 @@ public class MultiplayerScreenManager : MonoBehaviour
                 else if (playerData[i].currentPlayerOrder == 2)
                     playerData[i].playerCam.rect = new Rect(0.25f, 0.0f, 0.5f, 0.5f);
                 else Debug.LogError("Invalid player order in PlayerAmount_3");
+
+                //Flip UI
+                if (playerData[i].currentPlayerOrder == 1)
+                    for (int f = 0; f < flipUI.Count; f++)
+                    {
+                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
+                        {
+                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
+                            {
+                                if (flipUI[f].flipObj[o] != null)
+                                {
+                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
+                                    flipObject.x *= -1;
+                                    flipUI[f].flipObj[o].localScale = flipObject;
+                                }
+                            }
+                        }
+                    }
+            }
+                
+        }
+
+        //Update MiniMap
+        if (miniMap != null)
+        {
+            miniMap.rect = new Rect(0.7925f, 0.125f, 0.3f * Screen.height / Screen.width, 0.3f);
         }
         
         //Update Text
@@ -171,9 +276,10 @@ public class MultiplayerScreenManager : MonoBehaviour
     {
         for (int i = 0; i < playerData.Count; i++)
         {
-            //Change Camera
             if (playerData[i].playerObj == null) return;
             if (playerData[i].isActive)
+            {
+                //Change Camera
                 if (playerData[i].currentPlayerOrder == 0)
                     playerData[i].playerCam.rect = new Rect(0.0f, 0.5f, 0.5f, 0.5f);
                 else if (playerData[i].currentPlayerOrder == 1)
@@ -183,6 +289,48 @@ public class MultiplayerScreenManager : MonoBehaviour
                 else if (playerData[i].currentPlayerOrder == 3)
                     playerData[i].playerCam.rect = new Rect(0.5f, 0.0f, 0.5f, 0.5f);
                 else Debug.LogError("Invalid player order in PlayerAmount_4");
+
+                //Flip UI
+                if (playerData[i].currentPlayerOrder == 1)
+                    for (int f = 0; f < flipUI.Count; f++)
+                    {
+                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
+                        {
+                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
+                            {
+                                if (flipUI[f].flipObj[o] != null)
+                                {
+                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
+                                    flipObject.x *= -1;
+                                    flipUI[f].flipObj[o].localScale = flipObject;
+                                }
+                            }
+                        }
+                    }
+                if (playerData[i].currentPlayerOrder == 3)
+                    for (int f = 0; f < flipUI.Count; f++)
+                    {
+                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
+                        {
+                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
+                            {
+                                if (flipUI[f].flipObj[o] != null)
+                                {
+                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
+                                    flipObject.x *= -1;
+                                    flipUI[f].flipObj[o].localScale = flipObject;
+                                }
+                            }
+                        }
+                    }
+            }
+                
+        }
+
+        //Update MiniMap
+        if (miniMap != null)
+        {
+            miniMap.rect = new Rect(0.5f - (0.3f * Screen.height / Screen.width)/2, 0.35f, 0.3f * Screen.height / Screen.width, 0.3f);
         }
 
         //Update Text
