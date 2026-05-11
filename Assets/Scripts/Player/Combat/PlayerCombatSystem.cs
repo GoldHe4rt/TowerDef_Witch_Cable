@@ -18,7 +18,7 @@ public class PlayerCombatSystem : MonoBehaviour
     {
         if (shootTimer > 0)
             shootTimer -= Time.deltaTime;
-        
+
     }
 
     private void NewWeapon(int newWeaponID)
@@ -26,7 +26,6 @@ public class PlayerCombatSystem : MonoBehaviour
         RemoveWeapon();
         if (newWeaponID < 0 || newWeaponID >= databaseSO.weaponData.Count)
         {
-            Debug.LogError("Invalid weapon ID");
             return;
         }
         currentWeaponID = newWeaponID;
@@ -47,23 +46,20 @@ public class PlayerCombatSystem : MonoBehaviour
         }
         currentWeaponPrefab = null;
         currentHitboxPrefab = null;
-        Debug.Log("Weapon removed");
     }
 
     public void Attack()
     {
         if (currentWeaponID == -1)
         {
-            Debug.LogWarning("No weapon equipped!");
             return;
         }
         if (shootTimer > 0)
         {
-            Debug.Log("Weapon is on cooldown!");
             return;
         }
         // Implement attack logic here
-        Debug.Log("Player is attacking!");
+
 
         //Spawn Damage dealer
         GameObject currentAttack;
@@ -90,7 +86,6 @@ public class PlayerCombatSystem : MonoBehaviour
         if (databaseSO.weaponData.Count <= index)
         {
             index = 0; // Wrap around to the first weapon
-            Debug.Log($"Wrapping around to the first weapon with ID {index}.");
         }
         NewWeapon(index);
     }
@@ -101,7 +96,6 @@ public class PlayerCombatSystem : MonoBehaviour
         if (0 > index)
         {
             index = databaseSO.weaponData.Count - 1; // Wrap around to the last weapon
-            Debug.Log($"Wrapping around to the last weapon with ID {index}.");
         }
         NewWeapon(index);
     }

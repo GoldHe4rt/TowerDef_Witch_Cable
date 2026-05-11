@@ -501525,6 +501525,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2410402825229013825, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: pauseManager
+      value: 
+      objectReference: {fileID: 1507687168}
+    - target: {fileID: 2410402825229013825, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: controlsMenuManager
+      value: 
+      objectReference: {fileID: 1500327696}
     - target: {fileID: 2431223486624326279, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
       propertyPath: m_Layer
@@ -502614,6 +502624,18 @@ MonoBehaviour:
   controlsButton: {fileID: 0}
   controlsMenuUi: {fileID: 1500327689}
   isActive: 0
+--- !u!114 &1500327696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2698176669483185939, guid: 7aad09d23a188be4185f2a4f4f74b2e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1500327688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500327691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41e15a01510da419d63f2a8f7bbc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1507687167
 PrefabInstance:
   m_ObjectHideFlags: 0
