@@ -356,8 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033eb77f340c85546b7af0247afbd320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphicsMenu: {fileID: 8146313413473925576}
-  brightnessvalueText: {fileID: 0}
+  graphicspopupMenu: {fileID: 1460757239310917564}
   brightnessSlider: {fileID: 8923895261938156064}
   lighting: {fileID: 0}
 --- !u!1 &1765395134904611647
@@ -3715,7 +3714,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

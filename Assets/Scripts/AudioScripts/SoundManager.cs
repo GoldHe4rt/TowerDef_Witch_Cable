@@ -1,7 +1,6 @@
 using UnityEngine;
 using System;
 
-
 namespace AudioScripts
 {
     [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
@@ -18,14 +17,13 @@ namespace AudioScripts
             Button,
             Music
         }
-
-
+        
+        [Serializable]
         public struct SoundList
         {
             public AudioClip[] Sounds { get => sounds; }
             [HideInInspector] public string name;
             [SerializeField] private AudioClip[] sounds;
-            //aaa
         }
 
         [SerializeField] private SoundList[] soundList;
@@ -57,7 +55,7 @@ namespace AudioScripts
         public static void StopAudio()
         { _instance._audioSource.mute = true; }
 
-#if UNITY_EDITOR
+         #if UNITY_EDITOR
         private void OnEnable()
         {
             string[] names = Enum.GetNames(typeof(SoundType));
@@ -65,9 +63,6 @@ namespace AudioScripts
             for (int i = 0; i < soundList.Length; i++)
             { soundList[i].name = names[i]; }
         }
-#endif
+         #endif
     }
-
 }
-
-//bbbb

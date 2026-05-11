@@ -16,15 +16,12 @@ namespace GameConrollers
         //Loads level1.
         public void StartGame()
         {
-            
-            Debug.Log("StartButton was pressed");
             SceneManager.LoadScene(sceneBuildIndex: 1);
         }
 
         public void Restart()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("The button is working");
         }
     
         public void MainMenu()
@@ -34,12 +31,10 @@ namespace GameConrollers
         }
     
         //Used for SETTINGS_BUTTON. Loads the settings scene. No scene yet.
-        public void SettingsScene() { SceneManager.LoadScene("Settings"); }
+        public void SettingsScene() 
+        { SceneManager.LoadScene("Settings"); }
     
         public void Exit()
-        {
-            Debug.Log("ExitButton was pressed");
-            Application.Quit();
-        }
+        { Application.Quit(); }
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 166641002270751833}
   - component: {fileID: 3784612636816412559}
   - component: {fileID: 4003487824350786155}
+  - component: {fileID: 9024727638480188191}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -47,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e982d33c3fc29438ebd98fe78b9bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundManager: {fileID: 4003487824350786155}
 --- !u!114 &166641002270751833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,9 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: 0
-  soundManager: {fileID: 4003487824350786155}
-  audioSlider: {fileID: 0}
-  pitchRandomizer: {fileID: 7494473195535134182}
+  audioSlider: {fileID: 9024727638480188191}
 --- !u!82 &3784612636816412559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -188,3 +186,27 @@ MonoBehaviour:
     sounds: []
   - name: Music
     sounds: []
+  _audioSource: {fileID: 3784612636816412559}
+--- !u!114 &9024727638480188191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926819907383922185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91899a5827184a44da75aca9d6de4710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 0}
+  audioSource: {fileID: 3784612636816412559}
+  mixMode: 0
+  mastervalueText: {fileID: 0}
+  musicvalueText: {fileID: 0}
+  sfxvalueText: {fileID: 0}
+  uivalueText: {fileID: 0}
+  masterSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  uiSlider: {fileID: 0}

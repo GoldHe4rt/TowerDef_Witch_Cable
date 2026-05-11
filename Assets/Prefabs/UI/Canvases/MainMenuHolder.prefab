@@ -103,7 +103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Witch Tower Hour
+  m_text: Corruption Be Damed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -588,6 +588,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1570069433416473161}
     m_Modifications:
+    - target: {fileID: 1098131612244281465, guid: b22a2a8705c379b45808f551c14128bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1856439887905648934, guid: b22a2a8705c379b45808f551c14128bc,
         type: 3}
       propertyPath: m_Name
