@@ -690,8 +690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033eb77f340c85546b7af0247afbd320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphicspopupMenu: {fileID: 1460757239310917564, guid: 7c3332a3445f2c14281d34466d68e157,
-    type: 3}
   brightnessSlider: {fileID: 1450815665}
   lighting: {fileID: 0}
 --- !u!1001 &2057651919

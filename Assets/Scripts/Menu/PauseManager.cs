@@ -6,8 +6,6 @@ namespace Menu
     {
         public GameObject pauseMenuUI;
         public bool isPaused;
-
-        private CurrentSelectedUI selectedUI;
     
         //Pause is false and the menu does not show at start.
         private void Start() 
@@ -18,7 +16,7 @@ namespace Menu
 
         private void Update()
         {
-            //Pause or Unpause game when ESC or P is pressed
+            //Pause or Unpause game when ESC or P is pressed. For testing. Needs fix for Controller version.
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
                 //Checks if paused is true or false before resuming or pausing.
@@ -48,7 +46,6 @@ namespace Menu
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
             isPaused = true;
-            selectedUI.SetSelectedUI(uiElement: selectedUI.firstPauseObject);
         }
     }
 }

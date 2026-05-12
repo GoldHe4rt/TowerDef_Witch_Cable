@@ -1,9 +1,6 @@
-using System;
-using GameConrollers;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine.UI;
 
 namespace Menu
@@ -11,36 +8,49 @@ namespace Menu
     public class CurrentSelectedUI : MonoBehaviour
     {
         private EventSystem myEventSystem;
-
-        [Header("Scripts we get stuff from")]
-        private SettingsPopupManager settingsPopup;
-        private PauseManager pauseManager;
-        private SceneController sceneController;
-
-        public GameObject firstPauseObject;
-        public GameObject firstSettingsObject;
+        [SerializeField] private GameObject selectUI;
         
         private void OnEnable()
         {
             myEventSystem = EventSystem.current;
-            if (myEventSystem == null)
-            { Debug.Log("No event system found"); }
-            if (EventSystem.current.currentSelectedGameObject == null)
-            { Debug.Log("No game object selected"); }
+            StartCoroutine(SetFirstSelectedDelay());
         }
 
-        private void Update()
+        private IEnumerator SetFirstSelectedDelay()
         {
-           SetSelectedUI(uiElement: null);
-        }
-
-        public void SetSelectedUI(GameObject uiElement)
-        {
-            if (uiElement != null)
+            //Wait one frame to make sure the UI is ready
+            yield return null;
+            
+            //Clear previous selection
+            myEventSystem.SetSelectedGameObject(null);
+            
+            //Set a new selected game object
+            myEventSystem.SetSelectedGameObject(selectUI);
+            
+            //Force highlight for controller!!
+            var selectable = selectUI.GetComponent<Selectable>();
+            if (selectUI != null)
             {
-                EventSystem.current.SetSelectedGameObject(uiElement);
+                selectable.OnSelect(null);
             }
         }
-       
+        
+        //Change selection at runtime.
+        /*public void ChangeSelection(GameObject newSelectUI)
+        {
+            if (newSelectUI == null) return;
+            
+            //Clear previous selection
+            myEventSystem.SetSelectedGameObject(null);
+            
+            //Set the new selected UI
+            myEventSystem.SetSelectedGameObject(newSelectUI);
+
+            var selectable = newSelectUI.GetComponent<Selectable>();
+            if (selectable != null)
+            {
+                selectable.OnSelect(null);
+            }
+        }*/
     }
 }

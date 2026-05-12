@@ -6,7 +6,6 @@ namespace Menu
     public class SettingsPopupManager : MonoBehaviour
     {
         public GameObject settingsMenu;
-        private CurrentSelectedUI selectedUI;
 
         private void Start()
         { HideSettings(); }
@@ -14,10 +13,13 @@ namespace Menu
         public void ShowSettings()
         {
             settingsMenu.SetActive(true); 
-            selectedUI.SetSelectedUI(uiElement : selectedUI.firstSettingsObject);
+            Debug.Log("Showing settings");
         }
 
         public void HideSettings()
-        { settingsMenu.SetActive(false); }
+        {
+            settingsMenu.SetActive(false);
+            Debug.Log("Hiding Settings");
+        }
     }
 }
