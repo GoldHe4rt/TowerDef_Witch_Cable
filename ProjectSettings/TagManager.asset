@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Waypoints
   - Enemy Hazard
+  - Healing
   layers:
   - Default
   - TransparentFX
@@ -56,6 +57,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1074096755
+    locked: 0
+  - name: Bullets & Items
+    uniqueID: 1326589551
     locked: 0
   - name: Forground
     uniqueID: 424891663

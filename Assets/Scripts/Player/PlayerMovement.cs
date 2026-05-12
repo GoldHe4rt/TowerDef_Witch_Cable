@@ -86,24 +86,42 @@ public class PlayerMovement : MonoBehaviour
     //Hurt Player when hit Hazard
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Hazard")) return;
-        if (playerHealth.death) return;
-        if (playerHealth.invinsible) return;
-        Hazard hazard = collision.gameObject.GetComponent<Hazard>();
-        if (hazard == null)
+        if (collision.gameObject.CompareTag("Hazard"))
         {
-            Debug.LogWarning("Hazard is missing script"); return;
+            if (playerHealth.death) return;
+            if (!playerHealth.canTakeDamage) return;
+            Hazard hazard = collision.gameObject.GetComponent<Hazard>();
+            if (hazard == null)
+            {
+                Debug.LogWarning("Hazard is missing script"); return;
+            }
+
+            playerHealth.LoseHealth(hazard.damageAmount, hazard.damageTime);
+
+            if (hazard.dealKnockback == true)
+            {
+                Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
+                ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
+            }
+            if (hazard.destroyOnTrigger == true)
+                Destroy(collision.gameObject);
         }
-
-        playerHealth.LoseHealth(hazard.damageAmount, hazard.damageTime);
-
-        if (hazard.dealKnockback == true)
+        
+        if (collision.gameObject.CompareTag("Healing"))
         {
-            Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
-            ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
+            if (playerHealth.death) return;
+            if (!playerHealth.canHeal) return;
+            HealingObject healingObject = collision.gameObject.GetComponent<HealingObject>();
+            if (healingObject == null)
+            {
+                Debug.LogWarning("Healing Object is missing script"); return;
+            }
+
+            playerHealth.Heal(healingObject.healAmount);
+
+            if (healingObject.destroyOnTrigger == true)
+                Destroy(collision.gameObject);
         }
-        if (hazard.destroyOnTrigger == true)
-            Destroy(collision.gameObject);
     }
 
     //Knockback
