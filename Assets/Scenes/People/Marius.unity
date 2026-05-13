@@ -502823,22 +502823,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: Wave 1
+    noOfEnemies: 20
+    typeOfEnemies:
+    - {fileID: 2573278766653946438, guid: 22f406e1305cf8a49ba7925273b075c9, type: 3}
+    spwanInterval: 0.7
+  - waveName: Wave 2
+    noOfEnemies: 50
+    typeOfEnemies:
+    - {fileID: 2560131476595616309, guid: 0a84856df900f484095def68f2271dd3, type: 3}
+    spwanInterval: 0.5
+  - waveName: Final Wave
     noOfEnemies: 100
     typeOfEnemies:
-    - {fileID: 1295023271220459993, guid: 37ea119d56fdc9b4ea14f98bfc2ec967, type: 3}
-    - {fileID: 8339355161052070810, guid: d629b2f8d39e08c4a81477a5399fbb76, type: 3}
-    spwanInterval: 0.5
-  - waveName: Wave 2
-    noOfEnemies: 5
-    typeOfEnemies:
-    - {fileID: 1295023271220459993, guid: 37ea119d56fdc9b4ea14f98bfc2ec967, type: 3}
-    - {fileID: 8339355161052070810, guid: d629b2f8d39e08c4a81477a5399fbb76, type: 3}
-    spwanInterval: 3
-  - waveName: Final Wave
-    noOfEnemies: 10
-    typeOfEnemies:
-    - {fileID: 1295023271220459993, guid: 37ea119d56fdc9b4ea14f98bfc2ec967, type: 3}
-    spwanInterval: 1
+    - {fileID: 2573278766653946438, guid: 22f406e1305cf8a49ba7925273b075c9, type: 3}
+    - {fileID: 2560131476595616309, guid: 0a84856df900f484095def68f2271dd3, type: 3}
+    spwanInterval: 0.3
   spawnPoints:
   - {fileID: 892236768}
   - {fileID: 1974932541}

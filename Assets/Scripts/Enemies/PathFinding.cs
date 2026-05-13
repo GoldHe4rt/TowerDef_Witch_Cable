@@ -10,26 +10,16 @@ public class PathFinding : MonoBehaviour
     public float speed;
     private Waypoint waypoint;
     private int waypointsIndex;
-<<<<<<< Updated upstream
 
-    void Start()
-    {
-        if (!isActive) return;
-        Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
 
-    }
-
-    void Update()
-    {
-        if (!isActive) return;
-        transform.position = Vector2.MoveTowards(transform.position, Wpoints.waypoints[waypointsIndex].position, speed * Time.deltaTime);
-=======
     private Vector2 currentTarget;
 
     void Update()
     {
+        if (!isActive) return;
+
         transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
->>>>>>> Stashed changes
+
 
         Vector3 dir = waypoint.transform.position - transform.position;
         float angle = Mathf.Atan(dir.x) * Mathf.Rad2Deg;
