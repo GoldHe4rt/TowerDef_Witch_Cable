@@ -34,14 +34,16 @@ namespace Menu
 
         public void Resume()
         {
-            isPaused = false;
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
+            isPaused = false;
+            canPause = true;
         }
 
         public void Pause()
         {
             isPaused = true;
+            canPause = false;
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
         }

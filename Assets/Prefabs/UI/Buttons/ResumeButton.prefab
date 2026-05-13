@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4731826222582161536}
   - component: {fileID: 8325312783754380404}
   - component: {fileID: 8321088670960182157}
-  - component: {fileID: -5808645294254978872}
   m_Layer: 0
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -28,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11787629446120947}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -123,7 +122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5808645294254978872}
+      - m_Target: {fileID: 7098035726862967905, guid: 137a34d069a5cc74f83067ae3a57c8c2,
+          type: 3}
         m_TargetAssemblyTypeName: Menu.PauseManager, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -148,21 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectUI: {fileID: 11787629446120947}
---- !u!114 &-5808645294254978872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11787629446120947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7799487574a28b4a82a4e9b83de945d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
-  isPaused: 0
-  canPause: 0
 --- !u!1 &2664652757646753794
 GameObject:
   m_ObjectHideFlags: 0
