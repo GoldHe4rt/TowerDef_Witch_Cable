@@ -34,12 +34,12 @@ public class EnemyHealth : MonoBehaviour
         //Hurt Player when hit Hazard
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Enemy Hazard")) return;
+        if (!collision.gameObject.CompareTag("Damage Dealer")) return;
         if (invinsible) return;
         EnemyHazard hazard = collision.gameObject.GetComponent<EnemyHazard>();
         if (hazard == null)
         {
-            Debug.LogWarning("Enemy Hazard is missing script"); return;
+            Debug.LogWarning("Damage Dealer is missing EnemyHazard script"); return;
         }
 
         LoseHealth(hazard.damageAmount, hazard.damageTime);

@@ -49,6 +49,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.U))
         {
             UpdatePlayerAmount();
+            Debug.Log("Key U pressed in MultiplayerScreenManager"); //Temp test log
         }
     }
 

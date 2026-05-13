@@ -7,8 +7,8 @@ TagManager:
   - Hazard
   - Enemy
   - Waypoints
-  - Enemy Hazard
   - Healing
+  - Damage Dealer
   layers:
   - Default
   - TransparentFX

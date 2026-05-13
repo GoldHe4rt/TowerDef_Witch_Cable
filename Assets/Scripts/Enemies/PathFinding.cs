@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PathFinding : MonoBehaviour
 {
+    [SerializeField] public bool isActive = true;
     public float speed;
     private Waypoints Wpoints;
 
@@ -11,12 +12,14 @@ public class PathFinding : MonoBehaviour
 
     void Start()
     {
+        if (!isActive) return;
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
 
     }
 
     void Update()
     {
+        if (!isActive) return;
         transform.position = Vector2.MoveTowards(transform.position, Wpoints.waypoints[waypointsIndex].position, speed * Time.deltaTime);
 
         Vector3 dir = Wpoints.waypoints[waypointsIndex].position - transform.position;

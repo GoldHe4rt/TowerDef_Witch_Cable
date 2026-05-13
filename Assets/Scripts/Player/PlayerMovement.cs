@@ -83,47 +83,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Hurt Player when hit Hazard
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Hazard"))
-        {
-            if (playerHealth.death) return;
-            if (!playerHealth.canTakeDamage) return;
-            Hazard hazard = collision.gameObject.GetComponent<Hazard>();
-            if (hazard == null)
-            {
-                Debug.LogWarning("Hazard is missing script"); return;
-            }
-
-            playerHealth.LoseHealth(hazard.damageAmount, hazard.damageTime);
-
-            if (hazard.dealKnockback == true)
-            {
-                Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
-                ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
-            }
-            if (hazard.destroyOnTrigger == true)
-                Destroy(collision.gameObject);
-        }
-        
-        if (collision.gameObject.CompareTag("Healing"))
-        {
-            if (playerHealth.death) return;
-            if (!playerHealth.canHeal) return;
-            HealingObject healingObject = collision.gameObject.GetComponent<HealingObject>();
-            if (healingObject == null)
-            {
-                Debug.LogWarning("Healing Object is missing script"); return;
-            }
-
-            playerHealth.Heal(healingObject.healAmount);
-
-            if (healingObject.destroyOnTrigger == true)
-                Destroy(collision.gameObject);
-        }
-    }
-
     //Knockback
     public void ApplyKnockback(Vector2 direction, float force, float duration, float stun)
     {
@@ -137,11 +96,8 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(direction * force, ForceMode2D.Impulse); // Apply instant force
         yield return new WaitForSeconds(duration);
         rb.linearVelocity = Vector2.zero;
-        StartCoroutine(StunCoroutine(stunTime));
-    }
 
-    private IEnumerator StunCoroutine(float stunTime)
-    {
+        // Stun after knockback
         yield return new WaitForSeconds(stunTime);
         movementEnabled = true;
     }
