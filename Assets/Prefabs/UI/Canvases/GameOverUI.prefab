@@ -469,7 +469,6 @@ GameObject:
   - component: {fileID: 6204255309147211393}
   - component: {fileID: 3240821273926861850}
   - component: {fileID: 3268264961862315789}
-  - component: {fileID: 5386055636362504330}
   m_Layer: 0
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -592,20 +591,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5386055636362504330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4297854023691753042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScene:
-    m_Handle: 0
 --- !u!1 &6285989092468244004
 GameObject:
   m_ObjectHideFlags: 0

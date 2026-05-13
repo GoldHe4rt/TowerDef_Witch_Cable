@@ -838,7 +838,6 @@ GameObject:
   - component: {fileID: 2096097265673775109}
   - component: {fileID: 5451072123902932027}
   - component: {fileID: 2237467529230378304}
-  - component: {fileID: 6748422369884853450}
   m_Layer: 0
   m_Name: ExitButton
   m_TagString: Untagged
@@ -948,8 +947,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6748422369884853450}
-        m_TargetAssemblyTypeName: GameConrollers.SceneController, Assembly-CSharp
+      - m_Target: {fileID: 464090275630934454, guid: 95688d41a9dbb524781fc3f2920b9dcc,
+          type: 3}
+        m_TargetAssemblyTypeName: Menu.SceneController, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -960,20 +960,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6748422369884853450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4488228128735000290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScene:
-    m_Handle: 0
 --- !u!1 &4646731542562722692
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +972,6 @@ GameObject:
   - component: {fileID: 8356378628563511811}
   - component: {fileID: 4139419680489490005}
   - component: {fileID: 4181300747529762317}
-  - component: {fileID: 852452517924412113}
   m_Layer: 0
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -1096,8 +1081,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 852452517924412113}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+      - m_Target: {fileID: 464090275630934454, guid: 95688d41a9dbb524781fc3f2920b9dcc,
+          type: 3}
+        m_TargetAssemblyTypeName: Menu.SceneController, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -1108,20 +1094,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &852452517924412113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4646731542562722692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScene:
-    m_Handle: 0
 --- !u!1 &4771466467178036805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,8 +1140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 6590855251086225898}
-  isPaused: 1
-  canPause: 1
+  isPaused: 0
+  canPause: 0
 --- !u!1 &4801458178357721307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,7 +1679,6 @@ GameObject:
   - component: {fileID: 7978489139085432129}
   - component: {fileID: 4232531620292854563}
   - component: {fileID: 8622829928153217103}
-  - component: {fileID: 378053207703232244}
   m_Layer: 0
   m_Name: RestartButton
   m_TagString: Untagged
@@ -1817,8 +1788,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378053207703232244}
-        m_TargetAssemblyTypeName: GameConrollers.SceneController, Assembly-CSharp
+      - m_Target: {fileID: 464090275630934454, guid: 95688d41a9dbb524781fc3f2920b9dcc,
+          type: 3}
+        m_TargetAssemblyTypeName: Menu.SceneController, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -1829,17 +1801,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &378053207703232244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058354494700255714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScene:
-    m_Handle: 0

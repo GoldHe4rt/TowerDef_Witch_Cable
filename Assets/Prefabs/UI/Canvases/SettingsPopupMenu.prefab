@@ -379,8 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsMenu: {fileID: 6087488315639423952}
-  pauseManager: {fileID: 7098035726862967905, guid: 137a34d069a5cc74f83067ae3a57c8c2,
-    type: 3}
+  settingsActive: 0
 --- !u!1 &1765395134904611647
 GameObject:
   m_ObjectHideFlags: 0
