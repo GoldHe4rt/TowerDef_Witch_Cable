@@ -7,8 +7,6 @@ namespace Menu
         public GameObject pauseMenuUI;
         public bool isPaused;
         public bool canPause;
-
-        [SerializeField] private SettingsPopupManager settingsPopup;
         
         private void Start() 
         { 
@@ -18,7 +16,7 @@ namespace Menu
             Time.timeScale = 1f;
         }
 
-        //For testing & keyboard.
+        //For testing on keyboard.
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.P))

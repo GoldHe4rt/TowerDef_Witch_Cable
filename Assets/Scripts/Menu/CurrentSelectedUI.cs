@@ -29,26 +29,9 @@ namespace Menu
             
             //Force highlight for controller!!
             Selectable selectable = selectUI.GetComponent<Selectable>();
+            
             if (selectUI != null)
-            {
-                selectable.OnSelect(null);
-            }
-        }
-        
-        //Change selection at runtime.
-        /*public void ChangeSelection()
-        {
-            if (selectUI == null) return;
-            
-            //Clear previous selection
-            myEventSystem.SetSelectedGameObject(null);
-            
-            //Set the new selected UI
-            myEventSystem.SetSelectedGameObject(selectUI);
-
-            Selectable selectable = selectUI.GetComponent<Selectable>();
-            if (selectable != null)
             { selectable.OnSelect(null); }
-        }*/
+        }
     }
 }

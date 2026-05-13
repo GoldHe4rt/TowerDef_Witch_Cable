@@ -20,10 +20,11 @@ namespace AudioScripts
         public void PlayButton()
         {
             //If slider value is 0.1f, mute the audio. Else play the audio.
-            if (Mathf.Approximately(audioSlider.uiSlider.value, 0.1f))
+            if (Mathf.Approximately(audioSlider.sliders[3].value, 0.1f))
             { Stop(); }
             else
-            { pitchRandomizer.RandomPitch(); SoundManager.PlayRandomSound(SoundManager.SoundType.Button, volume: audioSlider.uiSlider.value); }
+            { pitchRandomizer.RandomPitch(); SoundManager.PlayRandomSound
+                (SoundManager.SoundType.Button, volume: audioSlider.sliders[3].value); }
         }
 
         //Might need to the StateMachineFunction sound scripts instead.
@@ -39,10 +40,10 @@ namespace AudioScripts
 
         public void PlayMusic()
         {
-            if (Mathf.Approximately(audioSlider.musicSlider.value, 0.1f))
+            if (Mathf.Approximately(audioSlider.sliders[2].value, 0.1f))
             { Stop(); }
             else
-            { SoundManager.PlayRandomSound(SoundManager.SoundType.Music, volume: audioSlider.musicSlider.value); }
+            { SoundManager.PlayRandomSound(SoundManager.SoundType.Music, volume: audioSlider.sliders[2].value); }
         }
 
         private void Stop()

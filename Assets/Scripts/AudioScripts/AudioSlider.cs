@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -7,32 +8,27 @@ namespace AudioScripts
 {
    public class AudioSlider : MonoBehaviour
    {
+      [Header("Audio")]
       public AudioMixer mixer;
       [SerializeField] private AudioSource audioSource;
       [SerializeField] private AudioMixMode mixMode;
+      
+      public TMP_Text[] valueTexts;
 
-      //Value texts
-      public TextMeshProUGUI mastervalueText;
-      public TextMeshProUGUI musicvalueText;
-      public TextMeshProUGUI sfxvalueText;
-      public TextMeshProUGUI uivalueText;
+      [Header("Sliders")]
+      public Slider[] sliders;
 
-      //Sliders
-      public Slider masterSlider;
-      public Slider sfxSlider;
-      public Slider musicSlider;
-      public Slider uiSlider;
-
+      private string[] volumeKeys = new[] { "MasterVolume" , "MusicVolume" , "SFXVolume" , "UIVolume"};
+      
       private void Start()
       {
-         //mixer.SetFloat("MasterVolume", Mathf.Log10(PlayerPrefs.GetFloat("MasterVolume", 1) * 20));
          //do we have saved volume player prefs?
          if (PlayerPrefs.HasKey("MasterVolume"))
          {
             //set the mixer volume levels based on saved player prefs
             mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
-            mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
             mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
+            mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
             mixer.SetFloat("UIVolume", PlayerPrefs.GetFloat("UIVolume"));
             SetSliders();
          }
@@ -43,70 +39,73 @@ namespace AudioScripts
          }
       }
 
-      //Set the slider values to be saved volume settings
+      //Set the slider values to saved volume settings
       private void SetSliders()
       {
-         masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-         uiSlider.value = PlayerPrefs.GetFloat("UIVolume");
+         for (int i = 0; i < 4; i++)
+         {
+            sliders[i].value = PlayerPrefs.GetFloat(volumeKeys[i]);
+            valueTexts[i].text = PlayerPrefs.GetFloat(volumeKeys[i]).ToString();
+         }
       }
 
       //Save master volume across saves
       public void MasterVolume()
       {
-         PlayerPrefs.SetFloat("Volume", 0);
+         PlayerPrefs.SetFloat("MasterVolume", 0);
          PlayerPrefs.Save();
       }
 
       //Called when we update the sliders
       public void UpdateMasterVolume()
       {
-         mixer.SetFloat("Volume", masterSlider.value);
-         PlayerPrefs.SetFloat("Volume", masterSlider.value);
+         mixer.SetFloat("MasterVolume", sliders[0].value);
+         PlayerPrefs.SetFloat("MasterVolume", sliders[0].value);
       }
 
       public void UpdateSfxVolume()
       {
-         mixer.SetFloat("SFXVolume", sfxSlider.value);
-         PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
+         mixer.SetFloat("SFXVolume", sliders[1].value);
+         PlayerPrefs.SetFloat("SFXVolume", sliders[1].value);
       }
 
       public void UpdateMusicVolume()
       {
-         mixer.SetFloat("MusicVolume", musicSlider.value);
-         PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+         mixer.SetFloat("MusicVolume", sliders[2].value);
+         PlayerPrefs.SetFloat("MusicVolume", sliders[2].value);
       }
 
       public void UpdateUIVolume()
       {
-         mixer.SetFloat("UIVolume", uiSlider.value);
-         PlayerPrefs.SetFloat("UIVolume", uiSlider.value);
+         mixer.SetFloat("UIVolume", sliders[3].value);
+         PlayerPrefs.SetFloat("UIVolume", sliders[3].value);
       }
 
       public void OnChangeMasterSlider(float value)
       {
-         //Shows slider value up to 4 decimals
-         mastervalueText.SetText($"{value:N4}");
-         if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
+         OnChangeSlider(value : value, index: 0);
       }
 
       public void OnChangeMusicSlider(float value)
       {
-         musicvalueText.SetText($"{value:N4}");
-         if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+         OnChangeSlider(value : value, index: 1);
       }
 
       public void OnChangeSfxSlider(float value)
       {
-         sfxvalueText.SetText($"{value:N4}");
-         if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
+         OnChangeSlider(value : value, index: 2);
       }
 
       public void OnChangeUiSlider(float value)
       {
-         uivalueText.SetText($"{value:N4}");
-         if (mixMode == AudioMixMode.LogarithmicMixerVolume) mixer.SetFloat("UIVolume", Mathf.Log10(value) * 20);
+         OnChangeSlider(value : value, index: 3);
+      }
+
+      private void OnChangeSlider(float value, int index)
+      {
+         valueTexts[index].SetText($"{value}");
+         if (mixMode == AudioMixMode.LogarithmicMixerVolume) 
+            mixer.SetFloat(volumeKeys[index], Mathf.Log10(value) * 20);
       }
 
       private enum AudioMixMode
