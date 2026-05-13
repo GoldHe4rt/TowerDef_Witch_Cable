@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Menu
@@ -6,20 +5,22 @@ namespace Menu
     public class SettingsPopupManager : MonoBehaviour
     {
         public GameObject settingsMenu;
+        [SerializeField] private PauseManager pauseManager;
 
         private void Start()
-        { HideSettings(); }
+        { settingsMenu.SetActive(false); }
 
         public void ShowSettings()
         {
-            settingsMenu.SetActive(true); 
-            Debug.Log("Showing settings");
+            pauseManager.ForcePauseWithoutMenu();
+            settingsMenu.SetActive(true);
         }
 
         public void HideSettings()
         {
             settingsMenu.SetActive(false);
-            Debug.Log("Hiding Settings");
+            pauseManager.canPause = true;
+            pauseManager.Pause();
         }
     }
 }

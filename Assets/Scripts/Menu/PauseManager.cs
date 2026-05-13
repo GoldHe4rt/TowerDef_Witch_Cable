@@ -6,46 +6,54 @@ namespace Menu
     {
         public GameObject pauseMenuUI;
         public bool isPaused;
-    
-        //Pause is false and the menu does not show at start.
+        public bool canPause;
+
+        [SerializeField] private SettingsPopupManager settingsPopup;
+        
         private void Start() 
         { 
-            pauseMenuUI.SetActive(false); isPaused = false; 
+            pauseMenuUI.SetActive(false); 
+            isPaused = false;
+            canPause = true;
             Time.timeScale = 1f;
         }
 
+        //For testing & keyboard.
         private void Update()
         {
-            //Pause or Unpause game when ESC or P is pressed. For testing. Needs fix for Controller version.
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                //Checks if paused is true or false before resuming or pausing.
-                if (isPaused)
-                { Resume(); }
-                else
-                { Pause(); }
+               TogglePause();
             }
         }
 
         public void TogglePause()
         {
-            if (!isPaused)
+            if (!isPaused && canPause)
                 Pause();
             else Resume();
         }
 
         public void Resume()
         {
+            isPaused = false;
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
-            isPaused = false;
         }
 
         public void Pause()
         {
+            isPaused = true;
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
-            isPaused = true;
+        }
+
+        public void ForcePauseWithoutMenu()
+        {
+            canPause = false;
+            isPaused = false;
+            pauseMenuUI.SetActive(false);
+            Time.timeScale = 0f;
         }
     }
 }

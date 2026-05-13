@@ -434,6 +434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 6590855251086225898}
   isPaused: 0
+  canPause: 0
+  settingsPopup: {fileID: 0}
 --- !u!1 &4801458178357721307
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +826,6 @@ GameObject:
   - component: {fileID: 2127632884835829433}
   - component: {fileID: 4257753206704977953}
   - component: {fileID: 663492340232461525}
-  - component: {fileID: 3294746185273004180}
   - component: {fileID: 704306559233473324}
   m_Layer: 0
   m_Name: ResumeButton
@@ -935,8 +936,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3294746185273004180}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+      - m_Target: {fileID: 7098035726862967905}
+        m_TargetAssemblyTypeName: Menu.PauseManager, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -947,20 +948,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3294746185273004180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8833144175876382034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7799487574a28b4a82a4e9b83de945d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 6590855251086225898}
-  isPaused: 0
 --- !u!114 &704306559233473324
 MonoBehaviour:
   m_ObjectHideFlags: 0

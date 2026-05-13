@@ -13,10 +13,10 @@ namespace Menu
         private void OnEnable()
         {
             myEventSystem = EventSystem.current;
-            StartCoroutine(SetFirstSelectedDelay());
+            StartCoroutine(SetSelectedDelay());
         }
 
-        private IEnumerator SetFirstSelectedDelay()
+        private IEnumerator SetSelectedDelay()
         {
             //Wait one frame to make sure the UI is ready
             yield return null;
@@ -28,7 +28,7 @@ namespace Menu
             myEventSystem.SetSelectedGameObject(selectUI);
             
             //Force highlight for controller!!
-            var selectable = selectUI.GetComponent<Selectable>();
+            Selectable selectable = selectUI.GetComponent<Selectable>();
             if (selectUI != null)
             {
                 selectable.OnSelect(null);
@@ -36,21 +36,19 @@ namespace Menu
         }
         
         //Change selection at runtime.
-        /*public void ChangeSelection(GameObject newSelectUI)
+        /*public void ChangeSelection()
         {
-            if (newSelectUI == null) return;
+            if (selectUI == null) return;
             
             //Clear previous selection
             myEventSystem.SetSelectedGameObject(null);
             
             //Set the new selected UI
-            myEventSystem.SetSelectedGameObject(newSelectUI);
+            myEventSystem.SetSelectedGameObject(selectUI);
 
-            var selectable = newSelectUI.GetComponent<Selectable>();
+            Selectable selectable = selectUI.GetComponent<Selectable>();
             if (selectable != null)
-            {
-                selectable.OnSelect(null);
-            }
+            { selectable.OnSelect(null); }
         }*/
     }
 }
