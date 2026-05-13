@@ -1,5 +1,5 @@
-using System;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -25,7 +25,7 @@ namespace AudioScripts
          //do we have saved volume player prefs?
          if (PlayerPrefs.HasKey("MasterVolume"))
          {
-            //set the mixer volume levels based on saved player prefs
+            //set mixer volume levels based on saved player prefs
             mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
             mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
             mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
@@ -81,25 +81,19 @@ namespace AudioScripts
          PlayerPrefs.SetFloat("UIVolume", sliders[3].value);
       }
 
+      
       public void OnChangeMasterSlider(float value)
-      {
-         OnChangeSlider(value : value, index: 0);
-      }
+      { OnChangeSlider(value : value, index: 0); }
 
       public void OnChangeMusicSlider(float value)
-      {
-         OnChangeSlider(value : value, index: 1);
-      }
+      { OnChangeSlider(value : value, index: 1); }
 
       public void OnChangeSfxSlider(float value)
-      {
-         OnChangeSlider(value : value, index: 2);
-      }
+      { OnChangeSlider(value : value, index: 2); }
 
       public void OnChangeUiSlider(float value)
-      {
-         OnChangeSlider(value : value, index: 3);
-      }
+      { OnChangeSlider(value : value, index: 3); }
+     
 
       private void OnChangeSlider(float value, int index)
       {
