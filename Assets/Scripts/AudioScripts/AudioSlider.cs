@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -18,7 +17,7 @@ namespace AudioScripts
       [Header("Sliders")]
       public Slider[] sliders;
 
-      private string[] volumeKeys = new[] { "MasterVolume" , "MusicVolume" , "SFXVolume" , "UIVolume"};
+      [SerializeField]private string[] volumeKeys = { "MasterVolume" , "MusicVolume" , "SFXVolume" , "UIVolume"};
       
       private void Start()
       {
@@ -81,6 +80,12 @@ namespace AudioScripts
          PlayerPrefs.SetFloat("UIVolume", sliders[3].value);
       }
 
+      //Test later to see if this works
+      private void UpdateVolume(int index)
+      {
+         mixer.SetFloat(volumeKeys.ToString(), sliders[index].value);
+         PlayerPrefs.SetFloat(volumeKeys.ToString(), sliders[index].value);
+      }
       
       public void OnChangeMasterSlider(float value)
       { OnChangeSlider(value : value, index: 0); }
