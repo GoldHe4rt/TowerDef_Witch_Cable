@@ -944,6 +944,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &337104319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2805653560908134848, guid: 7c3332a3445f2c14281d34466d68e157,
+    type: 3}
+  m_PrefabInstance: {fileID: 1387852145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46032c50408168b4989191ce4686ff62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &361362936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4324,6 +4336,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2805653560908134848, guid: 7c3332a3445f2c14281d34466d68e157,
+        type: 3}
+      propertyPath: pauseManager
+      value: 
+      objectReference: {fileID: 618657195}
     - target: {fileID: 3447693464290239679, guid: 7c3332a3445f2c14281d34466d68e157,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7010,7 +7027,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 337104319}
     - target: {fileID: 4771466467178036805, guid: 137a34d069a5cc74f83067ae3a57c8c2,
         type: 3}
       propertyPath: m_Name
