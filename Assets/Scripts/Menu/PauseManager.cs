@@ -16,7 +16,7 @@ namespace Menu
             Time.timeScale = 1f;
         }
 
-        //For testing on keyboard.
+        //For testing & keyboard.
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.P))
@@ -34,16 +34,14 @@ namespace Menu
 
         public void Resume()
         {
+            isPaused = false;
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
-            isPaused = false;
-            canPause = true;
         }
 
         public void Pause()
         {
             isPaused = true;
-            canPause = false;
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
         }

@@ -1,33 +1,38 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Menu
 {
     public class SettingsPopupManager : MonoBehaviour
     {
-        public GameObject settingsMenu;
-        private PauseManager pauseManager;
-        public bool settingsActive;
+        [SerializeField]private PauseManager pauseManager;
+        public GameObject settingsPopup;
+        public Button settingsButton;
+        public Button hideSettingsButton;
 
         private void Start()
         {
-            settingsMenu.SetActive(false);
-            settingsActive = false;
+            JustHide();
+            settingsButton.onClick.AddListener(ShowSettings);
+            hideSettingsButton.onClick.AddListener(HideSettings);
         }
 
+        //Use for the settings button
         public void ShowSettings()
         {
-            Debug.Log("Settings button was pressed");
-            settingsMenu.SetActive(true);
-            settingsActive = false;
-            pauseManager.ForcePauseWithoutMenu();
+           settingsPopup.SetActive(true);
+           pauseManager.ForcePauseWithoutMenu();
         }
 
         public void HideSettings()
         {
-            settingsMenu.SetActive(false);
-            settingsActive = false;
+            settingsPopup.SetActive(false);
             pauseManager.canPause = true;
+            pauseManager.isPaused = true;
             pauseManager.Pause();
         }
+
+        private void JustHide()
+        { settingsPopup.SetActive(false); }
     }
 }
