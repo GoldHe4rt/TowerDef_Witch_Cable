@@ -59,7 +59,7 @@ AudioMixerController:
   - guid: 2daefeb6966bbe84f9c69b700b17510f
     name: SFXVolume
   - guid: cdaa1e64708db8a4ca55fcb185f2bd83
-    name: SFXVolume
+    name: MusicVolume
   - guid: e7d7c342807c5194b863d7ff76b3b6f9
     name: UIVolume
   m_AudioMixerGroupViews:
@@ -116,7 +116,9 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c00af6938baafc24a9f1100e51d9574d
-  m_FloatValues: {}
+  m_FloatValues:
+    e7d7c342807c5194b863d7ff76b3b6f9: 0
+    901f3c49dd2a4d442b64845c7bccaf6e: -0.0024418721
   m_TransitionOverrides: {}
 --- !u!243 &1417989508236598288
 AudioMixerGroupController:
@@ -148,6 +150,22 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: adf4a5dfb01cb934691588af3d3589dc
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &2013398437816407292
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 478492c24a0d42549abc3faef958cbbb
+  m_EffectName: Highpass Simple
+  m_MixLevel: 4f66a93666abcc34b93f2dc0f32fba71
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 0d6891daa2212d44dafee184377117d1
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

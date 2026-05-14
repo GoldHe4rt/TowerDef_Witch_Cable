@@ -6,9 +6,9 @@ namespace AudioScripts
     public class PlaySound : MonoBehaviour
     {
         [SerializeField] private SoundManager.SoundType sound;
-        private SoundManager soundManager;
+        [SerializeField]private SoundManager soundManager;
         [SerializeField] private AudioSlider audioSlider;
-        private PitchRandomizer pitchRandomizer;
+        [SerializeField]private PitchRandomizer pitchRandomizer;
 
         void Start()
         {
@@ -19,31 +19,51 @@ namespace AudioScripts
         //Goes to PlayRandomSound function in SoundManager and plays a button sound, volume depends on respective slider value
         public void PlayButton()
         {
-            //If slider value is 0.1f, mute the audio. Else play the audio.
-            if (Mathf.Approximately(audioSlider.sliders[3].value, 0.1f))
-            { Stop(); }
-            else
-            { pitchRandomizer.RandomPitch(); SoundManager.PlayRandomSound
-                (SoundManager.SoundType.Button, volume: audioSlider.sliders[3].value); }
+            float master = audioSlider.MasterVolume;
+            float ui = audioSlider.UIVolume;
+
+            float finalVolume = ui * master;
+
+            if (finalVolume <= 0.1f)
+            {
+                Stop();
+                return;
+            }
+
+            pitchRandomizer.RandomPitch();
+            SoundManager.PlayRandomSound(SoundManager.SoundType.Button, finalVolume);
         }
 
         //Might need to the StateMachineFunction sound scripts instead.
-        /*void PlaySFX()
-    {
-        //temporary stuff in here in case it is needed
-        SoundManager.PlayRandomSound(sound, volume);
-        if (audioSlider.sfxSlider.value == 0.1f)
-        { Stop(); }
-        else
-        {pitchRandomizer.RandomPitch(); SoundManager.PlayRandomSound(sound, volume: audioSlider.sfxSlider.value); }
-    }*/
+        void PlaySFX()
+        {
+            float master = audioSlider.MasterVolume;
+            float sfx = audioSlider.SFXVolume;
+
+            float finalVolume = sfx * master;
+
+            if (finalVolume <= 0.1f)
+            {
+                Stop();
+                return;
+            }
+
+            SoundManager.PlayRandomSound(sound, finalVolume);
+        }
 
         public void PlayMusic()
         {
-            if (Mathf.Approximately(audioSlider.sliders[2].value, 0.1f))
-            { Stop(); }
-            else
-            { SoundManager.PlayRandomSound(SoundManager.SoundType.Music, volume: audioSlider.sliders[2].value); }
+            float master = audioSlider.MasterVolume;
+            float music = audioSlider.MusicVolume;
+
+            float finalVolume = music * master;
+
+            if (finalVolume <= 0.1f)
+            {
+                Stop();
+                return;
+            }
+            SoundManager.PlayRandomSound(SoundManager.SoundType.Music, finalVolume);
         }
 
         private void Stop()

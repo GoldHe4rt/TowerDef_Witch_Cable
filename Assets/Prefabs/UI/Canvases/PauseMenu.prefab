@@ -582,15 +582,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 6433515924383889443}
   m_HandleRect: {fileID: 6941481961451941917}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2882106152174351404}
-        m_TargetAssemblyTypeName: AudioSlider, Assembly-CSharp
+        m_TargetAssemblyTypeName: AudioScripts.AudioSlider, Assembly-CSharp
         m_MethodName: OnChangeMasterSlider
         m_Mode: 0
         m_Arguments:
@@ -666,7 +666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1284692476633690458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -685,9 +685,9 @@ RectTransform:
   - {fileID: 7652486749680433281}
   m_Father: {fileID: 2378156996024634337}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -227}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6799113267560736678
@@ -734,10 +734,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 7155161813283725605}
   m_HandleRect: {fileID: 5281736297927722979}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.1
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1572,7 +1572,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 194173277974717693}
-    m_SelectOnDown: {fileID: 6799113267560736678}
+    m_SelectOnDown: {fileID: 3638096837219768252}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1600,10 +1600,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 8504602739920017650}
   m_HandleRect: {fileID: 1878807516226361847}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: b855e717521357644a3c2975f5b15d66, type: 2}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 8086780910625124059}
   mixMode: 0
   valueTexts:
   - {fileID: 6670096240249724072}
@@ -1885,7 +1885,8 @@ AudioSource:
   m_GameObject: {fileID: 3407915561973358813}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b855e717521357644a3c2975f5b15d66,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -2179,7 +2180,7 @@ RectTransform:
   m_Father: {fileID: 947981376216268601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3945,7 +3946,7 @@ RectTransform:
   m_Father: {fileID: 591859797868170188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4503,10 +4504,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1630315040447903254}
   m_HandleRect: {fileID: 5862106072217222536}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4757,10 +4758,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 3074240192711988634}
   m_HandleRect: {fileID: 5615911915828962275}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
