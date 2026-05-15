@@ -942,10 +942,6 @@ MonoBehaviour:
   rotationSpeed: 9999
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
-  keyCodeUp: 119
-  keyCodeDown: 115
-  keyCodeLeft: 97
-  keyCodeRight: 100
 --- !u!114 &3766810798894118380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,7 +986,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: New Player Controller
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &2355012200859856857
