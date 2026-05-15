@@ -137,7 +137,7 @@ public class InputManager : MonoBehaviour
         {
             if (globalReferanceManager.pauseManager == null)
             {
-                Debug.LogError("Pause manager is not assigned.");
+                Debug.LogWarning("Pause manager is not assigned.");
                 return;
             }
             Debug.Log("Pause!");
@@ -151,7 +151,7 @@ public class InputManager : MonoBehaviour
         {
             if (globalReferanceManager.controlsMenuManager == null)
             {
-                Debug.LogError("Controls menu manager is not assigned.");
+                Debug.LogWarning("Controls menu manager is not assigned.");
                 return;
             }
             Debug.Log("ShowControlls!");
