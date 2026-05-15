@@ -131,8 +131,7 @@ public class MultiplayerScreenManager : MonoBehaviour
             playerCountObj.transform.localScale = new Vector2(5,5);
             playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
         }
-            
-        Debug.Log("0 Players active");
+        //Debug.Log("0 Players active");
     }
 
     void PlayerAmount_1()
@@ -164,7 +163,7 @@ public class MultiplayerScreenManager : MonoBehaviour
             playerCountObj.transform.localScale = new Vector2(3, 3);
             playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
         }
-        Debug.Log("1 Player active");
+        //Debug.Log("1 Player active");
     }
 
     void PlayerAmount_2()
@@ -216,7 +215,7 @@ public class MultiplayerScreenManager : MonoBehaviour
             playerCountObj.transform.localScale = new Vector2(3, 3);
             playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
         }
-        Debug.Log("2 Players active");
+        //Debug.Log("2 Players active");
     }
 
     void PlayerAmount_3()
@@ -270,7 +269,7 @@ public class MultiplayerScreenManager : MonoBehaviour
             playerCountObj.transform.localScale = new Vector2(2, 2);
             playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
         }
-        Debug.Log("3 Players active");
+        //Debug.Log("3 Players active");
     }
 
     void PlayerAmount_4()
@@ -341,6 +340,6 @@ public class MultiplayerScreenManager : MonoBehaviour
             playerCountObj.transform.localScale = new Vector2(1.5f, 1.5f);
             playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
         }
-        Debug.Log("4 Players active");
+        //Debug.Log("4 Players active");
     }
 }

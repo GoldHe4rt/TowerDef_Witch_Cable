@@ -57,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
     {
         healthPoints = healthPoints - damageAmount;
         healthDisplay.text = healthPoints.ToString("0");
-        Debug.Log("Dealt " + damageAmount + " Damage!");
+        //Debug.Log("Dealt " + damageAmount + " Damage!");
 
         if (iFramesEnabled == true)
         {

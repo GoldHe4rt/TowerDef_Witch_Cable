@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealthPoints > maxHealth)
             currentHealthPoints = maxHealth;
         healthDisplay.text = currentHealthPoints.ToString("0");
-        Debug.Log("Healed " + healAmount + " Health!");
+        //Debug.Log("Healed " + healAmount + " Health!");
 
         
         if (HealingIFramesEnabled == true)
@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealthPoints = currentHealthPoints - damageAmount;
         healthDisplay.text = currentHealthPoints.ToString("0");
-        Debug.Log("Took " + damageAmount + " Damage!");
+        //Debug.Log("Took " + damageAmount + " Damage!");
 
         if (DamageIFramesEnabled == true)
         {
