@@ -67,12 +67,13 @@ public class PlacementState : IBuildingState
         int index = objectPlacer.PlaceObject(database.objectData[selectedObjectIndex].Prefab,
             grid.CellToWorld(gridPosition));
 
-        GridData selectedData = database.objectData[selectedObjectIndex].ID == 0 ?
+        ObjectData objectData = database.objectData[selectedObjectIndex];
+        GridData selectedData = objectData.IsFloor ?
             floorData :
             furnitureData;
         selectedData.AddObjectAt(gridPosition,
-            database.objectData[selectedObjectIndex].Size,
-            database.objectData[selectedObjectIndex].ID,
+            objectData.Size,
+            objectData.ID,
             index);
 
         // Preview updates are handled by PlayerBuildSystem
@@ -80,19 +81,22 @@ public class PlacementState : IBuildingState
 
     private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
     {
-        GridData selectedData = database.objectData[selectedObjectIndex].ID == 0 ?
+        ObjectData objectData = database.objectData[selectedObjectIndex];
+        GridData selectedData = objectData.IsFloor ?
             floorData :
             furnitureData;
 
-        Vector2Int size = database.objectData[selectedObjectIndex].Size;
+        Vector2Int size = objectData.Size;
         
-        // Check if any tile the object would occupy is blocked
+        bool useFurnitureBlocked = !objectData.IsFloor;
+
+        // Check if any tile the object would occupy is blocked for the object layer
         for (int x = 0; x < size.x; x++)
         {
             for (int y = 0; y < size.y; y++)
             {
                 Vector3Int checkPos = gridPosition + new Vector3Int(x, y, 0);
-                if (BlockedTilesData.Instance.IsBlocked(checkPos))
+                if (BlockedTilesData.Instance.IsBlocked(checkPos, useFurnitureBlocked))
                     return false;
             }
         }

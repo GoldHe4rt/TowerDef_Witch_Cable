@@ -4,13 +4,14 @@ public class BlockTileMarker : MonoBehaviour
 {
     [SerializeField] private Grid grid;
     [SerializeField] private bool isBlockedTile = true;
+    [SerializeField] private BlockedTileLayer blockedTileLayer = BlockedTileLayer.Both;
 
     private void OnEnable()
     {
         if (isBlockedTile && grid != null)
         {
             Vector3Int gridPosition = grid.WorldToCell(transform.position);
-            BlockedTilesData.Instance.BlockTile(gridPosition);
+            BlockedTilesData.Instance.BlockTile(gridPosition, blockedTileLayer);
         }
     }
 
@@ -19,7 +20,7 @@ public class BlockTileMarker : MonoBehaviour
         if (grid != null)
         {
             Vector3Int gridPosition = grid.WorldToCell(transform.position);
-            BlockedTilesData.Instance.UnblockTile(gridPosition);
+            BlockedTilesData.Instance.UnblockTile(gridPosition, blockedTileLayer);
         }
     }
 
