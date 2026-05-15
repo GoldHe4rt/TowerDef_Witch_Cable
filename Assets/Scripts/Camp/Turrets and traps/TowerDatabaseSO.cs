@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu]
+public class TowerDatabaseSO : ScriptableObject
+{
+    public List<TowerData> towerData;
+}
+
+[Serializable]
+public class TowerData
+{
+    [field: SerializeField]
+    public string Name { get; private set;}
+    [field: SerializeField]
+    public int ID { get; private set;}
+    [field: SerializeField]
+    public GameObject AimPrefab { get; private set;}
+    [field: SerializeField]
+    public GameObject HitboxPrefab { get; private set;}
+    [field: SerializeField]
+    public float HitboxSpeed { get; private set;} = 0f;
+    [field: SerializeField]
+    public float AttackSpeed { get; private set;} = 0f;
+    [field: SerializeField]
+    public float Lifetime { get; private set;} = 3f;
+
+}
