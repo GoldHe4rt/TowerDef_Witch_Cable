@@ -131,16 +131,19 @@ public class GridPlacementManager : MonoBehaviour
         if (objectIndex < 0)
             return false;
 
-        GridData selectedData = objectID == 0 ? floorData : furnitureData;
-        Vector2Int size = databaseSO.objectData[objectIndex].Size;
+        ObjectData objectData = databaseSO.objectData[objectIndex];
+        GridData selectedData = objectData.IsFloor ? floorData : furnitureData;
+        Vector2Int size = objectData.Size;
 
-        // Check if any tile the object would occupy is blocked
+        bool useFurnitureBlocked = !objectData.IsFloor;
+
+        // Check if any tile the object would occupy is blocked for the object layer
         for (int x = 0; x < size.x; x++)
         {
             for (int y = 0; y < size.y; y++)
             {
                 Vector3Int checkPos = gridPosition + new Vector3Int(x, y, 0);
-                if (BlockedTilesData.Instance.IsBlocked(checkPos))
+                if (BlockedTilesData.Instance.IsBlocked(checkPos, useFurnitureBlocked))
                     return false;
             }
         }
