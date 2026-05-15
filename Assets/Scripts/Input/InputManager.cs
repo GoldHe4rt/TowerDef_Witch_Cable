@@ -18,13 +18,11 @@ public class InputManager : MonoBehaviour
     public void OnMove(InputValue value)
     {
         playerMovement.moveInput = value.Get<Vector2>();
-        //Debug.Log("Move!");
     }
 
     public void OnLook(InputValue value)
     {
         playerMovement.lookInput = value.Get<Vector2>();
-        //Debug.Log("Look!");
     }
 
     public void OnPlaceAttack(InputValue value)
@@ -34,11 +32,9 @@ public class InputManager : MonoBehaviour
             if (isBuilding)
             {
                 playerBuildSystem.PlaceStructure();
-                Debug.Log("Place!");
             }
             if (!isBuilding)
             {
-                Debug.Log("Attack!");
                 playerCombatSystem.Attack();
             }
         }
@@ -88,13 +84,11 @@ public class InputManager : MonoBehaviour
                 {
                     playerBuildSystem.StartRemoving();
                     dismantleMode = true;
-                    Debug.Log("Starting dismantle mode.");
                 }
                 else
                 {
                     playerBuildSystem.StartPlacement(0);
                     dismantleMode = false;
-                    Debug.Log("Stopping dismantle mode.");
                 }
             }
         }
@@ -107,16 +101,13 @@ public class InputManager : MonoBehaviour
             if (isBuilding)
             {
                 playerBuildSystem.IncreaseObjectID();
-                Debug.Log("Select Right!");
                 if (dismantleMode)
                 {
                     dismantleMode = false;
-                    Debug.Log("Stopping dismantle mode.");
                 }
             } else
             {
                 playerCombatSystem.IncreaseWeaponID();
-                Debug.Log("Select Right!");
             }
         }
     }
@@ -128,17 +119,14 @@ public class InputManager : MonoBehaviour
             if (isBuilding)
             {
                 playerBuildSystem.DecreaseObjectID();
-                Debug.Log("Select Left!");
                 if (dismantleMode)
                 {
                     dismantleMode = false;
-                    Debug.Log("Stopping dismantle mode.");
                 }
             }
             else
             {
                 playerCombatSystem.DecreaseWeaponID();
-                Debug.Log("Select Left!");
             }
         }
     }
