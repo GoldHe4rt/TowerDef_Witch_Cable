@@ -69,7 +69,7 @@ public class TurretAttack : MonoBehaviour
 
         //Spawn Damage dealer
         GameObject currentAttack;
-        currentAttack = Instantiate(hitboxPrefab, weaponHolder.transform.position, spreadRotation);
+        currentAttack = Instantiate(hitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation * spreadRotation);
 
         //Add Velocity to Damage dealer
         Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();

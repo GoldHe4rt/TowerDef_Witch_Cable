@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    
 /*/
     void Update()
     {
@@ -57,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(keyCodeRight))
             moveInput.x = 1;
-    }/*/
-
+    }
+/*/
 
     void FixedUpdate()
     {
