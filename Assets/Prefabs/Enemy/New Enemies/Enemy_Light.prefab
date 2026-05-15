@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: healthPoints
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Sprite
@@ -88,12 +93,12 @@ PrefabInstance:
     - target: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Name
-      value: Enemy_Base_Prefab Variant
+      value: Enemy_Light
       objectReference: {fileID: 0}
     - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8957306761276025106, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -103,5 +108,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5279682241043197089}
   m_SourcePrefab: {fileID: 100100000, guid: ae79eb1b1145050479fd3f1f95b89879, type: 3}
+--- !u!1 &2573278766653946438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
+    type: 3}
+  m_PrefabInstance: {fileID: 1794901259565182904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &5279682241043197089
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573278766653946438}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

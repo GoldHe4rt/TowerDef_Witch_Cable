@@ -21,10 +21,6 @@ public class PathFinding : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
 
 
-        Vector3 dir = waypoint.transform.position - transform.position;
-        float angle = Mathf.Atan(dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
         if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
         {
             waypoint = waypoint.GetNextWaypoint();

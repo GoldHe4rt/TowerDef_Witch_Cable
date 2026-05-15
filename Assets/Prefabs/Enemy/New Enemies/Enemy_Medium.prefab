@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 2573278766653946438, guid: 22f406e1305cf8a49ba7925273b075c9,
         type: 3}
       propertyPath: m_Name
-      value: Enemy_Base_Prefab Variant
+      value: Enemy_Medium
       objectReference: {fileID: 0}
     - target: {fileID: 2828265218413810159, guid: 22f406e1305cf8a49ba7925273b075c9,
         type: 3}
@@ -135,10 +135,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2369695099217442206, guid: ec282c35c0ff845458b1a844650ae8c2,
         type: 3}
+    - target: {fileID: 5279682241043197089, guid: 22f406e1305cf8a49ba7925273b075c9,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8431298023270011856, guid: 22f406e1305cf8a49ba7925273b075c9,
         type: 3}
       propertyPath: speed
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
