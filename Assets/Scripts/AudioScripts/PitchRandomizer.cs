@@ -5,10 +5,9 @@ namespace AudioScripts
 {
     public class PitchRandomizer : MonoBehaviour
     {
-        private SoundManager soundManager;
+        [SerializeField]private SoundManager soundManager;
         private float pitchVariation = 0.7f;
         private float basePitch;
-        
         
         private void Start()
         {

@@ -554,7 +554,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 291587874788730512}
+    m_SelectOnDown: {fileID: 194173277974717693}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 194173277974717693}
+    m_SelectOnUp: {fileID: 291587874788730512}
     m_SelectOnDown: {fileID: 3638096837219768252}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -1649,8 +1649,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6010999477437881690}
-  - {fileID: 2790629269207099408}
   - {fileID: 1179547079109685478}
+  - {fileID: 2790629269207099408}
   - {fileID: 3806884416074277584}
   - {fileID: 1284692476633690458}
   m_Father: {fileID: 1823562075771859791}
@@ -1844,24 +1844,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91899a5827184a44da75aca9d6de4710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: b855e717521357644a3c2975f5b15d66, type: 2}
   audioSource: {fileID: 8086780910625124059}
-  mixMode: 0
   valueTexts:
   - {fileID: 6670096240249724072}
-  - {fileID: 7983957573078469036}
   - {fileID: 3133179275366525347}
+  - {fileID: 7983957573078469036}
   - {fileID: 5627628824220544580}
   sliders:
   - {fileID: 932795777782865347}
-  - {fileID: 291587874788730512}
   - {fileID: 194173277974717693}
+  - {fileID: 291587874788730512}
   - {fileID: 7931032094474782405}
   volumeKeys:
   - MasterVolume
   - MusicVolume
   - SFXVolume
   - UIVolume
+  volumeSaving: {fileID: 0}
+  mixerVolumeApplier: {fileID: 0}
 --- !u!114 &4237721045621731569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4475,8 +4475,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 932795777782865347}
-    m_SelectOnDown: {fileID: 194173277974717693}
+    m_SelectOnUp: {fileID: 194173277974717693}
+    m_SelectOnDown: {fileID: 7931032094474782405}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -4729,8 +4729,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 291587874788730512}
-    m_SelectOnDown: {fileID: 7931032094474782405}
+    m_SelectOnUp: {fileID: 932795777782865347}
+    m_SelectOnDown: {fileID: 291587874788730512}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1

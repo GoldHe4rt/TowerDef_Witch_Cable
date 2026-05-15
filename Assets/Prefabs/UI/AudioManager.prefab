@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 166641002270751833}
   - component: {fileID: 3784612636816412559}
   - component: {fileID: 4003487824350786155}
+  - component: {fileID: 1055429139011413334}
+  - component: {fileID: 5313965916076420112}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -47,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e982d33c3fc29438ebd98fe78b9bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 4003487824350786155}
 --- !u!114 &166641002270751833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: 0
+  soundManager: {fileID: 4003487824350786155}
   audioSlider: {fileID: 0}
+  pitchRandomizer: {fileID: 7494473195535134182}
 --- !u!82 &3784612636816412559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -185,3 +190,42 @@ MonoBehaviour:
     sounds: []
   - name: Music
     sounds: []
+--- !u!114 &1055429139011413334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926819907383922185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d224c9f70f1ca224b948cdd68afe9d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: b855e717521357644a3c2975f5b15d66, type: 2}
+  audioSource: {fileID: 3784612636816412559}
+  mixMode: 0
+  audioSlider: {fileID: 0}
+  volumeKeys:
+  - MasterVolume
+  - MusicVolume
+  - SFXVolume
+  - UIVolume
+--- !u!114 &5313965916076420112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926819907383922185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70868f84c9e1e064ba34c934dd976e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerVolumeApplier: {fileID: 1055429139011413334}
+  volumeKeys:
+  - MasterVolume
+  - MusicVolume
+  - SFXVolume
+  - UIVolume

@@ -56,10 +56,10 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 901f3c49dd2a4d442b64845c7bccaf6e
     name: MasterVolume
-  - guid: 2daefeb6966bbe84f9c69b700b17510f
-    name: SFXVolume
   - guid: cdaa1e64708db8a4ca55fcb185f2bd83
     name: MusicVolume
+  - guid: 2daefeb6966bbe84f9c69b700b17510f
+    name: SFXVolume
   - guid: e7d7c342807c5194b863d7ff76b3b6f9
     name: UIVolume
   m_AudioMixerGroupViews:
@@ -81,8 +81,8 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 1fcf0f8a888a84c4d99afec65b38d3a5
   m_Children:
-  - {fileID: -6223475361773419355}
   - {fileID: 1417989508236598288}
+  - {fileID: -6223475361773419355}
   - {fileID: -5710542021295831932}
   m_Volume: 901f3c49dd2a4d442b64845c7bccaf6e
   m_Pitch: 8bc924b4694b8104182d048cb874d0cb
