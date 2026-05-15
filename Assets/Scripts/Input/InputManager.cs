@@ -147,6 +147,11 @@ public class InputManager : MonoBehaviour
     {
         if (value.isPressed)
         {
+            if (globalReferanceManager.pauseManager == null)
+            {
+                Debug.LogError("Pause manager is not assigned.");
+                return;
+            }
             Debug.Log("Pause!");
             globalReferanceManager.pauseManager.TogglePause();
         }
@@ -156,6 +161,11 @@ public class InputManager : MonoBehaviour
     {
         if (value.isPressed)
         {
+            if (globalReferanceManager.controlsMenuManager == null)
+            {
+                Debug.LogError("Controls menu manager is not assigned.");
+                return;
+            }
             Debug.Log("ShowControlls!");
             globalReferanceManager.controlsMenuManager.ControlsToggle();
         }
