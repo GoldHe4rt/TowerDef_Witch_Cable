@@ -24,6 +24,7 @@ namespace AudioScripts
 
             float finalVolume = ui * master;
 
+            //Might need a change since sliders go down to 0.0001f.
             if (finalVolume <= 0.1f)
             {
                 Stop();
@@ -34,14 +35,14 @@ namespace AudioScripts
             SoundManager.PlayRandomSound(SoundManager.SoundType.Button, finalVolume);
         }
 
-        //Might need to the StateMachineFunction sound scripts instead.
+        //Might need to the StateMachineFunction sound scripts instead. Unsure.
         void PlaySFX()
         {
             float master = audioSlider.MasterVolume;
             float sfx = audioSlider.SFXVolume;
 
             float finalVolume = sfx * master;
-
+            
             if (finalVolume <= 0.1f)
             {
                 Stop();

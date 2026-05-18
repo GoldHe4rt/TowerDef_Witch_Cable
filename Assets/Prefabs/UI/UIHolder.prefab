@@ -3174,7 +3174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 2641345354757650858}
@@ -3323,10 +3323,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8758447189021472545}
   - {fileID: 1447068792942189351}
   - {fileID: 2159797098413259390}
   - {fileID: 6842112714222078811}
-  - {fileID: 8758447189021472545}
   - {fileID: 1512308750805272418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3603,7 +3603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 7433728407185034056}
@@ -4224,7 +4224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1125319304522260603}
     m_SelectOnDown: {fileID: 6188515685757488888}
@@ -7008,7 +7008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 7433728407185034056}
     m_SelectOnDown: {fileID: 743928315674553579}
@@ -8125,7 +8125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 743928315674553579}
     m_SelectOnDown: {fileID: 1125319304522260603}
@@ -8184,6 +8184,7 @@ GameObject:
   - component: {fileID: 2621189083695134849}
   - component: {fileID: 8620230447207686060}
   - component: {fileID: 5852463166737914152}
+  - component: {fileID: 4398555300591306064}
   m_Layer: 5
   m_Name: AudioManager
   m_TagString: Untagged
@@ -8356,7 +8357,12 @@ MonoBehaviour:
   - name: Footstep
     sounds: []
   - name: Button
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 8f7dfde878ed7ee45be5f34c2b9a0753, type: 3}
+    - {fileID: 8300000, guid: 4c37450676f223d49bcb4175dc90aadd, type: 3}
+    - {fileID: 8300000, guid: b373c0784a8a6394b9db95ea6f3cb3fb, type: 3}
+    - {fileID: 8300000, guid: c4647ec3bff8f21429c005a78a7ee1b8, type: 3}
+    - {fileID: 8300000, guid: 3fc5a5e902cb1224aac4a2affe4b84b5, type: 3}
   - name: Music
     sounds: []
 --- !u!114 &8620230447207686060
@@ -8398,6 +8404,20 @@ MonoBehaviour:
   - MusicVolume
   - SFXVolume
   - UIVolume
+--- !u!114 &4398555300591306064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8340180960632160407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557fc60da84bb2d45be5f593f6103e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: []
+  playSound: {fileID: 7142865129214407820}
 --- !u!1 &8445093804805329086
 GameObject:
   m_ObjectHideFlags: 0
@@ -8531,7 +8551,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
