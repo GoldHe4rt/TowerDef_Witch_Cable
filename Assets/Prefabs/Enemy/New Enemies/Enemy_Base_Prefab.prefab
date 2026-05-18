@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDisplay: {fileID: 4449110839341595158}
   canTakeDamageDisplay: {fileID: 8957306761276025106}
-  healthPoints: 5
+  healthPoints: 10
   iFramesEnabled: 0
   death: 0
   invinsible: 0

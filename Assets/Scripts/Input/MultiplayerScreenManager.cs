@@ -114,7 +114,9 @@ public class MultiplayerScreenManager : MonoBehaviour
     void PlayerAmount_0()
     {
         if (miniMap != null)
-            miniMap.gameObject.SetActive(false);
+        {
+            miniMap.rect = new Rect( (1 - 0.8f * Screen.height / Screen.width)/2 , (1f - 0.8f) / 2, 0.8f * Screen.height / Screen.width, 0.8f);
+        }
 
         //Player Visibility
         for (int i = 0; i < playerData.Count; i++)
