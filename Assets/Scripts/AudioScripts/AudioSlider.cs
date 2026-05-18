@@ -32,22 +32,24 @@ namespace AudioScripts
             SetDisplayedText(i, values);
          }
       }
-      
+
+      #region Change Sliders
       public void OnChangeMasterSlider(float value) => OnChangeSlider(value, 0);
-      public void OnChangeMusicSlider(float value) => OnChangeSlider(value, 1);
-      public void OnChangeSfxSlider(float value) => OnChangeSlider(value, 2);
-      public void OnChangeUiSlider(float value) => OnChangeSlider(value, 3);
-
-      private void OnChangeSlider(float value, int index)
-      {
-         float snapped = Snap(value, 0.05f); //5%
-         sliders[index].value = snapped;
-
-         SetDisplayedText(index, snapped);
-         volumeSaving.SaveVolumes(index, snapped);
-         mixerVolumeApplier.ApplyMixerVolume(index, snapped);
-      }
-
+            public void OnChangeMusicSlider(float value) => OnChangeSlider(value, 1);
+            public void OnChangeSfxSlider(float value) => OnChangeSlider(value, 2);
+            public void OnChangeUiSlider(float value) => OnChangeSlider(value, 3);
+      
+            private void OnChangeSlider(float value, int index)
+            {
+               float snapped = Snap(value, 0.05f); //5%
+               sliders[index].value = snapped;
+      
+               SetDisplayedText(index, snapped);
+               volumeSaving.SaveVolumes(index, snapped);
+               mixerVolumeApplier.ApplyMixerVolume(index, snapped);
+            }
+      #endregion
+      
       private void SetDisplayedText(int index, float value)
       {
          //Show 0-100 instead of 0.1 to 1.

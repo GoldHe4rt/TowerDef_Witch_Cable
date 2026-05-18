@@ -11,8 +11,7 @@ namespace Menu
         {
             Scene currentScene = SceneManager.GetActiveScene();
         }
-
-        //Loads level1.
+        
         public void StartGame()
         {
             SceneManager.LoadScene(sceneBuildIndex: 1);
@@ -22,14 +21,18 @@ namespace Menu
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        //Used for NEXT_LEVEL_BUTTON in the Win Menu. Build index will need some changes for this to work properly.
+        public void NextLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     
         public void MainMenu()
         {
-            Debug.Log("MainMenuButton was pressed");
-            SceneManager.LoadScene(sceneBuildIndex: 0);
+          SceneManager.LoadScene(sceneBuildIndex: 0);
         }
-    
-        //Used for SETTINGS_BUTTON. Loads the settings scene. No scene yet.
+        
         public void SettingsScene() 
         { SceneManager.LoadScene("Settings"); }
     
