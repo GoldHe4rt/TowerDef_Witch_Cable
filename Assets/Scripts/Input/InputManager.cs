@@ -13,7 +13,22 @@ public class InputManager : MonoBehaviour
     [SerializeField] private GlobalReferanceManager globalReferanceManager;
     private bool isBuilding = false;
     private bool dismantleMode = false;
+    private bool isPlacing = false;
 
+    void Update()
+    {
+        if (isPlacing)
+        {
+            if (isBuilding)
+            {
+                playerBuildSystem.PlaceStructure();
+            }
+            if (!isBuilding)
+            {
+                playerCombatSystem.Attack();
+            }
+        }
+    }
 
     public void OnMove(InputValue value)
     {
@@ -29,22 +44,11 @@ public class InputManager : MonoBehaviour
     {
         if (value.isPressed)
         {
-            if (isBuilding)
-            {
-                playerBuildSystem.PlaceStructure();
-            }
-            if (!isBuilding)
-            {
-                playerCombatSystem.Attack();
-            }
+            isPlacing = true;
         }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        else
         {
-            playerCombatSystem.Attack();
+            isPlacing = false;
         }
     }
 

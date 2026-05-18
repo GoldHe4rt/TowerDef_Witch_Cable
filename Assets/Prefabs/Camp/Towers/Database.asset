@@ -15,7 +15,7 @@ MonoBehaviour:
   objectData:
   - <Name>k__BackingField: Dot
     <ID>k__BackingField: 0
-    <IsFloor>k__BackingField: 1
+    <IsFloor>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 4197277469607999623, guid: 63bc2bc47895b4b4f8de42dd0ed68a06,
       type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
       type: 3}
   - <Name>k__BackingField: Tree
     <ID>k__BackingField: 2
-    <IsFloor>k__BackingField: 1
+    <IsFloor>k__BackingField: 0
     <Size>k__BackingField: {x: 1, y: 3}
     <Prefab>k__BackingField: {fileID: 1255385643064051772, guid: d51d347cdb4f0f849a41654ed1100b12,
       type: 3}

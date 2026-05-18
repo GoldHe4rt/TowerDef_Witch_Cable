@@ -7,7 +7,7 @@ public class PreviewSystem : MonoBehaviour
     private float previewOffset = 0.06f;
 
     [SerializeField] 
-    private GameObject cellIndicator, displayLocation;
+    private GameObject cellIndicator, displayLocation, dismantleIndicator;
     private GameObject previewObject, displayObject;
 
     [SerializeField] 
@@ -25,6 +25,7 @@ public class PreviewSystem : MonoBehaviour
 
     public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size)
     {
+        dismantleIndicator.SetActive(false);
         previewObject = Instantiate(prefab);
         displayObject = Instantiate(prefab, displayLocation.transform);
         PrepareCursor(size);
@@ -39,6 +40,7 @@ public class PreviewSystem : MonoBehaviour
         cellIndicator.SetActive(true);
         PrepareCursor(Vector2Int.one);
         ApplyFeedbackToCursor(false);
+        dismantleIndicator.SetActive(true);
     }
 
     private void PrepareDisplay(GameObject displayObject, Vector2Int size)
