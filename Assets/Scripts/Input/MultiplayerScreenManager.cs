@@ -30,6 +30,7 @@ public class MultiplayerScreenManager : MonoBehaviour
     [SerializeField] private Camera miniMap;
     [SerializeField] private GameObject playerCountObj;
     [SerializeField] private TextMeshProUGUI playerCountText;
+    [SerializeField] private String[] playerCountString = {"Players: 0", "Players: 1", "Players: 2", "Players: 3", "Players: 4"};
 
     [Header("UI Settings")]
     [SerializeField] private List<UIFliper> flipUI;
@@ -40,7 +41,7 @@ public class MultiplayerScreenManager : MonoBehaviour
     void Start()
     {
         if (playerCountText != null)
-            playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
+            playerCountText.text = playerCountString[controllerManager.activePlayerAmount];
         UpdatePlayerAmount();
     }
 
@@ -129,7 +130,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         {
             playerCountObj.transform.localPosition = new Vector2(0,0);
             playerCountObj.transform.localScale = new Vector2(5,5);
-            playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
+            playerCountText.text = playerCountString[0];
         }
         //Debug.Log("0 Players active");
     }
@@ -161,7 +162,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         {
             playerCountObj.transform.localPosition = new Vector2(660, 440);
             playerCountObj.transform.localScale = new Vector2(3, 3);
-            playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
+            playerCountText.text = playerCountString[1];
         }
         //Debug.Log("1 Player active");
     }
@@ -213,7 +214,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         {
             playerCountObj.transform.localPosition = new Vector2(0, 450);
             playerCountObj.transform.localScale = new Vector2(3, 3);
-            playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
+            playerCountText.text = playerCountString[2];
         }
         //Debug.Log("2 Players active");
     }
@@ -267,7 +268,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         {
             playerCountObj.transform.localPosition = new Vector2(-725, -60);
             playerCountObj.transform.localScale = new Vector2(2, 2);
-            playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
+            playerCountText.text = playerCountString[3];
         }
         //Debug.Log("3 Players active");
     }
@@ -338,7 +339,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         {
             playerCountObj.transform.localPosition = new Vector2(-150f, 500f);
             playerCountObj.transform.localScale = new Vector2(1.5f, 1.5f);
-            playerCountText.text = $"Players: {controllerManager.activePlayerAmount}";
+            playerCountText.text = playerCountString[4];
         }
         //Debug.Log("4 Players active");
     }
