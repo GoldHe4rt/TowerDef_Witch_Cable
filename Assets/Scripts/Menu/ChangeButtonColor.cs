@@ -9,6 +9,7 @@ namespace Menu
         public Button myButton;
         private ColorBlock cb;
         private Image buttonImage;
+        private SceneController sceneController;
 
         private void Start()
         {
@@ -23,6 +24,21 @@ namespace Menu
             if (inputValue >= 0.1f)
             {
                 PressedColor();
+            }
+            else
+            {
+                NormalColor();
+            }
+        }
+
+        public void BackToMainMenu(InputAction.CallbackContext context)
+        {
+            float inputValue = context.ReadValue<float>(); 
+            Debug.Log(inputValue);
+            if (inputValue >= 0.1f)
+            {
+                PressedColor();
+                sceneController.MainMenu();
             }
             else
             {
