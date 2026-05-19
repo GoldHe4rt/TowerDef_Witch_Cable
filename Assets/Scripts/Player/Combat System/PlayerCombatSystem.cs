@@ -6,13 +6,21 @@ public class PlayerCombatSystem : MonoBehaviour
 {
     [SerializeField] public WeaponDatabaseSO databaseSO;
     [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private int playerID = 1;
+    [SerializeField] private CurrencyManager currencyManager;
 
     private int currentWeaponID = -1;
     private GameObject currentWeaponPrefab;
     private GameObject currentHitboxPrefab;
     private float currentHitboxSpeed;
     private float currentAttackSpeed;
+
     private float shootTimer;
+
+    void Start()
+    {
+        NewWeapon(0);
+    }
 
     void Update()
     {
@@ -21,7 +29,7 @@ public class PlayerCombatSystem : MonoBehaviour
 
     }
 
-    private void NewWeapon(int newWeaponID)
+    public void NewWeapon(int newWeaponID)
     {
         RemoveWeapon();
         if (newWeaponID < 0 || newWeaponID >= databaseSO.weaponData.Count)
@@ -37,7 +45,7 @@ public class PlayerCombatSystem : MonoBehaviour
         // Initialize combat system if needed
     }
 
-    private void RemoveWeapon()
+    public void RemoveWeapon()
     {
         currentWeaponID = -1;
         if (currentWeaponPrefab != null)
@@ -68,6 +76,11 @@ public class PlayerCombatSystem : MonoBehaviour
         //Add Velocity to Damage dealer
         Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
         rb.linearVelocity = weaponHolder.transform.rotation * Vector2.up * currentHitboxSpeed;
+
+        //Set Owner of Attack
+        DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();
+        damageDealer.playerOwner = playerID;
+        damageDealer.currencyManager = currencyManager;
 
         //Destroy after set time
         StartCoroutine(DestroyHitboxAfterTime(currentAttack, databaseSO.weaponData[currentWeaponID].Lifetime));

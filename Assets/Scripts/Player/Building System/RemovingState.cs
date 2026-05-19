@@ -40,7 +40,7 @@ public class RemovingState : IBuildingState
         // Preview cleanup is handled by PlayerBuildSystem, not by state
     }
 
-    public void OnAction(Vector3Int gridPosition)
+    public void OnAction(Vector3Int gridPosition, int playerID, CurrencyManager currencyManager)
     {
         // Check if tile is blocked
         if (BlockedTilesData.Instance.IsBlocked(gridPosition))

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 
-public class TurretAttack : MonoBehaviour
+public class TowerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject weaponHolder;
     
@@ -17,6 +17,8 @@ public class TurretAttack : MonoBehaviour
     private AttackRange attackRangeScript;
     private float attackSpeedTimer = 0f;
     private Vector2 currentAimDirectionTarget = Vector2.up;
+    public int playerID = -1;
+    internal CurrencyManager currencyManager;
 
     void Start()
     {
@@ -37,12 +39,6 @@ public class TurretAttack : MonoBehaviour
                 Attack();
 
             }
-        }
-            
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Attack();
-            Debug.Log("Key I pressed in TurretAttack"); //Temp test log
         }
     }
 
@@ -71,9 +67,12 @@ public class TurretAttack : MonoBehaviour
         GameObject currentAttack;
         currentAttack = Instantiate(hitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation * spreadRotation);
 
+        DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();
+        damageDealer.playerOwner = playerID;
+        damageDealer.currencyManager = currencyManager;
+
         //Add Velocity to Damage dealer
         Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
-        
         rb.linearVelocity = spread * hitboxSpeed;
 
         //Destroy after set time

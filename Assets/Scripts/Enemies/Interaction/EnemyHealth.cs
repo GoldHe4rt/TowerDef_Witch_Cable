@@ -11,35 +11,27 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] private int healthPoints = 5;
+    [SerializeField] private int currencyOnDeath = 10;
     [SerializeField] private bool iFramesEnabled = true;
     
-    [HideInInspector] public bool death = false;
-    [HideInInspector] public bool invinsible = false;
-
+    internal bool dead = false;
+    internal bool invinsible = false;
 
     void Start()
     {
         healthDisplay.text = healthPoints.ToString("0");
         canTakeDamageDisplay.SetActive(false);
     }
-
-    void Update()
-    {
-        if (healthPoints <= 0 && death == false)
-        {
-            Destroy(gameObject);
-        }
-    }
     
-        //Hurt Player when hit Hazard
+    //Hurt Player when hit Hazard
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Damage Dealer")) return;
         if (invinsible) return;
-        EnemyHazard hazard = collision.gameObject.GetComponent<EnemyHazard>();
+        DamageDealer hazard = collision.gameObject.GetComponent<DamageDealer>();
         if (hazard == null)
         {
-            Debug.LogWarning("Damage Dealer is missing EnemyHazard script"); return;
+            Debug.LogWarning("Damage Dealer is missing DamageDealer script"); return;
         }
 
         LoseHealth(hazard.damageAmount, hazard.damageTime);
@@ -49,8 +41,15 @@ public class EnemyHealth : MonoBehaviour
             //Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
             //ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
         }
-        if (hazard.destroyOnTrigger == true)
-            Destroy(collision.gameObject);
+
+        hazard.HitTarget();
+
+        if (healthPoints <= 0 && dead == false)
+        {
+            dead = true;
+            hazard.KilledTarget(currencyOnDeath);
+            Destroy(gameObject);
+        }
     }
     
     public void LoseHealth(int damageAmount, float damageFrames)

@@ -6,6 +6,7 @@ public class GridPlacementManager : MonoBehaviour
 {
     public static GridPlacementManager Instance { get; private set; }
 
+    [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private Grid grid;
     [SerializeField] public ObjectDatabaseSO databaseSO;
     //[SerializeField] private GameObject gridVisualization;
@@ -55,7 +56,7 @@ public class GridPlacementManager : MonoBehaviour
 
 
     // Executes the current building state action
-    public void ExecuteStateAction(Vector3Int gridPosition, int objectID)
+    public void ExecuteStateAction(Vector3Int gridPosition, int objectID, int playerID)
     {
         if (buildingState == null)
             return;
@@ -68,7 +69,7 @@ public class GridPlacementManager : MonoBehaviour
                                            furnitureData,
                                            objectPlacer);
 
-        buildingState.OnAction(gridPosition);
+        buildingState.OnAction(gridPosition, playerID, currencyManager);
     }
 
     // Updates the current building state

@@ -8,10 +8,18 @@ public class ObjectPlacer : MonoBehaviour
     [SerializeField]
     private List<GameObject> placedGameObjects = new();
 
-    public int PlaceObject(GameObject prefab, Vector3 position)
+    public int PlaceObject(GameObject prefab, Vector3 position, int playerID, CurrencyManager currencyManager)
     {
         GameObject newObject = Instantiate(prefab);
         newObject.transform.position = position;
+
+        TowerAttack towerAttack = newObject.GetComponentInChildren<TowerAttack>();
+        if (towerAttack != null)
+        {
+            towerAttack.playerID = playerID;
+            towerAttack.currencyManager = currencyManager;
+        }
+
         placedGameObjects.Add(newObject);
         return placedGameObjects.Count - 1;
     }

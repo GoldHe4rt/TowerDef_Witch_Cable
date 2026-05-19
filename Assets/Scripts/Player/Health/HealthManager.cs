@@ -1,18 +1,19 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerHealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour
 {
     [Header("Referances")]
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerMovement playerMovement;
 
-    //Hurt Player when hit Hazard
+    
     void OnTriggerStay2D(Collider2D collision)
     {
+        //Hurt Player when hit Hazard
         if (collision.gameObject.CompareTag("Hazard"))
         {
-            if (playerHealth.death) return;
+            if (playerHealth.dead) return;
             if (!playerHealth.canTakeDamage) return;
             Hazard hazard = collision.gameObject.GetComponent<Hazard>();
             if (hazard == null)
@@ -31,9 +32,10 @@ public class PlayerHealthManager : MonoBehaviour
                 Destroy(collision.gameObject);
         }
         
+        //Heal Player when hit Healing Object
         if (collision.gameObject.CompareTag("Healing"))
         {
-            if (playerHealth.death) return;
+            if (playerHealth.dead) return;
             if (!playerHealth.canHeal) return;
             HealingObject healingObject = collision.gameObject.GetComponent<HealingObject>();
             if (healingObject == null)

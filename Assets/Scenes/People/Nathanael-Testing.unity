@@ -8641,6 +8641,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4103883341484313937, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: currencyAmount
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4521002386769745254, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
       propertyPath: playerCountObj
@@ -8745,6 +8750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910014383391643340, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8086119168490242107, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}

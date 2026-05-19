@@ -1,14 +1,11 @@
 using UnityEngine;
-using TMPro;
 using System.Collections;
-using System;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Referances")]
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private TextMeshProUGUI healthDisplay;
-    [SerializeField] private GameObject canTakeDamageDisplay, canHealDisplay;
+    [SerializeField] private PlayerUI playerUI;
     
 
     [Header("Health")]
@@ -17,23 +14,21 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private bool HealingIFramesEnabled = true;
     [SerializeField] private bool DamageIFramesEnabled = true;
     
-    [HideInInspector] public bool death = false;
+    internal bool dead = false;
     public bool canTakeDamage = true;
     public bool canHeal = true;
 
 
     void Start()
     {
-        healthDisplay.text = currentHealthPoints.ToString("0");
-        canTakeDamageDisplay.SetActive(false);
-        canHealDisplay.SetActive(false);
+        playerUI.UpdateHealthDisplay(currentHealthPoints);
     }
 
     void Update()
     {
-        if (currentHealthPoints <= 0 && death == false)
+        if (currentHealthPoints <= 0 && dead == false)
         {
-            death = true;
+            dead = true;
             Debug.Log("You are out of Health");
         }
     }
@@ -46,14 +41,14 @@ public class PlayerHealth : MonoBehaviour
         currentHealthPoints = currentHealthPoints + healAmount;
         if (currentHealthPoints > maxHealth)
             currentHealthPoints = maxHealth;
-        healthDisplay.text = currentHealthPoints.ToString("0");
+        playerUI.UpdateHealthDisplay(currentHealthPoints);
         //Debug.Log("Healed " + healAmount + " Health!");
 
         
         if (HealingIFramesEnabled == true)
         {
             canHeal = false;
-            canHealDisplay.SetActive(true);
+            playerUI.canHealDisplay.SetActive(true);
             StartCoroutine(HealingIFrames(1f));
         }
     }
@@ -61,13 +56,13 @@ public class PlayerHealth : MonoBehaviour
     public void LoseHealth(int damageAmount, float damageFrames)
     {
         currentHealthPoints = currentHealthPoints - damageAmount;
-        healthDisplay.text = currentHealthPoints.ToString("0");
+        playerUI.UpdateHealthDisplay(currentHealthPoints);
         //Debug.Log("Took " + damageAmount + " Damage!");
 
         if (DamageIFramesEnabled == true)
         {
             canTakeDamage = false;
-            canTakeDamageDisplay.SetActive(true);
+            playerUI.canTakeDamageDisplay.SetActive(true);
             StartCoroutine(HurtIFrames(damageFrames));
         }
             
@@ -76,14 +71,14 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator HealingIFrames(float healFrames)
     {
         yield return new WaitForSeconds(healFrames);
-        canHealDisplay.SetActive(false);
+        playerUI.canHealDisplay.SetActive(false);
         canHeal = true;
     }
 
     private IEnumerator HurtIFrames(float damageFrames)
     {
         yield return new WaitForSeconds(damageFrames);
-        canTakeDamageDisplay.SetActive(false);
+        playerUI.canTakeDamageDisplay.SetActive(false);
         canTakeDamage = true;
     }
 }

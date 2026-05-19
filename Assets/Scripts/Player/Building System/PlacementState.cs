@@ -55,7 +55,7 @@ public class PlacementState : IBuildingState
         // Preview cleanup is handled by PlayerBuildSystem, not by state
     }
 
-    public void OnAction(Vector3Int gridPosition)
+    public void OnAction(Vector3Int gridPosition, int playerID, CurrencyManager currencyManager)
     {
         bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
         if (placementValidity == false)
@@ -64,8 +64,10 @@ public class PlacementState : IBuildingState
             return;
         }
         //soundFeedback.PlaySound(SoundType.Place);
+
+        currencyManager.RemoveCurrency(database.objectData[selectedObjectIndex].Cost, playerID);
         int index = objectPlacer.PlaceObject(database.objectData[selectedObjectIndex].Prefab,
-            grid.CellToWorld(gridPosition));
+            grid.CellToWorld(gridPosition), playerID, currencyManager);
 
         ObjectData objectData = database.objectData[selectedObjectIndex];
         GridData selectedData = objectData.IsFloor ?

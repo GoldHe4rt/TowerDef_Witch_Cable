@@ -9,6 +9,9 @@ public class PlayerBuildSystem : MonoBehaviour
     [SerializeField] private GameObject FightingUI;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private PreviewSystem previewSystem;
+    [SerializeField] private CurrencyManager currencyManager;
+    [SerializeField] private int playerID = 1;
+    
 
     private Vector3 placementPosition;
     private int selectedObjectID = -1;
@@ -75,12 +78,15 @@ public class PlayerBuildSystem : MonoBehaviour
     {
         if (!isPlacing && !isRemoving)
             return;
-            
+        if (!currencyManager.PlayerHasSufficientCurrency(playerID, gridPlacementManager.GetObjectData(selectedObjectID).Cost))
+        {
+            return;
+        }
         placementPosition = placementObject.transform.position;
         Grid grid = gridPlacementManager.GetGrid();
         Vector3Int gridPosition = grid.WorldToCell(placementPosition);
 
-        gridPlacementManager.ExecuteStateAction(gridPosition, selectedObjectID);
+        gridPlacementManager.ExecuteStateAction(gridPosition, selectedObjectID, playerID);
     }
 
     public void StopPlacement()

@@ -65,6 +65,7 @@ public class InputManager : MonoBehaviour
             {
                 dismantleMode = false;
                 playerBuildSystem.StartPlacement(0);
+                playerCombatSystem.RemoveWeapon();
                 isBuilding = true;
                 Debug.Log("Starting build mode.");
             }
@@ -72,6 +73,7 @@ public class InputManager : MonoBehaviour
             {
                 dismantleMode = false;
                 playerBuildSystem.StopPlacement();
+                playerCombatSystem.NewWeapon(0);
                 isBuilding = false;
                 Debug.Log("Stopping build mode.");
             }
