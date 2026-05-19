@@ -25,7 +25,7 @@ namespace Menu
             isActive = true;
         }
 
-        public void HideControls()
+        private void HideControls()
         { 
             controlsMenuUi.SetActive(false);
             isActive = false;
