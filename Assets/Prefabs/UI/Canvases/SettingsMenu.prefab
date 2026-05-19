@@ -46,6 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 106392764220517661}
   - component: {fileID: 6095688524316293992}
+  - component: {fileID: 4751451585631409393}
   m_Layer: 0
   m_Name: SFXVolume
   m_TagString: Untagged
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1786641494157651346}
   m_HandleRect: {fileID: 6148318767089551200}
   m_Direction: 0
-  m_MinValue: 0.1
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.1
@@ -140,6 +141,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4751451585631409393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131284147007181869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b501e7f2e557f44b8939da430613855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: 2
 --- !u!1 &201099088514321892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,6 +2037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3837797062526149960}
   - component: {fileID: 4619282443712877901}
+  - component: {fileID: 497487696163089484}
   m_Layer: 0
   m_Name: MusicVolume
   m_TagString: Untagged
@@ -2098,7 +2113,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 8349036704491159183}
   m_HandleRect: {fileID: 2201159699463161427}
   m_Direction: 0
-  m_MinValue: 0.1
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.1
@@ -2117,6 +2132,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &497487696163089484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465216971760939503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b501e7f2e557f44b8939da430613855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: 1
 --- !u!1 &3780452834389683644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,6 +2505,7 @@ GameObject:
   - component: {fileID: 8912320982977084734}
   - component: {fileID: 7455591554939221173}
   - component: {fileID: 4781011745692933616}
+  - component: {fileID: 3028663778414226372}
   m_Layer: 0
   m_Name: MasterVolume
   m_TagString: Untagged
@@ -2552,7 +2581,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 6351571370160637676}
   m_HandleRect: {fileID: 5236273503795257275}
   m_Direction: 0
-  m_MinValue: 0.1
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.1
@@ -2584,6 +2613,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectUI: {fileID: 4469397107801220785}
+--- !u!114 &3028663778414226372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469397107801220785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b501e7f2e557f44b8939da430613855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: 0
 --- !u!1 &4780686254465029931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356574033893616074}
   - component: {fileID: 5778020329899124290}
+  - component: {fileID: 3960113372057808472}
   m_Layer: 0
   m_Name: UIVolume
   m_TagString: Untagged
@@ -3423,7 +3466,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 7163028978097143231}
   m_HandleRect: {fileID: 1234830436884950896}
   m_Direction: 0
-  m_MinValue: 0.1
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.1
@@ -3442,6 +3485,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3960113372057808472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164157466742331129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b501e7f2e557f44b8939da430613855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: 0
 --- !u!1 &7302158799662610298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,24 +4314,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91899a5827184a44da75aca9d6de4710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: b855e717521357644a3c2975f5b15d66, type: 2}
-  audioSource: {fileID: 0}
-  mixMode: 0
-  valueTexts:
-  - {fileID: 4060761525845814518}
-  - {fileID: 1971779216009118196}
-  - {fileID: 5692060088110035133}
-  - {fileID: 7990076788588384128}
   sliders:
   - {fileID: 7455591554939221173}
   - {fileID: 4619282443712877901}
   - {fileID: 6095688524316293992}
   - {fileID: 5778020329899124290}
-  volumeKeys:
-  - MasterVolume
-  - MusicVolume
-  - SFXVolume
-  - UIVolume
+  valueTexts:
+  - {fileID: 4060761525845814518}
+  - {fileID: 1971779216009118196}
+  - {fileID: 5692060088110035133}
+  - {fileID: 7990076788588384128}
 --- !u!114 &6516113275233986241
 MonoBehaviour:
   m_ObjectHideFlags: 0

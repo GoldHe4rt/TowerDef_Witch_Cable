@@ -4,10 +4,9 @@ namespace AudioScripts.StateMachineAudioScripts
 {
     public class PlaySoundEnter : StateMachineBehaviour
     {
-        [SerializeField] private SoundManager.SoundType sound;
-        [SerializeField, Range(0, 1)] private float volume = 1f;
+        [SerializeField] private string eventId;
 
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        { SoundManager.PlayRandomSound(sound, volume); }
+        public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        { if (!string.IsNullOrEmpty(eventId)) AudioSystem.Play(eventId); }
     }
 }
