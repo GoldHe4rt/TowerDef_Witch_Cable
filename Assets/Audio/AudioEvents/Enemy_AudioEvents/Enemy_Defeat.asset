@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de57b4f5ab79840b7dbd2aeec68e47, type: 3}
+  m_Name: Enemy_Defeat
+  m_EditorClassIdentifier: 
+  eventId: Enemy_Defeat
+  audioChannel: 2
+  clips:
+  - {fileID: 8300000, guid: 89a2e46926dd9ed44aa601db1d99a032, type: 3}
+  - {fileID: 8300000, guid: 5f6b4ae2fa2230244a829eea89874b1c, type: 3}
+  - {fileID: 8300000, guid: 2cbd74ee61930ad40953602d267ae82e, type: 3}
+  - {fileID: 8300000, guid: efbf9541b54c8ce428c8a00e4608fa6d, type: 3}
+  - {fileID: 8300000, guid: d64fdf4396a321e419f442c25acd588e, type: 3}
+  baseVolume: 1
+  volumeOffsetDecibels: 0
+  randomizePitch: 0
+  minPitch: 0.9
+  maxPitch: 1.1

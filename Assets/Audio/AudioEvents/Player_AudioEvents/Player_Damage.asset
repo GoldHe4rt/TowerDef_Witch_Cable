@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de57b4f5ab79840b7dbd2aeec68e47, type: 3}
+  m_Name: Player_Damage
+  m_EditorClassIdentifier: 
+  eventId: Player_Damage
+  audioChannel: 2
+  clips:
+  - {fileID: 8300000, guid: dc768995e9839d44f8602f38e828cd56, type: 3}
+  - {fileID: 8300000, guid: 1e9f8b97d1f87ff40b1d38d4a145fa75, type: 3}
+  - {fileID: 8300000, guid: 790acd9594e6697419fc4b357bbb85ba, type: 3}
+  - {fileID: 8300000, guid: ecfce85c00a0f334ca2048cd145703b6, type: 3}
+  - {fileID: 8300000, guid: 00db3360c5a280d4b8851deed7d81a19, type: 3}
+  - {fileID: 8300000, guid: 89dbf14afc45b1f4b8837ed0a8460ed5, type: 3}
+  baseVolume: 1
+  volumeOffsetDecibels: 0
+  randomizePitch: 0
+  minPitch: 0.9
+  maxPitch: 1.1

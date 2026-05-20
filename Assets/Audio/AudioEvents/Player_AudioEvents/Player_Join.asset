@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de57b4f5ab79840b7dbd2aeec68e47, type: 3}
+  m_Name: Player_Join
+  m_EditorClassIdentifier: 
+  eventId: Player_Join
+  audioChannel: 2
+  clips:
+  - {fileID: 8300000, guid: 600f6d7c184a58445a0bea65b8558690, type: 3}
+  - {fileID: 8300000, guid: e2c99ddf9e8138341ab12e7be5606980, type: 3}
+  - {fileID: 8300000, guid: db14b1621e652884791d57002f7bc06b, type: 3}
+  - {fileID: 8300000, guid: a73b880e8fc2a964aaf8e4ae1ae0dcbc, type: 3}
+  - {fileID: 8300000, guid: 3b32ef7251d386b45983c9fe48af9cc8, type: 3}
+  baseVolume: 1
+  volumeOffsetDecibels: 0
+  randomizePitch: 0
+  minPitch: 0.9
+  maxPitch: 1.1
