@@ -11,10 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement")]
     public bool movementEnabled = true;
+    private bool knockbackRunning = false;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 500f;
 
-    
 
     //private PlayerInput playerInput;
     private Rigidbody2D rb;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     //Moves the player to the target position
     void MovePlayer()
     {
-        if (!movementEnabled) return;
+        if (!movementEnabled || knockbackRunning) return;
         rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * Time.fixedDeltaTime);
 
         if (lookInput != Vector2.zero)
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator KnockbackCoroutine(Vector2 direction, float force, float duration, float stunTime)
     {
-        movementEnabled = false;
+        knockbackRunning = true;
         rb.linearVelocity = Vector2.zero; // Reset velocity for consistency
         rb.AddForce(direction * force, ForceMode2D.Impulse); // Apply instant force
         yield return new WaitForSeconds(duration);
@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Stun after knockback
         yield return new WaitForSeconds(stunTime);
-        movementEnabled = true;
+        knockbackRunning = false;
     }
 
 }

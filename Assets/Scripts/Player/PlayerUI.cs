@@ -15,10 +15,16 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthDisplay;
     [SerializeField] public GameObject canTakeDamageDisplay, canHealDisplay;
 
+    [Header("Death")]
+    [SerializeField] internal GameObject gameplayScreen;
+    [SerializeField] internal GameObject deathScreen;
+    [SerializeField] private TextMeshProUGUI respawnText;
+
     void Start()
     {
         canTakeDamageDisplay.SetActive(false);
         canHealDisplay.SetActive(false);
+        deathScreen.SetActive(false);
         if (globalReferenceManager.currency != Currency.SeperateBanks && globalReferenceManager.currency != Currency.SplitEvenly)
             currencyDisplayObject.SetActive(false);
     }
@@ -31,5 +37,10 @@ public class PlayerUI : MonoBehaviour
     internal void UpdateCurrencyDisplay(float currencyAmount)
     {
         currencyDisplay.text = currencyAmount.ToString("0");
+    }
+
+    internal void UpdateRespawnDisplay(float respawnTime)
+    {
+        respawnText.text = respawnTime.ToString("0");
     }
 }
