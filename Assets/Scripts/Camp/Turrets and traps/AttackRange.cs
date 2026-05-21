@@ -3,8 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class AttackRange : MonoBehaviour
 {
+    [SerializeField] private TowerAttack towerAttack;
     [SerializeField] float attackRange = 10f;
-    public GameObject currentAimTarget;
+    internal GameObject currentAimTarget;
 
     void Awake()
     {
@@ -14,11 +15,18 @@ public class AttackRange : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (currentAimTarget != null)
-            return;
         if (!collision.gameObject.CompareTag("Enemy"))
             return;
-        currentAimTarget = collision.gameObject;
+        if (towerAttack.towerType == TowerType.Turret)
+        {
+            if (currentAimTarget != null)
+                return;
+            currentAimTarget = collision.gameObject;
+        }
+        if (towerAttack.towerType == TowerType.Explosive)
+        {
+            towerAttack.Explode();
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)

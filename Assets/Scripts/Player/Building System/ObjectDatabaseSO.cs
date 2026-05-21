@@ -22,5 +22,5 @@ public class ObjectData
     [field: SerializeField]
     public GameObject Prefab { get; private set;}
     [field: SerializeField]
-    public int Cost { get; private set;} = 50;
+    public float Cost { get; private set;} = 50;
 }

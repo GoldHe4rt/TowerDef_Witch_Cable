@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUI: {fileID: 7910766570708414330}
-  currencyAmount: 100
+  currencyAmount: 1000
 --- !u!1 &2297437469206357984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4372,6 +4372,8 @@ MonoBehaviour:
   FightingUI: {fileID: 6722603479010707037}
   inputManager: {fileID: 3766810798894118380}
   previewSystem: {fileID: 8852567924142455200}
+  currencyManager: {fileID: 0}
+  playerID: 1
 --- !u!1 &8375602324167708672
 GameObject:
   m_ObjectHideFlags: 0

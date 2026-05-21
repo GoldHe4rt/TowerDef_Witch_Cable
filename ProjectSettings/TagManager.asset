@@ -11,6 +11,7 @@ TagManager:
   - Damage Dealer
   - Enemy Hazard
   - Barricade
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -14,10 +14,18 @@ public class GlobalReferanceManager : MonoBehaviour
     //Values to change on a Global space
     [Header("Global Settings")]
     public bool buildingEnabled = true;
-    public bool currencyEnabled = true;
-    public bool splitCurrency = true;
-    
+    public Currency currency = Currency.SeperateBanks;
+    public float campStartCurrency = 2500f;
+    public float playerStartCurrency = 1000f;
 
+}
+
+public enum Currency
+{
+    None,
+    SharedBank,
+    SeperateBanks,
+    SplitEvenly
 }
 
 public enum Currencytype

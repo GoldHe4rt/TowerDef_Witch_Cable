@@ -37,11 +37,13 @@ public class MultiplayerScreenManager : MonoBehaviour
 
     [Header("Player Data")]
     [SerializeField] public List<PlayerData> playerData;
+    internal int playerAmount = 0;
 
     void Start()
     {
+        playerAmount = controllerManager.activePlayerAmount;
         if (playerCountText != null)
-            playerCountText.text = playerCountString[controllerManager.activePlayerAmount];
+            playerCountText.text = playerCountString[playerAmount];
         UpdatePlayerAmount();
     }
 
@@ -57,15 +59,16 @@ public class MultiplayerScreenManager : MonoBehaviour
     public void UpdatePlayerAmount()
     {
         TestForActivePlayers();
-        if (controllerManager.activePlayerAmount == 0)
+        playerAmount = controllerManager.activePlayerAmount;
+        if (playerAmount == 0)
             PlayerAmount_0();
-        if (controllerManager.activePlayerAmount == 1)
+        if (playerAmount == 1)
             PlayerAmount_1();
-        if (controllerManager.activePlayerAmount == 2)
+        if (playerAmount == 2)
             PlayerAmount_2();
-        if (controllerManager.activePlayerAmount == 3)
+        if (playerAmount == 3)
             PlayerAmount_3();
-        if (controllerManager.activePlayerAmount == 4)
+        if (playerAmount == 4)
             PlayerAmount_4();
     }
 

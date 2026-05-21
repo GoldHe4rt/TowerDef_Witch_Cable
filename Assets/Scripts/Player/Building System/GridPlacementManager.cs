@@ -124,6 +124,17 @@ public class GridPlacementManager : MonoBehaviour
         return buildingState;
     }
 
+    public void RemovePlacedObject(int placedObjectIndex)
+    {
+        if (placedObjectIndex < 0)
+            return;
+
+        bool removedFromGrid = floorData.RemoveObjectByIndex(placedObjectIndex);
+        if (!removedFromGrid)
+            removedFromGrid = furnitureData.RemoveObjectByIndex(placedObjectIndex);
+
+        objectPlacer.RemoveObjectAt(placedObjectIndex);
+    }
 
     // Checks placement validity for a specific object ID at a grid position
     public bool CheckPlacementValidity(Vector3Int gridPosition, int objectID)

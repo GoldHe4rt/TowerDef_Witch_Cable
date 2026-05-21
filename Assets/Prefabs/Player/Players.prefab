@@ -1070,8 +1070,9 @@ MonoBehaviour:
   pauseManager: {fileID: 0}
   controlsMenuManager: {fileID: 0}
   buildingEnabled: 1
-  currencyEnabled: 1
-  splitCurrency: 1
+  currency: 2
+  campStartCurrency: 2500
+  playerStartCurrency: 1000
 --- !u!1 &3171340532602650818
 GameObject:
   m_ObjectHideFlags: 0
@@ -68592,11 +68593,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalReferanceManager: {fileID: 2410402825229013825}
+  multiplayerScreenManager: {fileID: 4521002386769745254}
   campCurrency: {fileID: 4453857655601496048}
-  player1Currency: {fileID: 4103883341484313937}
-  player2Currency: {fileID: 7642268450902611049}
-  player3Currency: {fileID: 5310257576572167250}
-  player4Currency: {fileID: 1266629368200281445}
+  playerCurrency:
+  - {fileID: 4103883341484313937}
+  - {fileID: 7642268450902611049}
+  - {fileID: 5310257576572167250}
+  - {fileID: 1266629368200281445}
 --- !u!114 &4453857655601496048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68610,7 +68613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenUI: {fileID: 4988664269935300703}
-  currencyAmount: 100
+  currencyAmount: 1000
 --- !u!1 &8752894553702520982
 GameObject:
   m_ObjectHideFlags: 0
@@ -93913,6 +93916,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3647835740376591004, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: playerID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647835740376591004, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: currencyManager
+      value: 
+      objectReference: {fileID: 6062352027322445476}
     - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: globalReferanceManager
@@ -94178,6 +94191,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5699283
       objectReference: {fileID: 0}
+    - target: {fileID: 8916526288399621392, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: New Player Controller
+      objectReference: {fileID: 0}
     - target: {fileID: 9104612858621417022, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Layer
@@ -94334,11 +94352,6 @@ PrefabInstance:
       propertyPath: currencyManager
       value: 
       objectReference: {fileID: 6062352027322445476}
-    - target: {fileID: 2170188157618631205, guid: 5880e25a347333c4b8ef0bc4e5026320,
-        type: 3}
-      propertyPath: playerHealth
-      value: 
-      objectReference: {fileID: 7045359147172159819}
     - target: {fileID: 2597076072577176031, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Layer
@@ -94349,6 +94362,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3647835740376591004, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: currencyManager
+      value: 
+      objectReference: {fileID: 6062352027322445476}
     - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: globalReferanceManager
@@ -94589,6 +94607,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.30035594
       objectReference: {fileID: 0}
+    - target: {fileID: 8916526288399621392, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: New Player Controller
+      objectReference: {fileID: 0}
     - target: {fileID: 9104612858621417022, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Layer
@@ -94677,18 +94700,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3062183675094881964}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7045359147172159819 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5456439724232751079, guid: 5880e25a347333c4b8ef0bc4e5026320,
-    type: 3}
-  m_PrefabInstance: {fileID: 3062183675094881964}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a412c8d567688c4bb984ee6a984dc35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6574464711322910639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94812,6 +94823,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3647835740376591004, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: playerID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647835740376591004, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: currencyManager
+      value: 
+      objectReference: {fileID: 6062352027322445476}
     - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: globalReferanceManager
@@ -95072,6 +95093,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.48253232
       objectReference: {fileID: 0}
+    - target: {fileID: 8916526288399621392, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: New Player Controller
+      objectReference: {fileID: 0}
     - target: {fileID: 9104612858621417022, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_Layer
@@ -95278,6 +95304,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3647835740376591004, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647835740376591004, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: currencyManager
+      value: 
+      objectReference: {fileID: 6062352027322445476}
     - target: {fileID: 3766810798894118380, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: globalReferanceManager
@@ -95527,6 +95563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.22069769
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916526288399621392, guid: 5880e25a347333c4b8ef0bc4e5026320,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: New Player Controller
       objectReference: {fileID: 0}
     - target: {fileID: 9104612858621417022, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}

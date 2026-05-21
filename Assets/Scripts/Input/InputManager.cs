@@ -14,19 +14,28 @@ public class InputManager : MonoBehaviour
     private bool isBuilding = false;
     private bool dismantleMode = false;
     private bool isPlacing = false;
+    private float isPlacingInputTimer = 0f;
 
     void Update()
     {
         if (isPlacing)
         {
-            if (isBuilding)
+            if (isPlacingInputTimer > 0)
             {
-                playerBuildSystem.PlaceStructure();
+                isPlacingInputTimer -= Time.deltaTime;
             }
-            if (!isBuilding)
+            if (isPlacingInputTimer <= 0)
             {
-                playerCombatSystem.Attack();
+                if (isBuilding)
+                {
+                    playerBuildSystem.PlaceStructure();
+                }
+                if (!isBuilding)
+                {
+                    playerCombatSystem.Attack();
+                }
             }
+            
         }
     }
 
@@ -45,6 +54,15 @@ public class InputManager : MonoBehaviour
         if (value.isPressed)
         {
             isPlacing = true;
+            isPlacingInputTimer = 0.5f;
+            if (isBuilding)
+            {
+                playerBuildSystem.PlaceStructure();
+            }
+            if (!isBuilding)
+            {
+                playerCombatSystem.Attack();
+            }
         }
         else
         {
@@ -84,19 +102,7 @@ public class InputManager : MonoBehaviour
     {
         if (value.isPressed)
         {
-            if (isBuilding)
-            {
-                if (!dismantleMode)
-                {
-                    playerBuildSystem.StartRemoving();
-                    dismantleMode = true;
-                }
-                else
-                {
-                    playerBuildSystem.StartPlacement(0);
-                    dismantleMode = false;
-                }
-            }
+
         }
     }
 

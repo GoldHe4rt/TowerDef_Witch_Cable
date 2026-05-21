@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class DamageDealer : MonoBehaviour
 {
@@ -33,5 +34,11 @@ public class DamageDealer : MonoBehaviour
         {
             currencyManager.AddCurrency(currency, playerOwner);
         }
+    }
+
+    public IEnumerator DestroyHitboxAfterTime(float lifetime)
+    {
+        yield return new WaitForSeconds(lifetime);
+        Destroy(gameObject);
     }
 }

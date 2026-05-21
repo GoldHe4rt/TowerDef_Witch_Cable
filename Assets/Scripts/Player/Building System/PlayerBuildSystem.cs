@@ -78,7 +78,7 @@ public class PlayerBuildSystem : MonoBehaviour
     {
         if (!isPlacing && !isRemoving)
             return;
-        if (!currencyManager.PlayerHasSufficientCurrency(playerID, gridPlacementManager.GetObjectData(selectedObjectID).Cost))
+        if (isPlacing && !currencyManager.PlayerHasSufficientCurrency(playerID, gridPlacementManager.GetObjectData(selectedObjectID).Cost))
         {
             return;
         }
@@ -111,7 +111,8 @@ public class PlayerBuildSystem : MonoBehaviour
         int index = selectedObjectID + 1;
         if (gridPlacementManager.GetObjectData(index) == null)
         {
-            index = gridPlacementManager.databaseSO.objectData[0].ID;
+            StartRemoving();
+            return;
         }
         StartPlacement(index);
     }
@@ -119,10 +120,15 @@ public class PlayerBuildSystem : MonoBehaviour
     public void DecreaseObjectID()
     {
         int index = selectedObjectID - 1;
-        if (gridPlacementManager.GetObjectData(index) == null)
+        if (index == -1)
+        {
+            StartRemoving();
+            return;
+        } else if (index == -2)
         {
             index = gridPlacementManager.databaseSO.objectData[gridPlacementManager.databaseSO.objectData.Count - 1].ID;
         }
+
         StartPlacement(index);
     }
 

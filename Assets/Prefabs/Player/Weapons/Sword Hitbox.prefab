@@ -213,4 +213,5 @@ MonoBehaviour:
   knockbackForce: 10
   knockbackDuration: 0.2
   stunDuration: 0.2
-  destroyOnTrigger: 0
+  playerOwner: -1
+  pierceAmount: 2

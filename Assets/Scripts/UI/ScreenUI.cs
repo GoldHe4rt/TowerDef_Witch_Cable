@@ -18,7 +18,7 @@ public class ScreenUI : MonoBehaviour
     void Start()
     {
         damageDisplay.SetActive(false);
-        if (globalReferenceManager.splitCurrency)
+        if (globalReferenceManager.currency != Currency.SharedBank)
             currencyDisplayObject.SetActive(false);
     }
 
@@ -27,7 +27,7 @@ public class ScreenUI : MonoBehaviour
         healthDisplay.text = healthPoints.ToString("0");
     }
 
-    internal void UpdateCurrencyDisplay(int currencyAmount)
+    internal void UpdateCurrencyDisplay(float currencyAmount)
     {
         currencyDisplay.text = currencyAmount.ToString("0");
     }

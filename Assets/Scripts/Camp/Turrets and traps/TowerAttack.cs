@@ -2,10 +2,17 @@ using System;
 using UnityEngine;
 using System.Collections;
 
+public enum TowerType
+{
+    Turret,
+    Explosive
+}
+
 public class TowerAttack : MonoBehaviour
 {
+    [Header("Turret")]
+    [SerializeField] public TowerType towerType = TowerType.Turret;
     [SerializeField] private GameObject weaponHolder;
-    
     [SerializeField] private GameObject hitboxPrefab;
     [SerializeField] private GameObject attackRangeObject;
     [SerializeField] private float hitboxSpeed = 5f;
@@ -13,11 +20,14 @@ public class TowerAttack : MonoBehaviour
     [SerializeField] private float attackSpeed = 1f;
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float spreadAngle = 10f;
-    
+
     private AttackRange attackRangeScript;
     private float attackSpeedTimer = 0f;
     private Vector2 currentAimDirectionTarget = Vector2.up;
+
+    [Header("Player")]
     public int playerID = -1;
+    internal int placedObjectIndex = -1;
     internal CurrencyManager currencyManager;
 
     void Start()
@@ -29,15 +39,17 @@ public class TowerAttack : MonoBehaviour
     {
         if (attackSpeedTimer > 0)
             attackSpeedTimer -= Time.deltaTime;
+        
 
-        if (attackRangeScript.currentAimTarget != null)
+        if (towerType == TowerType.Turret)
         {
-            Aim();
-            if (attackSpeedTimer <= 0)
+            if (attackRangeScript.currentAimTarget != null)
             {
-                
-                Attack();
-
+                Aim();
+                if (attackSpeedTimer <= 0)
+                {
+                    Attack();
+                }
             }
         }
     }
@@ -67,6 +79,7 @@ public class TowerAttack : MonoBehaviour
         GameObject currentAttack;
         currentAttack = Instantiate(hitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation * spreadRotation);
 
+        //Set the DamageDealer values
         DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();
         damageDealer.playerOwner = playerID;
         damageDealer.currencyManager = currencyManager;
@@ -76,15 +89,24 @@ public class TowerAttack : MonoBehaviour
         rb.linearVelocity = spread * hitboxSpeed;
 
         //Destroy after set time
-        StartCoroutine(DestroyHitboxAfterTime(currentAttack, hitboxLifetime));
+        damageDealer.StartCoroutine(damageDealer.DestroyHitboxAfterTime(hitboxLifetime));
         attackSpeedTimer = attackSpeed; // Reset the attack cooldown
     }
 
-    private IEnumerator DestroyHitboxAfterTime(GameObject currentAttack, float lifetime)
+    public void Explode()
     {
-        yield return new WaitForSeconds(lifetime);
-        Destroy(currentAttack);
+        Attack();
+        DestroySelf();
     }
 
-
+    private void DestroySelf()
+    {
+        if (placedObjectIndex >= 0 && GridPlacementManager.Instance != null)
+            {
+                GridPlacementManager.Instance.RemovePlacedObject(placedObjectIndex);
+                placedObjectIndex = -1;
+                return;
+            }
+        Destroy(gameObject);
+    }
 }

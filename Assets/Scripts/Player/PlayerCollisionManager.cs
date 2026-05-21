@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class HealthManager : MonoBehaviour
+public class PlayerCollisionManager : MonoBehaviour
 {
     [Header("Referances")]
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private CurrencyManager currencyManager;
+
+    [Header("Collision Settings")]
+    [SerializeField] private int playerID = 1;
 
     
     void OnTriggerStay2D(Collider2D collision)
@@ -47,6 +51,22 @@ public class HealthManager : MonoBehaviour
 
             if (healingObject.destroyOnTrigger == true)
                 Destroy(collision.gameObject);
+        }
+
+        //Collect Coin when hit Coin Object
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            if (playerHealth.dead) return;
+            if (!playerHealth.canHeal) return;
+            Coin coin = collision.gameObject.GetComponent<Coin>();
+            if (coin == null)
+            {
+                Debug.LogWarning("Coin is missing script"); return;
+            }
+
+            currencyManager.AddCurrency(coin.amount, playerID);
+
+            Destroy(collision.gameObject);
         }
     }
 

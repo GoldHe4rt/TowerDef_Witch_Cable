@@ -59,6 +59,20 @@ public class GridData
             placedObjects.Remove(pos);
         }
     }
+
+    internal bool RemoveObjectByIndex(int placedObjectIndex)
+    {
+        foreach (var kvp in placedObjects)
+        {
+            if (kvp.Value.PlacedObjectIndex == placedObjectIndex)
+            {
+                RemoveObjectAt(kvp.Key);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
 
 public class PlacementData

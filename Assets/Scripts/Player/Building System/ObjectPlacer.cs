@@ -13,15 +13,17 @@ public class ObjectPlacer : MonoBehaviour
         GameObject newObject = Instantiate(prefab);
         newObject.transform.position = position;
 
+        int index = placedGameObjects.Count;
         TowerAttack towerAttack = newObject.GetComponentInChildren<TowerAttack>();
         if (towerAttack != null)
         {
             towerAttack.playerID = playerID;
             towerAttack.currencyManager = currencyManager;
+            towerAttack.placedObjectIndex = index;
         }
 
         placedGameObjects.Add(newObject);
-        return placedGameObjects.Count - 1;
+        return index;
     }
 
     internal void RemoveObjectAt(int gameObjectIndex)

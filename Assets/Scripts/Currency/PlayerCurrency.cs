@@ -6,26 +6,32 @@ public class PlayerCurrency : MonoBehaviour
     [SerializeField] private PlayerUI playerUI;
 
     [Header("Currency")]
-    [SerializeField] private int currencyAmount = 100;
+    [SerializeField] private float currencyAmount = 1234;
 
     void Start()
     {
         playerUI.UpdateCurrencyDisplay(currencyAmount);
     }
 
-    internal void AddCurrency(int amount)
+    internal void SetCurrency(float amount)
+    {
+        currencyAmount = amount;
+        playerUI.UpdateCurrencyDisplay(currencyAmount);
+    }
+
+    internal void AddCurrency(float amount)
     {
         currencyAmount += amount;
         playerUI.UpdateCurrencyDisplay(currencyAmount);
     }
 
-    internal void RemoveCurrency(int amount)
+    internal void RemoveCurrency(float amount)
     {
         currencyAmount -= amount;
         playerUI.UpdateCurrencyDisplay(currencyAmount);
     }
 
-    internal int GetCurrencyAmount()
+    internal float GetCurrencyAmount()
     {
         return currencyAmount;
     }

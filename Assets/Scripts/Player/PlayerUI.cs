@@ -19,7 +19,7 @@ public class PlayerUI : MonoBehaviour
     {
         canTakeDamageDisplay.SetActive(false);
         canHealDisplay.SetActive(false);
-        if (!globalReferenceManager.splitCurrency)
+        if (globalReferenceManager.currency != Currency.SeperateBanks && globalReferenceManager.currency != Currency.SplitEvenly)
             currencyDisplayObject.SetActive(false);
     }
 
@@ -28,7 +28,7 @@ public class PlayerUI : MonoBehaviour
         healthDisplay.text = currentHealthPoints.ToString("0");
     }
 
-    internal void UpdateCurrencyDisplay(int currencyAmount)
+    internal void UpdateCurrencyDisplay(float currencyAmount)
     {
         currencyDisplay.text = currencyAmount.ToString("0");
     }

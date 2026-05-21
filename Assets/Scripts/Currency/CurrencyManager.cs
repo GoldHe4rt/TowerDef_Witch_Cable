@@ -5,93 +5,145 @@ public class CurrencyManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GlobalReferanceManager globalReferanceManager;
+    [SerializeField] private MultiplayerScreenManager multiplayerScreenManager;
 
-    [Header("Camp Currency")]
+    [Header("Camp")]
     [SerializeField] CampCurrency campCurrency;
-    [Header("Player Currencies")]
-    [SerializeField] PlayerCurrency player1Currency, player2Currency, player3Currency, player4Currency;
+    [Header("Players")]
+    [SerializeField] PlayerCurrency[] playerCurrency;
 
-    internal void AddCurrency(int currency, int playerIndex)
+    void Start()
     {
-        if (!globalReferanceManager.currencyEnabled)
+        for (int i = 0; i < multiplayerScreenManager.playerData.Count; i++)
+        {
+            playerCurrency[i].SetCurrency(globalReferanceManager.playerStartCurrency);
+        }
+        campCurrency.SetCurrency(globalReferanceManager.campStartCurrency);
+    }
+
+
+    internal void SetCurrency(float currency, int playerIndex)
+    {
+        if (globalReferanceManager.currency == Currency.None)
             return;
 
-        if (globalReferanceManager.splitCurrency)
+        if (globalReferanceManager.currency == Currency.SeperateBanks)
         {
-            switch (playerIndex)
+            playerCurrency[playerIndex - 1].SetCurrency(currency);
+            return;
+        } 
+
+        if (globalReferanceManager.currency == Currency.SplitEvenly)
+        {
+            for (int i = 0; i < multiplayerScreenManager.playerData.Count; i++)
             {
-                case 1:
-                    player1Currency.AddCurrency(currency);
-                    break;
-                case 2:
-                    player2Currency.AddCurrency(currency);
-                    break;
-                case 3:
-                    player3Currency.AddCurrency(currency);
-                    break;
-                case 4:
-                    player4Currency.AddCurrency(currency);
-                    break;
+                if (multiplayerScreenManager.playerData[i].playerObj == null) return;
+                
+                if (multiplayerScreenManager.playerData[i].isActive)
+                {
+                    playerCurrency[i].SetCurrency(currency);
+                }
             }
+            return;
         }
-        else
+
+        if (globalReferanceManager.currency == Currency.SharedBank)
+        {
+            campCurrency.SetCurrency(currency);
+            return;
+        } 
+        
+        Debug.LogError("Invalid currency type");
+        
+    }
+
+    internal void AddCurrency(float currency, int playerIndex)
+    {
+        if (globalReferanceManager.currency == Currency.None)
+            return;
+
+        if (globalReferanceManager.currency == Currency.SeperateBanks)
+        {
+            playerCurrency[playerIndex - 1].AddCurrency(currency);
+            return;
+        } 
+
+        if (globalReferanceManager.currency == Currency.SplitEvenly)
+        {
+            for (int i = 0; i < multiplayerScreenManager.playerData.Count; i++)
+            {
+                if (multiplayerScreenManager.playerData[i].playerObj == null) return;
+                
+                if (multiplayerScreenManager.playerData[i].isActive)
+                {
+                    playerCurrency[i].AddCurrency(currency / multiplayerScreenManager.playerAmount);
+                }
+            }
+            return;
+        }
+
+        if (globalReferanceManager.currency == Currency.SharedBank)
         {
             campCurrency.AddCurrency(currency);
-        }
+            return;
+        } 
+        
+        Debug.LogError("Invalid currency type");
+        
     }
 
-    internal void RemoveCurrency(int currency, int playerIndex)
+    internal void RemoveCurrency(float currency, int playerIndex)
     {
-        if (!globalReferanceManager.currencyEnabled)
+        if (globalReferanceManager.currency == Currency.None)
             return;
 
-        if (globalReferanceManager.splitCurrency)
+        if (globalReferanceManager.currency == Currency.SeperateBanks)
         {
-            switch (playerIndex)
+            playerCurrency[playerIndex - 1].RemoveCurrency(currency);
+            return;
+        } 
+
+        if (globalReferanceManager.currency == Currency.SplitEvenly)
+        {
+            for (int i = 0; i < multiplayerScreenManager.playerData.Count; i++)
             {
-                case 1:
-                    player1Currency.RemoveCurrency(currency);
-                    break;
-                case 2:
-                    player2Currency.RemoveCurrency(currency);
-                    break;
-                case 3:
-                    player3Currency.RemoveCurrency(currency);
-                    break;
-                case 4:
-                    player4Currency.RemoveCurrency(currency);
-                    break;
+                if (multiplayerScreenManager.playerData[i].playerObj == null) return;
+                
+                if (multiplayerScreenManager.playerData[i].isActive)
+                {
+                    playerCurrency[i].RemoveCurrency(currency / multiplayerScreenManager.playerAmount);
+                }
             }
+            return;
         }
-        else
+
+        if (globalReferanceManager.currency == Currency.SharedBank)
         {
             campCurrency.RemoveCurrency(currency);
-        }
+            return;
+        } 
+        
+        Debug.LogError("Invalid currency type");
+        
     }
 
-    internal bool PlayerHasSufficientCurrency(int playerIndex, int cost)
+    internal bool PlayerHasSufficientCurrency(int playerIndex, float cost)
     {
-        if (!globalReferanceManager.currencyEnabled)
+        if (globalReferanceManager.currency == Currency.None)
             return true;
 
-        if (globalReferanceManager.splitCurrency)
+        if (globalReferanceManager.currency == Currency.SeperateBanks || 
+            globalReferanceManager.currency == Currency.SplitEvenly)
         {
-            switch (playerIndex)
-            {
-                case 1:
-                    return player1Currency.GetCurrencyAmount() >= cost;
-                case 2:
-                    return player2Currency.GetCurrencyAmount() >= cost;
-                case 3:
-                    return player3Currency.GetCurrencyAmount() >= cost;
-                case 4:
-                    return player4Currency.GetCurrencyAmount() >= cost;
-            }
+            return playerCurrency[playerIndex - 1].GetCurrencyAmount() >= cost;
         }
-        else
+
+        if (globalReferanceManager.currency == Currency.SharedBank)
         {
             return campCurrency.GetCurrencyAmount() >= cost;
         }
+        Debug.LogError("Invalid currency type");
         return false;
     }
 }
+
