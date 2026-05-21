@@ -10,11 +10,12 @@ TagManager:
   - Healing
   - Damage Dealer
   - Enemy Hazard
+  - Barricade
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walkable
   - Water
   - UI
   - Player
@@ -27,7 +28,7 @@ TagManager:
   - Bad Bullets
   - Enemys
   - Minimap
-  - 
+  - Level
   - 
   - 
   - 
