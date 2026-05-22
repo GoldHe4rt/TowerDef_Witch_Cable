@@ -6,24 +6,31 @@ using System;
 public class CampHealth : MonoBehaviour
 {
     [Header("Referances")]
+    [SerializeField] private ScreenUI screenUI;
     [SerializeField] private TextMeshProUGUI healthDisplay;
     [SerializeField] private GameObject canTakeDamageDisplay, canHealDisplay;
     
 
     [Header("Health")]
+    [SerializeField] private bool isMainCamp = false;
     [SerializeField] private int maxHealth = 5;
     [SerializeField] private int currentHealthPoints = 5;
     [SerializeField] private bool HealingIFramesEnabled = false;
     [SerializeField] private bool DamageIFramesEnabled = false;
     
-    [HideInInspector] public bool destroyed = false;
+    internal bool destroyed = false;
     public bool canTakeDamage = true;
     public bool canHeal = true;
 
 
     void Start()
     {
+        if (isMainCamp)
+        {
+            screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+        }
         healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
+        
         canTakeDamageDisplay.SetActive(false);
         canHealDisplay.SetActive(false);
     }
@@ -56,7 +63,13 @@ public class CampHealth : MonoBehaviour
         currentHealthPoints = currentHealthPoints + healAmount;
         if (currentHealthPoints > maxHealth)
             currentHealthPoints = maxHealth;
+        
+        if (isMainCamp)
+        {
+            screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+        }
         healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
+        
         Debug.Log("Camp healed " + healAmount + " Health!");
 
         
@@ -77,7 +90,12 @@ public class CampHealth : MonoBehaviour
         
         currentHealthPoints = currentHealthPoints - damageAmount;
        
+        if (isMainCamp)
+        {
+            screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+        }
         healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
+        
         Debug.Log("Camp took " + damageAmount + " Damage!");
 
         if (DamageIFramesEnabled == true)

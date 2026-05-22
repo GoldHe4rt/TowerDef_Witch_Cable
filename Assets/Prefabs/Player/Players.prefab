@@ -1131,7 +1131,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -60, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7753014032123054126}
@@ -42622,7 +42622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5726631814505961949
@@ -42653,7 +42653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<3:'
+  m_text: 'HP:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -43085,7 +43085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4369568601441177812
@@ -68339,8 +68339,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75, y: 0}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 45, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8270405557840654392
 CanvasRenderer:
@@ -68370,7 +68370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: 100/100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -94011,7 +94011,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 29815
+      value: 95359
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -94457,7 +94457,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 28919
+      value: 94463
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -94918,7 +94918,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 29303
+      value: 94847
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
@@ -95394,7 +95394,7 @@ PrefabInstance:
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 29047
+      value: 94591
       objectReference: {fileID: 0}
     - target: {fileID: 4600735429475233355, guid: 5880e25a347333c4b8ef0bc4e5026320,
         type: 3}
