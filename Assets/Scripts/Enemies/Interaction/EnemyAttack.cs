@@ -4,7 +4,7 @@ using System.Collections;
 
 public class EnemyAttack : MonoBehaviour
 {
-        [Header("Enemy Settings")]
+    [Header("Enemy Settings")]
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private GameObject hitboxPrefab;
     [SerializeField] private GameObject attackRangeObject;
@@ -71,13 +71,9 @@ public class EnemyAttack : MonoBehaviour
         rb.linearVelocity = spread * hitboxSpeed;
 
         //Destroy after set time
-        StartCoroutine(DestroyHitboxAfterTime(currentAttack, hitboxLifetime));
+        Hazard hazard = currentAttack.GetComponent<Hazard>();
+        hazard.StartCoroutine(hazard.DestroyHitboxAfterTime(hitboxLifetime));
         attackSpeedTimer = attackSpeed; // Reset the attack cooldown
     }
 
-    private IEnumerator DestroyHitboxAfterTime(GameObject currentAttack, float lifetime)
-    {
-        yield return new WaitForSeconds(lifetime);
-        Destroy(currentAttack);
-    }
 }

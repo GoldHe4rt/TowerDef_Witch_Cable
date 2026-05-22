@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Hazard : MonoBehaviour
 {
@@ -12,6 +13,22 @@ public class Hazard : MonoBehaviour
     public float knockbackDuration = 0.2f;
     public float stunDuration = 0.2f;
 
+
     [Header("Other")]
-    public bool destroyOnTrigger = true;
+    public int pierceAmount = 1;
+
+    public void HitTarget()
+    {
+        pierceAmount--;
+        if (pierceAmount <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public IEnumerator DestroyHitboxAfterTime(float lifetime)
+    {
+        yield return new WaitForSeconds(lifetime);
+        Destroy(gameObject);
+    }
 }

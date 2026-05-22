@@ -32,8 +32,7 @@ public class PlayerCollisionManager : MonoBehaviour
                 Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
                 playerMovement.ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
             }
-            if (hazard.destroyOnTrigger == true)
-                Destroy(collision.gameObject);
+            hazard.HitTarget();
         }
         
         //Heal Player when hit Healing Object
