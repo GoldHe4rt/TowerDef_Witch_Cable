@@ -45,7 +45,7 @@ public class ControllerManager : MonoBehaviour
             if (gamepadToPlayer.ContainsKey(gamepad) &&
                 gamepad.selectButton.wasPressedThisFrame)
             {
-                Leave(gamepad);
+                //Leave(gamepad);
             }
         }
     }
