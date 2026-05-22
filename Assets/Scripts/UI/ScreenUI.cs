@@ -15,6 +15,9 @@ public class ScreenUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthDisplay;
     [SerializeField] public GameObject damageDisplay;
 
+    [Header("Defeat Screen")]
+    [SerializeField] private GameObject defeatScreen;
+
     void Start()
     {
         damageDisplay.SetActive(false);
@@ -30,5 +33,11 @@ public class ScreenUI : MonoBehaviour
     internal void UpdateCurrencyDisplay(float currencyAmount)
     {
         currencyDisplay.text = currencyAmount.ToString("0");
+    }
+
+    internal void DefeatScreen()
+    {
+        defeatScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

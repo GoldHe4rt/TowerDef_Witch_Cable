@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System;
+using Unity.VisualScripting;
 
 public class CampHealth : MonoBehaviour
 {
@@ -128,6 +129,10 @@ public class CampHealth : MonoBehaviour
 
     private void DestroyCamp()
     {
+        if (isMainCamp)
+        {
+            screenUI.DefeatScreen();
+        }
         Debug.Log("Your camp has been destroyed!");
         throw new NotImplementedException();
     }
