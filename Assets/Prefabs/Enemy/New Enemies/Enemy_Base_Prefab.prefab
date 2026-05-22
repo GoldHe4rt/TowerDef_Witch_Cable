@@ -387,7 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8056364465310722761}
   - component: {fileID: 5020655130315294225}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,8 +450,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 898635481
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
@@ -595,7 +595,8 @@ GameObject:
   - component: {fileID: 7234344164485187379}
   - component: {fileID: 2372070145302935789}
   - component: {fileID: 1609697661151736234}
-  m_Layer: 14
+  - component: {fileID: 6445173774389249329}
+  m_Layer: 11
   m_Name: Attack range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,6 +669,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAttack: {fileID: 1983155555985423677}
   attackRange: 7.5
+--- !u!50 &6445173774389249329
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213743868711875269}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8671750698325849840
 GameObject:
   m_ObjectHideFlags: 0

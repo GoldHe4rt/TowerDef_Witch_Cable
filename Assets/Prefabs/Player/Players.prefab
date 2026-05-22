@@ -1240,6 +1240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 0}
   controlsMenuManager: {fileID: 0}
+  campHealth: {fileID: 0}
   buildingEnabled: 1
   currency: 2
   campStartCurrency: 2500
@@ -42937,7 +42938,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32769
+    m_Bits: 98305
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
