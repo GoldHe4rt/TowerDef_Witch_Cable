@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: Player_Disconnect
   audioChannel: 2
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 234f551bc2cfff8499520fa5a660c2a8, type: 3}
+  - {fileID: 8300000, guid: 5e0d3d38bd3277a4b8494677d017cfeb, type: 3}
+  - {fileID: 8300000, guid: 043cfc3c3e5e27a4fae1c41ee9aeef4c, type: 3}
+  - {fileID: 8300000, guid: cd3e8b7b8fa727b4c9f46f44168353b1, type: 3}
+  - {fileID: 8300000, guid: f5c70a79154581d4991c1c284973139a, type: 3}
+  - {fileID: 8300000, guid: 1d439295d6bc7dd4e8aae74a9882e4f2, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0

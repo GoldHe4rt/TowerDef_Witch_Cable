@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: Player_Heal
   audioChannel: 2
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: a625000a2228c164a986fb1300685436, type: 3}
+  - {fileID: 8300000, guid: 08a8477d469e9df4888469aa21a5ea39, type: 3}
+  - {fileID: 8300000, guid: f52b95cab941aa24b9dec80bf2f67644, type: 3}
+  - {fileID: 8300000, guid: d80567104ba794d47b948aae4c67bfe2, type: 3}
+  - {fileID: 8300000, guid: b83f2655f909b3d45b90bd4aebc2f503, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0

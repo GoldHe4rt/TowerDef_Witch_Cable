@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: Enemy_Attack
   audioChannel: 2
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 9d853496b13c3ae4fa7cda17aed04f73, type: 3}
+  - {fileID: 8300000, guid: 6b8aae79181633a41b45095ea50c8d55, type: 3}
+  - {fileID: 8300000, guid: 5189ce4feb17da54681ca2d1c91360e3, type: 3}
+  - {fileID: 8300000, guid: cd09bbc9a63f9ad419fab28b996715cf, type: 3}
+  - {fileID: 8300000, guid: b4c2bd0e3a73e58468d7b6426ed40d9d, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0

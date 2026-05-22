@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: Tower_Place
   audioChannel: 2
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 335778fc766fa84488e59dcd999e9bc1, type: 3}
+  - {fileID: 8300000, guid: d805452602ea92b408ae2d567298b17a, type: 3}
+  - {fileID: 8300000, guid: f739c60545fddb340831bcc6024f0049, type: 3}
+  - {fileID: 8300000, guid: 1afddc9d7cc0a0b44aa723c3882bbd88, type: 3}
+  - {fileID: 8300000, guid: 22b2dacb0d1e17e428f5c91cfe85eaaf, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0

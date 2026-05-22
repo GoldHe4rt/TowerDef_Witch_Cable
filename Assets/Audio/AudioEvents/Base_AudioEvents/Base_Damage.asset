@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: Base_Damage
   audioChannel: 2
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 71b2eeaef43bee74eb18ff0e16de782e, type: 3}
+  - {fileID: 8300000, guid: 1391e9461dddefb478ca42dc0aafceec, type: 3}
+  - {fileID: 8300000, guid: 902d17522643f1c438b5d5e2d4e5c35a, type: 3}
+  - {fileID: 8300000, guid: 65a91ee60fc194d43a2a3a56b61a9ddc, type: 3}
+  - {fileID: 8300000, guid: d25b4890c58b80940848632c7159691f, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0
