@@ -29,7 +29,8 @@ public class CampHealth : MonoBehaviour
     {
         if (isMainCamp)
         {
-            screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+            if (screenUI != null)
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
         }
         healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
         
@@ -68,7 +69,8 @@ public class CampHealth : MonoBehaviour
         
         if (isMainCamp)
         {
-            screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+            if (screenUI != null)
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
         }
         healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
         
@@ -94,7 +96,8 @@ public class CampHealth : MonoBehaviour
        
         if (isMainCamp)
         {
-            screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+            if (screenUI != null)
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
         }
         healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
         
@@ -132,7 +135,8 @@ public class CampHealth : MonoBehaviour
     {
         if (isMainCamp)
         {
-            screenUI.DefeatScreen();
+            if (screenUI != null)
+                screenUI.DefeatScreen();
         }
         Debug.Log("Your camp has been destroyed!");
         throw new NotImplementedException();

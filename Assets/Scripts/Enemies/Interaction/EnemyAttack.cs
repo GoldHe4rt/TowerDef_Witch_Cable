@@ -5,6 +5,7 @@ using System.Collections;
 public class EnemyAttack : MonoBehaviour
 {
     [Header("Enemy Settings")]
+    [SerializeField] public bool canAttack = true;
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private GameObject hitboxPrefab;
     [SerializeField] private GameObject attackRangeObject;
@@ -27,6 +28,8 @@ public class EnemyAttack : MonoBehaviour
     
     void Update()
     {
+        if (!canAttack)
+            return;
         if (attackSpeedTimer > 0)
             attackSpeedTimer -= Time.deltaTime;
 

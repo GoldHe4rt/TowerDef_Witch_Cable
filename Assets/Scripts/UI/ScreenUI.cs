@@ -20,7 +20,8 @@ public class ScreenUI : MonoBehaviour
 
     void Awake()
     {
-        globalReferenceManager.campHealth.screenUI = this;
+        if (globalReferenceManager.campHealth != null)
+             globalReferenceManager.campHealth.screenUI = this;
     }
 
     void Start()
