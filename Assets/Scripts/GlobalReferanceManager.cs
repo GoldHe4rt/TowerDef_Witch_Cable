@@ -6,9 +6,10 @@ public class GlobalReferanceManager : MonoBehaviour
     //No values in this script should be changed outside of the inspector, this is just a middle ground
 
     //One Script to add referances between scripts without having to go all over
-    [Header("Global References")]
+    [Header("Outside References")]
     public PauseManager pauseManager;
     public ControlsMenuManager controlsMenuManager;
+    public CampHealth campHealth;
 
 
     //Values to change on a Global space

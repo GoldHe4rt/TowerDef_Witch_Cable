@@ -18,11 +18,17 @@ public class ScreenUI : MonoBehaviour
     [Header("Defeat Screen")]
     [SerializeField] private GameObject defeatScreen;
 
+    void Awake()
+    {
+        globalReferenceManager.campHealth.screenUI = this;
+    }
+
     void Start()
     {
         damageDisplay.SetActive(false);
         if (globalReferenceManager.currency != Currency.SharedBank)
             currencyDisplayObject.SetActive(false);
+        
     }
 
     public void UpdateHealthDisplay(int maxHealth, int healthPoints)

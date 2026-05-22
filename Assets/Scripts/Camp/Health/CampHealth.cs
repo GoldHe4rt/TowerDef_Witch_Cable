@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 public class CampHealth : MonoBehaviour
 {
     [Header("Referances")]
-    [SerializeField] private ScreenUI screenUI;
+    
     [SerializeField] private TextMeshProUGUI healthDisplay;
     [SerializeField] private GameObject canTakeDamageDisplay, canHealDisplay;
     
@@ -19,6 +19,7 @@ public class CampHealth : MonoBehaviour
     [SerializeField] private bool HealingIFramesEnabled = false;
     [SerializeField] private bool DamageIFramesEnabled = false;
     
+    internal ScreenUI screenUI;
     internal bool destroyed = false;
     public bool canTakeDamage = true;
     public bool canHeal = true;

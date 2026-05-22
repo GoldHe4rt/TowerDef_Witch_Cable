@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 8916526288399621392}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2018,7 +2018,7 @@ GameObject:
   - component: {fileID: 7002573767475676094}
   m_Layer: 6
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
