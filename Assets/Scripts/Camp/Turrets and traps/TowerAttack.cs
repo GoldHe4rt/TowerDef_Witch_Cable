@@ -10,7 +10,7 @@ public enum TowerType
 
 public class TowerAttack : MonoBehaviour
 {
-    [Header("Turret")]
+    [Header("Tower Settings")]
     [SerializeField] public TowerType towerType = TowerType.Turret;
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private GameObject hitboxPrefab;

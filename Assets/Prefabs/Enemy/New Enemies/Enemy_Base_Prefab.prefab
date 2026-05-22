@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 2897402382982837266}
   - component: {fileID: 1983155555985423677}
   - component: {fileID: 6765335692943290478}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Enemy_Base_Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -325,9 +325,8 @@ MonoBehaviour:
   healthDisplay: {fileID: 4449110839341595158}
   canTakeDamageDisplay: {fileID: 8957306761276025106}
   healthPoints: 10
+  currencyOnDeath: 10
   iFramesEnabled: 0
-  death: 0
-  invinsible: 0
 --- !u!114 &1983155555985423677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,12 +340,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 6665298948864286073}
-  campDamage: 1
   hitboxPrefab: {fileID: 1633932423762308225, guid: 31f7083c791e87246998f165120d986d,
     type: 3}
+  attackRangeObject: {fileID: 0}
   hitboxSpeed: 5
   hitboxLifetime: 2
   attackSpeed: 1
+  rotationSpeed: 500
+  spreadAngle: 10
+  campDamage: 1
 --- !u!50 &6765335692943290478
 Rigidbody2D:
   serializedVersion: 5

@@ -133,8 +133,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(0,0);
-            playerCountObj.transform.localScale = new Vector2(5,5);
+            playerCountObj.transform.localPosition = new Vector2(-625,450);
+            playerCountObj.transform.localScale = new Vector2(2,2);
             playerCountText.text = playerCountString[0];
         }
         //Debug.Log("0 Players active");
@@ -165,8 +165,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(660, 440);
-            playerCountObj.transform.localScale = new Vector2(3, 3);
+            playerCountObj.transform.localPosition = new Vector2(800, 140);
+            playerCountObj.transform.localScale = new Vector2(1.25f, 1.25f);
             playerCountText.text = playerCountString[1];
         }
         //Debug.Log("1 Player active");
@@ -217,8 +217,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(0, 450);
-            playerCountObj.transform.localScale = new Vector2(3, 3);
+            playerCountObj.transform.localPosition = new Vector2(0, 480);
+            playerCountObj.transform.localScale = new Vector2(1.25f, 1.25f);
             playerCountText.text = playerCountString[2];
         }
         //Debug.Log("2 Players active");
@@ -271,8 +271,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(-725, -60);
-            playerCountObj.transform.localScale = new Vector2(2, 2);
+            playerCountObj.transform.localPosition = new Vector2(-700, -60);
+            playerCountObj.transform.localScale = new Vector2(1.5f, 1.5f);
             playerCountText.text = playerCountString[3];
         }
         //Debug.Log("3 Players active");
@@ -342,8 +342,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(-150f, 500f);
-            playerCountObj.transform.localScale = new Vector2(1.5f, 1.5f);
+            playerCountObj.transform.localPosition = new Vector2(175f, 500f);
+            playerCountObj.transform.localScale = new Vector2(1, 1);
             playerCountText.text = playerCountString[4];
         }
         //Debug.Log("4 Players active");
