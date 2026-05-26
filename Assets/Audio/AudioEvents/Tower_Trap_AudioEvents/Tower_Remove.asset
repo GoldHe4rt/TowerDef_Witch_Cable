@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: Tower_Remove
   audioChannel: 2
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 39a21057af44bae419f34966a152ad70, type: 3}
+  - {fileID: 8300000, guid: f28c4e8aabcd013449b5e50d90578a95, type: 3}
+  - {fileID: 8300000, guid: 5ad35b4f5fc317f4db871c68526aed1e, type: 3}
+  - {fileID: 8300000, guid: 3d63635d9bf71f947b7df5e1d7bc2200, type: 3}
+  - {fileID: 8300000, guid: e75c0836104a2744782aeab4fc7ff2e6, type: 3}
+  - {fileID: 8300000, guid: 435b0b02041211345974cdf2595b65ec, type: 3}
+  - {fileID: 8300000, guid: 28bde688c2857514d8f64fe1393e3523, type: 3}
+  - {fileID: 8300000, guid: 8064cca980b476b4a8ac695fcd914a42, type: 3}
+  - {fileID: 8300000, guid: e9fbfe72f21bed14d9c9512d29aa71cc, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0

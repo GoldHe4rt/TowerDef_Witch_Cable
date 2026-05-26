@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: Player_Attack
   audioChannel: 2
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 7108d2efbdc7a024d99128cc7d55b858, type: 3}
+  - {fileID: 8300000, guid: 2ba2142e82c93ef44b2fc9d6702c88cb, type: 3}
+  - {fileID: 8300000, guid: 2b68bcf4f568bf44184200e99a556a89, type: 3}
+  - {fileID: 8300000, guid: 262015f62ff00ac43af3e857871dca77, type: 3}
+  - {fileID: 8300000, guid: 89320c8d18a01a14b8c89721b6a3a853, type: 3}
+  - {fileID: 8300000, guid: 88dd98a1d9a544044b5fccd44db2b5fc, type: 3}
+  - {fileID: 8300000, guid: 44413a64ec522a243a463fd6208d2bdc, type: 3}
+  - {fileID: 8300000, guid: 219cdda7f7fd5a542b0ec0385c149eec, type: 3}
+  - {fileID: 8300000, guid: d2d52d6280f3e424a9e7ea69f55428a3, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0
