@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
         cloneObject.GetComponent<PathFinding>().SetNewWaypoint(waypoint);
 
-        float rangedDifficultyModifier = UnityEngine.Random.Range(difficultyModifier * 0.5f, difficultyModifier * 1.15f); // Add some random variation to the difficulty modifier for each enemy
+        float rangedDifficultyModifier = UnityEngine.Random.Range(difficultyModifier * 0.1f, difficultyModifier * 1.15f); // Add some random variation to the difficulty modifier for each enemy
         float clampedRangedDifficultyModifier = Mathf.Clamp(rangedDifficultyModifier, 1, 100); // Ensure the difficulty modifier is within range
         float clampedRangedDifficultyModifier01 = clampedRangedDifficultyModifier / 100f; // Convert to a 0-1 range for easier scaling
 
