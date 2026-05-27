@@ -28,14 +28,13 @@ namespace AudioScripts
             AudioSystem.Play(musicProfile.musicEventIds[index]);
         }
 
+        #region Play Specific Music
         public void PlayWinJingle()
-        {
-            if (!string.IsNullOrEmpty(musicProfile.winEventId)) AudioSystem.Play(musicProfile.winEventId);
-        }
-
+        { if (!string.IsNullOrEmpty(musicProfile.winEventId)) AudioSystem.Play(musicProfile.winEventId); }
+        
         public void PlayLoseJingle()
-        {
-            if (!string.IsNullOrEmpty(musicProfile.loseEventId)) AudioSystem.Play(musicProfile.loseEventId);
-        }
+        { if (!string.IsNullOrEmpty(musicProfile.loseEventId)) AudioSystem.Play(musicProfile.loseEventId); }
+        #endregion
+        
     }
 }
