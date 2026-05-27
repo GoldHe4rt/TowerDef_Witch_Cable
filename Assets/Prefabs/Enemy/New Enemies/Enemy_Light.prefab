@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: healthPoints
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -103,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: speed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8957306761276025106, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
