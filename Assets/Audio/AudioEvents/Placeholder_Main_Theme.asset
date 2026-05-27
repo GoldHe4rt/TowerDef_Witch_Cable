@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a205255cad14eb4c9425ab9e232504b, type: 3}
-  m_Name: MusicProfile
+  m_Script: {fileID: 11500000, guid: 48de57b4f5ab79840b7dbd2aeec68e47, type: 3}
+  m_Name: Placeholder_Main_Theme
   m_EditorClassIdentifier: 
-  musicEventIds:
-  - Placeholder_Main_Theme
-  winEventId: 
-  loseEventId: 
-  shuffle: 1
+  eventId: 
+  audioChannel: 2
+  clips: []
+  baseVolume: 1
+  volumeOffsetDecibels: 0
+  randomizePitch: 0
+  minPitch: 0.9
+  maxPitch: 1.1
