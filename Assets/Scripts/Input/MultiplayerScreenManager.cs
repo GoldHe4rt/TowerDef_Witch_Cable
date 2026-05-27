@@ -7,12 +7,13 @@ using System.Collections.Generic;
 [Serializable] public class PlayerData
 {
     [SerializeField] public int ID;
+    [SerializeField] public GameObject playerDisconnectedObj;
     [SerializeField] public GameObject playerObj;
     [SerializeField] public GameObject playerChar;
     [SerializeField] public GameObject playerSpawn;
     [SerializeField] public Camera playerCam;
     [SerializeField] public bool isActive = false;
-    public int currentPlayerOrder;
+    internal int currentPlayerOrder;
 }
 
 [Serializable] public class UIFliper
@@ -41,6 +42,15 @@ public class MultiplayerScreenManager : MonoBehaviour
 
     void Start()
     {
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            playerData[i].currentPlayerOrder = -1;
+            playerData[i].playerObj.SetActive(false);
+            if (playerData[i].playerDisconnectedObj != null)
+                playerData[i].playerDisconnectedObj.SetActive(true);
+            if (playerData[i].playerChar != null && playerData[i].playerSpawn != null)
+                playerData[i].playerChar.transform.position = playerData[i].playerSpawn.transform.position;
+        }
         playerAmount = controllerManager.activePlayerAmount;
         if (playerCountText != null)
             playerCountText.text = playerCountString[playerAmount];
@@ -86,6 +96,9 @@ public class MultiplayerScreenManager : MonoBehaviour
             {
                 //Activate Player Object
                 playerData[i].playerObj.SetActive(true);
+                if (playerData[i].playerDisconnectedObj != null)
+                    playerData[i].playerDisconnectedObj.SetActive(false);
+                
                 playerData[i].currentPlayerOrder = playerOrder;
                 playerOrder++;
 
@@ -96,6 +109,7 @@ public class MultiplayerScreenManager : MonoBehaviour
                         if (flipUI[f].flipObj != null)
                             for (int o = 0; o < flipUI[f].flipObj.Count; o++)
                             {
+                                if (flipUI[f].flipObj[o] != null)
                                 if (flipUI[f].flipObj[o].localScale.x < 0)
                                 {
                                     Vector2 flipObject = flipUI[f].flipObj[o].localScale;
@@ -109,7 +123,10 @@ public class MultiplayerScreenManager : MonoBehaviour
                 //Deactivate Player Object
                 playerData[i].currentPlayerOrder = -1;
                 playerData[i].playerObj.SetActive(false);
-                playerData[i].playerChar.transform.position = playerData[i].playerSpawn.transform.position;
+                if (playerData[i].playerDisconnectedObj != null)
+                    playerData[i].playerDisconnectedObj.SetActive(true);
+                if (playerData[i].playerChar != null && playerData[i].playerSpawn != null)
+                    playerData[i].playerChar.transform.position = playerData[i].playerSpawn.transform.position;
             }
         }
     }
@@ -124,9 +141,11 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Player Visibility
         for (int i = 0; i < playerData.Count; i++)
         {
-            if (playerData[i].playerObj == null) return;
+            if (playerData[i].playerObj == null || playerData[i].playerCam == null) return;
             playerData[i].isActive = false;
             playerData[i].playerObj.SetActive(false);
+            if (playerData[i].playerDisconnectedObj != null)
+                playerData[i].playerDisconnectedObj.SetActive(true);
             playerData[i].playerChar.transform.position = playerData[i].playerSpawn.transform.position;
         }
         
@@ -145,9 +164,11 @@ public class MultiplayerScreenManager : MonoBehaviour
         for (int i = 0; i < playerData.Count; i++)
         {
             
-            if (playerData[i].playerObj == null) return;
+            if (playerData[i].playerObj == null || playerData[i].playerCam == null) return;
+            
             if (playerData[i].isActive)
             {
+                
                 //Change Camera
                 if (playerData[i].currentPlayerOrder == 0)
                     playerData[i].playerCam.rect = new Rect(0.0f, 0.0f, 1.0f, 1.0f);
@@ -177,7 +198,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         for (int i = 0; i < playerData.Count; i++)
         {
             
-            if (playerData[i].playerObj == null) return;
+            if (playerData[i].playerObj == null || playerData[i].playerCam == null) return;
             if (playerData[i].isActive)
             {
                 //Change Camera
@@ -229,7 +250,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         for (int i = 0; i < playerData.Count; i++)
         {
             
-            if (playerData[i].playerObj == null) return;
+            if (playerData[i].playerObj == null || playerData[i].playerCam == null) return;
             if (playerData[i].isActive)
             {
                 //Change Camera
@@ -282,7 +303,7 @@ public class MultiplayerScreenManager : MonoBehaviour
     {
         for (int i = 0; i < playerData.Count; i++)
         {
-            if (playerData[i].playerObj == null) return;
+            if (playerData[i].playerObj == null || playerData[i].playerCam == null) return;
             if (playerData[i].isActive)
             {
                 //Change Camera

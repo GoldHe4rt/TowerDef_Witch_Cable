@@ -7,13 +7,17 @@ public class PlayerUI : MonoBehaviour
     [Header("References")]
     [SerializeField] private GlobalReferanceManager globalReferenceManager;
 
+    [Header("Health")]
+    [SerializeField] private TextMeshProUGUI healthDisplay;
+    [SerializeField] public GameObject canTakeDamageDisplay, canHealDisplay;
+
     [Header("Currency")]
     [SerializeField] private GameObject currencyDisplayObject;
     [SerializeField] private TextMeshProUGUI currencyDisplay;
 
-    [Header("Health")]
-    [SerializeField] private TextMeshProUGUI healthDisplay;
-    [SerializeField] public GameObject canTakeDamageDisplay, canHealDisplay;
+    [Header("Building")]
+    [SerializeField] private GameObject buildingPriceDisplayObject;
+    [SerializeField] private TextMeshProUGUI buildingPriceDisplay, buildingNameDisplay;
 
     [Header("Death")]
     [SerializeField] internal GameObject gameplayScreen;
@@ -42,5 +46,21 @@ public class PlayerUI : MonoBehaviour
     internal void UpdateRespawnDisplay(float respawnTime)
     {
         respawnText.text = respawnTime.ToString("0");
+    }
+
+    internal void UpdateBuildingCostDisplay(float cost)
+    {
+        if (cost == -1)
+        {
+            buildingPriceDisplayObject.SetActive(false);
+            return;
+        }
+        buildingPriceDisplayObject.SetActive(true);
+        buildingPriceDisplay.text = cost.ToString("0") + "$";
+    }
+
+    internal void UpdateBuildingNameDisplay(string structureName)
+    {
+        buildingNameDisplay.text = structureName;
     }
 }

@@ -18,7 +18,6 @@ public class GlobalReferanceManager : MonoBehaviour
     public Currency currency = Currency.SeperateBanks;
     public float campStartCurrency = 2500f;
     public float playerStartCurrency = 1000f;
-
 }
 
 public enum Currency

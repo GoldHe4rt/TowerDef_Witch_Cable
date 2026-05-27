@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Referances")]

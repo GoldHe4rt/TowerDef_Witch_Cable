@@ -135,8 +135,10 @@ public class CampHealth : MonoBehaviour
     {
         if (isMainCamp)
         {
-            if (screenUI != null)
-                screenUI.DefeatScreen();
+            screenUI.DefeatScreen();
+        } else
+        {
+            Destroy(gameObject);
         }
         Debug.Log("Your camp has been destroyed!");
         throw new NotImplementedException();

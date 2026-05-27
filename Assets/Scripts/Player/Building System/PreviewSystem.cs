@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PreviewSystem : MonoBehaviour
 {
+    [SerializeField] PlayerUI playerUI;
     [SerializeField] 
     private float previewOffset = 0.06f;
 
@@ -23,8 +24,11 @@ public class PreviewSystem : MonoBehaviour
         cellIndicatorRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
 
-    public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size)
+    public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size, String structureName, float cost)
     {
+        playerUI.UpdateBuildingCostDisplay(cost);
+        playerUI.UpdateBuildingNameDisplay(structureName);
+
         dismantleIndicator.SetActive(false);
         previewObject = Instantiate(prefab);
         displayObject = Instantiate(prefab, displayLocation.transform);
@@ -37,6 +41,9 @@ public class PreviewSystem : MonoBehaviour
 
     internal void StartShowingRemovePreview()
     {
+        playerUI.UpdateBuildingCostDisplay(-1);
+        playerUI.UpdateBuildingNameDisplay("Dismantle");
+
         cellIndicator.SetActive(true);
         PrepareCursor(Vector2Int.one);
         ApplyFeedbackToCursor(false);

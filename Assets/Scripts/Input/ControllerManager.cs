@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class ControllerManager : MonoBehaviour
 {
@@ -14,17 +15,74 @@ public class ControllerManager : MonoBehaviour
 
     private Dictionary<Gamepad, int> gamepadToPlayer = new Dictionary<Gamepad, int>();
     private HashSet<int> takenSlots = new HashSet<int>();
-    /*/
-        private void Awake()
+    
+    // Static dictionary to persist controller assignments across scenes
+    private static Dictionary<int, int> savedGamepadAssignments = new Dictionary<int, int>();
+    
+    
+    private void Awake()
+    {
+        // Restore saved controller assignments from previous scenes
+        RestoreSavedControllers();
+        
+        // Subscribe to scene changes to restore controllers
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Restore controller assignments in the new scene
+        RestoreSavedControllers();
+    }
+    
+    private void RestoreSavedControllers()
+    {
+        gamepadToPlayer.Clear();
+        takenSlots.Clear();
+        activePlayerAmount = 0;
+        
+        // Reassign saved gamepads to their player slots
+        foreach (var gamepad in Gamepad.all)
         {
-            DontDestroyOnLoad(gameObject);
-            foreach (var player in players)
+            int deviceId = gamepad.deviceId;
+            if (savedGamepadAssignments.ContainsKey(deviceId))
             {
-                if (player != null)
-                    DontDestroyOnLoad(player.gameObject);
+                int playerIndex = savedGamepadAssignments[deviceId];
+                if (playerIndex < players.Length && players[playerIndex] != null)
+                {
+                    AssignGamepadToPlayer(gamepad, playerIndex);
+                }
             }
         }
-    /*/
+    }
+    
+    private void AssignGamepadToPlayer(Gamepad gamepad, int playerIndex)
+    {
+        var player = players[playerIndex];
+        
+        player.enabled = true;
+        activePlayerAmount++;
+        multiplayerScreenManager.playerData[playerIndex].isActive = true;
+        if (multiplayerScreenManager != null)
+            multiplayerScreenManager.UpdatePlayerAmount();
+        
+        player.SwitchCurrentControlScheme(gamepad);
+        
+        gamepadToPlayer.Add(gamepad, playerIndex);
+        takenSlots.Add(playerIndex);
+        
+        // Save the assignment for future scenes
+        savedGamepadAssignments[gamepad.deviceId] = playerIndex;
+        
+        Debug.Log($"Player {playerIndex + 1} joined. Active players: {activePlayerAmount}");
+    }
+    
+    
     private void Update()
     {
         JoinGamepad();
@@ -43,9 +101,9 @@ public class ControllerManager : MonoBehaviour
 
             // LEAVE (B button)
             if (gamepadToPlayer.ContainsKey(gamepad) &&
-                gamepad.selectButton.wasPressedThisFrame)
+                gamepad.bButton.wasPressedThisFrame)
             {
-                //Leave(gamepad);
+                Leave(gamepad);
             }
         }
     }
@@ -56,20 +114,7 @@ public class ControllerManager : MonoBehaviour
         int freeIndex = GetFreePlayerIndex();
         if (freeIndex == -1) return;
 
-        var player = players[freeIndex];
-
-        player.enabled = true;
-        activePlayerAmount++;
-        multiplayerScreenManager.playerData[freeIndex].isActive = true;
-        if (multiplayerScreenManager != null)
-            multiplayerScreenManager.UpdatePlayerAmount();
-
-        player.SwitchCurrentControlScheme(gamepad);
-
-        gamepadToPlayer.Add(gamepad, freeIndex);
-        takenSlots.Add(freeIndex);
-
-        Debug.Log($"Player {freeIndex + 1} joined. Active players: {activePlayerAmount}");
+        AssignGamepadToPlayer(gamepad, freeIndex);
     }
 
     void Leave(Gamepad gamepad)
@@ -86,7 +131,9 @@ public class ControllerManager : MonoBehaviour
 
         gamepadToPlayer.Remove(gamepad);
         takenSlots.Remove(index);
-
+        
+        // Remove from saved assignments
+        savedGamepadAssignments.Remove(gamepad.deviceId);
 
         Debug.Log($"Player {index + 1} left. Active players: {activePlayerAmount}");
 

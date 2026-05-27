@@ -55,7 +55,10 @@ public class PlayerBuildSystem : MonoBehaviour
         
         previewSystem.StartShowingPlacementPreview(
             gridPlacementManager.databaseSO.objectData[selectedObjectID].Prefab,
-            gridPlacementManager.databaseSO.objectData[selectedObjectID].Size);
+            gridPlacementManager.databaseSO.objectData[selectedObjectID].Size,
+            gridPlacementManager.databaseSO.objectData[selectedObjectID].Name,
+            gridPlacementManager.databaseSO.objectData[selectedObjectID].Cost
+        );
     }
 
     public void StartRemoving()

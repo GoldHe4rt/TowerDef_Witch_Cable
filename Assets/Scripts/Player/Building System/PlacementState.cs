@@ -37,7 +37,10 @@ public class PlacementState : IBuildingState
             {
                 previewSystem.StartShowingPlacementPreview(
                     database.objectData[selectedObjectIndex].Prefab,
-                    database.objectData[selectedObjectIndex].Size);
+                    database.objectData[selectedObjectIndex].Size,
+                    database.objectData[selectedObjectIndex].Name,
+                    database.objectData[selectedObjectIndex].Cost
+                    );
             }
         }
         else

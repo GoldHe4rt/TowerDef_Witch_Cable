@@ -97,25 +97,12 @@ public class CurrencyManager : MonoBehaviour
         if (globalReferanceManager.currency == Currency.None)
             return;
 
-        if (globalReferanceManager.currency == Currency.SeperateBanks)
+        if (globalReferanceManager.currency == Currency.SeperateBanks || 
+            globalReferanceManager.currency == Currency.SplitEvenly)
         {
             playerCurrency[playerIndex - 1].RemoveCurrency(currency);
             return;
         } 
-
-        if (globalReferanceManager.currency == Currency.SplitEvenly)
-        {
-            for (int i = 0; i < multiplayerScreenManager.playerData.Count; i++)
-            {
-                if (multiplayerScreenManager.playerData[i].playerObj == null) return;
-                
-                if (multiplayerScreenManager.playerData[i].isActive)
-                {
-                    playerCurrency[i].RemoveCurrency(currency / multiplayerScreenManager.playerAmount);
-                }
-            }
-            return;
-        }
 
         if (globalReferanceManager.currency == Currency.SharedBank)
         {
