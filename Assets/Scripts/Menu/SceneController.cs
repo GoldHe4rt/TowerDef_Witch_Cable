@@ -18,19 +18,18 @@ namespace Menu
         public void Restart()
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
 
-        //Used for NEXT_LEVEL_BUTTON in the Win Menu. Build index will need some changes for this to work properly.
+        //Used for NEXT_LEVEL_BUTTON in the Win Menu. Will need changes to make this work. Use Level2() instead in the meantime.
         public void NextLevel()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
     
         public void MainMenu()
-        {
-          SceneManager.LoadScene(sceneBuildIndex: 0);
-        }
+        { SceneManager.LoadScene(sceneBuildIndex: 0); }
         
         public void SettingsScene() 
         { SceneManager.LoadScene("Settings"); }
+
+        public void ControlsScene()
+        { SceneManager.LoadScene("Controls"); }
     
         public void Exit()
         { Application.Quit(); }

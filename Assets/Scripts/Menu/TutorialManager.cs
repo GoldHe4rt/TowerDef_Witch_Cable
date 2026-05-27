@@ -10,6 +10,7 @@ namespace Menu
         public GameObject introObject;
         public GameObject outroObject;
         public GameObject tutorialObject;
+        public GameObject levelselectButton;
 
         [Header("Text settings")]
         [TextArea] [SerializeField] private string[] tutorial;
@@ -33,6 +34,7 @@ namespace Menu
             introObject.SetActive(false);
             outroObject.SetActive(false);
             tutorialObject.SetActive(false);
+            levelselectButton.SetActive(false);
         }
          private IEnumerator Intro()
          {
@@ -63,7 +65,8 @@ namespace Menu
             //The last text bits.
             outroObject.SetActive(true);
             yield return new WaitForSeconds(2);
-            //Load level 1
+            outroObject.SetActive(false);
+            levelselectButton.SetActive(true);
         }
     }
 }
