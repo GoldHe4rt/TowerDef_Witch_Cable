@@ -5,10 +5,15 @@ namespace Menu
 {
     public class SceneController : MonoBehaviour
     {
-        public void StartGame()
-        {
-            SceneManager.LoadScene(sceneBuildIndex: 1);
-        }
+
+        public void Join()
+        { SceneManager.LoadScene("PlayerSelect"); }
+
+        public void Level1()
+        { SceneManager.LoadScene("Level 1"); }
+
+        public void Level2()
+        { SceneManager.LoadScene("Marius"); }
 
         public void Restart()
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
