@@ -48,6 +48,6 @@ public class PathFinding : MonoBehaviour
 
     internal void SetDifficultyModifier(float difficultyModifier)
     {
-        speed = Mathf.Lerp(maxSpeed, minSpeed, difficultyModifier);
+        speed = Mathf.Lerp(minSpeed, maxSpeed, difficultyModifier);
     }
 }
