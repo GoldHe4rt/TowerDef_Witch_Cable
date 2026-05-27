@@ -9,10 +9,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Start Screen.unity
     guid: c947e2065679d224b8e4933defc851f9
   - enabled: 1
+    path: Assets/Scenes/Game/PlayerSelect.unity
+    guid: 842cb15cb571d7944aa5ebf0dfffb563
+  - enabled: 1
+    path: Assets/Scenes/Game/Level 1.unity
+    guid: 97499fa973d39ff4dac0e13d7b01bbd6
+  - enabled: 1
     path: Assets/Scenes/People/Marius.unity
     guid: 0b58ef5ab7a40e64aa45614734d0d23c
   - enabled: 1
     path: Assets/Scenes/Game/Settings.unity
     guid: 57e9b007ec7ddd244b397f6ff4b4536f
+  - enabled: 1
+    path: Assets/Scenes/Game/Tutorial.unity
+    guid: ef41d199c006c7545afee0f92e14139b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
