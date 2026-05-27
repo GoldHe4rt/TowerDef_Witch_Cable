@@ -310,6 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+  minSpeed: 1
+  maxSpeed: 10
   speed: 2
 --- !u!114 &2897402382982837266
 MonoBehaviour:
@@ -325,8 +327,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDisplay: {fileID: 4449110839341595158}
   canTakeDamageDisplay: {fileID: 8957306761276025106}
-  healthPoints: 10
-  currencyOnDeath: 10
+  minHealthPoints: 1
+  maxHealthPoints: 25
+  minCurrencyOnDeath: 10
+  maxCurrencyOnDeath: 100
+  minScale: 0.8
+  maxScale: 2
   iFramesEnabled: 0
 --- !u!114 &1983155555985423677
 MonoBehaviour:
@@ -340,16 +346,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2abaf56fca46ab42bf7fca6d5fbe1f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canAttack: 1
   weaponHolder: {fileID: 6665298948864286073}
   hitboxPrefab: {fileID: 1633932423762308225, guid: 31f7083c791e87246998f165120d986d,
     type: 3}
   attackRangeObject: {fileID: 8213743868711875269}
-  hitboxSpeed: 5
+  minHitboxSpeed: 3
+  maxHitboxSpeed: 10
+  minAttackSpeed: 2
+  maxAttackSpeed: 0.5
   hitboxLifetime: 2
-  attackSpeed: 1
   rotationSpeed: 500
   spreadAngle: 10
-  campDamage: 1
+  minCampDamage: 1
+  maxCampDamage: 15
 --- !u!50 &6765335692943290478
 Rigidbody2D:
   serializedVersion: 5

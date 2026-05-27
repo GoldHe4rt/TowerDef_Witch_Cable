@@ -9,12 +9,22 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private GameObject hitboxPrefab;
     [SerializeField] private GameObject attackRangeObject;
-    [SerializeField] private float hitboxSpeed = 5f;
+
+    [Header("Difficulty Scaling")]
+    [SerializeField] private float minHitboxSpeed = 3f;
+    [SerializeField] private float maxHitboxSpeed = 10f;
+    private float hitboxSpeed = 5f;
+    [SerializeField] private float minAttackSpeed = 2f;
+    [SerializeField] private float maxAttackSpeed = 0.5f;
+    private float attackSpeed = 1f;
+
+    [Header("Attack Settings")]
     [SerializeField] private float hitboxLifetime = 2f;
-    [SerializeField] private float attackSpeed = 1f;
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float spreadAngle = 10f;
-    public int campDamage = 1;
+    [SerializeField] private int minCampDamage = 1;
+    [SerializeField] private int maxCampDamage = 15;
+    internal int campDamage = 1;
 
     private EnemyRange attackRangeScript;
     private float attackSpeedTimer = 0f;
@@ -79,4 +89,10 @@ public class EnemyAttack : MonoBehaviour
         attackSpeedTimer = attackSpeed; // Reset the attack cooldown
     }
 
+    internal void SetDifficultyModifier(float difficultyModifier)
+    {
+        hitboxSpeed = Mathf.Lerp(minHitboxSpeed, maxHitboxSpeed, difficultyModifier);
+        attackSpeed = Mathf.Lerp(minAttackSpeed, maxAttackSpeed, difficultyModifier);
+        campDamage = Mathf.RoundToInt(Mathf.Lerp(minCampDamage, maxCampDamage, difficultyModifier));
+    }
 }

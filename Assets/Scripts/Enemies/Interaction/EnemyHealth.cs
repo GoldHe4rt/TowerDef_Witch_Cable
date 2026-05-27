@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -9,9 +10,15 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject canTakeDamageDisplay;
     
 
-    [Header("Health")]
-    [SerializeField] private int healthPoints = 5;
-    [SerializeField] private int currencyOnDeath = 10;
+    [Header("Difficulty Scaling")]
+    [SerializeField] private int minHealthPoints = 1;
+    [SerializeField] private int maxHealthPoints = 25;
+    [SerializeField] private int minCurrencyOnDeath = 10;
+    [SerializeField] private int maxCurrencyOnDeath = 100;
+    [SerializeField] private float minScale = 0.8f;
+    [SerializeField] private float maxScale = 2f;
+    private int healthPoints;
+    private int currencyOnDeath;
     [SerializeField] private bool iFramesEnabled = true;
     
     internal bool dead = false;
@@ -35,12 +42,6 @@ public class EnemyHealth : MonoBehaviour
         }
 
         LoseHealth(hazard.damageAmount, hazard.damageTime);
-
-        if (hazard.dealKnockback == true)
-        {
-            //Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
-            //ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
-        }
 
         hazard.HitTarget();
 
@@ -73,27 +74,12 @@ public class EnemyHealth : MonoBehaviour
         canTakeDamageDisplay.SetActive(false);
         invinsible = false;
     }
-/*/
-    //Knockback
-    public void ApplyKnockback(Vector2 direction, float force, float duration, float stun)
-    {
-        StartCoroutine(KnockbackCoroutine(direction, force, duration, stun));
-    }
 
-    private IEnumerator KnockbackCoroutine(Vector2 direction, float force, float duration, float stunTime)
+    internal void SetDifficultyModifier(float difficultyModifier)
     {
-        movementEnabled = false;
-        rb.linearVelocity = Vector2.zero; // Reset velocity for consistency
-        rb.AddForce(direction * force, ForceMode2D.Impulse); // Apply instant force
-        yield return new WaitForSeconds(duration);
-        rb.linearVelocity = Vector2.zero;
-        StartCoroutine(StunCoroutine(stunTime));
+        healthPoints = Mathf.RoundToInt(Mathf.Lerp(minHealthPoints, maxHealthPoints, difficultyModifier));
+        currencyOnDeath = Mathf.RoundToInt(Mathf.Lerp(minCurrencyOnDeath, maxCurrencyOnDeath, difficultyModifier));
+        healthDisplay.text = healthPoints.ToString("0");
+        transform.localScale = Vector3.one * Mathf.Lerp(minScale, maxScale, difficultyModifier);
     }
-
-    private IEnumerator StunCoroutine(float stunTime)
-    {
-        yield return new WaitForSeconds(stunTime);
-        movementEnabled = true;
-    }
-/*/
 }

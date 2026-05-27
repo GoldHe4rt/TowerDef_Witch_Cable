@@ -30,6 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
+      propertyPath: canAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

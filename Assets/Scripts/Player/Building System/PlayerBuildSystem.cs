@@ -148,6 +148,10 @@ public class PlayerBuildSystem : MonoBehaviour
             lastDetectedPosition = gridPosition;
             // Get the validity from the state
             bool isValid = gridPlacementManager.CheckPlacementValidity(gridPosition, selectedObjectID);
+            if (!isRemoving)
+                if (!currencyManager.PlayerHasSufficientCurrency(playerID, gridPlacementManager.GetObjectData(selectedObjectID).Cost))
+                    isValid = false;
+            
             previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), isValid);
         }
     }

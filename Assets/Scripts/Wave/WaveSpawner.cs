@@ -14,7 +14,7 @@ public class Wave
     public int noOfEnemies;
     public GameObject[] typeOfEnemies;
     public float spwanInterval;
-    [Range(0.1f, 10f)] public float difficultyModifier = 1f;
+    [Range(1, 100)] public int difficultyModifier = 10;
 }
 
 public class WaveSpawner : MonoBehaviour
@@ -81,7 +81,7 @@ public class WaveSpawner : MonoBehaviour
         {
             GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
             EnemySpawner randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            randomPoint.Spawn(randomEnemy);
+            randomPoint.Spawn(randomEnemy, currentWave.difficultyModifier);
             currentWave.noOfEnemies--;
             nextSpawnTime = Time.time + Random.Range(currentWave.spwanInterval - currentWave.spwanInterval * 0.1f, currentWave.spwanInterval + currentWave.spwanInterval * 0.1f);
             if (currentWave.noOfEnemies == 0)
