@@ -9,6 +9,9 @@ namespace Menu
         public void Join()
         { SceneManager.LoadScene("PlayerSelect"); }
 
+        public void Tutorial()
+        { SceneManager.LoadScene("Tutorial"); }
+
         public void Level1()
         { SceneManager.LoadScene("Level 1"); }
 
@@ -18,7 +21,7 @@ namespace Menu
         public void Restart()
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
 
-        //Used for NEXT_LEVEL_BUTTON in the Win Menu. Will need changes to make this work. Use Level2() instead in the meantime.
+        //Used for NEXT_LEVEL_BUTTON in the Win Menu. Will need changes to make this work.
         public void NextLevel()
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
     

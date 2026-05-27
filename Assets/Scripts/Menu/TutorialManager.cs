@@ -15,10 +15,6 @@ namespace Menu
         [Header("Text settings")]
         [TextArea] [SerializeField] private string[] tutorial;
         [SerializeField] public int currentText;
-        //[SerializeField] private float textSpeed = 1f;
-        //private bool _isScrolling = true;
-
-        
         [Header("UI elements")][SerializeField]
         private TextMeshProUGUI tutorialText;
         
@@ -44,15 +40,13 @@ namespace Menu
              StartCoroutine(Tutorial());
          }
          
-        //Might need to be an IEnumerator instead.
-        //Needs something for the player going through the controls for some of the text in the array.
+         //Needs some testing to make sure everything works the right way.
         private IEnumerator Tutorial()
         {
             tutorialObject.SetActive(true);
-            //Start on 0 in the array
+            
             tutorialText.SetText(tutorial[currentText]);
             
-            StartCoroutine(Intro());
             tutorialObject.SetActive(false);
             
             yield return new WaitForSeconds(1);
@@ -62,8 +56,8 @@ namespace Menu
         private IEnumerator Outro()
         {
             if (currentText < 6) yield break;
-            //The last text bits.
             outroObject.SetActive(true);
+            
             yield return new WaitForSeconds(2);
             outroObject.SetActive(false);
             levelselectButton.SetActive(true);

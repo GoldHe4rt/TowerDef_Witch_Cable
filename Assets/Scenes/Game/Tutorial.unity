@@ -248,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &229223606
 RectTransform:
   m_ObjectHideFlags: 0
@@ -399,6 +399,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &375743326
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 175954851529978535, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604269670884440510, guid: 0071d2ea0dc79974790076ff943a33cc,
+        type: 3}
+      propertyPath: m_Name
+      value: UIAudioBinder
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0071d2ea0dc79974790076ff943a33cc, type: 3}
 --- !u!1 &446392030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4319,7 +4387,7 @@ MonoBehaviour:
   introObject: {fileID: 103496375}
   outroObject: {fileID: 1199737068}
   tutorialObject: {fileID: 229223605}
-  levelselectButton: {fileID: 0}
+  levelselectButton: {fileID: 624836613}
   tutorial:
   - Press Y to toggle BUILD mode
   - Press R1&L1 to switch item
@@ -4418,6 +4486,7 @@ GameObject:
   - component: {fileID: 624836617}
   - component: {fileID: 624836616}
   - component: {fileID: 624836615}
+  - component: {fileID: 624836618}
   m_Layer: 5
   m_Name: ToLevelSelectButton
   m_TagString: Untagged
@@ -4539,6 +4608,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624836613}
   m_CullTransparentMesh: 1
+--- !u!114 &624836618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624836613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9585e8650e2aeef47aee9b90b0d2e648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectUI: {fileID: 624836613}
 --- !u!1 &821869997
 GameObject:
   m_ObjectHideFlags: 0
@@ -34695,3 +34777,4 @@ SceneRoots:
   - {fileID: 76794398}
   - {fileID: 1948926929}
   - {fileID: 562536468}
+  - {fileID: 375743326}
