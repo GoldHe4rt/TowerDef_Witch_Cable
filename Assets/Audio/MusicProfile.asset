@@ -15,5 +15,5 @@ MonoBehaviour:
   musicEventIds:
   - Placeholder_Main_Theme
   winEventId: Win_Jingle
-  loseEventId: 
+  loseEventId: Lose_Jingle
   shuffle: 1

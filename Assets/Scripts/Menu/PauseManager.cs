@@ -18,10 +18,7 @@ namespace Menu
 
         //For testing & keyboard.
         private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.P)) TogglePause();
-            
-        }
+        { if (Input.GetKeyDown(KeyCode.P)) TogglePause(); }
 
         public void TogglePause()
         {

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de57b4f5ab79840b7dbd2aeec68e47, type: 3}
+  m_Name: Lose_Jingle
+  m_EditorClassIdentifier: 
+  eventId: Lose_Jingle
+  audioChannel: 1
+  clips:
+  - {fileID: 8300000, guid: f24b0165c9ec3f84ebcdbee24b1bcd51, type: 3}
+  baseVolume: 1
+  volumeOffsetDecibels: 0
+  randomizePitch: 0
+  minPitch: 0.9
+  maxPitch: 1.1

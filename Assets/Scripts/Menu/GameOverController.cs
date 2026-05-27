@@ -6,7 +6,7 @@ namespace Menu
     public class GameOverController : MonoBehaviour
     {
         public GameObject gameOverUI;
-        /*[SerializeField] private MusicPlayer musicPlayer;*/
+        [SerializeField] private MusicPlayer musicPlayer;
    
         private void Start()
         { gameOverUI.SetActive(false); }
@@ -14,7 +14,7 @@ namespace Menu
         //A loss function should call this.
         public void ShowGameOver()
         {
-            /*musicPlayer.PlayLoseJingle();*/
+            musicPlayer.PlayLoseJingle();
             gameOverUI.SetActive(true);
             Time.timeScale = 0f;
         }
