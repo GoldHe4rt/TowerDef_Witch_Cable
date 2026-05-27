@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicEventIds:
   - Placeholder_Main_Theme
-  winEventId: 
+  winEventId: Win_Jingle
   loseEventId: 
   shuffle: 1

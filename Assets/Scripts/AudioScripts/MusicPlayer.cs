@@ -32,8 +32,8 @@ namespace AudioScripts
         public void PlayWinJingle()
         { if (!string.IsNullOrEmpty(musicProfile.winEventId)) AudioSystem.Play(musicProfile.winEventId); }
         
-        public void PlayLoseJingle()
-        { if (!string.IsNullOrEmpty(musicProfile.loseEventId)) AudioSystem.Play(musicProfile.loseEventId); }
+        /*public void PlayLoseJingle()
+        { if (!string.IsNullOrEmpty(musicProfile.loseEventId)) AudioSystem.Play(musicProfile.loseEventId); }*/
         #endregion
         
     }

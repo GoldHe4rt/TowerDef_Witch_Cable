@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48de57b4f5ab79840b7dbd2aeec68e47, type: 3}
-  m_Name: Placeholder_Main_Theme
+  m_Name: Win_Jingle
   m_EditorClassIdentifier: 
-  eventId: Placeholder_Main_Theme
+  eventId: Win_Jingle
   audioChannel: 1
   clips:
-  - {fileID: 8300000, guid: e19e1c7eb7836f04d804694dc0447781, type: 3}
+  - {fileID: 8300000, guid: 9a8b47eb14aaf404d9bdf82f41692a95, type: 3}
   baseVolume: 1
   volumeOffsetDecibels: 0
   randomizePitch: 0
