@@ -10,23 +10,24 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private GameObject hitboxPrefab;
     [SerializeField] private GameObject attackRangeObject;
 
-    [Header("Default Values")]
-    [SerializeField] private float hitboxSpeed = 5f;
-    [SerializeField] private float attackSpeed = 1f;
-
-    [Header("Difficulty Scaling")]
-    [SerializeField] private float minHitboxSpeed = 3f;
-    [SerializeField] private float maxHitboxSpeed = 10f;
-    [SerializeField] private float minAttackSpeed = 2f;
-    [SerializeField] private float maxAttackSpeed = 0.5f;
-
     [Header("Attack Settings")]
     [SerializeField] private float hitboxLifetime = 2f;
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float spreadAngle = 10f;
-    [SerializeField] private int minCampDamage = 1;
-    [SerializeField] private int maxCampDamage = 15;
-    internal int campDamage = 1;
+
+    [Header("Default Values")]
+    [SerializeField] private float hitboxSpeed = 5f;
+    [SerializeField] private float attackSpeed = 1f;
+    [SerializeField] internal int campDamage = 1;
+
+    [Header("Difficulty Scaling")]
+    [SerializeField] private Vector2 minMaxHitboxSpeed = new Vector2(3f, 10f);
+    [SerializeField] private Vector2 minMaxAttackSpeed = new Vector2(2f, 0.5f);
+    [SerializeField] private Vector2 minMaxCampDamage = new Vector2(1, 15);
+
+    
+    
+    
 
     private EnemyRange attackRangeScript;
     private float attackSpeedTimer = 0f;
@@ -93,8 +94,8 @@ public class EnemyAttack : MonoBehaviour
 
     internal void SetDifficultyModifier(float difficultyModifier)
     {
-        hitboxSpeed = Mathf.Lerp(minHitboxSpeed, maxHitboxSpeed, difficultyModifier);
-        attackSpeed = Mathf.Lerp(minAttackSpeed, maxAttackSpeed, difficultyModifier);
-        campDamage = Mathf.RoundToInt(Mathf.Lerp(minCampDamage, maxCampDamage, difficultyModifier));
+        hitboxSpeed = Mathf.Lerp(minMaxHitboxSpeed.x, minMaxHitboxSpeed.y, difficultyModifier);
+        attackSpeed = Mathf.Lerp(minMaxAttackSpeed.x, minMaxAttackSpeed.y, difficultyModifier);
+        campDamage = Mathf.RoundToInt(Mathf.Lerp(minMaxCampDamage.x, minMaxCampDamage.y, difficultyModifier));
     }
 }

@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 public class PathFinding : MonoBehaviour
 {
     [SerializeField] public bool isActive = true;
-    [SerializeField] private float minSpeed = 1f;
-    [SerializeField] private float maxSpeed = 15f;
+    [SerializeField] private Vector2 minMaxSpeed = new Vector2(1f, 15f);
     [SerializeField] private float speed = 5f;
     private Waypoint waypoint;
     private int waypointsIndex;
@@ -49,7 +48,7 @@ public class PathFinding : MonoBehaviour
     internal void SetDifficultyModifier(float difficultyModifier)
     {
         float ClampedDifficultyModifier = Mathf.Clamp(difficultyModifier, 1, 100) / 100f; // Ensure the difficulty modifier is within range
-        float currentMaxSpeed = maxSpeed * ClampedDifficultyModifier;
-        speed = Random.Range(minSpeed, currentMaxSpeed);
+        float currentMaxSpeed = minMaxSpeed.y * ClampedDifficultyModifier;
+        speed = Random.Range(minMaxSpeed.x, currentMaxSpeed);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6342682236246724482}
   - component: {fileID: -7532864272573001385}
   m_Layer: 12
-  m_Name: Base HurtBox
+  m_Name: Tree Bullet
   m_TagString: Damage Dealer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

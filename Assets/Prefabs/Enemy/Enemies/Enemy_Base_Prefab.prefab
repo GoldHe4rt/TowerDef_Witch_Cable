@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4066872348330389213}
   m_Layer: 14
   m_Name: Enemy Sprite
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  minSpeed: 3
-  maxSpeed: 10
+  minMaxSpeed: {x: 1, y: 15}
+  speed: 5
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,15 +326,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDisplay: {fileID: 4449110839341595158}
   canTakeDamageDisplay: {fileID: 8957306761276025106}
-  minHealthPoints: 1
-  maxHealthPoints: 25
-  minCurrencyOnDeath: 10
-  maxCurrencyOnDeath: 100
-  minScale: 0.8
-  maxScale: 2
-  healthPoints: 0
-  currencyOnDeath: 0
-  iFramesEnabled: 0
+  healthPoints: 5
+  currencyOnDeath: 15
+  minMaxHealthPoints: {x: 1, y: 25}
+  minMaxCurrencyOnDeath: {x: 10, y: 100}
+  minMaxScale: {x: 0.8, y: 2}
 --- !u!114 &1983155555985423677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,15 +348,15 @@ MonoBehaviour:
   hitboxPrefab: {fileID: 1633932423762308225, guid: 31f7083c791e87246998f165120d986d,
     type: 3}
   attackRangeObject: {fileID: 8213743868711875269}
-  minHitboxSpeed: 3
-  maxHitboxSpeed: 10
-  minAttackSpeed: 2
-  maxAttackSpeed: 0.5
   hitboxLifetime: 2
   rotationSpeed: 500
   spreadAngle: 10
-  minCampDamage: 1
-  maxCampDamage: 15
+  hitboxSpeed: 5
+  attackSpeed: 1
+  campDamage: 1
+  minMaxHitboxSpeed: {x: 3, y: 10}
+  minMaxAttackSpeed: {x: 2, y: 0.5}
+  minMaxCampDamage: {x: 1, y: 15}
 --- !u!50 &6765335692943290478
 Rigidbody2D:
   serializedVersion: 5

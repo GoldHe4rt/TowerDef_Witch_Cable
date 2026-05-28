@@ -27,8 +27,10 @@ public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;
     public EnemySpawner[] spawnPoints;
+
     public Animator anim;
     public TMP_Text waveName;
+    [SerializeField] private GameObject[] totalEnemies;
 
     private Wave currentWave;
     private int currentWaveNumber;
@@ -54,7 +56,7 @@ public class WaveSpawner : MonoBehaviour
     {
         currentWave = waves[currentWaveNumber];
         SpawnWave();
-        GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (totalEnemies.Length == 0 && currentWaveNumber + 1 != waves.Length && canAnimate)
         {
             currentWaveNumber++;

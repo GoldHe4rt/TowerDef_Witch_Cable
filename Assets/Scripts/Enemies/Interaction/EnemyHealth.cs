@@ -12,15 +12,12 @@ public class EnemyHealth : MonoBehaviour
     [Header("Default Values")]
     [SerializeField] private int healthPoints = 10;
     [SerializeField] private int currencyOnDeath = 50;
-    [SerializeField] private bool iFramesEnabled = true;
+    private bool iFramesEnabled = false;
 
     [Header("Difficulty Scaling")]
-    [SerializeField] private int minHealthPoints = 1;
-    [SerializeField] private int maxHealthPoints = 25;
-    [SerializeField] private int minCurrencyOnDeath = 10;
-    [SerializeField] private int maxCurrencyOnDeath = 100;
-    [SerializeField] private float minScale = 0.8f;
-    [SerializeField] private float maxScale = 2f;
+    [SerializeField] private Vector2 minMaxHealthPoints = new Vector2(1, 25);
+    [SerializeField] private Vector2 minMaxCurrencyOnDeath = new Vector2(10, 100);
+    [SerializeField] private Vector2 minMaxScale = new Vector2(0.8f, 2f);
     
     internal bool dead = false;
     internal bool invinsible = false;
@@ -78,9 +75,9 @@ public class EnemyHealth : MonoBehaviour
 
     internal void SetDifficultyModifier(float difficultyModifier)
     {
-        healthPoints = Mathf.RoundToInt(Mathf.Lerp(minHealthPoints, maxHealthPoints, difficultyModifier));
-        currencyOnDeath = Mathf.RoundToInt(Mathf.Lerp(minCurrencyOnDeath, maxCurrencyOnDeath, difficultyModifier));
+        healthPoints = Mathf.RoundToInt(Mathf.Lerp(minMaxHealthPoints.x, minMaxHealthPoints.y, difficultyModifier));
+        currencyOnDeath = Mathf.RoundToInt(Mathf.Lerp(minMaxCurrencyOnDeath.x, minMaxCurrencyOnDeath.y, difficultyModifier));
         healthDisplay.text = healthPoints.ToString("0");
-        transform.localScale = Vector3.one * Mathf.Lerp(minScale, maxScale, difficultyModifier);
+        transform.localScale = Vector3.one * Mathf.Lerp(minMaxScale.x, minMaxScale.y, difficultyModifier);
     }
 }

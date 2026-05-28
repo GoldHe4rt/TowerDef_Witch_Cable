@@ -5,7 +5,8 @@ using System.Collections;
 public enum TowerType
 {
     Turret,
-    Explosive
+    Explosive,
+    Spike
 }
 
 public class TowerAttack : MonoBehaviour

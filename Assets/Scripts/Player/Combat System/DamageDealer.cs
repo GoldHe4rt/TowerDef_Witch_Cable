@@ -4,20 +4,25 @@ using System.Collections;
 public class DamageDealer : MonoBehaviour
 {
     [Header("Damage")]
-    public int damageAmount = 1;
-    public float damageTime = 1f;
+    [SerializeField] internal int damageAmount = 1;
+    [SerializeField] internal float damageTime = 1f;
 
     [Header("Knockback")]
-    public bool dealKnockback = true;
-    public float knockbackForce = 10f;
-    public float knockbackDuration = 0.2f;
-    public float stunDuration = 0.2f;
+    internal bool dealKnockback = true;
+    internal float knockbackForce = 10f;
+    internal float knockbackDuration = 0.2f;
+    internal float stunDuration = 0.2f;
 
     [Header("Other")]
-    public int playerOwner = -1;
-    public int pierceAmount = 1;
+    [SerializeField] internal int playerOwner = -1;
+    [SerializeField] internal int pierceAmount = 1;
 
     internal CurrencyManager currencyManager;
+
+    private void Start()
+    {
+        StartCoroutine(StopDamageAfterTime());
+    }
 
     public void HitTarget()
     {
@@ -34,6 +39,12 @@ public class DamageDealer : MonoBehaviour
         {
             currencyManager.AddCurrency(currency, playerOwner);
         }
+    }
+
+    private IEnumerator StopDamageAfterTime()
+    {
+        yield return new WaitForSeconds(damageTime);
+        damageAmount = 0;
     }
 
     public IEnumerator DestroyHitboxAfterTime(float lifetime)

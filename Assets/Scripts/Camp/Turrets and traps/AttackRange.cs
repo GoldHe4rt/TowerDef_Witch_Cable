@@ -27,6 +27,10 @@ public class AttackRange : MonoBehaviour
         {
             towerAttack.Explode();
         }
+        if (towerAttack.towerType == TowerType.Spike)
+        {
+            towerAttack.Attack();
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
