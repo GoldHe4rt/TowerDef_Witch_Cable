@@ -239,7 +239,7 @@ MonoBehaviour:
   attackRangeObject: {fileID: 3389370534130013609}
   hitboxSpeed: 10
   hitboxLifetime: 2
-  attackSpeed: 1
+  attackSpeed: 1.5
   rotationSpeed: 5000
   spreadAngle: 5
   playerID: -1

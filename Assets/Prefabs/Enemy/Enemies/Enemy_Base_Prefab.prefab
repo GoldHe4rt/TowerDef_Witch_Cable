@@ -310,9 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  minSpeed: 1
+  minSpeed: 3
   maxSpeed: 10
-  speed: 2
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +332,8 @@ MonoBehaviour:
   maxCurrencyOnDeath: 100
   minScale: 0.8
   maxScale: 2
+  healthPoints: 0
+  currencyOnDeath: 0
   iFramesEnabled: 0
 --- !u!114 &1983155555985423677
 MonoBehaviour:

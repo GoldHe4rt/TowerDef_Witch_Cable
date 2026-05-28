@@ -237,7 +237,7 @@ MonoBehaviour:
     type: 3}
   attackRangeObject: {fileID: 9031600094810170879}
   hitboxSpeed: 0
-  hitboxLifetime: 0.2
+  hitboxLifetime: 0.5
   attackSpeed: 1
   rotationSpeed: 5000
   spreadAngle: 0

@@ -6,14 +6,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
-[System.Serializable]
 
+[System.Serializable]
+public class EnemySettings
+{
+    public GameObject typeOfEnemy;
+    public int noOfEnemy;
+}
+[System.Serializable]
 public class Wave
 {
     public string waveName;
-    public int noOfEnemies;
-    public GameObject[] typeOfEnemies;
+    public List<EnemySettings> enemySettings;
     public float spwanInterval;
+    public bool difficultyRangeActive = false;
     [Range(1, 100)] public int difficultyModifier = 10;
 }
 
@@ -56,7 +62,7 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("GameFinish");
+            //Debug.Log("GameFinish");
         }
     }
 
@@ -79,20 +85,47 @@ public class WaveSpawner : MonoBehaviour
     {
         if (canSpawn && nextSpawnTime < Time.time)
         {
-            GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
-            EnemySpawner randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            randomPoint.Spawn(randomEnemy, currentWave.difficultyModifier);
-            currentWave.noOfEnemies--;
-            nextSpawnTime = Time.time + Random.Range(currentWave.spwanInterval - currentWave.spwanInterval * 0.1f, currentWave.spwanInterval + currentWave.spwanInterval * 0.1f);
-            if (currentWave.noOfEnemies == 0)
+            int randomEnemy = GetRandomEnemy();
+
+            if (currentWave.enemySettings[randomEnemy].noOfEnemy <= 0)
             {
-                canSpawn = false;
-                canAnimate = true;
+                currentWave.enemySettings.RemoveAt(randomEnemy);
+                if (currentWave.enemySettings.Count == 0)
+                {
+                    canSpawn = false;
+                    canAnimate = true;
+                }
+                return;
             }
+
+            GameObject randomEnemyObject = currentWave.enemySettings[randomEnemy].typeOfEnemy;
+            EnemySpawner randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            randomPoint.Spawn(
+                randomEnemyObject, 
+                currentWave.difficultyModifier, 
+                currentWave.difficultyRangeActive);
+            currentWave.enemySettings[randomEnemy].noOfEnemy--;
+            nextSpawnTime = Time.time + Random.Range(
+                currentWave.spwanInterval - currentWave.spwanInterval * 0.3f, 
+                currentWave.spwanInterval + currentWave.spwanInterval * 0.3f);
         }
     }
 
+    public int GetRandomEnemy() 
+    {
+        float totalEnemyCount = 0;
+        
+        foreach (var enemy in currentWave.enemySettings) totalEnemyCount += enemy.noOfEnemy; // Sum all enemy counts
 
+        float randomValue = Random.Range(0, totalEnemyCount); // Pick random within total
+        float cumulativeWeight = 0;
 
-
+        foreach (var enemy in currentWave.enemySettings) {
+            cumulativeWeight += enemy.noOfEnemy;
+            if (randomValue <= cumulativeWeight) { // Select enemy when threshold is met
+                return currentWave.enemySettings.IndexOf(enemy);
+            }
+        }
+        return -1;
+    }
 }

@@ -9,6 +9,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthDisplay;
     [SerializeField] private GameObject canTakeDamageDisplay;
     
+    [Header("Default Values")]
+    [SerializeField] private int healthPoints = 10;
+    [SerializeField] private int currencyOnDeath = 50;
+    [SerializeField] private bool iFramesEnabled = true;
 
     [Header("Difficulty Scaling")]
     [SerializeField] private int minHealthPoints = 1;
@@ -17,9 +21,6 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int maxCurrencyOnDeath = 100;
     [SerializeField] private float minScale = 0.8f;
     [SerializeField] private float maxScale = 2f;
-    private int healthPoints;
-    private int currencyOnDeath;
-    [SerializeField] private bool iFramesEnabled = true;
     
     internal bool dead = false;
     internal bool invinsible = false;

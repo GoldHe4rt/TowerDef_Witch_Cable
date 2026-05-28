@@ -10,13 +10,15 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private GameObject hitboxPrefab;
     [SerializeField] private GameObject attackRangeObject;
 
+    [Header("Default Values")]
+    [SerializeField] private float hitboxSpeed = 5f;
+    [SerializeField] private float attackSpeed = 1f;
+
     [Header("Difficulty Scaling")]
     [SerializeField] private float minHitboxSpeed = 3f;
     [SerializeField] private float maxHitboxSpeed = 10f;
-    private float hitboxSpeed = 5f;
     [SerializeField] private float minAttackSpeed = 2f;
     [SerializeField] private float maxAttackSpeed = 0.5f;
-    private float attackSpeed = 1f;
 
     [Header("Attack Settings")]
     [SerializeField] private float hitboxLifetime = 2f;
