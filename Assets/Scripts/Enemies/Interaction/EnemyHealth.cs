@@ -75,9 +75,19 @@ public class EnemyHealth : MonoBehaviour
 
     internal void SetDifficultyModifier(float difficultyModifier)
     {
-        healthPoints = Mathf.RoundToInt(Mathf.Lerp(minMaxHealthPoints.x, minMaxHealthPoints.y, difficultyModifier));
-        currencyOnDeath = Mathf.RoundToInt(Mathf.Lerp(minMaxCurrencyOnDeath.x, minMaxCurrencyOnDeath.y, difficultyModifier));
-        healthDisplay.text = healthPoints.ToString("0");
-        transform.localScale = Vector3.one * Mathf.Lerp(minMaxScale.x, minMaxScale.y, difficultyModifier);
+        if (difficultyModifier <= 1)
+        {
+            healthPoints = Mathf.RoundToInt(Mathf.Lerp(minMaxHealthPoints.x, minMaxHealthPoints.y, difficultyModifier));
+            currencyOnDeath = Mathf.RoundToInt(Mathf.Lerp(minMaxCurrencyOnDeath.x, minMaxCurrencyOnDeath.y, difficultyModifier));
+            healthDisplay.text = healthPoints.ToString("0");
+            transform.localScale = Vector3.one * Mathf.Lerp(minMaxScale.x, minMaxScale.y, difficultyModifier);
+        }
+        else
+        {
+            healthPoints = Mathf.RoundToInt(minMaxHealthPoints.y * difficultyModifier);
+            currencyOnDeath = Mathf.RoundToInt(minMaxCurrencyOnDeath.y * difficultyModifier);
+            healthDisplay.text = healthPoints.ToString("0");
+            transform.localScale = Vector3.one * minMaxScale.y;
+        }
     }
 }

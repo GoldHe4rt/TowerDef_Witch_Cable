@@ -43,10 +43,50 @@ PrefabInstance:
       propertyPath: campDamage
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxCampDamage.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxCampDamage.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: healthPoints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxHealthPoints.x
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxHealthPoints.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxCurrencyOnDeath.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxCurrencyOnDeath.y
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -128,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Name
-      value: Enemy_Medium Variant
+      value: Enemy_Medium
       objectReference: {fileID: 0}
     - target: {fileID: 4587128515164208727, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -159,6 +199,21 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxSpeed.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: minMaxSpeed.y
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

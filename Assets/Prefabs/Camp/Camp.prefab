@@ -499,7 +499,7 @@ MonoBehaviour:
   healthDisplay: {fileID: 3910200116436363691}
   canTakeDamageDisplay: {fileID: 3661062834886770160}
   canHealDisplay: {fileID: 2614281844879839397}
-  isMainCamp: 0
+  isMainCamp: 1
   maxHealth: 100
   currentHealthPoints: 95
   HealingIFramesEnabled: 0

@@ -94,8 +94,18 @@ public class EnemyAttack : MonoBehaviour
 
     internal void SetDifficultyModifier(float difficultyModifier)
     {
-        hitboxSpeed = Mathf.Lerp(minMaxHitboxSpeed.x, minMaxHitboxSpeed.y, difficultyModifier);
-        attackSpeed = Mathf.Lerp(minMaxAttackSpeed.x, minMaxAttackSpeed.y, difficultyModifier);
-        campDamage = Mathf.RoundToInt(Mathf.Lerp(minMaxCampDamage.x, minMaxCampDamage.y, difficultyModifier));
+        if (difficultyModifier <= 1)
+        {
+            hitboxSpeed = Mathf.Lerp(minMaxHitboxSpeed.x, minMaxHitboxSpeed.y, difficultyModifier);
+            attackSpeed = Mathf.Lerp(minMaxAttackSpeed.x, minMaxAttackSpeed.y, difficultyModifier);
+            campDamage = Mathf.RoundToInt(Mathf.Lerp(minMaxCampDamage.x, minMaxCampDamage.y, difficultyModifier));
+        }
+        else
+        {
+            hitboxSpeed = minMaxHitboxSpeed.y * difficultyModifier;
+            attackSpeed = minMaxAttackSpeed.y * difficultyModifier;
+            campDamage = Mathf.RoundToInt(minMaxCampDamage.y * difficultyModifier);
+        }
+        
     }
 }

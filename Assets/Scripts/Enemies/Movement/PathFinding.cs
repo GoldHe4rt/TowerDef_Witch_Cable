@@ -47,7 +47,7 @@ public class PathFinding : MonoBehaviour
 
     internal void SetDifficultyModifier(float difficultyModifier)
     {
-        float ClampedDifficultyModifier = Mathf.Clamp(difficultyModifier, 1, 100) / 100f; // Ensure the difficulty modifier is within range
+        float ClampedDifficultyModifier = difficultyModifier / 100f; // Ensure the difficulty modifier is within range
         float currentMaxSpeed = minMaxSpeed.y * ClampedDifficultyModifier;
         speed = Random.Range(minMaxSpeed.x, currentMaxSpeed);
     }

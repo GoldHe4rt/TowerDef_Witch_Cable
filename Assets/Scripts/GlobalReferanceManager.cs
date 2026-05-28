@@ -10,6 +10,7 @@ public class GlobalReferanceManager : MonoBehaviour
     public PauseManager pauseManager;
     public ControlsMenuManager controlsMenuManager;
     public CampHealth campHealth;
+    //public WaveSpawner waveSpawner;
 
 
     //Values to change on a Global space
