@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 2417380492654856197}
-  musicPlayer: {fileID: 0}
+  musicPlayer: {fileID: 1118563469360833361}
 --- !u!1 &1301000921667553339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirePlayers: 0
+  requiredPlayerCount: 1
+  _controllerManager: {fileID: 0}
 --- !u!1 &2251861970484871652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,6 +4236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirePlayers: 0
+  requiredPlayerCount: 1
+  _controllerManager: {fileID: 0}
 --- !u!1 &4585623627811452281
 GameObject:
   m_ObjectHideFlags: 0
@@ -7249,6 +7255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirePlayers: 0
+  requiredPlayerCount: 1
+  _controllerManager: {fileID: 0}
 --- !u!1 &7855826170988678677
 GameObject:
   m_ObjectHideFlags: 0
@@ -8331,6 +8340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirePlayers: 0
+  requiredPlayerCount: 1
+  _controllerManager: {fileID: 0}
 --- !u!1 &9052587831822351365
 GameObject:
   m_ObjectHideFlags: 0
