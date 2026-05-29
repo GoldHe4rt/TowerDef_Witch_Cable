@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
-  damageTime: 1
+  damageTime: 2
   dealKnockback: 1
   knockbackForce: 10
   knockbackDuration: 0.2
@@ -205,8 +205,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1326589551
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -530552257, guid: b1cb79e0d30a3154aaafdd4b887c6895, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

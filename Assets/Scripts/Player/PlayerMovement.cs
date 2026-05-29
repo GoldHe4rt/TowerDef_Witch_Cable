@@ -29,38 +29,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     
-/*/
-    void Update()
-    {
-        MoveTargetInput();
-    }
-
-    [Header("Input")]
-    [SerializeField] private KeyCode keyCodeUp = KeyCode.W, keyCodeDown = KeyCode.S, keyCodeLeft = KeyCode.A, keyCodeRight = KeyCode.D;
-
-    void MoveTargetInput()
-    {
-        if (Input.GetKeyUp(keyCodeUp) || Input.GetKeyUp(keyCodeDown))
-            moveInput.y = 0;
-
-        if (Input.GetKeyUp(keyCodeLeft) || Input.GetKeyUp(keyCodeRight))
-            moveInput.x = 0;
-
-        if (!movementEnabled) return;
-
-        if (Input.GetKey(keyCodeUp))
-            moveInput.y = 1;
-
-        if (Input.GetKey(keyCodeDown))
-            moveInput.y = -1;
-
-        if (Input.GetKey(keyCodeLeft))
-            moveInput.x = -1;
-
-        if (Input.GetKey(keyCodeRight))
-            moveInput.x = 1;
-    }
-/*/
 
     void FixedUpdate()
     {
