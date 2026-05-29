@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("Default Values")]
     [SerializeField] private int healthPoints = 10;
     [SerializeField] private int currencyOnDeath = 50;
-    private bool iFramesEnabled = false;
+    [SerializeField] private bool iFramesEnabled = false;
 
     [Header("Difficulty Scaling")]
     [SerializeField] private Vector2 minMaxHealthPoints = new Vector2(1, 25);
@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (iFramesEnabled == true)
         {
-            invinsible = true;
+            //invinsible = true;
             canTakeDamageDisplay.SetActive(true);
             StartCoroutine(IFrames(damageFrames));
         }
@@ -70,7 +70,7 @@ public class EnemyHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(damageFrames);
         canTakeDamageDisplay.SetActive(false);
-        invinsible = false;
+        //invinsible = false;
     }
 
     internal void SetDifficultyModifier(float difficultyModifier)

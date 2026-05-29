@@ -67,6 +67,7 @@ public class InputManager : MonoBehaviour
         else
         {
             isPlacing = false;
+
         }
     }
 

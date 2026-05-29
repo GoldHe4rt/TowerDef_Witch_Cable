@@ -112,4 +112,11 @@ public class PlayerCombatSystem : MonoBehaviour
         }
         NewWeapon(index);
     }
+
+    private IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(shootTimer);
+        shootTimer = 0;
+        Attack();
+    }
 }

@@ -328,6 +328,7 @@ MonoBehaviour:
   canTakeDamageDisplay: {fileID: 8957306761276025106}
   healthPoints: 5
   currencyOnDeath: 15
+  iFramesEnabled: 1
   minMaxHealthPoints: {x: 1, y: 25}
   minMaxCurrencyOnDeath: {x: 10, y: 100}
   minMaxScale: {x: 0.8, y: 2}
