@@ -29,7 +29,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Animator anim;
     public TMP_Text waveName;
-    public GameOverController gameOverController;
+    public WinMenuManager winMenuManager;
     [SerializeField] private GameObject[] totalEnemies;
 
     private Wave currentWave;
@@ -79,7 +79,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 else
                 {
-                    gameOverController.ShowGameOver();
+                    winMenuManager.Win();
                     Debug.Log("GameFinish");
                 }
             }

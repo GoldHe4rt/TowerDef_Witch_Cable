@@ -8,8 +8,8 @@ public class GlobalReferanceManager : MonoBehaviour
     //One Script to add referances between scripts without having to go all over
     [Header("Outside References")]
     public PauseManager pauseManager;
-    public ControlsMenuManager controlsMenuManager;
     public CampHealth campHealth;
+    public GameOverController gameOverController;
     //public WaveSpawner waveSpawner;
 
 
@@ -17,8 +17,7 @@ public class GlobalReferanceManager : MonoBehaviour
     [Header("Global Settings")]
     public bool buildingEnabled = true;
     public Currency currency = Currency.SeperateBanks;
-    public float campStartCurrency = 2500f;
-    public float playerStartCurrency = 1000f;
+    public float startCurrency = 2500f;
 }
 
 public enum Currency

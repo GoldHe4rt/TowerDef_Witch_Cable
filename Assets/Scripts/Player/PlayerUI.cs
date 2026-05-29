@@ -55,7 +55,7 @@ public class PlayerUI : MonoBehaviour
         }
         else if (changeAmount < 0)
         {
-            changeText.text = "-" + changeAmount.ToString("0");
+            changeText.text = changeAmount.ToString("0");
             changeText.color = Color.red;
         } 
         else

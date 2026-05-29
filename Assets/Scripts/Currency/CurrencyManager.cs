@@ -16,9 +16,9 @@ public class CurrencyManager : MonoBehaviour
     {
         for (int i = 0; i < multiplayerScreenManager.playerData.Count; i++)
         {
-            playerCurrency[i].SetCurrency(globalReferanceManager.playerStartCurrency);
+            playerCurrency[i].SetCurrency(globalReferanceManager.startCurrency / multiplayerScreenManager.playerAmount);
         }
-        campCurrency.SetCurrency(globalReferanceManager.campStartCurrency);
+        campCurrency.SetCurrency(globalReferanceManager.startCurrency);
     }
 
 

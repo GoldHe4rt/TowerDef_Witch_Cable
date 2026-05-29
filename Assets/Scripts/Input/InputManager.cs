@@ -157,18 +157,4 @@ public class InputManager : MonoBehaviour
             globalReferanceManager.pauseManager.TogglePause();
         }
     }
-
-    public void OnShowControlls(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            if (globalReferanceManager.controlsMenuManager == null)
-            {
-                Debug.LogWarning("Controls menu manager is not assigned.");
-                return;
-            }
-            Debug.Log("ShowControlls!");
-            globalReferanceManager.controlsMenuManager.ControlsToggle();
-        }
-    }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using Menu;
 
 public class ScreenUI : MonoBehaviour
 {
@@ -15,8 +16,6 @@ public class ScreenUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthDisplay;
     [SerializeField] public GameObject damageDisplay;
 
-    [Header("Defeat Screen")]
-    [SerializeField] private GameObject defeatScreen;
 
     void Awake()
     {
@@ -44,7 +43,7 @@ public class ScreenUI : MonoBehaviour
 
     internal void DefeatScreen()
     {
-        defeatScreen.SetActive(true);
+        globalReferenceManager.gameOverController.ShowGameOver();
         Time.timeScale = 0f;
     }
 }
