@@ -32,7 +32,7 @@ public class CampHealth : MonoBehaviour
             if (screenUI != null)
                 screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
         }
-        healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
+        healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
         
         canTakeDamageDisplay.SetActive(false);
         canHealDisplay.SetActive(false);
@@ -72,7 +72,7 @@ public class CampHealth : MonoBehaviour
             if (screenUI != null)
                 screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
         }
-        healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
+        healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
         
         Debug.Log("Camp healed " + healAmount + " Health!");
 

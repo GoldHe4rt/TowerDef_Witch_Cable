@@ -27,6 +27,7 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
+        currencyChangeObject.SetActive(false);
         canTakeDamageDisplay.SetActive(false);
         canHealDisplay.SetActive(false);
         deathScreen.SetActive(false);
