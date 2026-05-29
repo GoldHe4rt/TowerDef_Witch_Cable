@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A to join\nB to leave\n\nAttack Mode:\nRight trigger to aim\nR2 to attack\n\nBuild
+  m_text: "A to join\nB to leave\n\nAttack Mode:\nRight stick to aim\nR2 to attack\n\nBuild
     Mode:\nY to toggle building \nR1 & L1 to switch towers\nR2 to place tower\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 241c6acceca8b844baad6cbcf60cefc7, type: 2}
