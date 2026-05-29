@@ -14,6 +14,7 @@ public class PlayerUI : MonoBehaviour
     [Header("Currency")]
     [SerializeField] private GameObject currencyDisplayObject;
     [SerializeField] private TextMeshProUGUI currencyDisplay;
+    [SerializeField] private GameObject currencyChangeObject;
 
     [Header("Building")]
     [SerializeField] private GameObject buildingPriceDisplayObject;
@@ -38,9 +39,34 @@ public class PlayerUI : MonoBehaviour
         healthDisplay.text = currentHealthPoints.ToString("0");
     }
 
-    internal void UpdateCurrencyDisplay(float currencyAmount)
+    internal void UpdateCurrencyDisplay(float currencyAmount, float changeAmount)
     {
         currencyDisplay.text = currencyAmount.ToString("0");
+        GameObject currentChangeDisplay = Instantiate(currencyChangeObject, currencyDisplay.transform.position, Quaternion.identity, currencyDisplay.transform);
+        currentChangeDisplay.SetActive(true);
+        TextMeshProUGUI changeText = currentChangeDisplay.GetComponent<TextMeshProUGUI>();
+        
+        
+        if (changeAmount > 0)
+        {
+            changeText.text = "+" + changeAmount.ToString("0");
+            changeText.color = Color.green;
+        }
+        else if (changeAmount < 0)
+        {
+            changeText.text = "-" + changeAmount.ToString("0");
+            changeText.color = Color.red;
+        } 
+        else
+        {
+            changeText.text = "";
+        }
+        Rigidbody2D currencyChangeRb = currentChangeDisplay.GetComponent<Rigidbody2D>();
+        if (currencyChangeRb != null)
+        {
+            currencyChangeRb.linearVelocity = Vector2.down * 2f;
+        }
+        Destroy(currentChangeDisplay, 1f);
     }
 
     internal void UpdateRespawnDisplay(float respawnTime)

@@ -10,25 +10,33 @@ public class PlayerCurrency : MonoBehaviour
 
     void Start()
     {
-        playerUI.UpdateCurrencyDisplay(currencyAmount);
+        playerUI.UpdateCurrencyDisplay(currencyAmount, 0);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            AddCurrency(100);
+        }
     }
 
     internal void SetCurrency(float amount)
     {
         currencyAmount = amount;
-        playerUI.UpdateCurrencyDisplay(currencyAmount);
+        playerUI.UpdateCurrencyDisplay(currencyAmount, 0);
     }
 
     internal void AddCurrency(float amount)
     {
         currencyAmount += amount;
-        playerUI.UpdateCurrencyDisplay(currencyAmount);
+        playerUI.UpdateCurrencyDisplay(currencyAmount, amount);
     }
 
     internal void RemoveCurrency(float amount)
     {
         currencyAmount -= amount;
-        playerUI.UpdateCurrencyDisplay(currencyAmount);
+        playerUI.UpdateCurrencyDisplay(currencyAmount, -amount);
     }
 
     internal float GetCurrencyAmount()
