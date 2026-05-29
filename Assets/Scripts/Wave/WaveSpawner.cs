@@ -39,6 +39,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private bool endlessMode = false;
     [SerializeField] private GameObject[] endlessEnemyPrefabs;
     [SerializeField] private int endlessDifficulty = 0;
+    private float newDifficulty = 5;
 
     private bool canSpawn = false;
     private bool canAnimate = false;
@@ -186,7 +187,7 @@ public class WaveSpawner : MonoBehaviour
         waves.Add(newWave);
 
         //Prepare next Wave
-        float newDifficulty = endlessDifficulty * 1.20f;
+        newDifficulty *= 1.20f + 3;
         endlessDifficulty = (int)newDifficulty;
     }
 }
