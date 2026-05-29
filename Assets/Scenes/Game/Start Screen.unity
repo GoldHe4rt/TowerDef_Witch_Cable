@@ -317,8 +317,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.7830189, g: 0.61681205, b: 0.7499401, a: 1}
-    m_SelectedColor: {r: 0.995283, g: 0.86852527, b: 0.9926744, a: 1}
+    m_PressedColor: {r: 0.9490197, g: 0.6784314, b: 0.76470596, a: 1}
+    m_SelectedColor: {r: 0.9921569, g: 0.9215687, b: 0.91372555, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1238,6 +1238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirePlayers: 0
+  requiredPlayerCount: 1
+  _controllerManager: {fileID: 0}
 --- !u!222 &691823948454525343
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1540,8 +1543,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.23429155, g: 0.3679245, b: 0.3647428, a: 1}
-    m_SelectedColor: {r: 0.38995194, g: 0.5990566, b: 0.59407794, a: 1}
+    m_PressedColor: {r: 0.14901961, g: 0.17254902, b: 0.14901961, a: 1}
+    m_SelectedColor: {r: 0.2901961, g: 0.454902, b: 0.45098042, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1593,6 +1596,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirePlayers: 0
+  requiredPlayerCount: 1
+  _controllerManager: {fileID: 0}
 --- !u!1 &4536287646839921414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,8 +2039,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.7334432, g: 0.735849, b: 0.3991634, a: 1}
-    m_SelectedColor: {r: 0.98123133, g: 0.9858491, b: 0.6463822, a: 1}
+    m_PressedColor: {r: 0.87843144, g: 0.5372549, b: 0.21568629, a: 1}
+    m_SelectedColor: {r: 0.9921569, g: 0.8745099, b: 0.64705884, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2147,6 +2153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirePlayers: 0
+  requiredPlayerCount: 1
+  _controllerManager: {fileID: 0}
 --- !u!1 &8652116071110802158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,8 +2199,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.7019608, g: 0.48235294, b: 0.6934321, a: 1}
-    m_SelectedColor: {r: 0.990566, g: 0.80833924, b: 0.96640813, a: 1}
+    m_PressedColor: {r: 0.8862746, g: 0.2509804, b: 0.5058824, a: 1}
+    m_SelectedColor: {r: 0.9490197, g: 0.6784314, b: 0.76470596, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
