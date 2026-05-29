@@ -186,6 +186,7 @@ public class WaveSpawner : MonoBehaviour
         waves.Add(newWave);
 
         //Prepare next Wave
-        endlessDifficulty += 5;
+        float newDifficulty = endlessDifficulty * 1.20f;
+        endlessDifficulty = (int)newDifficulty;
     }
 }

@@ -41,7 +41,7 @@ PrefabInstance:
     - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxCurrencyOnDeath.y
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
