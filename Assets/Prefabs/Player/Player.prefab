@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2908744390921353650}
   - component: {fileID: 5356008347786960873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
