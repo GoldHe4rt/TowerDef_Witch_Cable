@@ -11,6 +11,7 @@ public class ControllerManager : MonoBehaviour
 {
     [SerializeField] private MultiplayerScreenManager multiplayerScreenManager;
     public PlayerInput[] players; // assign in inspector
+    [SerializeField] private bool CanJoin = false;
     public int activePlayerAmount = 0;
 
     private Dictionary<Gamepad, int> gamepadToPlayer = new Dictionary<Gamepad, int>();
@@ -90,11 +91,12 @@ public class ControllerManager : MonoBehaviour
 
     void JoinGamepad()
     {
+        if (!CanJoin) return;
         foreach (var gamepad in Gamepad.all)
         {
             // JOIN (A button)
             if (!gamepadToPlayer.ContainsKey(gamepad) &&
-                gamepad.aButton.wasPressedThisFrame)
+                gamepad.yButton.wasPressedThisFrame)
             {
                 TryJoin(gamepad);
             }
