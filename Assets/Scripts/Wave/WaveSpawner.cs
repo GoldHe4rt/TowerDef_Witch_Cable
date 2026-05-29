@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
+using Menu;
 
 [System.Serializable]
 public class EnemySettings
@@ -28,6 +29,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Animator anim;
     public TMP_Text waveName;
+    public GameOverController gameOverController;
     [SerializeField] private GameObject[] totalEnemies;
 
     private Wave currentWave;
@@ -77,6 +79,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 else
                 {
+                    gameOverController.ShowGameOver();
                     Debug.Log("GameFinish");
                 }
             }
