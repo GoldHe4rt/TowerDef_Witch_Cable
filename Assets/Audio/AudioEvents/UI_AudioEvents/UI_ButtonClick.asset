@@ -15,11 +15,6 @@ MonoBehaviour:
   eventId: UI_ButtonClick
   audioChannel: 3
   clips:
-  - {fileID: 8300000, guid: 8f7dfde878ed7ee45be5f34c2b9a0753, type: 3}
-  - {fileID: 8300000, guid: 4c37450676f223d49bcb4175dc90aadd, type: 3}
-  - {fileID: 8300000, guid: b373c0784a8a6394b9db95ea6f3cb3fb, type: 3}
-  - {fileID: 8300000, guid: c4647ec3bff8f21429c005a78a7ee1b8, type: 3}
-  - {fileID: 8300000, guid: 3fc5a5e902cb1224aac4a2affe4b84b5, type: 3}
   - {fileID: 8300000, guid: 266290a4ff3920849b43d23d548dce13, type: 3}
   - {fileID: 8300000, guid: 5aea2d2a07521384bac7db07a871ee76, type: 3}
   baseVolume: 1
