@@ -5,6 +5,7 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Referances")]
+    [SerializeField] private GlobalReferanceManager globalReferanceManager;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerUI playerUI;
 
@@ -28,11 +29,6 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         playerUI.UpdateHealthDisplay(currentHealthPoints);
-    }
-
-    void Update()
-    {
-        
     }
     
     public void Heal(int healAmount)
@@ -88,9 +84,9 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(RespawnCountdown(respawntimer));
     }
 
-    private void Respawn()
+    private void Respawn(int healthToHeal)
     {
-        Heal(maxHealth);
+        Heal(healthToHeal);
         dead = false;
 
         playerCharacter.transform.position = deathSpawnPoint.position;
@@ -103,7 +99,21 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator RespawnCountdown(float respawntimer)
     {
-        
+        int healthToHeal = 0;
+        if (globalReferanceManager.campHealth.currentHealthPoints > maxHealth * 1.5f)
+        {
+            globalReferanceManager.campHealth.TakeDamage(maxHealth, 0f);
+            healthToHeal = maxHealth;
+        } 
+        else if (globalReferanceManager.campHealth.currentHealthPoints > 1)
+        {
+            healthToHeal = globalReferanceManager.campHealth.currentHealthPoints;
+            globalReferanceManager.campHealth.TakeDamage(1, 0f);
+        } 
+        else if (globalReferanceManager.campHealth.currentHealthPoints == 1)
+        {
+            healthToHeal = 1;
+        }
         while (respawntimer > 0)
         {
             playerUI.UpdateRespawnDisplay(respawntimer);
@@ -112,7 +122,7 @@ public class PlayerHealth : MonoBehaviour
         }
         playerUI.UpdateRespawnDisplay(respawntimer);
         yield return new WaitForSeconds(0.2f);
-        Respawn();
+        Respawn(healthToHeal);
     }
 
     private IEnumerator HealingIFrames(float healFrames)
