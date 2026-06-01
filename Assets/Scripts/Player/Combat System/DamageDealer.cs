@@ -5,7 +5,7 @@ public class DamageDealer : MonoBehaviour
 {
     [Header("Damage")]
     [SerializeField] internal int damageAmount = 1;
-    [SerializeField] internal float damageTime = 1f;
+    [SerializeField] internal float hurtTime = 1f;
 
     [Header("Knockback")]
     internal bool dealKnockback = true;
@@ -21,13 +21,14 @@ public class DamageDealer : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StopDamageAfterTime());
+        
     }
 
     public void HitTarget()
     {
+        if (pierceAmount == -1) return; //-1 is infinite
         pierceAmount--;
-        if (pierceAmount <= 0)
+        if (pierceAmount == 0)
         {
             Destroy(gameObject);
         }
@@ -41,15 +42,11 @@ public class DamageDealer : MonoBehaviour
         }
     }
 
-    private IEnumerator StopDamageAfterTime()
+    public IEnumerator DestroyHitboxAfterTime(float lifetime, float damageTimer)
     {
-        yield return new WaitForSeconds(damageTime);
+        yield return new WaitForSeconds(damageTimer);
         damageAmount = 0;
-    }
-
-    public IEnumerator DestroyHitboxAfterTime(float lifetime)
-    {
-        yield return new WaitForSeconds(lifetime);
+        yield return new WaitForSeconds(lifetime - damageTimer);
         Destroy(gameObject);
     }
 }

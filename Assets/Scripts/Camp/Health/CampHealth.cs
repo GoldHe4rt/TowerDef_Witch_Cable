@@ -15,7 +15,7 @@ public class CampHealth : MonoBehaviour
     [Header("Health")]
     [SerializeField] private bool isMainCamp = false;
     [SerializeField] private int maxHealth = 5;
-    [SerializeField] private int currentHealthPoints = 5;
+    [SerializeField] internal int currentHealthPoints = 5;
     [SerializeField] private bool HealingIFramesEnabled = false;
     [SerializeField] private bool DamageIFramesEnabled = false;
     

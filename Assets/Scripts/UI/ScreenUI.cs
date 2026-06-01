@@ -33,7 +33,7 @@ public class ScreenUI : MonoBehaviour
 
     public void UpdateHealthDisplay(int maxHealth, int healthPoints)
     {
-        healthDisplay.text = maxHealth.ToString("0") + " / " + healthPoints.ToString("0");
+        healthDisplay.text = healthPoints.ToString("0") + " / " + maxHealth.ToString("0");
     }
 
     internal void UpdateCurrencyDisplay(float currencyAmount)

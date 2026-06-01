@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
             Debug.LogWarning("Damage Dealer is missing DamageDealer script"); return;
         }
 
-        LoseHealth(hazard.damageAmount, hazard.damageTime);
+        LoseHealth(hazard.damageAmount, hazard.hurtTime);
 
         hazard.HitTarget();
 

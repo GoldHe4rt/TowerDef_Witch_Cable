@@ -19,18 +19,18 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 6357641688738196149, guid: 8d49bf8cd6ea979449e950805668e3fe,
       type: 3}
-    <Cost>k__BackingField: 150
+    <Cost>k__BackingField: 50
   - <Name>k__BackingField: Tree Turret
     <ID>k__BackingField: 1
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 3}
     <Prefab>k__BackingField: {fileID: 919219935157804709, guid: f0ffb148150a206469a7fa9a9d9f6bf4,
       type: 3}
-    <Cost>k__BackingField: 100
+    <Cost>k__BackingField: 150
   - <Name>k__BackingField: Spike Trap
     <ID>k__BackingField: 2
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 919219935157804709, guid: 466d696a71601e34a982466b6049aa89,
       type: 3}
-    <Cost>k__BackingField: 50
+    <Cost>k__BackingField: 150

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public enum TowerType
 {
@@ -14,17 +15,26 @@ public class TowerAttack : MonoBehaviour
     [Header("Tower Settings")]
     [SerializeField] public TowerType towerType = TowerType.Turret;
     [SerializeField] private GameObject weaponHolder;
-    [SerializeField] private GameObject hitboxPrefab;
+
+    [Header("Attack Settings")]
     [SerializeField] private GameObject attackRangeObject;
-    [SerializeField] private float hitboxSpeed = 5f;
-    [SerializeField] private float hitboxLifetime = 2f;
     [SerializeField] private float attackSpeed = 1f;
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float spreadAngle = 10f;
-
     private AttackRange attackRangeScript;
     private float attackSpeedTimer = 0f;
     private Vector2 currentAimDirectionTarget = Vector2.up;
+
+    [Header("Bullet Settings")]
+    [SerializeField] private TextMeshProUGUI bulletCountText;
+    [SerializeField] private int maxBulletAmount = 10;
+    private int bulletAmount = 10;
+
+    [Header("Hitbox Settings")]
+    [SerializeField] private GameObject hitboxPrefab;
+    [SerializeField] private float hitboxSpeed = 5f;
+    [SerializeField] private float hitboxLifetime = 2f;
+    [SerializeField] private float hitboxDamageTime = 1f;
 
     [Header("Player")]
     public int playerID = -1;
@@ -34,6 +44,8 @@ public class TowerAttack : MonoBehaviour
     void Start()
     {
         attackRangeScript = attackRangeObject.GetComponent<AttackRange>();
+        bulletAmount = maxBulletAmount;
+        bulletCountText.text = bulletAmount.ToString();
     }
 
     void Update()
@@ -90,14 +102,25 @@ public class TowerAttack : MonoBehaviour
         rb.linearVelocity = spread * hitboxSpeed;
 
         //Destroy after set time
-        damageDealer.StartCoroutine(damageDealer.DestroyHitboxAfterTime(hitboxLifetime));
+        damageDealer.StartCoroutine(damageDealer.DestroyHitboxAfterTime(hitboxLifetime, hitboxDamageTime));
         attackSpeedTimer = attackSpeed; // Reset the attack cooldown
+
+        //Update bullets where -1 is infinite
+        if (bulletAmount != -1)
+        {
+            bulletAmount--;
+            bulletCountText.text = bulletAmount.ToString();
+            if (bulletAmount <= 0)
+                DestroySelf();
+            
+        }
+        
     }
 
     public void Explode()
     {
+        bulletAmount = 1;
         Attack();
-        DestroySelf();
     }
 
     private void DestroySelf()
