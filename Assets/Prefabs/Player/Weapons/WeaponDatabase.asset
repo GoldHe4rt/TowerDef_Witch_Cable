@@ -22,6 +22,7 @@ MonoBehaviour:
     <HitboxSpeed>k__BackingField: 0
     <AttackSpeed>k__BackingField: 0.4
     <Lifetime>k__BackingField: 0.2
+    <StickToWeapon>k__BackingField: 1
   - <Name>k__BackingField: Bow
     <ID>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 7338093106453869921, guid: 48d5a5d96cecef14eb65d1aade70d973,
@@ -30,4 +31,5 @@ MonoBehaviour:
       type: 3}
     <HitboxSpeed>k__BackingField: 15
     <AttackSpeed>k__BackingField: 0.3
-    <Lifetime>k__BackingField: 2
+    <Lifetime>k__BackingField: 1
+    <StickToWeapon>k__BackingField: 0
