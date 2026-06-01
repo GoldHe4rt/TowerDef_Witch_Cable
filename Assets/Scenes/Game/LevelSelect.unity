@@ -192,7 +192,8 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: -1933285440685573259, guid: d2a001e1d70e8b14b876c5c9f0f07254,
       type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 5043409687696884071, guid: af9f0c17426c8c94da3156ad3d83d0f0,
+      type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -932,7 +933,8 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: 3345894191680813934, guid: d2a001e1d70e8b14b876c5c9f0f07254,
       type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -6206083767605152038, guid: af9f0c17426c8c94da3156ad3d83d0f0,
+      type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1232,7 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fdaeb6d76fbcd4d94901a9fb910485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentDifficulty: 0
+  currentDifficulty: 0
   levelButtons: {fileID: 1240740022}
 --- !u!1 &1002336267
 GameObject:
@@ -1426,7 +1428,8 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: -537579123229996482, guid: d2a001e1d70e8b14b876c5c9f0f07254,
       type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 6577354827366665710, guid: af9f0c17426c8c94da3156ad3d83d0f0,
+      type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted

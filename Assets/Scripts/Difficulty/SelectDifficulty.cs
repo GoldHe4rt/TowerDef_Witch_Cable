@@ -3,13 +3,12 @@ using UnityEngine;
 public class SelectDifficulty : MonoBehaviour
 {
     private DataManager dataManager;
-    public GameDifficulty CurrentDifficulty;
+    private string difficultyKey;
+    public GameDifficulty currentDifficulty;
     [SerializeField] private GameObject levelButtons;
 
     private void Start()
-    {
-        levelButtons.SetActive(false);
-    }
+    { levelButtons.SetActive(false); }
 
     #region ChangeDifficulty
     public void ChangeToEasy() => OnDifficultyChanged(difficulty: GameDifficulty.Easy);
@@ -18,13 +17,20 @@ public class SelectDifficulty : MonoBehaviour
     public void ChangeToNightmare() => OnDifficultyChanged(difficulty: GameDifficulty.Nightmare);
     #endregion
     
-
     private void OnDifficultyChanged(GameDifficulty difficulty)
     {
-        CurrentDifficulty = difficulty;
+        currentDifficulty = difficulty;
+        SaveDifficulty();
         AllowLevelSelection();
     }
 
+    private void SaveDifficulty()
+    {
+        PlayerPrefs.SetString(difficultyKey, currentDifficulty.ToString());
+        Debug.Log("Difficulty set to " + PlayerPrefs.GetString(difficultyKey));
+        PlayerPrefs.Save();
+    }
+    
     private void AllowLevelSelection()
     { levelButtons.SetActive(true); }
 }
