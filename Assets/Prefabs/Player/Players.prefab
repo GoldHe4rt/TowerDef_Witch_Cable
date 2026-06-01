@@ -767,7 +767,6 @@ MonoBehaviour:
   currencyDisplay: {fileID: 8967706588295689127}
   healthDisplay: {fileID: 3107415224172991461}
   damageDisplay: {fileID: 7814146388304820122}
-  defeatScreen: {fileID: 0}
 --- !u!1 &2718447563426701721
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,34 +886,39 @@ MonoBehaviour:
   - 'Players: 2'
   - 'Players: 3'
   - 'Players: 4'
-  flipUI:
-  - playerID: 0
-    flipObj:
+  flipUiX:
+  - flipObj:
     - {fileID: 6516933678782175060}
-    - {fileID: 4318551008865699906}
-    - {fileID: 2500188043520509100}
     - {fileID: 5246119255950621416}
+    - {fileID: 4318551008865699906}
     - {fileID: 1271613201623802287}
-  - playerID: 1
-    flipObj:
+    - {fileID: 2500188043520509100}
+  - flipObj:
     - {fileID: 616406192586886764}
-    - {fileID: 7571595297276629370}
-    - {fileID: 8092780835671989652}
     - {fileID: 1887240406357025744}
+    - {fileID: 7571595297276629370}
     - {fileID: 4852782485837363351}
-  - playerID: 2
-    flipObj:
+    - {fileID: 8092780835671989652}
+  - flipObj:
     - {fileID: 3112818167180607063}
-    - {fileID: 5380865069005513025}
-    - {fileID: 6048418691505319343}
     - {fileID: 4147756627987796971}
+    - {fileID: 5380865069005513025}
     - {fileID: 6982710818530003116}
-  - playerID: 3
-    flipObj:
+    - {fileID: 6048418691505319343}
+  - flipObj:
     - {fileID: 8291364631400687456}
-    - {fileID: 1337155501069121654}
-    - {fileID: 851856888337233048}
     - {fileID: 7038529457597090524}
+    - {fileID: 1337155501069121654}
+    - {fileID: 4090880263138873755}
+    - {fileID: 851856888337233048}
+  flipUiY:
+  - flipObj:
+    - {fileID: 1271613201623802287}
+  - flipObj:
+    - {fileID: 4852782485837363351}
+  - flipObj:
+    - {fileID: 6982710818530003116}
+  - flipObj:
     - {fileID: 4090880263138873755}
   playerData:
   - ID: 0
@@ -1106,12 +1110,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 0}
-  controlsMenuManager: {fileID: 0}
   campHealth: {fileID: 0}
+  gameOverController: {fileID: 0}
   buildingEnabled: 1
   currency: 2
-  campStartCurrency: 1000
-  playerStartCurrency: 250
+  startCurrency: 2500
 --- !u!1 &3171340532602650818
 GameObject:
   m_ObjectHideFlags: 0
@@ -17218,7 +17221,7 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 1600
-    m_Data: {r: 0.9991222, g: 0.539473, b: 0.6918266, a: 1}
+    m_Data: {r: 0.8032862, g: 0.39611903, b: 0.43178347, a: 1}
   - m_RefCount: 0
     m_Data: {r: 1.65e-43, g: 1.65e-43, b: 1.65e-43, a: 1.65e-43}
   m_TileObjectToInstantiateArray: []
@@ -42401,7 +42404,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 1.65e-43, g: 1.65e-43, b: 1.65e-43, a: 1.65e-43}
   - m_RefCount: 2503
-    m_Data: {r: 0.9678593, g: 0.6463327, b: 0.7507115, a: 1}
+    m_Data: {r: 0.9169502, g: 0.3764568, b: 0.4983175, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 0.5613208, b: 0.5613208, a: 0.19607843}
@@ -68243,7 +68246,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 1.65e-43, g: 1.65e-43, b: 1.65e-43, a: 1.65e-43}
   - m_RefCount: 2503
-    m_Data: {r: 0.8281938, g: 0.48999703, b: 0.5213782, a: 1}
+    m_Data: {r: 0.9236618, g: 0.58652896, b: 0.6619774, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 0.5613208, b: 0.5613208, a: 0.19607843}
@@ -93765,7 +93768,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 1.65e-43, g: 1.65e-43, b: 1.65e-43, a: 1.65e-43}
   - m_RefCount: 2503
-    m_Data: {r: 0.7439262, g: 0.51827997, b: 0.5249085, a: 1}
+    m_Data: {r: 0.7765462, g: 0.4562576, b: 0.53700817, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 0.5613208, b: 0.5613208, a: 0.19607843}

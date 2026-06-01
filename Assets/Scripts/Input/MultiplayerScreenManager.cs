@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
 [Serializable] public class UIFliper
 {
-    [SerializeField] public int playerID;
+    [SerializeField] public bool isFlipped = false;
     [SerializeField] public List<Transform> flipObj;
 }
 
@@ -34,7 +34,8 @@ public class MultiplayerScreenManager : MonoBehaviour
     [SerializeField] private String[] playerCountString = {"Players: 0", "Players: 1", "Players: 2", "Players: 3", "Players: 4"};
 
     [Header("UI Settings")]
-    [SerializeField] private List<UIFliper> flipUI;
+    [SerializeField] private List<UIFliper> flipUiX;
+    [SerializeField] private List<UIFliper> flipUiY;
 
     [Header("Player Data")]
     [SerializeField] public List<PlayerData> playerData;
@@ -102,22 +103,13 @@ public class MultiplayerScreenManager : MonoBehaviour
                 playerData[i].currentPlayerOrder = playerOrder;
                 playerOrder++;
 
-                //Flip UI
-                for (int f = 0; f < flipUI.Count; f++)
-                {
-                    if (playerData[flipUI[f].playerID].isActive)
-                        if (flipUI[f].flipObj != null)
-                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
-                            {
-                                if (flipUI[f].flipObj[o] != null)
-                                if (flipUI[f].flipObj[o].localScale.x < 0)
-                                {
-                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
-                                    flipObject.x *= -1;
-                                    flipUI[f].flipObj[o].localScale = flipObject;
-                                }
-                            }
-                }
+                //Flip UI X
+                if (flipUiX[playerData[i].ID].isFlipped)
+                    FlipUI(true, playerData[i].ID);
+                //Flip UI Y
+                if (flipUiY[playerData[i].ID].isFlipped)
+                    FlipUI(false, playerData[i].ID);
+                
             } else
             {
                 //Deactivate Player Object
@@ -210,21 +202,7 @@ public class MultiplayerScreenManager : MonoBehaviour
 
                 //Flip UI
                 if (playerData[i].currentPlayerOrder == 1)
-                    for (int f = 0; f < flipUI.Count; f++)
-                    {
-                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
-                        {
-                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
-                            {
-                                if (flipUI[f].flipObj[o] != null)
-                                {
-                                    Vector3 flipObject = flipUI[f].flipObj[o].localScale;
-                                    flipObject.x *= -1;
-                                    flipUI[f].flipObj[o].localScale = flipObject;
-                                }
-                            }
-                        }
-                    }
+                    FlipUI(true, playerData[i].ID);
             }
                 
         }
@@ -232,7 +210,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update MiniMap
         if (miniMap != null)
         {
-            miniMap.rect = new Rect(0.5f - (0.3f * Screen.height / Screen.width)/2, 0.01f, 0.3f * Screen.height / Screen.width, 0.3f);
+            miniMap.rect = new Rect(0.5f - (0.3f * Screen.height / Screen.width)/2, 0.69f, 0.3f * Screen.height / Screen.width, 0.3f);
         }
 
         //Update Text
@@ -264,21 +242,9 @@ public class MultiplayerScreenManager : MonoBehaviour
 
                 //Flip UI
                 if (playerData[i].currentPlayerOrder == 1)
-                    for (int f = 0; f < flipUI.Count; f++)
-                    {
-                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
-                        {
-                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
-                            {
-                                if (flipUI[f].flipObj[o] != null)
-                                {
-                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
-                                    flipObject.x *= -1;
-                                    flipUI[f].flipObj[o].localScale = flipObject;
-                                }
-                            }
-                        }
-                    }
+                    FlipUI(true, playerData[i].ID);
+                if (playerData[i].currentPlayerOrder == 0 || playerData[i].currentPlayerOrder == 1)
+                    FlipUI(false, playerData[i].ID);
             }
                 
         }
@@ -318,38 +284,10 @@ public class MultiplayerScreenManager : MonoBehaviour
                 else Debug.LogError("Invalid player order in PlayerAmount_4");
 
                 //Flip UI
-                if (playerData[i].currentPlayerOrder == 1)
-                    for (int f = 0; f < flipUI.Count; f++)
-                    {
-                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
-                        {
-                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
-                            {
-                                if (flipUI[f].flipObj[o] != null)
-                                {
-                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
-                                    flipObject.x *= -1;
-                                    flipUI[f].flipObj[o].localScale = flipObject;
-                                }
-                            }
-                        }
-                    }
-                if (playerData[i].currentPlayerOrder == 3)
-                    for (int f = 0; f < flipUI.Count; f++)
-                    {
-                        if (flipUI[f].flipObj != null && playerData[i].ID == flipUI[f].playerID)
-                        {
-                            for (int o = 0; o < flipUI[f].flipObj.Count; o++)
-                            {
-                                if (flipUI[f].flipObj[o] != null)
-                                {
-                                    Vector2 flipObject = flipUI[f].flipObj[o].localScale;
-                                    flipObject.x *= -1;
-                                    flipUI[f].flipObj[o].localScale = flipObject;
-                                }
-                            }
-                        }
-                    }
+                if (playerData[i].currentPlayerOrder == 3 || playerData[i].currentPlayerOrder == 1)
+                    FlipUI(true, playerData[i].ID);
+                if (playerData[i].currentPlayerOrder == 0 || playerData[i].currentPlayerOrder == 1)
+                    FlipUI(false, playerData[i].ID);
             }
                 
         }
@@ -368,5 +306,55 @@ public class MultiplayerScreenManager : MonoBehaviour
             playerCountText.text = playerCountString[4];
         }
         //Debug.Log("4 Players active");
+    }
+
+    private void FlipUI(bool flipdirectionX, int playerID)
+    {
+        if (flipdirectionX)
+        {
+            if (!flipUiX[playerID].isFlipped)
+                flipUiX[playerID].isFlipped = true;
+            else
+                flipUiX[playerID].isFlipped = false;
+
+            if (flipUiX[playerID].flipObj != null)
+            {
+                for (int o = 0; o < flipUiX[playerID].flipObj.Count; o++)
+                {
+                    if (flipUiX[playerID].flipObj[o] != null)
+                    {
+                        Vector2 flipObject = flipUiX[playerID].flipObj[o].localScale;
+                        flipObject.x *= -1;
+                        flipUiX[playerID].flipObj[o].localScale = flipObject;
+                    }
+                }
+            }
+        } 
+        else 
+        {
+            if (!flipUiY[playerID].isFlipped)
+                flipUiY[playerID].isFlipped = true;
+            else
+                flipUiY[playerID].isFlipped = false;
+            
+
+            if (flipUiY[playerID].flipObj != null)
+            {
+                for (int o = 0; o < flipUiY[playerID].flipObj.Count; o++)
+                {
+                    if (flipUiY[playerID].flipObj[o] != null)
+                    {
+                        Vector2 flipObject = flipUiY[playerID].flipObj[o].localPosition;
+                        flipObject.y *= -1;
+                        flipUiY[playerID].flipObj[o].localPosition = flipObject;
+                        /*/
+                        Vector2 flipObject = flipUiY[playerID].flipObj[o].localScale;
+                        flipObject.y *= -1;
+                        flipUiY[playerID].flipObj[o].localScale = flipObject;
+                        /*/
+                    }
+                }
+            }
+        }
     }
 }
