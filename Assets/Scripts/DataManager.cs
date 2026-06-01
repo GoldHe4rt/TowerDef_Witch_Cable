@@ -3,11 +3,10 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     [Header("IMPORTANT")]
-    public bool giveDatamanagerControll = true;
+    [SerializeField] public bool giveDatamanagerControll = true;
     [Header("Difficulty")]
     [SerializeField] private WaveSpawner waveSpawner;
     [SerializeField] internal GameDifficulty gameDifficulty;
-    
 
     void Awake()
     {
