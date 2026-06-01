@@ -6,7 +6,7 @@ public class DataManager : MonoBehaviour
     public bool giveDatamanagerControll = true;
     [Header("Difficulty")]
     [SerializeField] private WaveSpawner waveSpawner;
-    [SerializeField] private GameDifficulty gameDifficulty;
+    [SerializeField] public GameDifficulty gameDifficulty;
     
 
     void Awake()

@@ -1,46 +1,30 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectDifficulty : MonoBehaviour
 {
-    private readonly string difficultyKey;
+    private DataManager dataManager;
+    public GameDifficulty CurrentDifficulty;
+    [SerializeField] private GameObject levelButtons;
 
     private void Start()
     {
-        PlayerPrefs.GetFloat(difficultyKey);
+        levelButtons.SetActive(false);
     }
 
-    //For easy button
-    public void SetToEasy()
+    #region ChangeDifficulty
+    public void ChangeToEasy() => OnDifficultyChanged(difficulty: GameDifficulty.Easy);
+    public void ChangeToNormal() => OnDifficultyChanged(difficulty: GameDifficulty.Normal);
+    public void ChangeToHard() => OnDifficultyChanged(difficulty: GameDifficulty.Hard);
+    public void ChangeToNightmare() => OnDifficultyChanged(difficulty: GameDifficulty.Nightmare);
+    #endregion
+    
+
+    private void OnDifficultyChanged(GameDifficulty difficulty)
     {
-        
-        OnDifficultyChanged();
+        CurrentDifficulty = difficulty;
+        AllowLevelSelection();
     }
 
-    //For normal button
-    public void SetToNormal()
-    {
-        OnDifficultyChanged();
-    }
-
-    //For hard button
-    public void SetToHard()
-    {
-        
-        OnDifficultyChanged();
-    }
-
-    //For nightmare button
-    public void SetToNightmare()
-    {
-        
-        OnDifficultyChanged();
-    }
-
-    private void OnDifficultyChanged()
-    {
-        
-        PlayerPrefs.Save();
-    }
+    private void AllowLevelSelection()
+    { levelButtons.SetActive(true); }
 }
