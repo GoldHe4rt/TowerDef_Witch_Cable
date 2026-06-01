@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
                 }
                 if (!isBuilding)
                 {
-                    playerCombatSystem.Attack();
+                    playerCombatSystem.Attack(false);
                 }
             }
             
@@ -61,7 +61,7 @@ public class InputManager : MonoBehaviour
             }
             if (!isBuilding)
             {
-                playerCombatSystem.Attack();
+                playerCombatSystem.Attack(true);
             }
         }
         else

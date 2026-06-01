@@ -99,7 +99,7 @@ public class CampHealth : MonoBehaviour
             if (screenUI != null)
                 screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
         }
-        healthDisplay.text = maxHealth.ToString("0") + " / " + currentHealthPoints.ToString("0") + " hp";
+        healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
         
         Debug.Log("Camp took " + damageAmount + " Damage!");
 
@@ -142,5 +142,15 @@ public class CampHealth : MonoBehaviour
             Destroy(gameObject);
         }
         Debug.Log("Your camp has been destroyed!");
+    }
+
+    private void OnValidate()
+    {
+        if (isMainCamp)
+        {
+            if (screenUI != null)
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+        }
+        healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
     }
 }

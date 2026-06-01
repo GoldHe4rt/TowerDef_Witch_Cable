@@ -22,14 +22,36 @@ public class Wave
     [Range(1, 100)] public int difficultyModifier = 10;
 }
 
+public enum GameDifficulty
+{ 
+    Easy,
+    Normal,
+    Hard,
+    Nightmare
+}
+
+[System.Serializable]
+public class WaveDifficultys
+{
+    public List<Wave> easyWaves;
+    public List<Wave> normalWaves;
+    public List<Wave> hardWaves;
+    public List<Wave> nightmareWaves;
+}
+
 public class WaveSpawner : MonoBehaviour
 {
-    public List<Wave> waves;
-    public EnemySpawner[] spawnPoints;
+    [Header("Difficulty")]
+    public GameDifficulty difficulty;
+    [SerializeField] private WaveDifficultys waveDifficultys;
+    
+    internal List<Wave> waves = new List<Wave>();
 
-    public Animator anim;
-    public TMP_Text waveName;
-    public WinMenuManager winMenuManager;
+    [Header("Other")]
+    [SerializeField] private EnemySpawner[] spawnPoints;
+    [SerializeField] private Animator anim;
+    [SerializeField] private TMP_Text waveName;
+    [SerializeField] private WinMenuManager winMenuManager;
     [SerializeField] private GameObject[] totalEnemies;
 
     private Wave currentWave;
@@ -39,7 +61,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private bool endlessMode = false;
     [SerializeField] private GameObject[] endlessEnemyPrefabs;
     [SerializeField] private int endlessDifficulty = 0;
-    private float newDifficulty;
+    private float newEndlessDifficulty;
 
     private bool canSpawn = false;
     private bool canAnimate = false;
@@ -48,10 +70,12 @@ public class WaveSpawner : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        
     }
 
     void Start()
     {
+        UpdateDifficulty();
         if (endlessMode)
         {
             ActivateEndlessMode();
@@ -62,6 +86,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (currentWaveNumber >= waves.Count)
+        {
+            Debug.LogWarning("Wave ID " + currentWaveNumber + " not found in " + difficulty + " difficulty. There are only " + waves.Count + " waves defined. Please add more wave data or change to a different difficulty in the DataManager since it overwrites existing data.");
+            return;
+        }
         currentWave = waves[currentWaveNumber];
         SpawnWave();
         totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -155,6 +184,27 @@ public class WaveSpawner : MonoBehaviour
         return -1;
     }
 
+    
+
+    public void UpdateDifficulty()
+    {
+        switch (difficulty)
+        {
+            case GameDifficulty.Easy:
+                waves = waveDifficultys.easyWaves;
+                break;
+            case GameDifficulty.Normal:
+                waves = waveDifficultys.normalWaves;
+                break;
+            case GameDifficulty.Hard:
+                waves = waveDifficultys.hardWaves;
+                break;
+            case GameDifficulty.Nightmare:
+                waves = waveDifficultys.nightmareWaves;
+                break;
+        }
+    }
+
     public void ActivateEndlessMode()
     {
         endlessMode = true;
@@ -187,10 +237,11 @@ public class WaveSpawner : MonoBehaviour
         waves.Add(newWave);
 
         //Prepare next Wave
-        newDifficulty = newDifficulty * 1.20f + 4;
-        endlessDifficulty = (int)newDifficulty;
+        newEndlessDifficulty = newEndlessDifficulty * 1.20f + 4;
+        endlessDifficulty = (int)newEndlessDifficulty;
     }
 
+    /*/
     [SerializeField] private GameObject graph;
     [SerializeField] private GameObject graph2;
 
@@ -198,18 +249,19 @@ public class WaveSpawner : MonoBehaviour
     {
         float graphValue = 0;
         int graphValue2 = 0;
-        
+
         for (int i = 0; i < 10; i++) // Example: Create 10 initial endless waves
         {
             Instantiate(graph, graph.transform.position, graph.transform.rotation);
             graphValue = graphValue * 1.20f + 4;
-            graph.transform.position = new Vector2(graph.transform.position.x + 10, graphValue);
+            graph.transform.position = new Vector2(graph.transform.position.x + 10, 100 + graphValue);
             
             
             Instantiate(graph2, graph2.transform.position, graph2.transform.rotation);
             graphValue2 = graphValue2 + 5;
-            graph2.transform.position = new Vector2(graph2.transform.position.x + 10, graphValue2);
+            graph2.transform.position = new Vector2(graph2.transform.position.x + 10, 100 + graphValue2);
             
         }
     }
+    /*/
 }

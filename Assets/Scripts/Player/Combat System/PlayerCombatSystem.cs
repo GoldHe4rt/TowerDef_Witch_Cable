@@ -56,13 +56,13 @@ public class PlayerCombatSystem : MonoBehaviour
         currentHitboxPrefab = null;
     }
 
-    public void Attack()
+    public void Attack(bool shortenTimer)
     {
         if (currentWeaponID == -1)
         {
             return;
         }
-        if (shootTimer > 0)
+        if (shortenTimer ? shootTimer/1.5f > 0 : shootTimer > 0)
         {
             return;
         }
@@ -117,6 +117,6 @@ public class PlayerCombatSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(shootTimer);
         shootTimer = 0;
-        Attack();
+        Attack(false);
     }
 }
