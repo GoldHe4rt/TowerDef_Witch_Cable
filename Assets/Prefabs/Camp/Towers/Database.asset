@@ -26,7 +26,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 3}
     <Prefab>k__BackingField: {fileID: 919219935157804709, guid: f0ffb148150a206469a7fa9a9d9f6bf4,
       type: 3}
-    <Cost>k__BackingField: 150
+    <Cost>k__BackingField: 100
   - <Name>k__BackingField: Spike Trap
     <ID>k__BackingField: 2
     <IsFloor>k__BackingField: 1
