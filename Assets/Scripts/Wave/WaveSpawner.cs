@@ -39,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private bool endlessMode = false;
     [SerializeField] private GameObject[] endlessEnemyPrefabs;
     [SerializeField] private int endlessDifficulty = 0;
-    private float newDifficulty = 5;
+    private float newDifficulty;
 
     private bool canSpawn = false;
     private bool canAnimate = false;
@@ -187,7 +187,29 @@ public class WaveSpawner : MonoBehaviour
         waves.Add(newWave);
 
         //Prepare next Wave
-        newDifficulty *= 1.20f + 3;
+        newDifficulty = newDifficulty * 1.20f + 4;
         endlessDifficulty = (int)newDifficulty;
+    }
+
+    [SerializeField] private GameObject graph;
+    [SerializeField] private GameObject graph2;
+
+    private void Graph()
+    {
+        float graphValue = 0;
+        int graphValue2 = 0;
+        
+        for (int i = 0; i < 10; i++) // Example: Create 10 initial endless waves
+        {
+            Instantiate(graph, graph.transform.position, graph.transform.rotation);
+            graphValue = graphValue * 1.20f + 4;
+            graph.transform.position = new Vector2(graph.transform.position.x + 10, graphValue);
+            
+            
+            Instantiate(graph2, graph2.transform.position, graph2.transform.rotation);
+            graphValue2 = graphValue2 + 5;
+            graph2.transform.position = new Vector2(graph2.transform.position.x + 10, graphValue2);
+            
+        }
     }
 }
