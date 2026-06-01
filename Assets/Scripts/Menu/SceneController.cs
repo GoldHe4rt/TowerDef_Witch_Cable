@@ -5,10 +5,9 @@ namespace Menu
 {
     public class SceneController : MonoBehaviour
     {
-        [SerializeField] private bool requirePlayers = false;
+        [SerializeField] private bool requirePlayers;
         [SerializeField] private int requiredPlayerCount = 1;
         [SerializeField] private ControllerManager _controllerManager;
-        
         
         public bool EnoughPlayers()
         { 
@@ -19,17 +18,20 @@ namespace Menu
         public void Join()
         { SceneManager.LoadScene("PlayerSelect"); }
 
+        public void ChooseLevel()
+        { if (EnoughPlayers()) SceneManager.LoadScene("LevelSelect"); else Debug.Log("Not enough players"); }
+
         public void Tutorial()
-        { if(EnoughPlayers()){ SceneManager.LoadScene("Tutorial"); } else { Debug.Log("Not enough players"); } }
+        { if(EnoughPlayers()) SceneManager.LoadScene("Tutorial"); else Debug.Log("Not enough players"); }
 
         public void Level1()
-        { if(EnoughPlayers()){ SceneManager.LoadScene("Level 1"); } else { Debug.Log("Not enough players"); } }
+        { if(EnoughPlayers()) SceneManager.LoadScene("Level 1"); else Debug.Log("Not enough players"); }
 
         public void Level2()
-        { if(EnoughPlayers()){ SceneManager.LoadScene("Marius"); } else { Debug.Log("Not enough players"); } }
+        { if(EnoughPlayers()) SceneManager.LoadScene("Marius"); else Debug.Log("Not enough players"); }
 
         public void Level3()
-        { if(EnoughPlayers()){ SceneManager.LoadScene("Level 3"); } else { Debug.Log("Not enough players"); } }
+        { if(EnoughPlayers()) SceneManager.LoadScene("Level 3");else Debug.Log("Not enough players"); }
 
         public void Restart()
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
