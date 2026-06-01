@@ -8,10 +8,23 @@ public class GlobalReferanceManager : MonoBehaviour
     //One Script to add referances between scripts without having to go all over
     [Header("Outside References")]
     public PauseManager pauseManager;
+    public PlayerStats playerStats;
     public CampHealth campHealth;
     public GameOverController gameOverController;
     //public WaveSpawner waveSpawner;
 
+    void Start()
+    {
+        if (pauseManager == null)
+            Debug.LogWarning("PauseManager reference is not assigned in GlobalReferanceManager.");
+        if (playerStats == null)
+            Debug.LogWarning("PlayerStats reference is not assigned in GlobalReferanceManager.");
+        if (campHealth == null)
+            Debug.LogWarning("CampHealth reference is not assigned in GlobalReferanceManager.");
+        if (gameOverController == null)
+            Debug.LogWarning("GameOverController reference is not assigned in GlobalReferanceManager.");
+        
+    }
 
     //Values to change on a Global space
     [Header("Global Settings")]

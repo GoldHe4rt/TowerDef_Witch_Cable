@@ -95,7 +95,7 @@ public class MoveOverTime : MonoBehaviour
             return;
         if (movement.Length > activeMovementID && isMovementEnabled)
         {
-            movement[activeMovementID].currentDuration -= Time.deltaTime * movement[activeMovementID].moveSpeed;
+            movement[activeMovementID].currentDuration -= Time.deltaTime;
             if (movement[activeMovementID].currentDuration <= 0)
             {
                 movement[activeMovementID].currentDuration = movement[activeMovementID].duration;
@@ -117,7 +117,7 @@ public class MoveOverTime : MonoBehaviour
 
         if (rotation.Length > activeRotationID && isRotationEnabled)
         {
-            rotation[activeRotationID].currentDuration -= Time.deltaTime * rotation[activeRotationID].rotationSpeed;
+            rotation[activeRotationID].currentDuration -= Time.deltaTime;
             if (rotation[activeRotationID].currentDuration <= 0)
             {
                 rotation[activeRotationID].currentDuration = rotation[activeRotationID].duration;
@@ -138,7 +138,7 @@ public class MoveOverTime : MonoBehaviour
 
         if (scale.Length > activeScaleID && isScaleEnabled)
         {
-            scale[activeScaleID].currentDuration -= Time.deltaTime * scale[activeScaleID].scaleSpeed;
+            scale[activeScaleID].currentDuration -= Time.deltaTime;
             if (scale[activeScaleID].currentDuration <= 0)
             {
                 scale[activeScaleID].currentDuration = scale[activeScaleID].duration;

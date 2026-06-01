@@ -20,7 +20,7 @@ MonoBehaviour:
     <HitboxPrefab>k__BackingField: {fileID: 8581967954523261283, guid: 7d0f7b4c8806baa479112713e61a4eff,
       type: 3}
     <HitboxSpeed>k__BackingField: 0
-    <AttackSpeed>k__BackingField: 0.5
+    <AttackSpeed>k__BackingField: 0.4
     <Lifetime>k__BackingField: 0.2
   - <Name>k__BackingField: Bow
     <ID>k__BackingField: 1
@@ -30,4 +30,4 @@ MonoBehaviour:
       type: 3}
     <HitboxSpeed>k__BackingField: 15
     <AttackSpeed>k__BackingField: 0.3
-    <Lifetime>k__BackingField: 3
+    <Lifetime>k__BackingField: 2

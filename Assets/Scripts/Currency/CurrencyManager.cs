@@ -11,6 +11,7 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] CampCurrency campCurrency;
     [Header("Players")]
     [SerializeField] PlayerCurrency[] playerCurrency;
+    
 
     void Start()
     {
@@ -58,8 +59,12 @@ public class CurrencyManager : MonoBehaviour
         
     }
 
-    internal void AddCurrency(float currency, int playerIndex)
+    internal void AddCurrency(float currency, int playerIndex, bool killedEnemy)
     {
+        if (killedEnemy)
+        {
+            globalReferanceManager.playerStats.AddKills(playerIndex - 1);
+        }
         if (globalReferanceManager.currency == Currency.None)
             return;
 

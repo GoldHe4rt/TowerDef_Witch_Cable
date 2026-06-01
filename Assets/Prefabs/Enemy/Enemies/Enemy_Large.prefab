@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: attackSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -249,12 +249,12 @@ PrefabInstance:
     - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxSpeed.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxSpeed.y
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8957306761276025106, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}

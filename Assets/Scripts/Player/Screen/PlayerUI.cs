@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using System.Collections;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -67,7 +68,42 @@ public class PlayerUI : MonoBehaviour
         {
             currencyChangeRb.linearVelocity = Vector2.down * 2f;
         }
-        Destroy(currentChangeDisplay, 1f);
+        StartCoroutine(TextFade(currentChangeDisplay, changeText, 1f, 3f, false));
+    }
+
+    IEnumerator TextFade(GameObject currentChangeDisplay, TextMeshProUGUI myText, float duration, float exponent, bool fadeIn)
+    {
+        float timeElapsed = 0f;
+        Color textColor = myText.color;
+
+        while (timeElapsed < duration)
+        {
+            timeElapsed += Time.deltaTime;
+            
+            // 1. Calculate normalized time (always 0 to 1)
+            float t = timeElapsed / duration;
+
+            // 2. Apply the exponential curve to the progress fraction
+            float exponentialT = Mathf.Pow(t, exponent);
+
+            // 3. Interpolate between start and end values
+            if (fadeIn)
+                textColor.a = Mathf.Lerp(0, 1, exponentialT);
+            else
+                textColor.a = Mathf.Lerp(1, 0, exponentialT);
+            myText.color = textColor;
+
+            yield return null; // Wait for the next frame
+        }
+
+        // Ensure it strictly ends exactly at the destination value
+        if (fadeIn)
+        {
+            textColor.a = 1;
+            myText.color = textColor;
+        } else
+            Destroy(currentChangeDisplay, 0.1f);
+        
     }
 
     internal void UpdateRespawnDisplay(float respawnTime)

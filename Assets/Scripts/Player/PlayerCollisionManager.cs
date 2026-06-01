@@ -30,7 +30,7 @@ public class PlayerCollisionManager : MonoBehaviour
             if (hazard.dealKnockback == true)
             {
                 Vector2 knockbackDir = (transform.position - collision.transform.position).normalized;
-                playerMovement.ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration);
+                playerMovement.ApplyKnockback(knockbackDir, hazard.knockbackForce, hazard.knockbackDuration, hazard.stunDuration, hazard.damageTime);
             }
             hazard.HitTarget();
         }
@@ -63,7 +63,7 @@ public class PlayerCollisionManager : MonoBehaviour
                 Debug.LogWarning("Coin is missing script"); return;
             }
 
-            currencyManager.AddCurrency(coin.amount, playerID);
+            currencyManager.AddCurrency(coin.amount, playerID, false);
 
             Destroy(collision.gameObject);
         }

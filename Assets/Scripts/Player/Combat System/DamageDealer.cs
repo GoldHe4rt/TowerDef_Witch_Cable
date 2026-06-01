@@ -38,7 +38,7 @@ public class DamageDealer : MonoBehaviour
     {
         if (currencyManager != null)
         {
-            currencyManager.AddCurrency(currency, playerOwner);
+            currencyManager.AddCurrency(currency, playerOwner, true);
         }
     }
 

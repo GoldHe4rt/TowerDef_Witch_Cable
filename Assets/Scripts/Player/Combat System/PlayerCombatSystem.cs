@@ -14,6 +14,7 @@ public class PlayerCombatSystem : MonoBehaviour
     private GameObject currentHitboxPrefab;
     private float currentHitboxSpeed;
     private float currentAttackSpeed;
+    private bool currentlyStickToWeapon;
 
     private float shootTimer;
 
@@ -42,6 +43,7 @@ public class PlayerCombatSystem : MonoBehaviour
         currentWeaponPrefab.transform.SetParent(weaponHolder.transform);
         currentHitboxSpeed = databaseSO.weaponData[newWeaponID].HitboxSpeed;
         currentAttackSpeed = databaseSO.weaponData[newWeaponID].AttackSpeed;
+        currentlyStickToWeapon = databaseSO.weaponData[newWeaponID].StickToWeapon;
         // Initialize combat system if needed
     }
 
@@ -62,7 +64,7 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             return;
         }
-        if (shortenTimer ? shootTimer/1.5f > 0 : shootTimer > 0)
+        if (shortenTimer ? shootTimer > currentAttackSpeed * 0.5f : shootTimer > 0)
         {
             return;
         }
@@ -75,7 +77,18 @@ public class PlayerCombatSystem : MonoBehaviour
 
         //Add Velocity to Damage dealer
         Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
-        rb.linearVelocity = weaponHolder.transform.rotation * Vector2.up * currentHitboxSpeed;
+        
+        if (!currentlyStickToWeapon)
+        {
+            rb.linearVelocity = weaponHolder.transform.rotation * Vector2.up * currentHitboxSpeed;
+        }
+        else
+        {
+            Destroy(rb);
+            currentAttack.transform.SetParent(weaponHolder.transform);
+            currentAttack.transform.localPosition = Vector3.zero;
+            currentAttack.transform.localRotation = Quaternion.identity;
+        }
 
         //Set Owner of Attack
         DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();

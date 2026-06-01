@@ -66,6 +66,7 @@ public class WaveSpawner : MonoBehaviour
     private bool canSpawn = false;
     private bool canAnimate = false;
     private float nextSpawnTime;
+    private bool sentErrorMessage = false;
 
     private void Awake()
     {
@@ -88,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (currentWaveNumber >= waves.Count)
         {
-            Debug.LogWarning("Wave ID " + currentWaveNumber + " not found in " + difficulty + " difficulty. There are only " + waves.Count + " waves defined. Please add more wave data or change to a different difficulty in the DataManager since it overwrites existing data.");
+            WavesMissingError();
             return;
         }
         currentWave = waves[currentWaveNumber];
@@ -123,6 +124,11 @@ public class WaveSpawner : MonoBehaviour
 
     void WaveAnim()
     {
+        if (currentWaveNumber >= waves.Count)
+        {
+            WavesMissingError();
+            return;
+        }
         Debug.Log("animate wave ting");
         waveName.text = waves[currentWaveNumber].waveName;
         anim.SetTrigger("WaveComplete");
@@ -184,7 +190,14 @@ public class WaveSpawner : MonoBehaviour
         return -1;
     }
 
-    
+    private void WavesMissingError()
+    {
+        if (!sentErrorMessage)
+        {
+            Debug.LogError("Wave ID " + currentWaveNumber + " not found in " + difficulty + " difficulty. There are only " + waves.Count + " waves defined. Please add more wave data or change to a different difficulty in the DataManager since it overwrites existing data.");
+            sentErrorMessage = true;
+        }
+    }
 
     public void UpdateDifficulty()
     {

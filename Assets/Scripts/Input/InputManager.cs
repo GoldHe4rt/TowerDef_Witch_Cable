@@ -20,6 +20,10 @@ public class InputManager : MonoBehaviour
     {
         if (isPlacing)
         {
+            if (!isBuilding)
+            {
+                playerCombatSystem.Attack(false);
+            }
             if (isPlacingInputTimer > 0)
             {
                 isPlacingInputTimer -= Time.deltaTime;
@@ -30,10 +34,7 @@ public class InputManager : MonoBehaviour
                 {
                     playerBuildSystem.PlaceStructure();
                 }
-                if (!isBuilding)
-                {
-                    playerCombatSystem.Attack(false);
-                }
+                
             }
             
         }
@@ -51,10 +52,15 @@ public class InputManager : MonoBehaviour
 
     public void OnPlaceAttack(InputValue value)
     {
+        if (playerMovement.knockbackRunning || !playerMovement.movementEnabled)
+        {
+            isPlacing = false;
+            return;
+        }
         if (value.isPressed)
         {
             isPlacing = true;
-            isPlacingInputTimer = 0.5f;
+            isPlacingInputTimer = 0.3f;
             if (isBuilding)
             {
                 playerBuildSystem.PlaceStructure();
