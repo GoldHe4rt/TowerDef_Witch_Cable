@@ -1302,7 +1302,6 @@ GameObject:
   - component: {fileID: 1935278839991399249}
   - component: {fileID: 3332694400558552389}
   - component: {fileID: 8826820761216080987}
-  - component: {fileID: 3985706861407631134}
   - component: {fileID: 76441086828464253}
   m_Layer: 0
   m_Name: StartButton
@@ -1588,21 +1587,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556676152957486024}
   m_CullTransparentMesh: 1
---- !u!114 &3985706861407631134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443145708439184369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1888c39fb644e14c933039ecf7c4846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requirePlayers: 0
-  requiredPlayerCount: 1
-  _controllerManager: {fileID: 0}
 --- !u!1 &4536287646839921414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,7 +2212,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3985706861407631134}
+      - m_Target: {fileID: 1987152463}
         m_TargetAssemblyTypeName: Menu.SceneController, Assembly-CSharp
         m_MethodName: Join
         m_Mode: 1
