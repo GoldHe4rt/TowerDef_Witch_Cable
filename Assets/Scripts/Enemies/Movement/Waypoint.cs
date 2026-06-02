@@ -16,5 +16,22 @@ public class Waypoint : MonoBehaviour
         int randomWaypointIndex = Random.Range(0, waypoints.Length);
         return waypoints[randomWaypointIndex];
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        foreach (Waypoint waypoint in waypoints)
+        {
+            if (waypoint != null)
+            {
+                Gizmos.DrawLine(transform.position, waypoint.transform.position);
+            }
+        }
+        if (waypoints.Length == 0)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawSphere(transform.position, 3f);
+        }
+    }
 }
 

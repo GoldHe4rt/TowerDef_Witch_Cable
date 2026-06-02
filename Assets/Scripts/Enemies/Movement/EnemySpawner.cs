@@ -25,4 +25,9 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, waypoint.transform.position);
+    }
 }

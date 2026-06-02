@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
 using Menu;
+using System.Linq;
 
 [System.Serializable]
 public class EnemySettings
@@ -76,6 +77,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+        Graph();
         UpdateDifficulty();
         if (endlessMode)
         {
@@ -254,9 +256,11 @@ public class WaveSpawner : MonoBehaviour
         endlessDifficulty = (int)newEndlessDifficulty;
     }
 
-    /*/
+    
     [SerializeField] private GameObject graph;
     [SerializeField] private GameObject graph2;
+    [SerializeField] private List<Vector2> graphPoints;
+    [SerializeField] private List<Vector2> graphPoints2;
 
     private void Graph()
     {
@@ -266,15 +270,33 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < 10; i++) // Example: Create 10 initial endless waves
         {
             Instantiate(graph, graph.transform.position, graph.transform.rotation);
+            graphPoints.Add(new Vector2(graph.transform.position.x, 100 + graphValue));
             graphValue = graphValue * 1.20f + 4;
-            graph.transform.position = new Vector2(graph.transform.position.x + 10, 100 + graphValue);
+            graph.transform.position = new Vector2(graph.transform.position.x, 100 + graphValue);
             
             
             Instantiate(graph2, graph2.transform.position, graph2.transform.rotation);
+            graphPoints2.Add(new Vector2(graph2.transform.position.x + 10, 100 + graphValue2));
             graphValue2 = graphValue2 + 5;
             graph2.transform.position = new Vector2(graph2.transform.position.x + 10, 100 + graphValue2);
             
         }
     }
-    /*/
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < graphPoints.Count - 1; i++)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(graphPoints[i], graphPoints[i + 1]);
+        }
+        for (int i = 0; i < graphPoints2.Count - 1; i++)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(graphPoints2[i], graphPoints2[i + 1]);
+        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector2(transform.position.x - 10, transform.position.y), new Vector2(transform.position.x + 10, transform.position.y));
+        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 10), new Vector2(transform.position.x, transform.position.y + 10));
+    }
+    
 }
