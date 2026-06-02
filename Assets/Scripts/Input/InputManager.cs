@@ -16,6 +16,9 @@ public class InputManager : MonoBehaviour
     private bool isPlacing = false;
     private float isPlacingInputTimer = 0f;
 
+    private int buildingIndex = 0;
+    private int weaponIndex = 0;
+
     void Update()
     {
         if (isPlacing)
@@ -89,7 +92,8 @@ public class InputManager : MonoBehaviour
             if (!isBuilding)
             {
                 dismantleMode = false;
-                playerBuildSystem.StartPlacement(0);
+                weaponIndex = playerCombatSystem.currentWeaponID;
+                playerBuildSystem.StartPlacement(buildingIndex);
                 playerCombatSystem.RemoveWeapon();
                 isBuilding = true;
                 Debug.Log("Starting build mode.");
@@ -97,8 +101,9 @@ public class InputManager : MonoBehaviour
             else
             {
                 dismantleMode = false;
+                buildingIndex = playerBuildSystem.selectedObjectID;
                 playerBuildSystem.StopPlacement();
-                playerCombatSystem.NewWeapon(0);
+                playerCombatSystem.NewWeapon(weaponIndex);
                 isBuilding = false;
                 Debug.Log("Stopping build mode.");
             }

@@ -75,6 +75,11 @@ public class ControllerManager : MonoBehaviour
     {
         var player = players[playerIndex];
         
+        // Pair this PlayerInput with the target gamepad explicitly
+        if (player.user.valid)
+            player.user.UnpairAllDevices();
+        player.devices = new InputDevice[] { gamepad };
+
         player.enabled = true;
         activePlayerAmount++;
         multiplayerScreenManager.playerData[playerIndex].isActive = true;

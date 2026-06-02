@@ -49,6 +49,7 @@ public class WaveSpawner : MonoBehaviour
     internal List<Wave> waves = new List<Wave>();
 
     [Header("Other")]
+    [SerializeField] private GameObject[] EnemyPrefabs;
     [SerializeField] private EnemySpawner[] spawnPoints;
     [SerializeField] private Animator anim;
     [SerializeField] private TMP_Text waveName;
@@ -60,7 +61,6 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("Endless Mode")]
     [SerializeField] private bool endlessMode = false;
-    [SerializeField] private GameObject[] endlessEnemyPrefabs;
     [SerializeField] private int endlessDifficulty = 0;
     private float newEndlessDifficulty;
 
@@ -235,13 +235,13 @@ public class WaveSpawner : MonoBehaviour
         Wave newWave = new Wave();
         newWave.waveName = "Endless Wave " + (currentWaveNumber + 1);
         newWave.enemySettings = new List<EnemySettings>();
-        for (int i = 0; i < endlessEnemyPrefabs.Length; i++)
+        for (int i = 0; i < EnemyPrefabs.Length; i++)
         {
-            var prefab = endlessEnemyPrefabs[i];
+            var prefab = EnemyPrefabs[i];
             newWave.enemySettings.Add(new EnemySettings
             {
                 typeOfEnemy = prefab,
-                noOfEnemy = Random.Range(endlessDifficulty * (endlessEnemyPrefabs.Length - i), endlessDifficulty * (endlessEnemyPrefabs.Length - i) * 2) / 2 + 1
+                noOfEnemy = Random.Range(endlessDifficulty * (EnemyPrefabs.Length - i), endlessDifficulty * (EnemyPrefabs.Length - i) * 2) / 2 + 1
             });
         }
         newWave.spwanInterval = Mathf.Lerp(1f, 0.1f, (float)endlessDifficulty / 100f);

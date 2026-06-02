@@ -14,11 +14,12 @@ public class PlayerBuildSystem : MonoBehaviour
     
 
     private Vector3 placementPosition;
-    private int selectedObjectID = -1;
+    internal int selectedObjectID = -1;
     private GridPlacementManager gridPlacementManager;
     private Vector3Int lastDetectedPosition = Vector3Int.zero;
     private bool isPlacing = false;
     private bool isRemoving = false;
+    private float placementResetTimer = 3f;
 
     private void Start()
     {
@@ -30,6 +31,8 @@ public class PlayerBuildSystem : MonoBehaviour
             Debug.LogError("GridPlacementManager singleton not found in scene!");
         }
     }
+
+
 
     public void StartPlacement(int objectID)
     {
@@ -137,6 +140,15 @@ public class PlayerBuildSystem : MonoBehaviour
 
     void Update()
     {
+        if (isPlacing && !isRemoving)
+        {
+            placementResetTimer -= Time.deltaTime;
+            if (placementResetTimer <= 0f)
+            {
+                placementResetTimer = 3f;
+                StartPlacement(selectedObjectID);
+            }
+        }
         if (!isRemoving)
             if (selectedObjectID < 0 || gridPlacementManager == null)
                 return;

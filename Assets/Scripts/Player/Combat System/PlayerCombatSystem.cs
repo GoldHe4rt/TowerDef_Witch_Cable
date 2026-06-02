@@ -9,7 +9,7 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private int playerID = 1;
     [SerializeField] private CurrencyManager currencyManager;
 
-    private int currentWeaponID = -1;
+    internal int currentWeaponID = -1;
     private GameObject currentWeaponPrefab;
     private GameObject currentHitboxPrefab;
     private float currentHitboxSpeed;

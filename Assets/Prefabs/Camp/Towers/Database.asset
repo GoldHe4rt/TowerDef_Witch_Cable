@@ -33,4 +33,4 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 919219935157804709, guid: 466d696a71601e34a982466b6049aa89,
       type: 3}
-    <Cost>k__BackingField: 150
+    <Cost>k__BackingField: 100
