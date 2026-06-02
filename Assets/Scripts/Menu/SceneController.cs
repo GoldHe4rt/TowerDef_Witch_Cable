@@ -21,6 +21,9 @@ namespace Menu
         public void ChooseLevel()
         { if (EnoughPlayers()) SceneManager.LoadScene("LevelSelect"); else Debug.Log("Not enough players"); }
 
+        public void MariusLevel()
+        { if (EnoughPlayers()) SceneManager.LoadScene("Marius"); else Debug.Log("Not enough players"); }
+
         public void Tutorial()
         { if(EnoughPlayers()) SceneManager.LoadScene("Tutorial"); else Debug.Log("Not enough players"); }
 
