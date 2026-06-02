@@ -8,6 +8,7 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private int playerID = 1;
     [SerializeField] private CurrencyManager currencyManager;
+    [SerializeField] private PlayerMovement playerMovement;
 
     internal int currentWeaponID = -1;
     private GameObject currentWeaponPrefab;
@@ -80,7 +81,9 @@ public class PlayerCombatSystem : MonoBehaviour
         
         if (!currentlyStickToWeapon)
         {
+            // Add Velocity to Damage dealer and add or subtract playerspeed to it based on the direction of the attack and movement
             rb.linearVelocity = weaponHolder.transform.rotation * Vector2.up * currentHitboxSpeed;
+            rb.linearVelocity += playerMovement.moveInput.normalized * playerMovement.moveSpeed * 0.5f;
         }
         else
         {

@@ -39,6 +39,11 @@ public class PlayerBuildSystem : MonoBehaviour
         StopPlacement();
 
         // Validate that the object ID exists
+        if (gridPlacementManager.GetObjectData(objectID) == gridPlacementManager.GetObjectData(-1))
+        {
+            StartRemoving();
+            return;
+        }
         if (gridPlacementManager.GetObjectData(objectID) == null)
         {
             Debug.LogError($"No object found with ID {objectID}");

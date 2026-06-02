@@ -3848,7 +3848,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 94335
+    m_Bits: 225535
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5176,6 +5176,7 @@ MonoBehaviour:
   weaponHolder: {fileID: 5980672397994601241}
   playerID: 1
   currencyManager: {fileID: 0}
+  playerMovement: {fileID: 2170188157618631205}
 --- !u!1 &7887715099286301454
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,13 +13,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public bool movementEnabled = true;
     internal bool knockbackRunning = false;
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 500f;
     internal float movementSpeedModifier = 1f;
 
 
     //private PlayerInput playerInput;
-    private Rigidbody2D rb;
+    internal Rigidbody2D rb;
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public  Vector2 lookInput;
     

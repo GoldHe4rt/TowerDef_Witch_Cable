@@ -149,7 +149,11 @@ public class WaveSpawner : MonoBehaviour
         if (canSpawn && nextSpawnTime < Time.time)
         {
             int randomEnemy = GetRandomEnemy();
-
+            if (currentWave.enemySettings.Count == 0)
+            {
+                WavesMissingError();
+                return;
+            }
             if (currentWave.enemySettings[randomEnemy].noOfEnemy <= 0)
             {
                 currentWave.enemySettings.RemoveAt(randomEnemy);
