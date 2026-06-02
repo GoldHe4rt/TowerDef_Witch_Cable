@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
     {
         dead = true;
         playerMovement.movementEnabled = false;
-
+        playerUI.UpdateHealthDisplay(currentHealthPoints);
         playerUI.gameplayScreen.SetActive(false);
         playerUI.deathScreen.SetActive(true);
         StartCoroutine(RespawnCountdown(respawntimer));
@@ -120,6 +120,7 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(1f);
             respawntimer -= 1f;
         }
+        playerUI.UpdateHealthDisplay(currentHealthPoints);
         playerUI.UpdateRespawnDisplay(respawntimer);
         yield return new WaitForSeconds(0.2f);
         Respawn(healthToHeal);
