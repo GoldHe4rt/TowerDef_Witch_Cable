@@ -22,6 +22,7 @@ public class DataManager : MonoBehaviour
     {
         if (!giveDatamanagerControll) 
             return;
-        waveSpawner.difficulty = gameDifficulty;
+        if (waveSpawner != null)
+            waveSpawner.difficulty = gameDifficulty;
     }
 }

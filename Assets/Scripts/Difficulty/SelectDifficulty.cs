@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SelectDifficulty : MonoBehaviour
 {
-    private DataManager dataManager;
+    [SerializeField] private DataManager dataManager;
     private string difficultyKey;
     public GameDifficulty currentDifficulty;
     [SerializeField] private GameObject levelButtons;
