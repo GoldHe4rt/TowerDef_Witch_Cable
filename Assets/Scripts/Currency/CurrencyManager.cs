@@ -128,11 +128,13 @@ public class CurrencyManager : MonoBehaviour
         if (globalReferanceManager.currency == Currency.SeperateBanks || 
             globalReferanceManager.currency == Currency.SplitEvenly)
         {
+            Debug.Log("Player " + playerIndex + " has " + playerCurrency[playerIndex - 1].GetCurrencyAmount() + " currency. Cost is " + cost);
             return playerCurrency[playerIndex - 1].GetCurrencyAmount() >= cost;
         }
 
         if (globalReferanceManager.currency == Currency.SharedBank)
         {
+            Debug.Log("Shared bank has " + campCurrency.GetCurrencyAmount() + " currency. Cost is " + cost);
             return campCurrency.GetCurrencyAmount() >= cost;
         }
         Debug.LogError("Invalid currency type");

@@ -17,8 +17,9 @@ public class ControllerManager : MonoBehaviour
     private Dictionary<Gamepad, int> gamepadToPlayer = new Dictionary<Gamepad, int>();
     private HashSet<int> takenSlots = new HashSet<int>();
     
-    // Static dictionary to persist controller assignments across scenes
+    // Static data to persist controller assignments and join order across scenes
     private static Dictionary<int, int> savedGamepadAssignments = new Dictionary<int, int>();
+    private static List<int> savedGamepadOrder = new List<int>();
     
     
     private void Awake()
@@ -47,13 +48,21 @@ public class ControllerManager : MonoBehaviour
         takenSlots.Clear();
         activePlayerAmount = 0;
         
-        // Reassign saved gamepads to their player slots
+        // Build a map of device IDs to connected gamepads
+        var connectedGamepads = new Dictionary<int, Gamepad>();
         foreach (var gamepad in Gamepad.all)
         {
-            int deviceId = gamepad.deviceId;
-            if (savedGamepadAssignments.ContainsKey(deviceId))
+            connectedGamepads[gamepad.deviceId] = gamepad;
+        }
+        
+        // Restore controllers in their original join order
+        foreach (var deviceId in savedGamepadOrder)
+        {
+            if (!connectedGamepads.TryGetValue(deviceId, out var gamepad))
+                continue;
+            
+            if (savedGamepadAssignments.TryGetValue(deviceId, out int playerIndex))
             {
-                int playerIndex = savedGamepadAssignments[deviceId];
                 if (playerIndex < players.Length && players[playerIndex] != null)
                 {
                     AssignGamepadToPlayer(gamepad, playerIndex);
@@ -77,8 +86,12 @@ public class ControllerManager : MonoBehaviour
         gamepadToPlayer.Add(gamepad, playerIndex);
         takenSlots.Add(playerIndex);
         
-        // Save the assignment for future scenes
+        // Save the assignment and join order for future scenes
         savedGamepadAssignments[gamepad.deviceId] = playerIndex;
+        if (!savedGamepadOrder.Contains(gamepad.deviceId))
+        {
+            savedGamepadOrder.Add(gamepad.deviceId);
+        }
         
         Debug.Log($"Player {playerIndex + 1} joined. Active players: {activePlayerAmount}");
     }
@@ -134,8 +147,9 @@ public class ControllerManager : MonoBehaviour
         gamepadToPlayer.Remove(gamepad);
         takenSlots.Remove(index);
         
-        // Remove from saved assignments
+        // Remove from saved assignments and join order
         savedGamepadAssignments.Remove(gamepad.deviceId);
+        savedGamepadOrder.Remove(gamepad.deviceId);
 
         Debug.Log($"Player {index + 1} left. Active players: {activePlayerAmount}");
 

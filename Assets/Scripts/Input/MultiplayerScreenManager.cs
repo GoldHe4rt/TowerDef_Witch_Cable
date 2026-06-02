@@ -29,7 +29,7 @@ public class MultiplayerScreenManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private Camera miniMap;
-    [SerializeField] private GameObject playerCountObj;
+    [SerializeField] private GameObject movingObject;
     [SerializeField] private TextMeshProUGUI playerCountText;
     [SerializeField] private String[] playerCountString = {"Players: 0", "Players: 1", "Players: 2", "Players: 3", "Players: 4"};
 
@@ -144,8 +144,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(-625,450);
-            playerCountObj.transform.localScale = new Vector2(2,2);
+            movingObject.transform.localPosition = new Vector2(-625,450);
+            movingObject.transform.localScale = new Vector2(2,2);
             playerCountText.text = playerCountString[0];
         }
         //Debug.Log("0 Players active");
@@ -178,8 +178,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(800, 140);
-            playerCountObj.transform.localScale = new Vector2(1.25f, 1.25f);
+            movingObject.transform.localPosition = new Vector2(800, 140);
+            movingObject.transform.localScale = new Vector2(1.25f, 1.25f);
             playerCountText.text = playerCountString[1];
         }
         //Debug.Log("1 Player active");
@@ -195,9 +195,9 @@ public class MultiplayerScreenManager : MonoBehaviour
             {
                 //Change Camera
                 if (playerData[i].currentPlayerOrder == 0)
-                    playerData[i].playerCam.rect = new Rect(0.0f, 0.25f, 0.5f, 0.5f);
+                    playerData[i].playerCam.rect = new Rect(0.0f, 0.20f, 0.5f, 0.5f);
                 else if (playerData[i].currentPlayerOrder == 1)
-                    playerData[i].playerCam.rect = new Rect(0.5f, 0.25f, 0.5f, 0.5f);
+                    playerData[i].playerCam.rect = new Rect(0.5f, 0.20f, 0.5f, 0.5f);
                 else Debug.LogError("Invalid player order in PlayerAmount_2");
 
                 //Flip UI
@@ -216,8 +216,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(0, 480);
-            playerCountObj.transform.localScale = new Vector2(1.25f, 1.25f);
+            movingObject.transform.localPosition = new Vector2(-500, 480);
+            movingObject.transform.localScale = new Vector2(1.25f, 1.25f);
             playerCountText.text = playerCountString[2];
         }
         //Debug.Log("2 Players active");
@@ -258,8 +258,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(-700, -60);
-            playerCountObj.transform.localScale = new Vector2(1.5f, 1.5f);
+            movingObject.transform.localPosition = new Vector2(-700, -60);
+            movingObject.transform.localScale = new Vector2(1.5f, 1.5f);
             playerCountText.text = playerCountString[3];
         }
         //Debug.Log("3 Players active");
@@ -301,8 +301,8 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            playerCountObj.transform.localPosition = new Vector2(175f, 500f);
-            playerCountObj.transform.localScale = new Vector2(1, 1);
+            movingObject.transform.localPosition = new Vector2(175f, 500f);
+            movingObject.transform.localScale = new Vector2(1, 1);
             playerCountText.text = playerCountString[4];
         }
         //Debug.Log("4 Players active");

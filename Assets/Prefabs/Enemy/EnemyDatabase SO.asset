@@ -27,3 +27,10 @@ MonoBehaviour:
     <SizeRange>k__BackingField: {x: 0.75, y: 1.25}
     <HealthRange>k__BackingField: {x: 2, y: 7}
     <MovementRange>k__BackingField: {x: 3, y: 5}
+  - <Name>k__BackingField: Enemy_Large
+    <ID>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 7204799974450761455, guid: 327a106e7f7acf1419d7a13bb28b2639,
+      type: 3}
+    <SizeRange>k__BackingField: {x: 0.75, y: 1.25}
+    <HealthRange>k__BackingField: {x: 2, y: 7}
+    <MovementRange>k__BackingField: {x: 1, y: 5}

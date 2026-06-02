@@ -24,18 +24,25 @@ public class Waypoint : MonoBehaviour
         {
             if (waypoint != null)
             {
+                //Draw line to next waypoint
                 Gizmos.color = Color.red;
-                Gizmos.DrawLine(transform.position, waypoint.transform.position);
-                //Direction arrow Triangle
-                Gizmos.color = Color.blue;
                 Vector3 direction = (waypoint.transform.position - transform.position).normalized;
                 Vector3 perpendicular = Vector3.Cross(direction, Vector3.forward).normalized;
+                Vector3 offset = perpendicular * 0.2f; // Adjust the offset for better visibility
+                Vector3 startPoint = transform.position + direction + offset;
+                Vector3 endPoint = waypoint.transform.position - direction + offset;
+                Gizmos.DrawLine(transform.position, startPoint);
+                Gizmos.DrawLine(startPoint, endPoint);
+                Gizmos.DrawLine(waypoint.transform.position, endPoint);
+                
+
+                //Direction arrow
+                Gizmos.color = Color.blue;
                 float arrowSize = 2f;
-                float arrowDistance = 0.5f;
-                Vector3 arrowTip = transform.position + direction * arrowSize;
-                Vector3 arrowLeft = transform.position + direction * (arrowSize * 0.5f) + perpendicular * (arrowSize * 0.25f);
-                Vector3 arrowRight = transform.position + direction * (arrowSize * 0.5f) - perpendicular * (arrowSize * 0.25f);
-                Gizmos.DrawLine(transform.position + direction * arrowDistance, arrowTip);
+                Vector3 arrowTip = startPoint + direction * arrowSize;
+                Vector3 arrowLeft = startPoint + direction * (arrowSize * 0.5f) + perpendicular * (arrowSize * 0.25f);
+                Vector3 arrowRight = startPoint + direction * (arrowSize * 0.5f) - perpendicular * (arrowSize * 0.25f);
+                Gizmos.DrawLine(startPoint, arrowTip);
                 Gizmos.DrawLine(arrowTip, arrowLeft);
                 Gizmos.DrawLine(arrowTip, arrowRight);
             }

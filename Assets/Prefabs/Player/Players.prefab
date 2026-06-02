@@ -878,7 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerManager: {fileID: 5051237792626410319}
   miniMap: {fileID: 3019939559805780246}
-  playerCountObj: {fileID: 2457334032959075581}
+  movingObject: {fileID: 2457334032959075581}
   playerCountText: {fileID: 6639947540826331174}
   playerCountString:
   - 'Players: 0'
