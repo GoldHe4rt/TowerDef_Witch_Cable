@@ -28,7 +28,7 @@ namespace Menu
         { if(EnoughPlayers()) SceneManager.LoadScene("Level 1"); else Debug.Log("Not enough players"); }
 
         public void Level2()
-        { if(EnoughPlayers()) SceneManager.LoadScene("Marius"); else Debug.Log("Not enough players"); }
+        { if(EnoughPlayers()) SceneManager.LoadScene("Level 2"); else Debug.Log("Not enough players"); }
 
         public void Level3()
         { if(EnoughPlayers()) SceneManager.LoadScene("Level 3");else Debug.Log("Not enough players"); }
