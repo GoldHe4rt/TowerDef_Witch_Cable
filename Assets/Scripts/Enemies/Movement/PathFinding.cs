@@ -20,19 +20,11 @@ public class PathFinding : MonoBehaviour
 
     private Vector2 currentTarget;
 
-    private void Awake()
-    {
-        Vector3 currentRotation = transform.eulerAngles;
-
-        currentRotation.y = 0f;
-        currentRotation.x = 0f;
-
-        transform.eulerAngles = currentRotation;
-    }
-
     void Update()
     {
         if (!isActive) return;
+        FreezeEnemyRotation();
+
 
         transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * speedModifier * Time.deltaTime);
 
@@ -47,6 +39,8 @@ public class PathFinding : MonoBehaviour
             }
             SetNewWaypoint(waypoint);
         }
+
+
     }
 
     public void ChangeWaypoint()
@@ -63,6 +57,7 @@ public class PathFinding : MonoBehaviour
         randomPos.y += Random.Range(waypoint.transform.localScale.y / -2, waypoint.transform.localScale.y / 2);
 
         currentTarget = randomPos;
+
     }
 
     internal void SetDifficultyModifier(float difficultyModifier)
@@ -97,5 +92,15 @@ public class PathFinding : MonoBehaviour
         // Ensure it strictly ends exactly at the destination value
         speedModifier = endValue;
 
+    }
+
+    private void FreezeEnemyRotation()
+    {
+        Vector3 currentRotation = transform.eulerAngles;
+
+        //currentRotation.y = 0f;
+        currentRotation.x = 0f;
+
+        transform.eulerAngles = currentRotation;
     }
 }

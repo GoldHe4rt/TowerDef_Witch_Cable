@@ -8,11 +8,17 @@ using UnityEngine.AI;
 
 public class NevMeshPathfinding : MonoBehaviour
 {
-    public Transform Target;
+    private Transform TargetBase;
+    private Transform TargetBarricade;
     public float AttackDistance;
-    public PathFinding pathFindinfScript;
     public bool isStopped;
     public bool AttackObstacle;
+    [SerializeField] public bool isActive = true;
+    [SerializeField] private Vector2 minMaxSpeed = new Vector2(1f, 15f);
+    [SerializeField] private float speed = 5f;
+    [SerializeField] internal float speedModifier = 1;
+    [SerializeField] private float freezeDuration = 2f;
+
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -28,30 +34,17 @@ public class NevMeshPathfinding : MonoBehaviour
 
     void Update()
     {
-        distance = Vector2.Distance(agent.transform.position, Target.position);
-        if (distance < AttackDistance)
-        {
-            agent.isStopped = true;
-            animator.SetBool("Attack", true);
-        }
-        else
-        {
-            agent.isStopped = false;
-            animator.SetBool("Attack", false);
-        }
+        distance = Vector2.Distance(agent.transform.position, TargetBase.position);
 
-        if (!agent.hasPath)
-        {
-            agent.isStopped = false;
-            pathFindinfScript.ChangeWaypoint();
-        }
+        FreezeEnemyRotation();
     }
-
-    void AnimatorMove()
+    private void FreezeEnemyRotation()
     {
-        if (animator.GetBool("Attack") == false)
-        {
-            agent.speed = (animator.deltaPosition / Time.deltaTime).magnitude;
-        }
+        Vector3 currentRotation = transform.eulerAngles;
+
+        //currentRotation.y = 0f;
+        currentRotation.x = 0f;
+
+        transform.eulerAngles = currentRotation;
     }
 }

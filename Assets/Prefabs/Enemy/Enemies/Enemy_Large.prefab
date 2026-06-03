@@ -248,6 +248,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
       propertyPath: minMaxSpeed.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -267,12 +272,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 3208576918953409329}
+      insertIndex: -1
+      addedObject: {fileID: 8486741220410747935}
     - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8486741220410747935}
+      addedObject: {fileID: 6749387133378291445}
   m_SourcePrefab: {fileID: 100100000, guid: ae79eb1b1145050479fd3f1f95b89879, type: 3}
 --- !u!1 &7204799974450761455 stripped
 GameObject:
@@ -280,18 +285,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6386752087834729233}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3208576918953409329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7204799974450761455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8550f034611a06e4f88fc261204d8a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &8486741220410747935
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -314,3 +307,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6749387133378291445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204799974450761455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d8848fc2384ae428ed1168c93cc937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDistance: 0
+  pathFindinfScript: {fileID: 0}
+  isStopped: 0
+  AttackObstacle: 0
+  nexusTarget: {fileID: 0}
