@@ -42,7 +42,21 @@ public class NevMeshPathfinding : MonoBehaviour
         distance = Vector2.Distance(agent.transform.position, TargetBase.position);
 
         FreezeEnemyRotation();
+/*/
+        transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * speedModifier * Time.deltaTime);
 
+
+        if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
+        {
+            waypoint = waypoint.GetNextWaypoint();
+            if (waypoint == null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            SetNewWaypoint(waypoint);
+        }
+/*/
     }
 
     private void FreezeEnemyRotation()
