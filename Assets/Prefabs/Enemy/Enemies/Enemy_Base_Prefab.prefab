@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 2541031831342939791}
   - component: {fileID: 7919924977023777896}
   - component: {fileID: 2897402382982837266}
+  - component: {fileID: 134069677393523474}
   - component: {fileID: 1983155555985423677}
   - component: {fileID: 6765335692943290478}
   m_Layer: 14
@@ -312,6 +313,9 @@ MonoBehaviour:
   isActive: 1
   minMaxSpeed: {x: 1, y: 15}
   speed: 5
+  speedModifier: 1
+  freezeDuration: 2
+  isFrozen: 0
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +336,20 @@ MonoBehaviour:
   minMaxHealthPoints: {x: 1, y: 25}
   minMaxCurrencyOnDeath: {x: 10, y: 100}
   minMaxScale: {x: 0.8, y: 2}
+--- !u!114 &134069677393523474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278096698909005310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2cbb9a21171364c97e5cc6291d7cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 2897402382982837266}
+  pathFinding: {fileID: 7919924977023777896}
 --- !u!114 &1983155555985423677
 MonoBehaviour:
   m_ObjectHideFlags: 0

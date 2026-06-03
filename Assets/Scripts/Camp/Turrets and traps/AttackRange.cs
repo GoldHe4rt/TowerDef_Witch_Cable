@@ -17,20 +17,27 @@ public class AttackRange : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Enemy"))
             return;
-        if (towerAttack.towerType == TowerType.Turret)
+        switch (towerAttack.towerType)
         {
-            if (currentAimTarget != null)
-                return;
-            currentAimTarget = collision.gameObject;
+            case TowerType.Turret:
+                if (currentAimTarget != null)
+                    return;
+                currentAimTarget = collision.gameObject;
+                break;
+            
+            case TowerType.Explosive:
+                towerAttack.Explode();
+                break;
+            
+            case TowerType.Spike:
+                towerAttack.Attack();
+                break;
+            
+            case TowerType.Freeze:
+                towerAttack.Freeze();
+                break;
         }
-        if (towerAttack.towerType == TowerType.Explosive)
-        {
-            towerAttack.Explode();
-        }
-        if (towerAttack.towerType == TowerType.Spike)
-        {
-            towerAttack.Attack();
-        }
+
     }
 
     void OnTriggerExit2D(Collider2D collision)

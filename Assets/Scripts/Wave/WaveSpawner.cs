@@ -69,7 +69,7 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("Endless Mode")]
     [SerializeField] private bool endlessMode = false;
-    private List<GameObject> endlessEnemyPrefabs;
+    private List<GameObject> endlessEnemyPrefabs = new List<GameObject>();
     [SerializeField] private int endlessDifficulty = 0;
     private float newEndlessDifficulty;
 

@@ -10,9 +10,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject canTakeDamageDisplay;
     
     [Header("Default Values")]
-    [SerializeField] private int healthPoints = 10;
-    [SerializeField] private int currencyOnDeath = 50;
-    [SerializeField] private bool iFramesEnabled = false;
+    [SerializeField] internal int healthPoints = 10;
+    [SerializeField] internal int currencyOnDeath = 50;
+    [SerializeField] internal bool iFramesEnabled = false;
 
     [Header("Difficulty Scaling")]
     [SerializeField] private Vector2 minMaxHealthPoints = new Vector2(1, 25);
@@ -26,29 +26,6 @@ public class EnemyHealth : MonoBehaviour
     {
         healthDisplay.text = healthPoints.ToString("0");
         canTakeDamageDisplay.SetActive(false);
-    }
-    
-    //Hurt Player when hit Hazard
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Damage Dealer")) return;
-        if (invinsible) return;
-        DamageDealer hazard = collision.gameObject.GetComponent<DamageDealer>();
-        if (hazard == null)
-        {
-            Debug.LogWarning("Damage Dealer is missing DamageDealer script"); return;
-        }
-
-        LoseHealth(hazard.damageAmount, hazard.hurtTime);
-
-        hazard.HitTarget();
-
-        if (healthPoints <= 0 && dead == false)
-        {
-            dead = true;
-            hazard.KilledTarget(currencyOnDeath);
-            Destroy(gameObject);
-        }
     }
     
     public void LoseHealth(int damageAmount, float damageFrames)

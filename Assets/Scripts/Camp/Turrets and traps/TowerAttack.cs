@@ -7,7 +7,8 @@ public enum TowerType
 {
     Turret,
     Explosive,
-    Spike
+    Spike,
+    Freeze
 }
 
 public class TowerAttack : MonoBehaviour
@@ -132,5 +133,10 @@ public class TowerAttack : MonoBehaviour
                 return;
             }
         Destroy(gameObject);
+    }
+
+    internal void Freeze()
+    {
+        throw new NotImplementedException();
     }
 }

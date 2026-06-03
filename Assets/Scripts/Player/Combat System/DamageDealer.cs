@@ -13,6 +13,10 @@ public class DamageDealer : MonoBehaviour
     internal float knockbackDuration = 0.2f;
     internal float stunDuration = 0.2f;
 
+    [Header("Freeze")]
+    [SerializeField] internal bool freezeTarget = false;
+    [SerializeField] internal float freezeDuration = 5f;
+
     [Header("Other")]
     [SerializeField] internal int playerOwner = -1;
     [SerializeField] internal int pierceAmount = 1;
