@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     //private PlayerInput playerInput;
     internal Rigidbody2D rb;
+    private Animator animator;
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public  Vector2 lookInput;
     
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     
 
@@ -42,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
         if (!movementEnabled || knockbackRunning) return;
         rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * movementSpeedModifier * Time.fixedDeltaTime);
 
+        animator.SetFloat("Speed", moveInput.magnitude);
+        animator.SetFloat("MoveX", moveInput.x);
+        animator.SetFloat("MoveY", moveInput.y);
+
+        //Aim
         if (lookInput != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, lookInput);

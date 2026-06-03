@@ -31,9 +31,11 @@ public class PreviewSystem : MonoBehaviour
 
         dismantleIndicator.SetActive(false);
         previewObject = Instantiate(prefab);
-        displayObject = Instantiate(prefab, displayLocation.transform);
+        
         PrepareCursor(size);
         PreparePreview(previewObject);
+
+        displayObject = Instantiate(prefab, displayLocation.transform);
         PrepareDisplay(displayObject, size);
         
         cellIndicator.SetActive(true);
