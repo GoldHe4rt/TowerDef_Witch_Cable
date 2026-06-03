@@ -31,7 +31,6 @@ RectTransform:
   - {fileID: 994969591630252878}
   - {fileID: 3049404241777221522}
   - {fileID: 5774685586661649896}
-  - {fileID: 634050835965733242}
   m_Father: {fileID: 7112022184993893444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1084,7 +1083,7 @@ GameObject:
   - component: {fileID: 2289109189961825045}
   - component: {fileID: 7451058591117442449}
   m_Layer: 5
-  m_Name: Currency Change
+  m_Name: Number Change
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,11 +1101,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3214894367571946637}
+  m_Father: {fileID: 7112022184993893444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41, y: -7.1}
+  m_AnchoredPosition: {x: 56.925, y: -85.706055}
   m_SizeDelta: {x: 117.14, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3469798129969858738
@@ -1611,7 +1610,7 @@ MonoBehaviour:
   canHealDisplay: {fileID: 376648985148844427}
   currencyDisplayObject: {fileID: 132355301875069868}
   currencyDisplay: {fileID: 3716301260261390777}
-  currencyChangeObject: {fileID: 1653704669242448599}
+  changeObject: {fileID: 1653704669242448599}
   buildingPriceDisplayObject: {fileID: 5665682639522934022}
   buildingPriceDisplay: {fileID: 8089363037964121377}
   buildingNameDisplay: {fileID: 840288436007195501}
@@ -5612,6 +5611,7 @@ RectTransform:
   - {fileID: 708769208244929367}
   - {fileID: 846131269059078698}
   - {fileID: 3214894367571946637}
+  - {fileID: 634050835965733242}
   m_Father: {fileID: 8074887556049699320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

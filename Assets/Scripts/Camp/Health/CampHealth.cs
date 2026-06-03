@@ -23,6 +23,7 @@ public class CampHealth : MonoBehaviour
     internal bool destroyed = false;
     public bool canTakeDamage = true;
     public bool canHeal = true;
+    private float healTimer = 60f;
 
 
     void Start()
@@ -30,12 +31,21 @@ public class CampHealth : MonoBehaviour
         if (isMainCamp)
         {
             if (screenUI != null)
-                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, 0);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
         
         canTakeDamageDisplay.SetActive(false);
         canHealDisplay.SetActive(false);
+    }
+    void Update()
+    {
+        healTimer -= Time.deltaTime;
+        if (healTimer <= 0)
+        {
+            healTimer = 60f; // Reset the timer
+            Heal(1); // Heal 1 point per minute
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -64,13 +74,14 @@ public class CampHealth : MonoBehaviour
             return;
 
         currentHealthPoints = currentHealthPoints + healAmount;
+
         if (currentHealthPoints > maxHealth)
             currentHealthPoints = maxHealth;
         
         if (isMainCamp)
         {
             if (screenUI != null)
-                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, healAmount);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
         
@@ -97,7 +108,7 @@ public class CampHealth : MonoBehaviour
         if (isMainCamp)
         {
             if (screenUI != null)
-                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, -damageAmount);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
         
@@ -149,7 +160,7 @@ public class CampHealth : MonoBehaviour
         if (isMainCamp)
         {
             if (screenUI != null)
-                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints);
+                screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, 0);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
     }

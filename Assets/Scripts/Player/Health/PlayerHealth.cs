@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        playerUI.UpdateHealthDisplay(currentHealthPoints);
+        playerUI.UpdateHealthDisplay(currentHealthPoints, 0);
     }
     
     public void Heal(int healAmount)
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealthPoints = currentHealthPoints + healAmount;
         if (currentHealthPoints > maxHealth)
             currentHealthPoints = maxHealth;
-        playerUI.UpdateHealthDisplay(currentHealthPoints);
+        playerUI.UpdateHealthDisplay(currentHealthPoints, healAmount);
         //Debug.Log("Healed " + healAmount + " Health!");
 
         
@@ -55,7 +55,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (dead) return;
         currentHealthPoints = currentHealthPoints - damageAmount;
-        playerUI.UpdateHealthDisplay(currentHealthPoints);
+        playerUI.UpdateHealthDisplay(currentHealthPoints, -damageAmount);
         //Debug.Log("Took " + damageAmount + " Damage!");
 
         if (currentHealthPoints <= 0 && dead == false)
@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
     {
         dead = true;
         playerMovement.movementEnabled = false;
-        playerUI.UpdateHealthDisplay(currentHealthPoints);
+        playerUI.UpdateHealthDisplay(currentHealthPoints, 0);
         playerUI.gameplayScreen.SetActive(false);
         playerUI.deathScreen.SetActive(true);
         StartCoroutine(RespawnCountdown(respawntimer));
@@ -120,7 +120,7 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(1f);
             respawntimer -= 1f;
         }
-        playerUI.UpdateHealthDisplay(currentHealthPoints);
+        playerUI.UpdateHealthDisplay(currentHealthPoints, 0);
         playerUI.UpdateRespawnDisplay(respawntimer);
         yield return new WaitForSeconds(0.2f);
         Respawn(healthToHeal);

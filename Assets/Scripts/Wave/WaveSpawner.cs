@@ -5,12 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
 using Menu;
-using System.Linq;
 
 [System.Serializable]
 public class EnemySettings
 {
-    public GameObject typeOfEnemy;
+    public EnemyType typeOfEnemy;
+    internal GameObject enemyPrefab;
     public int noOfEnemy;
 }
 [System.Serializable]
@@ -31,6 +31,13 @@ public enum GameDifficulty
     Nightmare
 }
 
+public enum EnemyType
+{ 
+    Light,
+    Medium,
+    Heavy
+}
+
 [System.Serializable]
 public class WaveDifficultys
 {
@@ -49,8 +56,9 @@ public class WaveSpawner : MonoBehaviour
     internal List<Wave> waves = new List<Wave>();
 
     [Header("Other")]
-    [SerializeField] private GameObject[] EnemyPrefabs;
     [SerializeField] private EnemySpawner[] spawnPoints;
+    [SerializeField] private EnemyDatabaseSO databaseSO;
+    [SerializeField] private GlobalReferanceManager globalReferenceManager;
     [SerializeField] private Animator anim;
     [SerializeField] private TMP_Text waveName;
     [SerializeField] private WinMenuManager winMenuManager;
@@ -61,6 +69,7 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("Endless Mode")]
     [SerializeField] private bool endlessMode = false;
+    private List<GameObject> endlessEnemyPrefabs;
     [SerializeField] private int endlessDifficulty = 0;
     private float newEndlessDifficulty;
 
@@ -72,20 +81,20 @@ public class WaveSpawner : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        
     }
 
     void Start()
     {
-        Graph();
+        if (globalReferenceManager == null)
+            Debug.LogWarning("GlobalReferanceManager reference is not assigned in WaveSpawner.");
         UpdateDifficulty();
         if (endlessMode)
         {
+            PrepareEndlessEnemyPrefabs();
             ActivateEndlessMode();
         }
         WaveAnim();
     }
-
 
     private void Update()
     {
@@ -131,6 +140,7 @@ public class WaveSpawner : MonoBehaviour
             WavesMissingError();
             return;
         }
+        globalReferenceManager.waveDisplay.text = (currentWaveNumber + 1).ToString("0");
         Debug.Log("animate wave ting");
         waveName.text = waves[currentWaveNumber].waveName;
         anim.SetTrigger("WaveComplete");
@@ -149,11 +159,7 @@ public class WaveSpawner : MonoBehaviour
         if (canSpawn && nextSpawnTime < Time.time)
         {
             int randomEnemy = GetRandomEnemy();
-            if (currentWave.enemySettings.Count == 0)
-            {
-                WavesMissingError();
-                return;
-            }
+
             if (currentWave.enemySettings[randomEnemy].noOfEnemy <= 0)
             {
                 currentWave.enemySettings.RemoveAt(randomEnemy);
@@ -164,8 +170,7 @@ public class WaveSpawner : MonoBehaviour
                 }
                 return;
             }
-
-            GameObject randomEnemyObject = currentWave.enemySettings[randomEnemy].typeOfEnemy;
+            GameObject randomEnemyObject = currentWave.enemySettings[randomEnemy].enemyPrefab;
             EnemySpawner randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             randomPoint.Spawn(
                 randomEnemyObject, 
@@ -222,6 +227,37 @@ public class WaveSpawner : MonoBehaviour
                 waves = waveDifficultys.nightmareWaves;
                 break;
         }
+        PrepareEnemyPrefabs();
+    }
+
+    private void PrepareEnemyPrefabs()
+    {
+        for (int i = 0; i < waves.Count; i++)
+        {
+            for (int j = 0; j < waves[i].enemySettings.Count; j++)
+            {
+                switch (waves[i].enemySettings[j].typeOfEnemy)
+                {
+                    case EnemyType.Light:
+                        waves[i].enemySettings[j].enemyPrefab = databaseSO.enemyData[0].Prefab;
+                        break;
+                    case EnemyType.Medium:
+                        waves[i].enemySettings[j].enemyPrefab = databaseSO.enemyData[1].Prefab;
+                        break;
+                    case EnemyType.Heavy:
+                        waves[i].enemySettings[j].enemyPrefab = databaseSO.enemyData[2].Prefab;
+                        break;
+                }
+            }
+        }
+    }
+
+    private void PrepareEndlessEnemyPrefabs()
+    {
+        for (int i = 0; i < databaseSO.enemyData.Count; i++)
+        {
+            endlessEnemyPrefabs.Add(databaseSO.enemyData[i].Prefab);
+        }
     }
 
     public void ActivateEndlessMode()
@@ -238,14 +274,15 @@ public class WaveSpawner : MonoBehaviour
         //Create new Wave
         Wave newWave = new Wave();
         newWave.waveName = "Endless Wave " + (currentWaveNumber + 1);
+        
         newWave.enemySettings = new List<EnemySettings>();
-        for (int i = 0; i < EnemyPrefabs.Length; i++)
+        for (int i = 0; i < endlessEnemyPrefabs.Count; i++)
         {
-            var prefab = EnemyPrefabs[i];
+            var prefab = endlessEnemyPrefabs[i];
             newWave.enemySettings.Add(new EnemySettings
             {
-                typeOfEnemy = prefab,
-                noOfEnemy = Random.Range(endlessDifficulty * (EnemyPrefabs.Length - i), endlessDifficulty * (EnemyPrefabs.Length - i) * 2) / 2 + 1
+                enemyPrefab = prefab,
+                noOfEnemy = Random.Range(endlessDifficulty * (endlessEnemyPrefabs.Count - i), endlessDifficulty * (endlessEnemyPrefabs.Count - i) * 2) / 2 + 1
             });
         }
         newWave.spwanInterval = Mathf.Lerp(1f, 0.1f, (float)endlessDifficulty / 100f);
@@ -260,11 +297,9 @@ public class WaveSpawner : MonoBehaviour
         endlessDifficulty = (int)newEndlessDifficulty;
     }
 
-    
+    /*/
     [SerializeField] private GameObject graph;
     [SerializeField] private GameObject graph2;
-    [SerializeField] private List<Vector2> graphPoints;
-    [SerializeField] private List<Vector2> graphPoints2;
 
     private void Graph()
     {
@@ -274,33 +309,15 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < 10; i++) // Example: Create 10 initial endless waves
         {
             Instantiate(graph, graph.transform.position, graph.transform.rotation);
-            graphPoints.Add(new Vector2(graph.transform.position.x, 100 + graphValue));
             graphValue = graphValue * 1.20f + 4;
-            graph.transform.position = new Vector2(graph.transform.position.x, 100 + graphValue);
+            graph.transform.position = new Vector2(graph.transform.position.x + 10, 100 + graphValue);
             
             
             Instantiate(graph2, graph2.transform.position, graph2.transform.rotation);
-            graphPoints2.Add(new Vector2(graph2.transform.position.x + 10, 100 + graphValue2));
             graphValue2 = graphValue2 + 5;
             graph2.transform.position = new Vector2(graph2.transform.position.x + 10, 100 + graphValue2);
             
         }
     }
-    private void OnDrawGizmos()
-    {
-        for (int i = 0; i < graphPoints.Count - 1; i++)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(graphPoints[i], graphPoints[i + 1]);
-        }
-        for (int i = 0; i < graphPoints2.Count - 1; i++)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(graphPoints2[i], graphPoints2[i + 1]);
-        }
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector2(transform.position.x - 10, transform.position.y), new Vector2(transform.position.x + 10, transform.position.y));
-        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 10), new Vector2(transform.position.x, transform.position.y + 10));
-    }
-    
+    /*/
 }

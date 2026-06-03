@@ -15,7 +15,9 @@ public class PlayerUI : MonoBehaviour
     [Header("Currency")]
     [SerializeField] private GameObject currencyDisplayObject;
     [SerializeField] private TextMeshProUGUI currencyDisplay;
-    [SerializeField] private GameObject currencyChangeObject;
+
+    [Header("Change Display")]
+    [SerializeField] private GameObject changeObject;
 
     [Header("Building")]
     [SerializeField] private GameObject buildingPriceDisplayObject;
@@ -28,7 +30,7 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
-        currencyChangeObject.SetActive(false);
+        changeObject.SetActive(false);
         canTakeDamageDisplay.SetActive(false);
         canHealDisplay.SetActive(false);
         deathScreen.SetActive(false);
@@ -36,15 +38,20 @@ public class PlayerUI : MonoBehaviour
             currencyDisplayObject.SetActive(false);
     }
 
-    public void UpdateHealthDisplay(int currentHealthPoints)
+    public void UpdateHealthDisplay(int currentHealthPoints, int changeAmount)
     {
         healthDisplay.text = currentHealthPoints.ToString("0");
+        DisplayChangeAmount((float)changeAmount, changeObject, healthDisplay.transform, false);
     }
 
     internal void UpdateCurrencyDisplay(float currencyAmount, float changeAmount)
     {
         currencyDisplay.text = currencyAmount.ToString("0");
-        GameObject currentChangeDisplay = Instantiate(currencyChangeObject, currencyDisplay.transform.position, Quaternion.identity, currencyDisplay.transform);
+        DisplayChangeAmount(changeAmount, changeObject, currencyDisplay.transform, true);
+    }
+    void DisplayChangeAmount(float changeAmount, GameObject changeObject, Transform parentLocation, bool shouldMove)
+    {
+        GameObject currentChangeDisplay = Instantiate(changeObject, parentLocation.position, Quaternion.identity, parentLocation);
         currentChangeDisplay.SetActive(true);
         TextMeshProUGUI changeText = currentChangeDisplay.GetComponent<TextMeshProUGUI>();
         
@@ -64,7 +71,7 @@ public class PlayerUI : MonoBehaviour
             changeText.text = "";
         }
         Rigidbody2D currencyChangeRb = currentChangeDisplay.GetComponent<Rigidbody2D>();
-        if (currencyChangeRb != null)
+        if (currencyChangeRb != null && shouldMove)
         {
             currencyChangeRb.linearVelocity = Vector2.down * 2f;
         }

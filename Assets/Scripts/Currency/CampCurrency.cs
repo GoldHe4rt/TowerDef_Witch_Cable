@@ -10,29 +10,30 @@ public class CampCurrency : MonoBehaviour
 
     void Start()
     {
-        screenUI.UpdateCurrencyDisplay(currencyAmount);
+        screenUI.UpdateCurrencyDisplay(currencyAmount, 0);
     }
     
     internal void SetCurrency(float amount)
     {
         currencyAmount = amount;
-        screenUI.UpdateCurrencyDisplay(currencyAmount);
+        screenUI.UpdateCurrencyDisplay(currencyAmount, 0);
     }
 
     internal void AddCurrency(float amount)
     {
         currencyAmount += amount;
-        screenUI.UpdateCurrencyDisplay(currencyAmount);
+        screenUI.UpdateCurrencyDisplay(currencyAmount, amount);
     }
 
     internal void RemoveCurrency(float amount)
     {
         currencyAmount -= amount;
-        screenUI.UpdateCurrencyDisplay(currencyAmount);
+        screenUI.UpdateCurrencyDisplay(currencyAmount, -amount);
     }
 
     internal float GetCurrencyAmount()
     {
         return currencyAmount;
     }
+    
 }

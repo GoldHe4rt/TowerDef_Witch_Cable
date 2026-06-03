@@ -1,5 +1,6 @@
 using Menu;
 using UnityEngine;
+using TMPro;
 
 public class GlobalReferanceManager : MonoBehaviour
 {
@@ -23,8 +24,12 @@ public class GlobalReferanceManager : MonoBehaviour
             Debug.LogWarning("CampHealth reference is not assigned in GlobalReferanceManager.");
         if (gameOverController == null)
             Debug.LogWarning("GameOverController reference is not assigned in GlobalReferanceManager.");
-        
+        //if (waveSpawner == null)
+        //    Debug.LogWarning("WaveSpawner reference is not assigned in GlobalReferanceManager.");
     }
+
+    [Header("Inside References")]
+    [SerializeField] public TextMeshProUGUI waveDisplay;
 
     //Values to change on a Global space
     [Header("Global Settings")]
