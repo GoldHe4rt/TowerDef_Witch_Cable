@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 using System.Collections;
+using UnityEngine.Rendering;
 
 
 public class PathFinding : MonoBehaviour
@@ -23,7 +24,7 @@ public class PathFinding : MonoBehaviour
     {
         if (!isActive) return;
 
-        transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * speedModifier* Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * speedModifier * Time.deltaTime);
 
 
         if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
@@ -38,15 +39,20 @@ public class PathFinding : MonoBehaviour
         }
     }
 
-    public void SetNewWaypoint(Waypoint newWayPoint)
+    public void ChangeWaypoint()
     {
-        waypoint = newWayPoint;
+        SetNewWaypoint(waypoint);
+    }
+
+
+    public void SetNewWaypoint(Waypoint newWaypoint)
+    {
+        waypoint = newWaypoint;
         Vector2 randomPos = waypoint.transform.position;
         randomPos.x += Random.Range(waypoint.transform.localScale.x / -2, waypoint.transform.localScale.x / 2);
         randomPos.y += Random.Range(waypoint.transform.localScale.y / -2, waypoint.transform.localScale.y / 2);
 
         currentTarget = randomPos;
-
     }
 
     internal void SetDifficultyModifier(float difficultyModifier)
@@ -65,7 +71,7 @@ public class PathFinding : MonoBehaviour
         while (timeElapsed < duration)
         {
             timeElapsed += Time.deltaTime;
-            
+
             // 1. Calculate normalized time (always 0 to 1)
             float t = timeElapsed / duration;
 
@@ -80,6 +86,6 @@ public class PathFinding : MonoBehaviour
 
         // Ensure it strictly ends exactly at the destination value
         speedModifier = endValue;
-        
+
     }
 }

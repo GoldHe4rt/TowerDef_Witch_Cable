@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
             enemyAttack.SetDifficultyModifier(rangedDifficultyModifier01);
             pathFinding.SetDifficultyModifier(difficultyModifier);
         }
-        
+
     }
 
     private void OnDrawGizmos()
