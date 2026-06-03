@@ -20,6 +20,16 @@ public class PathFinding : MonoBehaviour
 
     private Vector2 currentTarget;
 
+    private void Awake()
+    {
+        Vector3 currentRotation = transform.eulerAngles;
+
+        currentRotation.y = 0f;
+        currentRotation.x = 0f;
+
+        transform.eulerAngles = currentRotation;
+    }
+
     void Update()
     {
         if (!isActive) return;
