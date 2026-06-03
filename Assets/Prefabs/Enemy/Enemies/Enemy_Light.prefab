@@ -152,6 +152,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2662248553688211422}
+    - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5279682241043197089}
     - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -164,6 +168,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1794901259565182904}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2662248553688211422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573278766653946438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8550f034611a06e4f88fc261204d8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &5279682241043197089
 Rigidbody2D:
   serializedVersion: 5
