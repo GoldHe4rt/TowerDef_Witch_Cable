@@ -86,6 +86,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "BackToMenu",
+                    "type": "Button",
+                    "id": "dd69336a-6119-484b-a033-68a19f511a9a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -377,6 +386,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9fc8943f-3815-4ff4-b4e6-91b53554bdbf",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "BackToMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "eb40bb66-4559-4dfa-9a2f-820438abb426",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -566,6 +586,15 @@
                     "type": "PassThrough",
                     "id": "9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BackToMenu",
+                    "type": "Button",
+                    "id": "38ed7197-1ba0-49ff-954a-2fe14ce4719d",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1011,6 +1040,17 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9aec0bf5-68d4-4b8b-a7da-8ddc76525f6d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "BackToMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1094,6 +1134,15 @@
                     "name": "ShowControlls",
                     "type": "Button",
                     "id": "b6d085bc-a7f9-4635-b2c8-66736d91a8c3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BackToMenu",
+                    "type": "Button",
+                    "id": "bba2cf32-e597-4f2d-a601-7f59a8e133c5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1197,6 +1246,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "ShowControlls",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c040ee7-fa3a-42db-a8c0-c478e21fb10d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "BackToMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

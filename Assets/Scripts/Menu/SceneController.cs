@@ -9,12 +9,12 @@ namespace Menu
         [SerializeField] private int requiredPlayerCount = 1;
         [SerializeField] private ControllerManager _controllerManager;
         
-        public bool EnoughPlayers()
+
+        private bool EnoughPlayers()
         { 
             if (!requirePlayers) return true;
             return _controllerManager.activePlayerAmount >= requiredPlayerCount; 
         }
-
         public void Join()
         { SceneManager.LoadScene("PlayerSelect"); }
 
@@ -47,7 +47,8 @@ namespace Menu
         { SceneManager.LoadScene(sceneBuildIndex: 0); }
         
         public void SettingsScene() 
-        { SceneManager.LoadScene("Settings"); }
+        { SceneManager.LoadScene("Settings");
+        }
 
         public void ControlsScene()
         { SceneManager.LoadScene("Controls"); }
