@@ -219,11 +219,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4174907970339112430}
   - component: {fileID: 2541031831342939791}
+  - component: {fileID: -889120198094431616}
   - component: {fileID: 7919924977023777896}
   - component: {fileID: 2897402382982837266}
   - component: {fileID: 134069677393523474}
   - component: {fileID: 1983155555985423677}
   - component: {fileID: 6765335692943290478}
+  - component: {fileID: 24442664452354538}
+  - component: {fileID: -2891831895305928678}
+  - component: {fileID: -1020587294747959835}
   m_Layer: 14
   m_Name: Enemy_Base_Prefab
   m_TagString: Enemy
@@ -298,7 +302,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7919924977023777896
+--- !u!114 &-889120198094431616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,6 +310,27 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4278096698909005310}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d8848fc2384ae428ed1168c93cc937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDistance: 0
+  isStopped: 0
+  AttackObstacle: 0
+  isActive: 1
+  minMaxSpeed: {x: 1, y: 15}
+  speed: 5
+  speedModifier: 1
+  freezeDuration: 2
+  isFrozen: 0
+--- !u!114 &7919924977023777896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278096698909005310}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf267929374404b40aa9c570f4a0b60a, type: 3}
   m_Name: 
@@ -403,6 +428,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &24442664452354538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278096698909005310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8550f034611a06e4f88fc261204d8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2891831895305928678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278096698909005310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &-1020587294747959835
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278096698909005310}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6511384812113450412
 GameObject:
   m_ObjectHideFlags: 0

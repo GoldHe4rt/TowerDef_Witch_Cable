@@ -56,6 +56,7 @@ public class WaveSpawner : MonoBehaviour
     internal List<Wave> waves = new List<Wave>();
 
     [Header("Other")]
+    [SerializeField] private Transform target;
     [SerializeField] private EnemySpawner[] spawnPoints;
     [SerializeField] private EnemyDatabaseSO databaseSO;
     [SerializeField] private GlobalReferanceManager globalReferenceManager;
@@ -173,7 +174,8 @@ public class WaveSpawner : MonoBehaviour
             GameObject randomEnemyObject = currentWave.enemySettings[randomEnemy].enemyPrefab;
             EnemySpawner randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             randomPoint.Spawn(
-                randomEnemyObject, 
+                randomEnemyObject,
+                target,
                 currentWave.difficultyModifier, 
                 currentWave.difficultyRangeActive);
             currentWave.enemySettings[randomEnemy].noOfEnemy--;

@@ -3,15 +3,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] public Waypoint waypoint;
-    public void Spawn(GameObject randomEnemy, int difficultyModifier, bool isRangedDifficulty)
+    public void Spawn(GameObject randomEnemy, Transform target, int difficultyModifier, bool isRangedDifficulty)
     {
         GameObject cloneObject = Instantiate(randomEnemy, transform.position, Quaternion.identity);
         cloneObject.SetActive(true);
-        PathFinding pathFinding = cloneObject.GetComponent<PathFinding>();
+        NevMeshPathfinding nevMeshPathfinding = cloneObject.GetComponent<NevMeshPathfinding>();
         EnemyHealth enemyHealth = cloneObject.GetComponent<EnemyHealth>();
         EnemyAttack enemyAttack = cloneObject.GetComponent<EnemyAttack>();
 
-        cloneObject.GetComponent<PathFinding>().SetNewWaypoint(waypoint);
+        nevMeshPathfinding.TargetBase = target;
 
         if (isRangedDifficulty)
         {
@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
 
             enemyHealth.SetDifficultyModifier(rangedDifficultyModifier01);
             enemyAttack.SetDifficultyModifier(rangedDifficultyModifier01);
-            pathFinding.SetDifficultyModifier(difficultyModifier);
+            nevMeshPathfinding.SetDifficultyModifier(difficultyModifier);
         }
 
     }
