@@ -8,7 +8,8 @@ public enum TowerType
     Turret,
     Explosive,
     Spike,
-    Freeze
+    Freeze,
+    Barricade
 }
 
 public class TowerAttack : MonoBehaviour
@@ -25,6 +26,14 @@ public class TowerAttack : MonoBehaviour
     private AttackRange attackRangeScript;
     private float attackSpeedTimer = 0f;
     private Vector2 currentAimDirectionTarget = Vector2.up;
+
+    [Header("Health Settings")]
+    [SerializeField] private int maxHealth = 100;
+    private int currentHealth = 100;
+    [SerializeField] private bool DamageIFramesEnabled = true;
+    [SerializeField] private float damageFrames = 1f;
+    private bool canTakeDamage = true;
+
 
     [Header("Bullet Settings")]
     [SerializeField] private TextMeshProUGUI bulletCountText;
@@ -116,6 +125,33 @@ public class TowerAttack : MonoBehaviour
             
         }
         
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        if (canTakeDamage == false) return;
+        currentHealth -= damageAmount;
+        bulletCountText.text = bulletAmount.ToString();
+        //Debug.Log("Took " + damageAmount + " Damage!");
+
+        if (currentHealth <= 0)
+        {
+            DestroySelf();
+            return;
+        }
+
+        if (DamageIFramesEnabled == true)
+        {
+            canTakeDamage = false;
+            StartCoroutine(HurtIFrames(damageFrames));
+        }
+            
+    }
+
+        private IEnumerator HurtIFrames(float damageFrames)
+    {
+        yield return new WaitForSeconds(damageFrames);
+        canTakeDamage = true;
     }
 
     public void Explode()

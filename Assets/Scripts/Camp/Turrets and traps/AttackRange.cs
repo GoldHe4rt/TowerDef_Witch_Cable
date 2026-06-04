@@ -15,28 +15,37 @@ public class AttackRange : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Enemy"))
-            return;
-        switch (towerAttack.towerType)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            case TowerType.Turret:
-                if (currentAimTarget != null)
-                    return;
-                currentAimTarget = collision.gameObject;
-                break;
-            
-            case TowerType.Explosive:
-                towerAttack.Explode();
-                break;
-            
-            case TowerType.Spike:
-                towerAttack.Attack();
-                break;
-            
-            case TowerType.Freeze:
-                towerAttack.Freeze();
-                break;
+            switch (towerAttack.towerType)
+            {
+                case TowerType.Turret:
+                    if (currentAimTarget != null)
+                        return;
+                    currentAimTarget = collision.gameObject;
+                    break;
+                
+                case TowerType.Explosive:
+                    towerAttack.Explode();
+                    break;
+                
+                case TowerType.Spike:
+                    towerAttack.Attack();
+                    break;
+                
+                case TowerType.Freeze:
+                    towerAttack.Freeze();
+                    break;
+            }
         }
+        if (collision.gameObject.CompareTag("Hazard") && towerAttack.towerType == TowerType.Barricade)
+        {
+            Hazard hazard = collision.gameObject.GetComponent<Hazard>();
+            hazard.HitTarget();
+
+            towerAttack.TakeDamage(hazard.damageAmount); // Replace 1 with the actual damage amount
+        }
+        
 
     }
 
