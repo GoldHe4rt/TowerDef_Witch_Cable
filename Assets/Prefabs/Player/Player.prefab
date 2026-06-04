@@ -1578,8 +1578,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8738577032821318808}
   - component: {fileID: 647143472292407684}
+  - component: {fileID: 8945866899954605108}
   m_Layer: 6
-  m_Name: PlayerSprite_v0.1
+  m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1655,6 +1656,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8945866899954605108
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177242387376655825}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 278334e1537b48b478bb0679e59f72c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1201337665900895723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,11 +3272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 5456439724232751079}
   aimDirection: {fileID: 3332914648679311552}
+  animator: {fileID: 8945866899954605108}
   movementEnabled: 1
   moveSpeed: 10
   rotationSpeed: 9999
-  moveInput: {x: 0, y: 0}
-  lookInput: {x: 0, y: 0}
 --- !u!114 &3766810798894118380
 MonoBehaviour:
   m_ObjectHideFlags: 0

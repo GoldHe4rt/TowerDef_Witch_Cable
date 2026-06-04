@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 1
   hurtTime: 1
+  freezeTarget: 0
+  freezeDuration: 5
   playerOwner: -1
   pierceAmount: 1
 --- !u!1 &8759826326210207502

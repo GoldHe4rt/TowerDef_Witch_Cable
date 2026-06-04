@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Referances")]
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private GameObject aimDirection;
-    
+    [SerializeField] private Animator animator;
 
     [Header("Movement")]
     public bool movementEnabled = true;
@@ -20,18 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     //private PlayerInput playerInput;
     internal Rigidbody2D rb;
-    private Animator animator;
-    [HideInInspector] public Vector2 moveInput;
-    [HideInInspector] public  Vector2 lookInput;
-    
-
+    private Vector2 lastInputDirection = Vector2.zero;
+    internal Vector2 moveInput;
+    internal  Vector2 lookInput;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
-    
 
     void FixedUpdate()
     {
@@ -44,9 +40,13 @@ public class PlayerMovement : MonoBehaviour
         if (!movementEnabled || knockbackRunning) return;
         rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * movementSpeedModifier * Time.fixedDeltaTime);
 
-        animator.SetFloat("Speed", moveInput.magnitude);
-        animator.SetFloat("MoveX", moveInput.x);
-        animator.SetFloat("MoveY", moveInput.y);
+        if (moveInput != Vector2.zero)
+        {
+            lastInputDirection = moveInput;
+        }
+        animator.SetFloat("Speed", moveInput.magnitude + 0.01f);
+        animator.SetFloat("MoveX", lastInputDirection.x);
+        animator.SetFloat("MoveY", lastInputDirection.y);
 
         //Aim
         if (lookInput != Vector2.zero)
