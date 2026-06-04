@@ -10,6 +10,8 @@ using System.Collections;
 
 public class NevMeshPathfinding : MonoBehaviour
 {
+    [SerializeField] private Transform targetTransform;
+
     [Header("Pathfinding")]
     public float AttackDistance;
     public bool isStopped;
@@ -30,33 +32,48 @@ public class NevMeshPathfinding : MonoBehaviour
     private Animator animator;
     private float distance;
 
-    void Awake()
+
+
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        agent.destination = TargetBase.position;
+
+        agent.avoidancePriority = Random.Range(10, 65);
+        float RadiusValue = Random.Range(0.5f, 0.8f);
+        agent.radius = Mathf.Round(RadiusValue * 10) * 0.1f;
     }
 
     void Update()
     {
-        if (!isActive) return;
-        distance = Vector2.Distance(agent.transform.position, TargetBase.position);
-
-        FreezeEnemyRotation();
-/*/
-        transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed * speedModifier * Time.deltaTime);
-
-
-        if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
+        if (targetTransform != null)
         {
-            waypoint = waypoint.GetNextWaypoint();
-            if (waypoint == null)
+            transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
+
+            if (agent.pathStatus != NavMeshPathStatus.PathComplete)
             {
-                Destroy(gameObject);
-                return;
+
             }
-            SetNewWaypoint(waypoint);
+
+            FreezeEnemyRotation();
         }
-/*/
+
+
+
+        /*/
+                
+                if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
+                {
+                    waypoint = waypoint.GetNextWaypoint();
+                    if (waypoint == null)
+                    {
+                        Destroy(gameObject);
+                        return;
+                    }
+                    SetNewWaypoint(waypoint);
+                }
+        /*/
     }
 
     private void FreezeEnemyRotation()
