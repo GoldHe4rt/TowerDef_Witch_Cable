@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d8848fc2384ae428ed1168c93cc937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
   AttackDistance: 0
   isStopped: 0
   AttackObstacle: 0
@@ -765,6 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttack: {fileID: 1983155555985423677}
+  nevMeshPathfinding: {fileID: -889120198094431616}
   attackRange: 7.5
 --- !u!50 &6445173774389249329
 Rigidbody2D:

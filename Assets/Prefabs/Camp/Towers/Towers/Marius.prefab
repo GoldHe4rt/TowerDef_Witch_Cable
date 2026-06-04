@@ -339,7 +339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6496715036603960503
 Transform:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 1169776014522341837}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -370,12 +370,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb3c66f9922e5d46a2146a8aee678a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerType: 2
+  towerType: 4
   weaponHolder: {fileID: 3989364745939544682}
   attackRangeObject: {fileID: 3389370534130013609}
   attackSpeed: 1.5
   rotationSpeed: 0
   spreadAngle: 0
+  maxHealth: 30
+  DamageIFramesEnabled: 1
+  damageFrames: 1
   bulletCountText: {fileID: 1946422935480717267}
   maxBulletAmount: 50
   hitboxPrefab: {fileID: 2430491045449836502, guid: 6a1dd702236bfb34e88a9f0891a46bb1,

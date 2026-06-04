@@ -16,14 +16,14 @@ public class EnemyRange : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (currentAimTarget != null)
                 return;
 
             currentAimTarget = collision.gameObject;
         }
-        if (!collision.gameObject.CompareTag("Barricade"))
+        if (collision.gameObject.CompareTag("Barricade"))
         {
             if (!nevMeshPathfinding.stuck)
                 return;

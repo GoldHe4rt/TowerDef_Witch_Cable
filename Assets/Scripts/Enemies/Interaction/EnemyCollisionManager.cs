@@ -21,9 +21,8 @@ public class EnemyCollisionManager : MonoBehaviour
             Debug.Log("Enemy frozen!");
             StartCoroutine(pathFinding.SpeedRecovery(hazard.freezeDuration, 2f, 0.3f, 1f));
         }
-        if (enemyHealth.healthPoints <= 0 && enemyHealth.dead == false)
+        if (enemyHealth.healthPoints <= 0)
         {
-            enemyHealth.dead = true;
             hazard.KilledTarget(enemyHealth.currencyOnDeath);
             Destroy(gameObject);
         }
