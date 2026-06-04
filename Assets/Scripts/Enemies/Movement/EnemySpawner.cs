@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] public Waypoint waypoint;
     public void Spawn(GameObject randomEnemy, Transform target, int difficultyModifier, bool isRangedDifficulty)
     {
         GameObject cloneObject = Instantiate(randomEnemy, transform.position, Quaternion.identity);
@@ -24,11 +23,5 @@ public class EnemySpawner : MonoBehaviour
             nevMeshPathfinding.SetDifficultyModifier(difficultyModifier);
         }
 
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, waypoint.transform.position);
     }
 }

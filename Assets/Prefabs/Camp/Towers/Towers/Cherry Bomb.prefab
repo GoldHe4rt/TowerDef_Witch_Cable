@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6834845014408591297
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8958593768775239956}
   - component: {fileID: 4603001632779157832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fruit_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5506174152508641400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cherry Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.15, y: 0.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5981805554986670781}
@@ -477,6 +477,9 @@ MonoBehaviour:
   attackSpeed: 1
   rotationSpeed: 5000
   spreadAngle: 0
+  maxHealth: 100
+  DamageIFramesEnabled: 1
+  damageFrames: 1
   bulletCountText: {fileID: 6689813659024939753}
   maxBulletAmount: 1
   hitboxPrefab: {fileID: 2430491045449836502, guid: 60c14715e5a294a4b94f14660dddeee9,
@@ -660,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5981805554986670781}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
