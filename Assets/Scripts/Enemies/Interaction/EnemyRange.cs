@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyRange : MonoBehaviour
 {
     [SerializeField] private EnemyAttack enemyAttack;
+    [SerializeField] private NevMeshPathfinding nevMeshPathfinding;
     [SerializeField] float attackRange = 10f;
     internal GameObject currentAimTarget;
 
@@ -16,11 +17,21 @@ public class EnemyRange : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
-            return;
-        if (currentAimTarget != null)
-            return;
-        
-        currentAimTarget = collision.gameObject;
+        {
+            if (currentAimTarget != null)
+                return;
+
+            currentAimTarget = collision.gameObject;
+        }
+        if (!collision.gameObject.CompareTag("Barricade"))
+        {
+            if (!nevMeshPathfinding.stuck)
+                return;
+            if (currentAimTarget != null)
+                return;
+
+            currentAimTarget = collision.gameObject;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)

@@ -31,6 +31,7 @@ public class NevMeshPathfinding : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     private float distance;
+    internal bool stuck = false;
 
 
 
@@ -47,13 +48,21 @@ public class NevMeshPathfinding : MonoBehaviour
 
     void Update()
     {
-        if (targetTransform != null)
+        if (stuck)
         {
             transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
-
-            if (agent.pathStatus != NavMeshPathStatus.PathComplete)
+        }
+        else
+        {
+            if (targetTransform != null)
             {
+                transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
 
+                if (agent.pathStatus != NavMeshPathStatus.PathComplete)
+                {
+                    stuck = true;
+
+                }
             }
 
             FreezeEnemyRotation();

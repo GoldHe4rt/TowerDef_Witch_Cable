@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
         nevMeshPathfinding.TargetBase = target;
 
+
         if (isRangedDifficulty)
         {
             float rangedDifficultyModifier = UnityEngine.Random.Range(1, difficultyModifier); // Add some random variation to the difficulty modifier for each enemy

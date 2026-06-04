@@ -25,20 +25,20 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Vector2 minMaxAttackSpeed = new Vector2(2f, 0.5f);
     [SerializeField] private Vector2 minMaxCampDamage = new Vector2(1, 15);
 
-    
-    
-    
+
+
+
 
     private EnemyRange attackRangeScript;
     private float attackSpeedTimer = 0f;
     private Vector2 currentAimDirectionTarget = Vector2.up;
 
-    
+
     void Start()
     {
         attackRangeScript = attackRangeObject.GetComponent<EnemyRange>();
     }
-    
+
     void Update()
     {
         if (!canAttack)
@@ -54,7 +54,7 @@ public class EnemyAttack : MonoBehaviour
                 Attack();
             }
         }
-        
+
     }
 
     private void Aim()
@@ -106,6 +106,6 @@ public class EnemyAttack : MonoBehaviour
             attackSpeed = minMaxAttackSpeed.y * difficultyModifier;
             campDamage = Mathf.RoundToInt(minMaxCampDamage.y * difficultyModifier);
         }
-        
+
     }
 }
