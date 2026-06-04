@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class PreviewSystem : MonoBehaviour
 {
@@ -22,52 +23,96 @@ public class PreviewSystem : MonoBehaviour
 
     private void Start()
     {
+        selectionIndicatorPrefab.SetActive(false);
         previewMaterialInstance = new Material(previewMaterialPrefab);
         cellIndicator.SetActive(false);
         cellIndicatorRenderer = cellIndicator.GetComponentInChildren<Renderer>();
 
-
+        float rectSize = 60f;
+        NewPrepareDisplay(dismantleIndicator, Vector2Int.one, "Dismantle", -1, -1);
         foreach (var data in databaseSO.objectData)
         {
-            NewPrepareDisplay(data.Prefab, data.Size, data.ID);
-            
+            NewPrepareDisplay(data.Prefab, data.Size, data.Name, data.Cost, data.ID);
+            rectSize += 60f;
         }
+        
+        RectTransform rectTransform = displayLocation.GetComponent<RectTransform>();
+        // Set both width and height directly
+        rectTransform.sizeDelta = new Vector2(rectSize, 75f); 
+        UpdateSelectionDisplay(3);
     }
 
-    public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size, String structureName, float cost)
+    public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size, int id)
     {
-        playerUI.UpdateBuildingCostDisplay(cost);
-        playerUI.UpdateBuildingNameDisplay(structureName);
-
-        dismantleIndicator.SetActive(false);
         previewObject = Instantiate(prefab);
         
         PrepareCursor(size);
         PreparePreview(previewObject);
 
-        displayObject = Instantiate(prefab, displayLocation.transform);
-        PrepareDisplay(displayObject, size);
-        
+        UpdateSelectionDisplay(id + 1);
+
         cellIndicator.SetActive(true);
     }
 
     internal void StartShowingRemovePreview()
     {
-        playerUI.UpdateBuildingCostDisplay(-1);
-        playerUI.UpdateBuildingNameDisplay("Dismantle");
 
         cellIndicator.SetActive(true);
         PrepareCursor(Vector2Int.one);
         ApplyFeedbackToCursor(false);
-        dismantleIndicator.SetActive(true);
+        UpdateSelectionDisplay(0);
     }
 
-    private void NewPrepareDisplay(GameObject displayObject, Vector2Int size, int id)
+    internal void UpdateSelectionDisplay(int id)
+    {
+        //Change size of selection indicator based on distance from id
+        for (int i = 0; i < selectionIndicators.Count; i++)
+        {
+            var disabledDisplay = selectionIndicators[i].transform.Find("Front");
+            disabledDisplay.gameObject.SetActive(i != id);
+
+            GameObject indicator = selectionIndicators[i];
+            float distance = Mathf.Abs(i - id);
+            float scale = 10f - (distance * 1f);
+            indicator.transform.localScale = new Vector3(scale, scale, scale);
+            Debug.Log("Distance: " + distance + " Scale: " + scale + " ID: " + id + " Indicator ID: " + i);
+        }
+    }
+
+    private void NewPrepareDisplay(GameObject displayPrefab, Vector2Int size, string structureName, float cost, int id)
     {
         GameObject selectionIndicator = Instantiate(selectionIndicatorPrefab, displayLocation.transform);
+        selectionIndicator.SetActive(true);
         selectionIndicators.Add(selectionIndicator);
         Transform prefabDisplayLocation = selectionIndicator.transform.Find("DisplayLocation");
-        
+        GameObject displayObject = Instantiate(displayPrefab, prefabDisplayLocation);
+
+        var nameDisplay = selectionIndicator.transform.Find("Name");
+        if (nameDisplay != null)
+        {
+            TextMeshProUGUI nameText = nameDisplay.GetComponent<TextMeshProUGUI>();
+            if (nameText != null)
+            {
+                nameText.text = "Name: " + structureName;
+            }
+        }
+        var costDisplay = selectionIndicator.transform.Find("Price");
+        if (costDisplay != null)
+        {
+            TextMeshProUGUI costText = costDisplay.GetComponent<TextMeshProUGUI>();
+            if (costText != null)
+            {
+                if (cost <= 0)
+                {
+                    costText.text = "";
+                } else
+                {
+                    costText.text = "Price: " + cost.ToString();
+                }
+                
+            }
+        }
+
         // Disable function component if it exists
         var function = displayObject.transform.Find("Function");
         if (function != null)
