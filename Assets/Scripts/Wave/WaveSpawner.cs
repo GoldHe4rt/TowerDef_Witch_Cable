@@ -28,7 +28,8 @@ public enum GameDifficulty
     Easy,
     Normal,
     Hard,
-    Nightmare
+    Nightmare,
+    Endless
 }
 
 public enum EnemyType
@@ -86,6 +87,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+        endlessMode = false;
         if (globalReferenceManager == null)
             Debug.LogWarning("GlobalReferanceManager reference is not assigned in WaveSpawner.");
         UpdateDifficulty();
@@ -227,6 +229,9 @@ public class WaveSpawner : MonoBehaviour
                 break;
             case GameDifficulty.Nightmare:
                 waves = waveDifficultys.nightmareWaves;
+                break;
+            case GameDifficulty.Endless:
+                endlessMode = true;
                 break;
         }
         PrepareEnemyPrefabs();

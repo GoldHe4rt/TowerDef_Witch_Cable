@@ -1,18 +1,21 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PreviewSystem : MonoBehaviour
 {
     [SerializeField] PlayerUI playerUI;
-    [SerializeField] 
-    private float previewOffset = 0.06f;
+    [SerializeField] private float previewOffset = 0.06f;
 
-    [SerializeField] 
-    private GameObject cellIndicator, displayLocation, dismantleIndicator;
+    [SerializeField] private GameObject cellIndicator, displayLocation, dismantleIndicator;
     private GameObject previewObject, displayObject;
 
-    [SerializeField] 
-    private Material previewMaterialPrefab;
+    [SerializeField] private ObjectDatabaseSO databaseSO;
+    [SerializeField] private GameObject selectionIndicatorPrefab;
+    private List<GameObject> selectionIndicators = new List<GameObject>();
+
+    [SerializeField] private Material previewMaterialPrefab;
     private Material previewMaterialInstance;
 
     private Renderer cellIndicatorRenderer;
@@ -22,6 +25,13 @@ public class PreviewSystem : MonoBehaviour
         previewMaterialInstance = new Material(previewMaterialPrefab);
         cellIndicator.SetActive(false);
         cellIndicatorRenderer = cellIndicator.GetComponentInChildren<Renderer>();
+
+
+        foreach (var data in databaseSO.objectData)
+        {
+            NewPrepareDisplay(data.Prefab, data.Size, data.ID);
+            
+        }
     }
 
     public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size, String structureName, float cost)
@@ -50,6 +60,47 @@ public class PreviewSystem : MonoBehaviour
         PrepareCursor(Vector2Int.one);
         ApplyFeedbackToCursor(false);
         dismantleIndicator.SetActive(true);
+    }
+
+    private void NewPrepareDisplay(GameObject displayObject, Vector2Int size, int id)
+    {
+        GameObject selectionIndicator = Instantiate(selectionIndicatorPrefab, displayLocation.transform);
+        selectionIndicators.Add(selectionIndicator);
+        Transform prefabDisplayLocation = selectionIndicator.transform.Find("DisplayLocation");
+        
+        // Disable function component if it exists
+        var function = displayObject.transform.Find("Function");
+        if (function != null)
+            function.gameObject.SetActive(false);
+        displayObject.layer = prefabDisplayLocation.gameObject.layer;
+        foreach (Transform child in displayObject.GetComponentsInChildren<Transform>())
+        {
+            child.gameObject.layer = prefabDisplayLocation.gameObject.layer;
+        }
+
+        // Adjust scale and position based on size
+        float scale = 1f;
+        Vector2 offset = Vector2.zero;
+        if (size.x > size.y)
+        {
+            scale = 100 / size.x;
+            offset = new Vector2(0, size.y - scale / 100);
+        }
+        else if (size.y > size.x)
+        {
+            scale = 100 / size.y;
+            offset = new Vector2(size.x - scale / 100, 0);
+        }
+        else
+        {
+            scale = 100 / size.x;
+            offset = Vector2.zero;
+        }
+        displayObject.transform.localScale = new Vector3(scale, scale, scale);
+        displayObject.transform.position = new Vector3(
+            displayObject.transform.position.x + offset.x, 
+            displayObject.transform.position.y + offset.y, 
+            displayObject.transform.position.z);
     }
 
     private void PrepareDisplay(GameObject displayObject, Vector2Int size)

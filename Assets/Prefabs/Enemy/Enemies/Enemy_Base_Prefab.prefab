@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 4174907970339112430}
   - component: {fileID: 2541031831342939791}
   - component: {fileID: -889120198094431616}
+  - component: {fileID: 7919924977023777896}
   - component: {fileID: 2897402382982837266}
   - component: {fileID: 134069677393523474}
   - component: {fileID: 1983155555985423677}
@@ -323,6 +324,24 @@ MonoBehaviour:
   speedModifier: 1
   freezeDuration: 2
   isFrozen: 0
+--- !u!114 &7919924977023777896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278096698909005310}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf267929374404b40aa9c570f4a0b60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
+  minMaxSpeed: {x: 1, y: 15}
+  speed: 5
+  speedModifier: 1
+  freezeDuration: 2
+  isFrozen: 0
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 2897402382982837266}
-  pathFinding: {fileID: 0}
+  pathFinding: {fileID: 7919924977023777896}
 --- !u!114 &1983155555985423677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,11 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttack: {fileID: 1983155555985423677}
-<<<<<<< Updated upstream
   nevMeshPathfinding: {fileID: -889120198094431616}
-=======
-  nevMeshPathfinding: {fileID: 0}
->>>>>>> Stashed changes
   attackRange: 7.5
 --- !u!50 &6445173774389249329
 Rigidbody2D:
