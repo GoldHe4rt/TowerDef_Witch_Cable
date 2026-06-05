@@ -4842,7 +4842,7 @@ PrefabInstance:
     - target: {fileID: 464090275630934454, guid: 95688d41a9dbb524781fc3f2920b9dcc,
         type: 3}
       propertyPath: requirePlayers
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 464090275630934454, guid: 95688d41a9dbb524781fc3f2920b9dcc,
         type: 3}
@@ -5339,7 +5339,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 2038143775}
-    m_SelectOnDown: {fileID: 1820485990}
+    m_SelectOnDown: {fileID: 351447063}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 1110805793}
   m_Transition: 2
