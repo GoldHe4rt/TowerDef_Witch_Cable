@@ -90,7 +90,7 @@ public class PreviewSystem : MonoBehaviour
                 GameObject indicator = selectionIndicators[i];
                 indicator.transform.SetSiblingIndex(2);
                 RectTransform rectTransform = indicator.GetComponent<RectTransform>();
-                rectTransform.sizeDelta = new Vector2(6.25f, 10); 
+                rectTransform.sizeDelta = new Vector2(6.25f, 6); 
                 float scale = 15f;
                 indicator.transform.localScale = new Vector3(scale, scale, scale);
             }
@@ -113,9 +113,9 @@ public class PreviewSystem : MonoBehaviour
                 spriteRenderer.color = c; 
 
                 RectTransform rectTransform = indicator.GetComponent<RectTransform>();
-                rectTransform.sizeDelta = new Vector2(6.05f, 10); 
+                rectTransform.sizeDelta = new Vector2(6.15f, 6); 
 
-                float scale = 12f;
+                float scale = 8f;
                 indicator.transform.localScale = new Vector3(scale, scale, scale);
                 
             }
@@ -134,13 +134,13 @@ public class PreviewSystem : MonoBehaviour
                 
                 SpriteRenderer spriteRenderer = disabledDisplay.GetComponent<SpriteRenderer>();
                 Color c = spriteRenderer.color;
-                c.a = 0.95f;
+                c.a = 0.7f;
                 spriteRenderer.color = c; 
 
                 RectTransform rectTransform = indicator.GetComponent<RectTransform>();
-                rectTransform.sizeDelta = new Vector2(6, 10); 
+                rectTransform.sizeDelta = new Vector2(6.1f, 6); 
 
-                float scale = 7f;
+                float scale = 3f;
                 indicator.transform.localScale = new Vector3(scale, scale, scale);
             }
             else
@@ -204,28 +204,41 @@ public class PreviewSystem : MonoBehaviour
         }
 
         // Adjust scale and position based on size
-        float scale = 1f;
+        float scale = 80f;
         Vector2 offset = Vector2.zero;
         if (size.x > size.y)
         {
-            scale = 100 / size.x;
-            offset = new Vector2(0, size.y - scale / 100);
+            scale = scale / size.x;
+            offset = new Vector2(0, size.y - scale / 40);
         }
         else if (size.y > size.x)
         {
-            scale = 100 / size.y;
-            offset = new Vector2(size.x - scale / 100, 0);
+            scale = scale / size.y;
+            offset = new Vector2(size.x - scale / 40, 0);
         }
         else
         {
-            scale = 100 / size.x;
+            scale = scale / size.x;
             offset = Vector2.zero;
         }
-        displayObject.transform.localScale = new Vector3(scale, scale, scale);
-        displayObject.transform.position = new Vector3(
+        if (id == -1)
+        {
+            scale = 120f;
+            offset = new Vector2(-15, -25);
+            displayObject.transform.localPosition = new Vector3(
+            displayObject.transform.localPosition.x + offset.x, 
+            displayObject.transform.localPosition.y + offset.y, 
+            displayObject.transform.localPosition.z);
+        } else
+        {
+            displayObject.transform.position = new Vector3(
             displayObject.transform.position.x + offset.x, 
             displayObject.transform.position.y + offset.y, 
             displayObject.transform.position.z);
+        }
+        displayObject.transform.localScale = new Vector3(scale, scale, scale);
+        
+        
     }
 
     private void PrepareCursor(Vector2Int size)
