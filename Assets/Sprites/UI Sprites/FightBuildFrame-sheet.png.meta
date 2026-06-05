@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: c909ed8746e8ea747b25a6e5075513cb
+guid: 51b771fff4be4134690c00347360b6c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4870002724810197540
-    second: 80x80Frame_0
+      213: 8344800750705137783
+    second: FightBuildFrame-sheet_0
   - first:
-      213: -3143607636898131832
-    second: 80x80Frame_1
+      213: -8073833471730721497
+    second: FightBuildFrame-sheet_1
   - first:
-      213: 7784796113848392879
-    second: 80x80Frame_2
+      213: 2277179026640662128
+    second: FightBuildFrame-sheet_2
   - first:
-      213: -7718411651448462234
-    second: 80x80Frame_3
+      213: -3138250727947623640
+    second: FightBuildFrame-sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 80x80Frame_0
+      name: FightBuildFrame-sheet_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 314
-        width: 80
-        height: 80
+        x: 6
+        y: 316
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd5f08cf2564a6cb0800000000000000
-      internalID: -4870002724810197540
+      spriteID: 7785133f110bec370800000000000000
+      internalID: 8344800750705137783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 80x80Frame_1
+      name: FightBuildFrame-sheet_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 227
-        width: 80
-        height: 80
+        x: 6
+        y: 211
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8805b718289af54d0800000000000000
-      internalID: -3143607636898131832
+      spriteID: 72dd4d50c3bf3ff80800000000000000
+      internalID: -8073833471730721497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 80x80Frame_2
+      name: FightBuildFrame-sheet_2
       rect:
         serializedVersion: 2
-        x: 8
-        y: 134
-        width: 80
-        height: 80
+        x: 6
+        y: 109
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fac56c6e1d6290c60800000000000000
-      internalID: 7784796113848392879
+      spriteID: 07ee2ec724a2a9f10800000000000000
+      internalID: 2277179026640662128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 80x80Frame_3
+      name: FightBuildFrame-sheet_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 40
-        width: 80
-        height: 80
+        x: 6
+        y: 7
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 664ad253f71b2e490800000000000000
-      internalID: -7718411651448462234
+      spriteID: 82322901791b274d0800000000000000
+      internalID: -3138250727947623640
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2d97531fd42ac8240bc896be36b485da
+    spriteID: 026bf9e417ce84749b9ab58e3cc5669d
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      80x80Frame_0: -4870002724810197540
-      80x80Frame_1: -3143607636898131832
-      80x80Frame_2: 7784796113848392879
-      80x80Frame_3: -7718411651448462234
+      FightBuildFrame-sheet_0: 8344800750705137783
+      FightBuildFrame-sheet_1: -8073833471730721497
+      FightBuildFrame-sheet_2: 2277179026640662128
+      FightBuildFrame-sheet_3: -3138250727947623640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

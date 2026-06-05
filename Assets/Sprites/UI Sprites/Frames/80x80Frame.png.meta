@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: c909ed8746e8ea747b25a6e5075513cb
+guid: b1632be5432fe0c42b08389ba6bf30d9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4870002724810197540
-    second: 80x80Frame_0
-  - first:
-      213: -3143607636898131832
-    second: 80x80Frame_1
-  - first:
-      213: 7784796113848392879
-    second: 80x80Frame_2
-  - first:
-      213: -7718411651448462234
-    second: 80x80Frame_3
+      213: -8744004317848948257
+    second: FightBuildFrame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -122,89 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 80x80Frame_0
+      name: FightBuildFrame_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 314
+        x: 0
+        y: 0
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd5f08cf2564a6cb0800000000000000
-      internalID: -4870002724810197540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 80x80Frame_1
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 227
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8805b718289af54d0800000000000000
-      internalID: -3143607636898131832
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 80x80Frame_2
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 134
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fac56c6e1d6290c60800000000000000
-      internalID: 7784796113848392879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 80x80Frame_3
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 40
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 664ad253f71b2e490800000000000000
-      internalID: -7718411651448462234
+      spriteID: fd1b120966e07a680800000000000000
+      internalID: -8744004317848948257
       vertices: []
       indices: 
       edges: []
@@ -213,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2d97531fd42ac8240bc896be36b485da
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      80x80Frame_0: -4870002724810197540
-      80x80Frame_1: -3143607636898131832
-      80x80Frame_2: 7784796113848392879
-      80x80Frame_3: -7718411651448462234
+      FightBuildFrame_0: -8744004317848948257
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
