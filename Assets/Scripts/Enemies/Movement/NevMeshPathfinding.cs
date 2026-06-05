@@ -24,10 +24,9 @@ public class NevMeshPathfinding : MonoBehaviour
     [SerializeField] private Vector2 minMaxSpeed = new Vector2(1f, 15f);
     [SerializeField] private float speed = 5f;
     [SerializeField] internal float speedModifier = 1;
-    [SerializeField] private float freezeDuration = 2f;
-    [SerializeField] private bool isFrozen = false;
 
 
+    private float currentSpeed;
     private NavMeshAgent agent;
     private Animator animator;
     private float distance;
@@ -48,6 +47,8 @@ public class NevMeshPathfinding : MonoBehaviour
 
     void Update()
     {
+        currentSpeed = speed * speedModifier;
+        agent.speed = currentSpeed;
         if (stuck)
         {
             transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);

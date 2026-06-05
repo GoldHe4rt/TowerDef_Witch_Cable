@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7426463298018979694}
   - component: {fileID: 2061667510759410037}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: world_tileset_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2525200330419262798}
   - component: {fileID: 23015344124940436}
   - component: {fileID: 1946422935480717267}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bullet Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5052060861377970250}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7339917202010367404}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Slow Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,8 +316,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5052060861377970250}
   - {fileID: 6981413341059051125}
@@ -616,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6981413341059051125
 Transform:
   m_ObjectHideFlags: 0
@@ -779,7 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4745824923362503717}
   - component: {fileID: 9022615436557076777}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: world_tileset_12 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6408603720848112971}
   - component: {fileID: 3884719056020494862}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: world_tileset_12 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 7985827363277582551}
   - component: {fileID: 8926995462836978325}
   - component: {fileID: 8436982862598762187}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1055,7 +1055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1070889986543443330}
   - component: {fileID: 3335047081207135251}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: world_tileset_12 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

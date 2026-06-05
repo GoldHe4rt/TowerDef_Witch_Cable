@@ -53,6 +53,7 @@ public class TowerAttack : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
         attackRangeScript = attackRangeObject.GetComponent<AttackRange>();
         bulletAmount = maxBulletAmount;
         bulletCountText.text = bulletAmount.ToString();

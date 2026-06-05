@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
 using Menu;
+using Unity.Collections;
 
 [System.Serializable]
 public class EnemySettings
@@ -79,6 +80,7 @@ public class WaveSpawner : MonoBehaviour
     private bool canAnimate = false;
     private float nextSpawnTime;
     private bool sentErrorMessage = false;
+    private bool winActivated = false;
 
     private void Awake()
     {
@@ -124,6 +126,8 @@ public class WaveSpawner : MonoBehaviour
                 }
                 else
                 {
+                    if (winActivated) return;
+                    winActivated = true;
                     winMenuManager.Win();
                     Debug.Log("GameFinish");
                 }
@@ -162,7 +166,13 @@ public class WaveSpawner : MonoBehaviour
         if (canSpawn && nextSpawnTime < Time.time)
         {
             int randomEnemy = GetRandomEnemy();
-
+            if (currentWave.enemySettings.Count == 0)
+            {
+                canSpawn = false;
+                canAnimate = true;
+                Debug.LogWarning("no enemies to spawn in wave " + currentWaveNumber + 1 + " on " + difficulty + "difficulty!");
+                return;
+            }
             if (currentWave.enemySettings[randomEnemy].noOfEnemy <= 0)
             {
                 currentWave.enemySettings.RemoveAt(randomEnemy);

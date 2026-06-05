@@ -12,8 +12,6 @@ public class PathFinding : MonoBehaviour
     [SerializeField] private Vector2 minMaxSpeed = new Vector2(1f, 15f);
     [SerializeField] private float speed = 5f;
     [SerializeField] internal float speedModifier = 1;
-    [SerializeField] private float freezeDuration = 2f;
-    [SerializeField] private bool isFrozen = false;
     private Waypoint waypoint;
     private int waypointsIndex;
 

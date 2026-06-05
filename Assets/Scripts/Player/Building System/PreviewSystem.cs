@@ -69,13 +69,88 @@ public class PreviewSystem : MonoBehaviour
         for (int i = 0; i < selectionIndicators.Count; i++)
         {
             var disabledDisplay = selectionIndicators[i].transform.Find("Front");
+            var priceDisplay = selectionIndicators[i].transform.Find("Price");
+            
             disabledDisplay.gameObject.SetActive(i != id);
+            priceDisplay.gameObject.SetActive(i == id);
+            
+            
+            // wrap around distance calculation for circular list
+            int rawDistance = i - id;
+            int distance = rawDistance;
+            int count = selectionIndicators.Count;
+            if (Mathf.Abs(rawDistance) > count / 2)
+            {
+                distance = rawDistance > 0 ? rawDistance - count : rawDistance + count;
+            }
 
-            GameObject indicator = selectionIndicators[i];
-            float distance = Mathf.Abs(i - id);
-            float scale = 10f - (distance * 1f);
-            indicator.transform.localScale = new Vector3(scale, scale, scale);
-            Debug.Log("Distance: " + distance + " Scale: " + scale + " ID: " + id + " Indicator ID: " + i);
+            // Set scale based on distance from id
+            if (i == id)
+            {
+                GameObject indicator = selectionIndicators[i];
+                indicator.transform.SetSiblingIndex(2);
+                RectTransform rectTransform = indicator.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(6.25f, 10); 
+                float scale = 15f;
+                indicator.transform.localScale = new Vector3(scale, scale, scale);
+            }
+            else if (Mathf.Abs(distance) == 1)
+            {
+                GameObject indicator = selectionIndicators[i];
+                // Reorder sibling to ensure correct layering based on position relative to id
+                if (distance < 0)
+                {
+                    indicator.transform.SetSiblingIndex(1);
+                }
+                else
+                {
+                    indicator.transform.SetSiblingIndex(3);
+                }
+
+                SpriteRenderer spriteRenderer = disabledDisplay.GetComponent<SpriteRenderer>();
+                Color c = spriteRenderer.color;
+                c.a = 0.7f;
+                spriteRenderer.color = c; 
+
+                RectTransform rectTransform = indicator.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(6.05f, 10); 
+
+                float scale = 12f;
+                indicator.transform.localScale = new Vector3(scale, scale, scale);
+                
+            }
+            else if (Mathf.Abs(distance) == 2)
+            {
+                GameObject indicator = selectionIndicators[i];
+                // Reorder sibling to ensure correct layering based on position relative to id
+                if (distance < 0)
+                {
+                    indicator.transform.SetSiblingIndex(0);
+                }
+                else
+                {
+                    indicator.transform.SetSiblingIndex(4);
+                }
+                
+                SpriteRenderer spriteRenderer = disabledDisplay.GetComponent<SpriteRenderer>();
+                Color c = spriteRenderer.color;
+                c.a = 0.95f;
+                spriteRenderer.color = c; 
+
+                RectTransform rectTransform = indicator.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(6, 10); 
+
+                float scale = 7f;
+                indicator.transform.localScale = new Vector3(scale, scale, scale);
+            }
+            else
+            {
+                GameObject indicator = selectionIndicators[i];
+                float scale = 0f;
+                indicator.transform.localScale = new Vector3(scale, scale, scale);
+            }
+
+            
         }
     }
 
@@ -93,10 +168,10 @@ public class PreviewSystem : MonoBehaviour
             TextMeshProUGUI nameText = nameDisplay.GetComponent<TextMeshProUGUI>();
             if (nameText != null)
             {
-                nameText.text = "Name: " + structureName;
+                nameText.text = structureName;
             }
         }
-        var costDisplay = selectionIndicator.transform.Find("Price");
+        var costDisplay = selectionIndicator.transform.Find("Price/Price Amount");
         if (costDisplay != null)
         {
             TextMeshProUGUI costText = costDisplay.GetComponent<TextMeshProUGUI>();
@@ -105,9 +180,14 @@ public class PreviewSystem : MonoBehaviour
                 if (cost <= 0)
                 {
                     costText.text = "";
+                    var costTextDisplay = selectionIndicator.transform.Find("Price/Price Text");
+                    if (costTextDisplay != null)
+                    {
+                        costTextDisplay.gameObject.SetActive(false);
+                    }
                 } else
                 {
-                    costText.text = "Price: " + cost.ToString();
+                    costText.text = cost.ToString();
                 }
                 
             }
@@ -121,43 +201,6 @@ public class PreviewSystem : MonoBehaviour
         foreach (Transform child in displayObject.GetComponentsInChildren<Transform>())
         {
             child.gameObject.layer = prefabDisplayLocation.gameObject.layer;
-        }
-
-        // Adjust scale and position based on size
-        float scale = 1f;
-        Vector2 offset = Vector2.zero;
-        if (size.x > size.y)
-        {
-            scale = 100 / size.x;
-            offset = new Vector2(0, size.y - scale / 100);
-        }
-        else if (size.y > size.x)
-        {
-            scale = 100 / size.y;
-            offset = new Vector2(size.x - scale / 100, 0);
-        }
-        else
-        {
-            scale = 100 / size.x;
-            offset = Vector2.zero;
-        }
-        displayObject.transform.localScale = new Vector3(scale, scale, scale);
-        displayObject.transform.position = new Vector3(
-            displayObject.transform.position.x + offset.x, 
-            displayObject.transform.position.y + offset.y, 
-            displayObject.transform.position.z);
-    }
-
-    private void PrepareDisplay(GameObject displayObject, Vector2Int size)
-    {
-        // Disable function component if it exists
-        var function = displayObject.transform.Find("Function");
-        if (function != null)
-            function.gameObject.SetActive(false);
-        displayObject.layer = displayLocation.gameObject.layer;
-        foreach (Transform child in displayObject.GetComponentsInChildren<Transform>())
-        {
-            child.gameObject.layer = displayLocation.gameObject.layer;
         }
 
         // Adjust scale and position based on size

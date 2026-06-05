@@ -220,7 +220,6 @@ GameObject:
   - component: {fileID: 4174907970339112430}
   - component: {fileID: 2541031831342939791}
   - component: {fileID: -889120198094431616}
-  - component: {fileID: 7919924977023777896}
   - component: {fileID: 2897402382982837266}
   - component: {fileID: 134069677393523474}
   - component: {fileID: 1983155555985423677}
@@ -322,26 +321,6 @@ MonoBehaviour:
   minMaxSpeed: {x: 1, y: 15}
   speed: 5
   speedModifier: 1
-  freezeDuration: 2
-  isFrozen: 0
---- !u!114 &7919924977023777896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4278096698909005310}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf267929374404b40aa9c570f4a0b60a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  minMaxSpeed: {x: 1, y: 15}
-  speed: 5
-  speedModifier: 1
-  freezeDuration: 2
-  isFrozen: 0
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 2897402382982837266}
-  pathFinding: {fileID: 7919924977023777896}
+  pathFinding: {fileID: 0}
 --- !u!114 &1983155555985423677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,8 +943,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 241c6acceca8b844baad6cbcf60cefc7, type: 2}
+  m_sharedMaterial: {fileID: -699112959996641730, guid: 241c6acceca8b844baad6cbcf60cefc7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
