@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 9898906bab4794948b83aaabd9c8bdfe
+guid: bef00ddbff1cc754f9e91b54150493dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5974858039809625723
-    second: DisabledButtons_0
-  - first:
-      213: -3736412991247925564
-    second: DisabledButtons_1
-  - first:
-      213: 6951356404451906944
-    second: DisabledButtons_2
-  - first:
-      213: -1143081809643508670
-    second: DisabledButtons_3
-  - first:
-      213: -2121681358310472167
-    second: DisabledButtons_4
+      213: 7197702940099548527
+    second: 96x96Frame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -125,111 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DisabledButtons_0
+      name: 96x96Frame_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 34
-        width: 318
-        height: 60
+        x: 0
+        y: 0
+        width: 96
+        height: 96
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7e4d362bb5fae250800000000000000
-      internalID: 5974858039809625723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisabledButtons_1
-      rect:
-        serializedVersion: 2
-        x: 371
-        y: 34
-        width: 260
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4ce338a4e28952cc0800000000000000
-      internalID: -3736412991247925564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisabledButtons_2
-      rect:
-        serializedVersion: 2
-        x: 633
-        y: 34
-        width: 196
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0851e7ae1dd287060800000000000000
-      internalID: 6951356404451906944
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisabledButtons_3
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 34
-        width: 158
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24cecf28625f220f0800000000000000
-      internalID: -1143081809643508670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisabledButtons_4
-      rect:
-        serializedVersion: 2
-        x: 993
-        y: 34
-        width: 116
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9160657bb064e82e0800000000000000
-      internalID: -2121681358310472167
+      spriteID: f651b6f50b063e360800000000000000
+      internalID: 7197702940099548527
       vertices: []
       indices: 
       edges: []
@@ -238,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5d0638411c5fa58409084c121e791a31
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DisabledButtons_0: 5974858039809625723
-      DisabledButtons_1: -3736412991247925564
-      DisabledButtons_2: 6951356404451906944
-      DisabledButtons_3: -1143081809643508670
-      DisabledButtons_4: -2121681358310472167
+      96x96Frame_0: 7197702940099548527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

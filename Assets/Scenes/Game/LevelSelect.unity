@@ -1555,7 +1555,7 @@ PrefabInstance:
     - target: {fileID: 5051237792626410319, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
       propertyPath: CanJoin
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5239549531240250407, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
