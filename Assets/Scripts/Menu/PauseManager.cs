@@ -5,12 +5,14 @@ namespace Menu
     public class PauseManager : MonoBehaviour
     {
         public GameObject pauseMenuUI;
+        public GameObject statsUI;
         public bool isPaused;
         public bool canPause;
         
         private void Start() 
         { 
             pauseMenuUI.SetActive(false); 
+            statsUI.SetActive(false);
             isPaused = false;
             canPause = true;
             Time.timeScale = 1f;
@@ -31,6 +33,7 @@ namespace Menu
         {
             isPaused = false;
             pauseMenuUI.SetActive(false);
+            statsUI.SetActive(false);
             Debug.Log("Resuming");
             Time.timeScale = 1f;
         }
@@ -39,6 +42,7 @@ namespace Menu
         {
             isPaused = true;
             pauseMenuUI.SetActive(true);
+            statsUI.SetActive(true);
             Debug.Log("Pausing");
             Time.timeScale = 0f;
         }
