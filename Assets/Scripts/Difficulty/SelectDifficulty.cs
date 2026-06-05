@@ -15,7 +15,7 @@ public class SelectDifficulty : MonoBehaviour
     public void ChangeToNormal() => OnDifficultyChanged(difficulty: GameDifficulty.Normal);
     public void ChangeToHard() => OnDifficultyChanged(difficulty: GameDifficulty.Hard);
     public void ChangeToNightmare() => OnDifficultyChanged(difficulty: GameDifficulty.Nightmare);
-    //public void ChangeToEndless() => OnDifficultyChanged(difficulty: GameDifficulty.Endless);
+    public void ChangeToEndless() => OnDifficultyChanged(difficulty: GameDifficulty.Endless);
     #endregion
     
     private void OnDifficultyChanged(GameDifficulty difficulty)
