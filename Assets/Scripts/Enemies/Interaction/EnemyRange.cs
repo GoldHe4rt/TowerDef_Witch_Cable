@@ -16,8 +16,10 @@ public class EnemyRange : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log("EnemyRange: OnTriggerStay2D: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("EnemyRange: Player in range");
             if (currentAimTarget != null)
                 return;
 
@@ -25,6 +27,7 @@ public class EnemyRange : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Barricade"))
         {
+            Debug.Log("EnemyRange: Barricade in range");
             if (!nevMeshPathfinding.stuck)
                 return;
             if (currentAimTarget != null)
@@ -36,6 +39,7 @@ public class EnemyRange : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("EnemyRange: OnTriggerExit2D: " + collision.gameObject.name);
         if (collision.gameObject == currentAimTarget)
             currentAimTarget = null;
     }
