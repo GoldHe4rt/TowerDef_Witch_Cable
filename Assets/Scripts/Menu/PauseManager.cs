@@ -31,6 +31,7 @@ namespace Menu
         {
             isPaused = false;
             pauseMenuUI.SetActive(false);
+            Debug.Log("Resuming");
             Time.timeScale = 1f;
         }
 
@@ -38,6 +39,7 @@ namespace Menu
         {
             isPaused = true;
             pauseMenuUI.SetActive(true);
+            Debug.Log("Pausing");
             Time.timeScale = 0f;
         }
 
