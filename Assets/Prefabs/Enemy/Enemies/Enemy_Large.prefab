@@ -11,12 +11,22 @@ PrefabInstance:
     - target: {fileID: -889120198094431616, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: speed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -889120198094431616, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxSpeed.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -889120198094431616, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: speedModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -889120198094431616, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: AttackObstacle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -244,7 +254,7 @@ PrefabInstance:
     - target: {fileID: 6765335692943290478, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -303,7 +313,7 @@ NavMeshAgent:
   m_Radius: 10
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 30
+  avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
