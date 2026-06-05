@@ -4659,8 +4659,7 @@ MonoBehaviour:
   dismantleIndicator: {fileID: 1676025607293601872, guid: 4a01e4cae9c53ba4faebc98aa18ebab3,
     type: 3}
   databaseSO: {fileID: 11400000, guid: 4909421110306764286a7f42a3d0cd95, type: 2}
-  selectionIndicatorPrefab: {fileID: 2624941328718414328, guid: ba4d9b51cf56f3f4c882383931218a91,
-    type: 3}
+  selectionIndicatorPrefab: {fileID: 347575719333600642}
   previewMaterialPrefab: {fileID: 2100000, guid: ebdf8b52e9cf2604484a9bd628de9b16,
     type: 2}
 --- !u!1 &8201151525547184005
@@ -5543,6 +5542,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba4d9b51cf56f3f4c882383931218a91, type: 3}
+--- !u!1 &347575719333600642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2624941328718414328, guid: ba4d9b51cf56f3f4c882383931218a91,
+    type: 3}
+  m_PrefabInstance: {fileID: 2359741607922556026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5833393038036874368 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8091592435051948282, guid: ba4d9b51cf56f3f4c882383931218a91,
