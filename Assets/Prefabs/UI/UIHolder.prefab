@@ -2357,6 +2357,7 @@ Transform:
   - {fileID: 2011241123393971881}
   - {fileID: 5501814318438651499}
   - {fileID: 3255811853251378536}
+  - {fileID: 3582759579951340538}
   m_Father: {fileID: 73046891792118329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2294819560309268062
@@ -7782,6 +7783,63 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8004783814653128104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3582759579951340538}
+  - component: {fileID: 8808436150465080231}
+  m_Layer: 0
+  m_Name: AudioEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3582759579951340538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004783814653128104}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -120.60297, y: -117.819214, z: -6.041523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8758447189021472545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8808436150465080231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004783814653128104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b676a6588f02c84dbc7801c46e4a2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAttackEventId: Player_Attack
+  playerDamageEventId: Player_Damage
+  playerDeathEventId: Player_Death
+  playerHealEventId: Player_Heal
+  playerDisconnectEventId: Player_Disconnect
+  playerJoinEventId: Player_Join
+  baseDamageEventId: Base_Damage
+  baseDestroyEventId: Base_Destroyed
+  enemyAttackEventId: Enemy_Attack
+  enemyDamageEventId: Enemy_Damage
+  enemyDefeatEventId: Enemy_Defeat
+  towerPlaceEventId: Tower_Place
+  towerRemoveEventId: Tower_Remove
 --- !u!1 &8050272875486720925
 GameObject:
   m_ObjectHideFlags: 0

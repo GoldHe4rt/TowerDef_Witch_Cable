@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace AudioScripts
 {
-    public class LinesToUse : MonoBehaviour
+    public class AudioEventManager : MonoBehaviour
     {
         [Header("Player Audio Events")]
         [SerializeField] private string playerAttackEventId = "Player_Attack";
