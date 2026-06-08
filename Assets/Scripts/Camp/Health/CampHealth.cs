@@ -13,11 +13,16 @@ public class CampHealth : MonoBehaviour
     
 
     [Header("Health")]
-    [SerializeField] private bool isMainCamp = false;
+    
     [SerializeField] private int maxHealth = 5;
     [SerializeField] internal int currentHealthPoints = 5;
     [SerializeField] private bool HealingIFramesEnabled = false;
     [SerializeField] private bool DamageIFramesEnabled = false;
+
+    [Header("Defeat")]
+    [SerializeField] private bool isMainCamp = false;
+    [SerializeField] private GameObject defeatCamera;
+    [SerializeField] private Animator defeatAnimator;
     
     internal ScreenUI screenUI;
     internal bool destroyed = false;
@@ -32,6 +37,8 @@ public class CampHealth : MonoBehaviour
         {
             if (screenUI != null)
                 screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, 0);
+            if (defeatCamera != null)
+                defeatCamera.SetActive(false);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
         
@@ -146,7 +153,8 @@ public class CampHealth : MonoBehaviour
     {
         if (isMainCamp)
         {
-            screenUI.DefeatScreen();
+            StartCoroutine(Defeat());
+            
         } 
         else
         {
@@ -163,5 +171,15 @@ public class CampHealth : MonoBehaviour
                 screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, 0);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
+    }
+
+    IEnumerator Defeat()
+    {
+        if (defeatCamera != null)
+            defeatCamera.SetActive(true);
+        Time.timeScale = 0.1f;
+        defeatAnimator.SetBool("Defeat", true);
+        yield return new WaitForSeconds(0.3f);
+        screenUI.DefeatScreen();
     }
 }
