@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour
         {
             if (!isBuilding)
             {
-                playerCombatSystem.Attack(false);
+                playerCombatSystem.Attack();
             }
             if (isPlacingInputTimer > 0)
             {
@@ -70,7 +70,7 @@ public class InputManager : MonoBehaviour
             }
             if (!isBuilding)
             {
-                playerCombatSystem.Attack(true);
+                playerCombatSystem.Attack();
             }
         }
         else

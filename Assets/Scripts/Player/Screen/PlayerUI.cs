@@ -9,7 +9,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GlobalReferanceManager globalReferenceManager;
 
     [Header("Health")]
-    [SerializeField] private TextMeshProUGUI healthDisplay;
+    [SerializeField] private GameObject[] healthDisplay;
     [SerializeField] public GameObject canTakeDamageDisplay, canHealDisplay;
 
     [Header("Currency")]
@@ -40,8 +40,17 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateHealthDisplay(int currentHealthPoints, int changeAmount)
     {
-        healthDisplay.text = currentHealthPoints.ToString("0");
-        DisplayChangeAmount((float)changeAmount, changeObject, healthDisplay.transform, false);
+        for (int i = 0; i < healthDisplay.Length; i++)
+        {
+            if (i < currentHealthPoints)
+            {
+                healthDisplay[i].SetActive(true);
+            } else
+            {
+                healthDisplay[i].SetActive(false);
+            }
+        }
+        DisplayChangeAmount((float)changeAmount, changeObject, healthDisplay[0].transform, false);
     }
 
     internal void UpdateCurrencyDisplay(float currencyAmount, float changeAmount)

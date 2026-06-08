@@ -56,7 +56,13 @@ public class TowerAttack : MonoBehaviour
         currentHealth = maxHealth;
         attackRangeScript = attackRangeObject.GetComponent<AttackRange>();
         bulletAmount = maxBulletAmount;
-        bulletCountText.text = bulletAmount.ToString();
+        if (towerType != TowerType.Barricade)
+        {
+            bulletCountText.text = bulletAmount.ToString();
+        } else
+        {
+            bulletCountText.text = currentHealth.ToString();
+        }
     }
 
     void Update()
@@ -132,7 +138,7 @@ public class TowerAttack : MonoBehaviour
     {
         if (canTakeDamage == false) return;
         currentHealth -= damageAmount;
-        bulletCountText.text = bulletAmount.ToString();
+        bulletCountText.text = currentHealth.ToString();
         //Debug.Log("Took " + damageAmount + " Damage!");
 
         if (currentHealth <= 0)

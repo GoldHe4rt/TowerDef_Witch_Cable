@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerCombatSystem : MonoBehaviour
 {
@@ -9,25 +10,38 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private int playerID = 1;
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private WeaponDisplay weaponDisplay;
 
     internal int currentWeaponID = -1;
     private GameObject currentWeaponPrefab;
     private GameObject currentHitboxPrefab;
     private float currentHitboxSpeed;
-    private float currentAttackSpeed;
     private bool currentlyStickToWeapon;
 
-    private float shootTimer;
+    internal List<float> currentCoolDowns = new List<float>();
 
     void Start()
     {
+        for (int i = 0; i < databaseSO.weaponData.Count; i++)
+        {
+            currentCoolDowns.Add(0);
+        }
         NewWeapon(0);
     }
 
     void Update()
     {
-        if (shootTimer > 0)
-            shootTimer -= Time.deltaTime;
+        for (int i = 0; i < databaseSO.weaponData.Count; i++)
+        {
+            if (currentCoolDowns[i] > 0)
+            {
+                currentCoolDowns[i] -= Time.deltaTime;
+            } else
+            {
+                currentCoolDowns[i] = 0;
+            }
+            
+        }
 
     }
 
@@ -43,9 +57,9 @@ public class PlayerCombatSystem : MonoBehaviour
         currentHitboxPrefab = databaseSO.weaponData[newWeaponID].HitboxPrefab;
         currentWeaponPrefab.transform.SetParent(weaponHolder.transform);
         currentHitboxSpeed = databaseSO.weaponData[newWeaponID].HitboxSpeed;
-        currentAttackSpeed = databaseSO.weaponData[newWeaponID].AttackSpeed;
         currentlyStickToWeapon = databaseSO.weaponData[newWeaponID].StickToWeapon;
         // Initialize combat system if needed
+        weaponDisplay.UpdateSelectionDisplay(currentWeaponID);
     }
 
     public void RemoveWeapon()
@@ -59,13 +73,13 @@ public class PlayerCombatSystem : MonoBehaviour
         currentHitboxPrefab = null;
     }
 
-    public void Attack(bool shortenTimer)
+    public void Attack()
     {
         if (currentWeaponID == -1)
         {
             return;
         }
-        if (shortenTimer ? shootTimer > currentAttackSpeed * 0.5f : shootTimer > 0)
+        if (currentCoolDowns[currentWeaponID] > 0)
         {
             return;
         }
@@ -76,9 +90,8 @@ public class PlayerCombatSystem : MonoBehaviour
         GameObject currentAttack;
         currentAttack = Instantiate(currentHitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation);
 
-        //Add Velocity to Damage dealer
+        //Stick to weapon if needed and add velocity to it
         Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
-        
         if (!currentlyStickToWeapon)
         {
             // Add Velocity to Damage dealer and add or subtract playerspeed to it based on the direction of the attack and movement
@@ -100,7 +113,7 @@ public class PlayerCombatSystem : MonoBehaviour
 
         //Destroy after set time
         StartCoroutine(DestroyHitboxAfterTime(currentAttack, databaseSO.weaponData[currentWeaponID].Lifetime));
-        shootTimer = currentAttackSpeed; // Reset the attack cooldown
+        currentCoolDowns[currentWeaponID] = databaseSO.weaponData[currentWeaponID].AttackCooldown; // Reset the attack cooldown
     }
 
     private IEnumerator DestroyHitboxAfterTime(GameObject currentAttack, float lifetime)
@@ -131,8 +144,8 @@ public class PlayerCombatSystem : MonoBehaviour
 
     private IEnumerator AttackDelay()
     {
-        yield return new WaitForSeconds(shootTimer);
-        shootTimer = 0;
-        Attack(false);
+        yield return new WaitForSeconds(currentCoolDowns[currentWeaponID]);
+        currentCoolDowns[currentWeaponID] = 0;
+        Attack();
     }
 }
