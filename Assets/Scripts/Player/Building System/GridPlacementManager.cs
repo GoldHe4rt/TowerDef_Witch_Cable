@@ -7,6 +7,7 @@ public class GridPlacementManager : MonoBehaviour
     public static GridPlacementManager Instance { get; private set; }
 
     [SerializeField] private CurrencyManager currencyManager;
+    [SerializeField] internal GlobalReferanceManager globalReferanceManager;
     [SerializeField] private Grid grid;
     [SerializeField] public ObjectDatabaseSO databaseSO;
     //[SerializeField] private GameObject gridVisualization;

@@ -7,7 +7,7 @@ using System.Collections;
 public class ScreenUI : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GlobalReferanceManager globalReferenceManager;
+    [SerializeField] internal GlobalReferanceManager globalReferanceManager;
 
     [Header("Currency")]
     [SerializeField] private GameObject currencyDisplayObject;
@@ -23,15 +23,15 @@ public class ScreenUI : MonoBehaviour
 
     void Awake()
     {
-        if (globalReferenceManager.campHealth != null)
-             globalReferenceManager.campHealth.screenUI = this;
+        if (globalReferanceManager.campHealth != null)
+             globalReferanceManager.campHealth.screenUI = this;
     }
 
     void Start()
     {
         changeObject.SetActive(false);
         damageDisplay.SetActive(false);
-        if (globalReferenceManager.currency != Currency.SharedBank)
+        if (globalReferanceManager.currency != Currency.SharedBank)
             currencyDisplayObject.SetActive(false);
         
     }
@@ -60,11 +60,14 @@ public class ScreenUI : MonoBehaviour
         {
             changeText.text = "+" + changeAmount.ToString("0");
             changeText.color = Color.green;
+            globalReferanceManager.soundManager.PlayPlayerHealSound();
         }
         else if (changeAmount < 0)
         {
             changeText.text = changeAmount.ToString("0");
             changeText.color = Color.red;
+            globalReferanceManager.soundManager.PlayBaseDamageSound();
+            
         } 
         else
         {
@@ -115,7 +118,7 @@ public class ScreenUI : MonoBehaviour
 
     internal void DefeatScreen()
     {
-        globalReferenceManager.gameOverController.ShowGameOver();
+        globalReferanceManager.gameOverController.ShowGameOver();
         Time.timeScale = 0f;
     }
 }

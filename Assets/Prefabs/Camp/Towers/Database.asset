@@ -34,13 +34,6 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 919219935157804709, guid: 466d696a71601e34a982466b6049aa89,
       type: 3}
     <Cost>k__BackingField: 100
-  - <Name>k__BackingField: Freeze Trap
-    <ID>k__BackingField: 4
-    <IsFloor>k__BackingField: 1
-    <Size>k__BackingField: {x: 2, y: 2}
-    <Prefab>k__BackingField: {fileID: 919219935157804709, guid: f82b44394f0ae604ab3426274c91926c,
-      type: 3}
-    <Cost>k__BackingField: 50
   - <Name>k__BackingField: Barricade
     <ID>k__BackingField: 3
     <IsFloor>k__BackingField: 1
@@ -48,3 +41,10 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 919219935157804709, guid: 4f6976cc614ce9545b29267aabf320ba,
       type: 3}
     <Cost>k__BackingField: 100
+  - <Name>k__BackingField: Freeze Trap
+    <ID>k__BackingField: 4
+    <IsFloor>k__BackingField: 1
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Prefab>k__BackingField: {fileID: 919219935157804709, guid: f82b44394f0ae604ab3426274c91926c,
+      type: 3}
+    <Cost>k__BackingField: 50

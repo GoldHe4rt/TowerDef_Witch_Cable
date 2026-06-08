@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor;
+using System;
 
 public class Hazard : MonoBehaviour
 {
@@ -21,11 +23,22 @@ public class Hazard : MonoBehaviour
 
     [Header("Other")]
     public int pierceAmount = 1;
-    
+    [SerializeField] private bool changeSize = false;
+    [SerializeField] private float changeSizeTimer = 1f;
+    [SerializeField] private float newRadius = 1f;
+
+    void Awake()
+    {
+        if (changeSize)
+        {
+            StartCoroutine(ChangeSizeAfterTime());
+        }
+    }
 
     public void HitTarget()
     {
         pierceAmount--;
+        
         if (pierceAmount <= 0)
         {
             DestroySelf();
@@ -62,5 +75,12 @@ public class Hazard : MonoBehaviour
         //Destroy after set time
         Hazard hazard = currentAttack.GetComponent<Hazard>();
         hazard.StartCoroutine(hazard.DestroyHitboxAfterTime(newHazardLifetime));
+    }
+
+    IEnumerator ChangeSizeAfterTime()
+    {
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        yield return new WaitForSeconds(changeSizeTimer);
+        collider.radius = newRadius;
     }
 }

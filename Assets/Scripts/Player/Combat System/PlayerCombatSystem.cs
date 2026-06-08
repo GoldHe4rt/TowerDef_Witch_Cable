@@ -10,6 +10,7 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private int playerID = 1;
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GlobalReferanceManager globalReferanceManager;
     [SerializeField] private WeaponDisplay weaponDisplay;
 
     internal int currentWeaponID = -1;
@@ -53,8 +54,8 @@ public class PlayerCombatSystem : MonoBehaviour
             return;
         }
         currentWeaponID = newWeaponID;
-        currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab, weaponHolder.transform.position, weaponHolder.transform.rotation);
-        currentHitboxPrefab = databaseSO.weaponData[newWeaponID].HitboxPrefab;
+        currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab[playerID-1], weaponHolder.transform.position, weaponHolder.transform.rotation);
+        currentHitboxPrefab = databaseSO.weaponData[newWeaponID].HitboxPrefab[playerID-1];
         currentWeaponPrefab.transform.SetParent(weaponHolder.transform);
         currentHitboxSpeed = databaseSO.weaponData[newWeaponID].HitboxSpeed;
         currentlyStickToWeapon = databaseSO.weaponData[newWeaponID].StickToWeapon;
@@ -105,6 +106,8 @@ public class PlayerCombatSystem : MonoBehaviour
             currentAttack.transform.localPosition = Vector3.zero;
             currentAttack.transform.localRotation = Quaternion.identity;
         }
+
+        globalReferanceManager.soundManager.PlayPlayerAttackSound();
 
         //Set Owner of Attack
         DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();

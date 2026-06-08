@@ -23,28 +23,28 @@ namespace AudioScripts
         [SerializeField] private string towerRemoveEventId = "Tower_Remove";
 
         #region Player Sound Functions
-        private void PlayPlayerAttackSound() => AudioSystem.Play(playerAttackEventId);
-        private void PlayPlayerDamageSound() => AudioSystem.Play(playerDamageEventId);
-        private void PlayPlayerDeathSound() => AudioSystem.Play(playerDeathEventId);
-        private void PlayPlayerHealSound() => AudioSystem.Play(playerHealEventId);
-        private void PlayPlayerDisconnectSound() => AudioSystem.Play(playerDisconnectEventId);
-        private void PlayPlayerJoinSound() => AudioSystem.Play(playerJoinEventId);
+        internal void PlayPlayerAttackSound() => AudioSystem.Play(playerAttackEventId);
+        internal void PlayPlayerDamageSound() => AudioSystem.Play(playerDamageEventId);
+        internal void PlayPlayerDeathSound() => AudioSystem.Play(playerDeathEventId);
+        internal void PlayPlayerHealSound() => AudioSystem.Play(playerHealEventId);
+        internal void PlayPlayerDisconnectSound() => AudioSystem.Play(playerDisconnectEventId);
+        internal void PlayPlayerJoinSound() => AudioSystem.Play(playerJoinEventId);
         #endregion
 
         #region Base Sound Functions
-        private void PlayBaseDamageSound() => AudioSystem.Play(baseDamageEventId);
-        private void PlayBaseDestroySound() => AudioSystem.Play(baseDestroyEventId);
+        internal void PlayBaseDamageSound() => AudioSystem.Play(baseDamageEventId);
+        internal void PlayBaseDestroySound() => AudioSystem.Play(baseDestroyEventId);
         #endregion
 
         #region Enemy Sound Functions
-        private void PlayEnemyAttackSound() => AudioSystem.Play(enemyAttackEventId);
-        private void PlayEnemyDamageSound() => AudioSystem.Play(enemyDamageEventId);
-        private void PlayEnemyDefeatSound() => AudioSystem.Play(enemyDefeatEventId);
+        internal void PlayEnemyAttackSound() => AudioSystem.Play(enemyAttackEventId);
+        internal void PlayEnemyDamageSound() => AudioSystem.Play(enemyDamageEventId);
+        internal void PlayEnemyDefeatSound() => AudioSystem.Play(enemyDefeatEventId);
         #endregion
 
         #region Tower Sound Functions
-        private void PlayTowerPlaceSound() => AudioSystem.Play(towerPlaceEventId);
-        private void PlayTowerRemoveSound() => AudioSystem.Play(towerRemoveEventId);
+        internal void PlayTowerPlaceSound() => AudioSystem.Play(towerPlaceEventId);
+        internal void PlayTowerRemoveSound() => AudioSystem.Play(towerRemoveEventId);
         #endregion
     }
 }

@@ -1,6 +1,7 @@
 using Menu;
 using UnityEngine;
 using TMPro;
+using AudioScripts;
 
 public class GlobalReferanceManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GlobalReferanceManager : MonoBehaviour
     //One Script to add referances between scripts without having to go all over
     [Header("Outside References")]
     public PauseManager pauseManager;
+    public AudioEventManager soundManager;
     public PlayerStats playerStats;
     public CampHealth campHealth;
     public GameOverController gameOverController;

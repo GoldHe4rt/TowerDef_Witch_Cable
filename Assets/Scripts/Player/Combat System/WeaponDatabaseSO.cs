@@ -16,9 +16,9 @@ public class WeaponData
     [field: SerializeField]
     public int ID { get; private set;}
     [field: SerializeField]
-    public GameObject Prefab { get; private set;}
+    public GameObject[] Prefab { get; private set;}
     [field: SerializeField]
-    public GameObject HitboxPrefab { get; private set;}
+    public GameObject[] HitboxPrefab { get; private set;}
     [field: SerializeField]
     public float HitboxSpeed { get; private set;} = 0f;
     [field: SerializeField]

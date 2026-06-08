@@ -95,8 +95,15 @@ public class PlayerBuildSystem : MonoBehaviour
         placementPosition = placementObject.transform.position;
         Grid grid = gridPlacementManager.GetGrid();
         Vector3Int gridPosition = grid.WorldToCell(placementPosition);
-
+        if (isPlacing)
+        {
+            gridPlacementManager.globalReferanceManager.soundManager.PlayTowerPlaceSound();
+        } else if (isRemoving)
+        {
+            gridPlacementManager.globalReferanceManager.soundManager.PlayTowerRemoveSound();
+        }
         gridPlacementManager.ExecuteStateAction(gridPosition, selectedObjectID, playerID);
+        
     }
 
     public void StopPlacement()

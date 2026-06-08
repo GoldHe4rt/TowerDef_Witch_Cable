@@ -179,7 +179,9 @@ public class CampHealth : MonoBehaviour
             defeatCamera.SetActive(true);
         Time.timeScale = 0.1f;
         defeatAnimator.SetBool("Defeat", true);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
+        screenUI.globalReferanceManager.soundManager.PlayBaseDamageSound();
+        yield return new WaitForSeconds(0.1f);
         screenUI.DefeatScreen();
     }
 }

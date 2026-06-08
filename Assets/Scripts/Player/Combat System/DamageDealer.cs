@@ -40,6 +40,7 @@ public class DamageDealer : MonoBehaviour
 
     public void KilledTarget(int currency)
     {
+        currencyManager.globalReferanceManager.soundManager.PlayEnemyAttackSound();
         if (currencyManager != null)
         {
             currencyManager.AddCurrency(currency, playerOwner, true);

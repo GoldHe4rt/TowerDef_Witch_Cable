@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using AudioScripts;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class EnemyAttack : MonoBehaviour
     private EnemyRange attackRangeScript;
     private float attackSpeedTimer = 0f;
     private Vector2 currentAimDirectionTarget = Vector2.up;
+    internal AudioEventManager audioEventManager;
 
 
     void Start()
@@ -77,6 +79,8 @@ public class EnemyAttack : MonoBehaviour
         Vector2 currentAimDirection = weaponHolder.transform.rotation * Vector2.up;
         Quaternion spreadRotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(-spreadAngle, spreadAngle));
         Vector2 spread = spreadRotation * currentAimDirection;
+
+        audioEventManager.PlayEnemyAttackSound();
 
         //Spawn Damage dealer
         GameObject currentAttack;

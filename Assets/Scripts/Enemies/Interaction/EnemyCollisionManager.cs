@@ -24,7 +24,7 @@ public class EnemyCollisionManager : MonoBehaviour
         if (enemyHealth.healthPoints <= 0)
         {
             hazard.KilledTarget(enemyHealth.currencyOnDeath);
-            Destroy(gameObject);
+            enemyHealth.Death();
         }
         
         hazard.HitTarget();

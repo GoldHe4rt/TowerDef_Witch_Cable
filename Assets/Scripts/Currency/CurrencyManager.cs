@@ -4,7 +4,7 @@ using UnityEngine;
 public class CurrencyManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GlobalReferanceManager globalReferanceManager;
+    [SerializeField] internal GlobalReferanceManager globalReferanceManager;
     [SerializeField] private MultiplayerScreenManager multiplayerScreenManager;
 
     [Header("Camp")]

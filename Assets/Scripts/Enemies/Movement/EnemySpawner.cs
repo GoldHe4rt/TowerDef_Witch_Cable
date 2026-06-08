@@ -1,8 +1,9 @@
+using AudioScripts;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public void Spawn(GameObject randomEnemy, Transform target, int difficultyModifier, bool isRangedDifficulty)
+    public void Spawn(GameObject randomEnemy, Transform target, AudioEventManager audioEventManager, int difficultyModifier, bool isRangedDifficulty)
     {
         GameObject cloneObject = Instantiate(randomEnemy, transform.position, Quaternion.identity);
         cloneObject.SetActive(true);
@@ -11,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
         EnemyAttack enemyAttack = cloneObject.GetComponent<EnemyAttack>();
 
         nevMeshPathfinding.TargetBase = target;
+        enemyAttack.audioEventManager = audioEventManager;
+        enemyHealth.audioEventManager = audioEventManager;
 
 
         if (isRangedDifficulty)

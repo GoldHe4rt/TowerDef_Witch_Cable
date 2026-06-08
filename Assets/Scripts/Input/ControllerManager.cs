@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 public class ControllerManager : MonoBehaviour
 {
     [SerializeField] private MultiplayerScreenManager multiplayerScreenManager;
+    [SerializeField] GlobalReferanceManager globalReferanceManager;
     public PlayerInput[] players; // assign in inspector
     [SerializeField] private bool CanJoin = false;
     public int activePlayerAmount = 0;
@@ -138,7 +139,7 @@ public class ControllerManager : MonoBehaviour
                 savedGamepadOrder.Add(gamepad.deviceId);
             }
         }
-        
+        globalReferanceManager.soundManager.PlayPlayerJoinSound();
         Debug.Log($"Player {playerIndex + 1} joined. Active players: {activePlayerAmount}");
     }
     
@@ -197,7 +198,8 @@ public class ControllerManager : MonoBehaviour
         // Remove from saved assignments and join order
         savedGamepadAssignments.Remove(gamepad.deviceId);
         savedGamepadOrder.Remove(gamepad.deviceId);
-
+        
+        globalReferanceManager.soundManager.PlayPlayerDisconnectSound();
         Debug.Log($"Player {index + 1} left. Active players: {activePlayerAmount}");
 
     }

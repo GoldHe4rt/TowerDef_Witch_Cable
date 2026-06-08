@@ -6,6 +6,7 @@ using TMPro;
 using Random = UnityEngine.Random;
 using Menu;
 using Unity.Collections;
+using AudioScripts;
 
 [System.Serializable]
 public class EnemySettings
@@ -59,6 +60,7 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private Transform target;
+    [SerializeField] private AudioEventManager audioEventManager;
     [SerializeField] private EnemySpawner[] spawnPoints;
     [SerializeField] private EnemyDatabaseSO databaseSO;
     [SerializeField] private GlobalReferanceManager globalReferenceManager;
@@ -188,6 +190,7 @@ public class WaveSpawner : MonoBehaviour
             randomPoint.Spawn(
                 randomEnemyObject,
                 target,
+                audioEventManager,
                 currentWave.difficultyModifier, 
                 currentWave.difficultyRangeActive);
             currentWave.enemySettings[randomEnemy].noOfEnemy--;

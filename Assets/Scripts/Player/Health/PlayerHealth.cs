@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealthPoints > maxHealth)
             currentHealthPoints = maxHealth;
         playerUI.UpdateHealthDisplay(currentHealthPoints, healAmount);
+        globalReferanceManager.soundManager.PlayPlayerHealSound();
         //Debug.Log("Healed " + healAmount + " Health!");
 
         
@@ -56,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
         if (dead) return;
         currentHealthPoints = currentHealthPoints - damageAmount;
         playerUI.UpdateHealthDisplay(currentHealthPoints, -damageAmount);
+        globalReferanceManager.soundManager.PlayPlayerDamageSound();
         //Debug.Log("Took " + damageAmount + " Damage!");
 
         if (currentHealthPoints <= 0 && dead == false)
@@ -81,6 +83,7 @@ public class PlayerHealth : MonoBehaviour
         playerUI.UpdateHealthDisplay(currentHealthPoints, 0);
         playerUI.gameplayScreen.SetActive(false);
         playerUI.deathScreen.SetActive(true);
+        globalReferanceManager.soundManager.PlayPlayerDeathSound();
         StartCoroutine(RespawnCountdown(respawntimer));
     }
 

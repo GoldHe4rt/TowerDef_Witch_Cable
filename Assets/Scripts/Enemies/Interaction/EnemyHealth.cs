@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System;
+using AudioScripts;
+using Random = UnityEngine.Random;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -18,9 +20,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Vector2 minMaxHealthPoints = new Vector2(1, 25);
     [SerializeField] private Vector2 minMaxCurrencyOnDeath = new Vector2(10, 100);
     [SerializeField] private Vector2 minMaxScale = new Vector2(0.8f, 2f);
+
+    [Header("Drop On Defeat")]
+    [Range(0,1)][SerializeField] private float dropChanse;
     
     internal bool dead = false;
     internal bool invinsible = false;
+    internal AudioEventManager audioEventManager;
 
     void Start()
     {
@@ -32,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
     {
         healthPoints = healthPoints - damageAmount;
         healthDisplay.text = healthPoints.ToString("0");
+        audioEventManager.PlayEnemyDamageSound();
         //Debug.Log("Dealt " + damageAmount + " Damage!");
 
         if (iFramesEnabled == true)
@@ -40,7 +47,6 @@ public class EnemyHealth : MonoBehaviour
             canTakeDamageDisplay.SetActive(true);
             StartCoroutine(IFrames(damageFrames));
         }
-            
     }
 
     IEnumerator IFrames(float damageFrames)
@@ -67,4 +73,45 @@ public class EnemyHealth : MonoBehaviour
             transform.localScale = Vector3.one * minMaxScale.y;
         }
     }
+
+    internal void Death()
+    {
+        //if (Random.value > dropChanse)
+        Destroy(gameObject);
+    }
+/*/
+    [System.Serializable]
+    public struct LootItem
+    {
+        public string itemName;
+        [Range(0, 100)] public float dropChance; 
+    }
+
+    public LootItem[] possibleLoot;
+
+    public void RollLoot()
+    {
+        // 1. Calculate the total weight of all items
+        float totalChance = 0f;
+        foreach (LootItem item in possibleLoot)
+        {
+            totalChance += item.dropChance;
+        }
+
+        // 2. Pick a random number within the total
+        float randomRoll = Random.Range(0f, totalChance);
+
+        // 3. Find which item the roll landed on
+        float cumulativeChance = 0f;
+        foreach (LootItem item in possibleLoot)
+        {
+            cumulativeChance += item.dropChance;
+            if (randomRoll <= cumulativeChance)
+            {
+                Debug.Log($"You rolled: {item.itemName}");
+                return;
+            }
+        }
+    }/*/
 }
+
