@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 4174907970339112430}
   - component: {fileID: 2541031831342939791}
   - component: {fileID: -889120198094431616}
+  - component: {fileID: 7463422487274418855}
   - component: {fileID: 2897402382982837266}
   - component: {fileID: 134069677393523474}
   - component: {fileID: 1983155555985423677}
@@ -321,6 +322,19 @@ MonoBehaviour:
   minMaxSpeed: {x: 1, y: 15}
   speed: 5
   speedModifier: 1
+--- !u!114 &7463422487274418855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278096698909005310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5490b862c60b243867594aa1ad7f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleLoot: []
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,12 +349,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDisplay: {fileID: 4449110839341595158}
   canTakeDamageDisplay: {fileID: 8957306761276025106}
+  lootSystem: {fileID: 7463422487274418855}
   healthPoints: 5
   currencyOnDeath: 15
   iFramesEnabled: 1
   minMaxHealthPoints: {x: 1, y: 25}
   minMaxCurrencyOnDeath: {x: 10, y: 100}
   minMaxScale: {x: 0.8, y: 2}
+  dropChanse: 0
 --- !u!114 &134069677393523474
 MonoBehaviour:
   m_ObjectHideFlags: 0
