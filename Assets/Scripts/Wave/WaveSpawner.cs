@@ -149,7 +149,7 @@ public class WaveSpawner : MonoBehaviour
             WavesMissingError();
             return;
         }
-        globalReferenceManager.waveDisplay.text = (currentWaveNumber + 1).ToString("0");
+        globalReferenceManager.waveDisplay.text = (currentWaveNumber + 1).ToString("0") +"/"+ (waves.Count).ToString("0");
         Debug.Log("animate wave ting");
         waveName.text = waves[currentWaveNumber].waveName;
         anim.SetTrigger("WaveComplete");
