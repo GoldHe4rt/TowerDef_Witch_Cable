@@ -106,8 +106,8 @@ public class PlayerCombatSystem : MonoBehaviour
             currentAttack.transform.localPosition = Vector3.zero;
             currentAttack.transform.localRotation = Quaternion.identity;
         }
-
-        globalReferanceManager.soundManager.PlayPlayerAttackSound();
+        if (globalReferanceManager.soundManager != null)
+            globalReferanceManager.soundManager.PlayPlayerAttackSound();
 
         //Set Owner of Attack
         DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();

@@ -101,13 +101,17 @@ public class PlayerBuildSystem : MonoBehaviour
         placementPosition = placementObject.transform.position;
         Grid grid = gridPlacementManager.GetGrid();
         Vector3Int gridPosition = grid.WorldToCell(placementPosition);
-        if (isPlacing)
+        if (gridPlacementManager.globalReferanceManager.soundManager != null)
         {
-            gridPlacementManager.globalReferanceManager.soundManager.PlayTowerPlaceSound();
-        } else if (isRemoving)
-        {
-            gridPlacementManager.globalReferanceManager.soundManager.PlayTowerRemoveSound();
+            if (isPlacing)
+            {
+                gridPlacementManager.globalReferanceManager.soundManager.PlayTowerPlaceSound();
+            } else if (isRemoving)
+            {
+                gridPlacementManager.globalReferanceManager.soundManager.PlayTowerRemoveSound();
+            }
         }
+            
         gridPlacementManager.ExecuteStateAction(gridPosition, selectedObjectID, playerID);
         
     }

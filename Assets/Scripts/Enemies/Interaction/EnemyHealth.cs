@@ -39,7 +39,8 @@ public class EnemyHealth : MonoBehaviour
     {
         healthPoints = healthPoints - damageAmount;
         healthDisplay.text = healthPoints.ToString("0");
-        audioEventManager.PlayEnemyDamageSound();
+        if (audioEventManager != null)
+            audioEventManager.PlayEnemyDamageSound();
         //Debug.Log("Dealt " + damageAmount + " Damage!");
 
         if (iFramesEnabled == true)
@@ -78,6 +79,8 @@ public class EnemyHealth : MonoBehaviour
     internal void Death()
     {
         lootSystem.RollLoot();
+        if (audioEventManager != null)
+            audioEventManager.PlayEnemyDefeatSound();
         Destroy(gameObject);
     }
 

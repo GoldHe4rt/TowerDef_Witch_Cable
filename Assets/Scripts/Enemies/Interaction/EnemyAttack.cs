@@ -80,7 +80,8 @@ public class EnemyAttack : MonoBehaviour
         Quaternion spreadRotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(-spreadAngle, spreadAngle));
         Vector2 spread = spreadRotation * currentAimDirection;
 
-        audioEventManager.PlayEnemyAttackSound();
+        if (audioEventManager != null)
+            audioEventManager.PlayEnemyAttackSound();
 
         //Spawn Damage dealer
         GameObject currentAttack;

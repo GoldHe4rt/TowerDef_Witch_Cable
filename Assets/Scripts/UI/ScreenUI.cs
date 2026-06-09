@@ -60,13 +60,15 @@ public class ScreenUI : MonoBehaviour
         {
             changeText.text = "+" + changeAmount.ToString("0");
             changeText.color = Color.green;
-            globalReferanceManager.soundManager.PlayPlayerHealSound();
+            if (globalReferanceManager.soundManager != null)
+                globalReferanceManager.soundManager.PlayPlayerHealSound();
         }
         else if (changeAmount < 0)
         {
             changeText.text = changeAmount.ToString("0");
             changeText.color = Color.red;
-            globalReferanceManager.soundManager.PlayBaseDamageSound();
+            if (globalReferanceManager.soundManager != null)
+                globalReferanceManager.soundManager.PlayBaseDamageSound();
             
         } 
         else

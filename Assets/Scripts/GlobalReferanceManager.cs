@@ -20,6 +20,8 @@ public class GlobalReferanceManager : MonoBehaviour
     {
         if (pauseManager == null)
             Debug.LogWarning("PauseManager reference is not assigned in GlobalReferanceManager.");
+        if (soundManager == null)
+            Debug.LogWarning("AudioEventManager reference is not assigned in GlobalReferanceManager.");
         if (playerStats == null)
             Debug.LogWarning("PlayerStats reference is not assigned in GlobalReferanceManager.");
         if (campHealth == null)

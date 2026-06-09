@@ -139,7 +139,8 @@ public class ControllerManager : MonoBehaviour
                 savedGamepadOrder.Add(gamepad.deviceId);
             }
         }
-        globalReferanceManager.soundManager.PlayPlayerJoinSound();
+        if (globalReferanceManager.soundManager != null)
+            globalReferanceManager.soundManager.PlayPlayerJoinSound();
         Debug.Log($"Player {playerIndex + 1} joined. Active players: {activePlayerAmount}");
     }
     
@@ -199,7 +200,8 @@ public class ControllerManager : MonoBehaviour
         savedGamepadAssignments.Remove(gamepad.deviceId);
         savedGamepadOrder.Remove(gamepad.deviceId);
         
-        globalReferanceManager.soundManager.PlayPlayerDisconnectSound();
+        if (globalReferanceManager.soundManager != null)
+            globalReferanceManager.soundManager.PlayPlayerDisconnectSound();
         Debug.Log($"Player {index + 1} left. Active players: {activePlayerAmount}");
 
     }

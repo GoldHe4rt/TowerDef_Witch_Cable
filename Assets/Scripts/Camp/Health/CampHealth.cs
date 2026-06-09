@@ -180,7 +180,8 @@ public class CampHealth : MonoBehaviour
         Time.timeScale = 0.1f;
         defeatAnimator.SetBool("Defeat", true);
         yield return new WaitForSeconds(0.2f);
-        screenUI.globalReferanceManager.soundManager.PlayBaseDamageSound();
+        if (screenUI.globalReferanceManager.soundManager != null)
+            screenUI.globalReferanceManager.soundManager.PlayBaseDestroySound();
         yield return new WaitForSeconds(0.1f);
         screenUI.DefeatScreen();
     }
