@@ -1,13 +1,22 @@
+using Menu;
 using UnityEngine;
 
 public class ControlsPopupManager : MonoBehaviour
 {
     public GameObject controlsUI;
+    [SerializeField] private PauseManager pauseManager;
     private void Start()
-    { HideControls(); }
+    { controlsUI.SetActive(false); }
 
     public void ShowControls()
-    { controlsUI.SetActive(true); }
+    {
+        controlsUI.SetActive(true);
+        pauseManager.ForcePauseWithoutMenu();
+    }
+
     public void HideControls()
-    { controlsUI.SetActive(false); }
+    {
+        controlsUI.SetActive(false);
+        pauseManager.pauseMenuUI.SetActive(true);
+    }
 }
