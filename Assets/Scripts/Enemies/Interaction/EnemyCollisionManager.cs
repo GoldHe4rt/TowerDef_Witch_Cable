@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyCollisionManager : MonoBehaviour
 {
     [SerializeField] private EnemyHealth enemyHealth;
-    [SerializeField] private PathFinding pathFinding;
+    [SerializeField] private NavMeshPathfinding navMeshPathfinding;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +20,7 @@ public class EnemyCollisionManager : MonoBehaviour
         if (hazard.freezeTarget)
         {
             Debug.Log("Enemy frozen!");
-            StartCoroutine(pathFinding.SpeedRecovery(hazard.freezeDuration, 2f, 0.3f, 1f));
+            StartCoroutine(navMeshPathfinding.SpeedRecovery(hazard.freezeDuration, 2f, 0.3f, 1f));
         }
         if (enemyHealth.healthPoints <= 0)
         {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5099749314639219674}
   - component: {fileID: 204010077312088224}
   - component: {fileID: 699653068202464527}
+  - component: {fileID: 6044237827958334728}
   m_Layer: 12
   m_Name: Frost
   m_TagString: Damage Dealer
@@ -129,6 +130,35 @@ MonoBehaviour:
   freezeDuration: 5
   playerOwner: -1
   pierceAmount: 5
+--- !u!114 &6044237827958334728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2430491045449836502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc497ab31cd09d147a5e22d240271378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 1
+  is2D: 1
+  isMovementEnabled: 0
+  loopMovement: 0
+  movement: []
+  isRotationEnabled: 1
+  loopRotation: 1
+  rotation:
+  - rotateEnabled: 1
+    randomizeDirection: 0
+    rotationSpeed: 5
+    duration: 5
+    rotationDirection2D: 50
+    rotationDirection3D: {x: 0, y: 0, z: 0}
+  isScaleEnabled: 0
+  loopScale: 0
+  scale: []
 --- !u!1 &3563239352696543150
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +186,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7916522316623477131}
@@ -205,7 +235,8 @@ SpriteRenderer:
   m_SortingLayerID: 1326589551
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1626840936, guid: 0c2ce03e7eb93b6428733833d98d70cb, type: 3}
+  m_Sprite: {fileID: -4790341654371690962, guid: 6e27902c39f6b5a41aafd5091e382d2a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
@@ -243,7 +274,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.83146966, w: 0.55557024}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7916522316623477131}
@@ -292,7 +323,8 @@ SpriteRenderer:
   m_SortingLayerID: 1326589551
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1626840936, guid: 0c2ce03e7eb93b6428733833d98d70cb, type: 3}
+  m_Sprite: {fileID: -4790341654371690962, guid: 6e27902c39f6b5a41aafd5091e382d2a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
@@ -330,7 +362,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.19509031, w: 0.98078537}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7916522316623477131}
@@ -379,7 +411,8 @@ SpriteRenderer:
   m_SortingLayerID: 1326589551
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1626840936, guid: 0c2ce03e7eb93b6428733833d98d70cb, type: 3}
+  m_Sprite: {fileID: -4790341654371690962, guid: 6e27902c39f6b5a41aafd5091e382d2a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
@@ -417,7 +450,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7916522316623477131}
@@ -466,7 +499,8 @@ SpriteRenderer:
   m_SortingLayerID: 1326589551
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1626840936, guid: 0c2ce03e7eb93b6428733833d98d70cb, type: 3}
+  m_Sprite: {fileID: -4790341654371690962, guid: 6e27902c39f6b5a41aafd5091e382d2a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0

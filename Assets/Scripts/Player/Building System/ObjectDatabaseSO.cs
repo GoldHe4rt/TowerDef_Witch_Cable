@@ -20,7 +20,7 @@ public class ObjectData
     [field: SerializeField]
     public Vector2Int Size { get; private set;} = Vector2Int.one;
     [field: SerializeField]
-    public GameObject Prefab { get; private set;}
+    public GameObject[] Prefabs { get; private set;}
     [field: SerializeField]
     public float Cost { get; private set;} = 50;
 }

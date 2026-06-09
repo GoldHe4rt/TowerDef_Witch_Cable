@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyRange : MonoBehaviour
 {
     [SerializeField] private EnemyAttack enemyAttack;
-    [SerializeField] private NevMeshPathfinding nevMeshPathfinding;
+    [SerializeField] private NavMeshPathfinding nevMeshPathfinding;
     [SerializeField] float attackRange = 10f;
     internal GameObject currentAimTarget;
 

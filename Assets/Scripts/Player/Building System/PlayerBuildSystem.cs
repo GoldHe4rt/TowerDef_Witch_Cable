@@ -21,8 +21,14 @@ public class PlayerBuildSystem : MonoBehaviour
     private bool isRemoving = false;
     private float placementResetTimer = 3f;
 
+    private void Awake()
+    {
+        previewSystem.playerID = playerID;
+    }
+
     private void Start()
     {
+        
         StopPlacement();
         gridPlacementManager = GridPlacementManager.Instance;
 
@@ -62,7 +68,7 @@ public class PlayerBuildSystem : MonoBehaviour
         FightingUI.SetActive(false);
         
         previewSystem.StartShowingPlacementPreview(
-            gridPlacementManager.databaseSO.objectData[selectedObjectID].Prefab,
+            gridPlacementManager.databaseSO.objectData[selectedObjectID].Prefabs[playerID-1],
             gridPlacementManager.databaseSO.objectData[selectedObjectID].Size,
             gridPlacementManager.databaseSO.objectData[selectedObjectID].ID
         );

@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 2897402382982837266}
-  pathFinding: {fileID: 0}
+  navMeshPathfinding: {fileID: -889120198094431616}
 --- !u!114 &1983155555985423677
 MonoBehaviour:
   m_ObjectHideFlags: 0

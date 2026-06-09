@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject cloneObject = Instantiate(randomEnemy, transform.position, Quaternion.identity);
         cloneObject.SetActive(true);
-        NevMeshPathfinding nevMeshPathfinding = cloneObject.GetComponent<NevMeshPathfinding>();
+        NavMeshPathfinding nevMeshPathfinding = cloneObject.GetComponent<NavMeshPathfinding>();
         EnemyHealth enemyHealth = cloneObject.GetComponent<EnemyHealth>();
         EnemyAttack enemyAttack = cloneObject.GetComponent<EnemyAttack>();
 

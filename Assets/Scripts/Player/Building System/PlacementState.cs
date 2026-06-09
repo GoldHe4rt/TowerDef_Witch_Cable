@@ -36,7 +36,7 @@ public class PlacementState : IBuildingState
             if (previewSystem != null)
             {
                 previewSystem.StartShowingPlacementPreview(
-                    database.objectData[selectedObjectIndex].Prefab,
+                    database.objectData[selectedObjectIndex].Prefabs[previewSystem.playerID-1],
                     database.objectData[selectedObjectIndex].Size,
                     database.objectData[selectedObjectIndex].ID
                     );
@@ -68,7 +68,7 @@ public class PlacementState : IBuildingState
         //soundFeedback.PlaySound(SoundType.Place);
 
         currencyManager.RemoveCurrency(database.objectData[selectedObjectIndex].Cost, playerID);
-        int index = objectPlacer.PlaceObject(database.objectData[selectedObjectIndex].Prefab,
+        int index = objectPlacer.PlaceObject(database.objectData[selectedObjectIndex].Prefabs[playerID-1],
             grid.CellToWorld(gridPosition), playerID, currencyManager);
 
         ObjectData objectData = database.objectData[selectedObjectIndex];

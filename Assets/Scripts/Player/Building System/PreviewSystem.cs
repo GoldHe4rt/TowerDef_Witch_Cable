@@ -20,6 +20,7 @@ public class PreviewSystem : MonoBehaviour
     private Material previewMaterialInstance;
 
     private Renderer cellIndicatorRenderer;
+    internal int playerID;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class PreviewSystem : MonoBehaviour
         NewPrepareDisplay(dismantleIndicator, Vector2Int.one, "Dismantle", -1, -1);
         foreach (var data in databaseSO.objectData)
         {
-            NewPrepareDisplay(data.Prefab, data.Size, data.Name, data.Cost, data.ID);
+            NewPrepareDisplay(data.Prefabs[playerID-1], data.Size, data.Name, data.Cost, data.ID);
             rectSize += 60f;
         }
         

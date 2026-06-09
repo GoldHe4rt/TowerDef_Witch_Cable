@@ -8,7 +8,7 @@ using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
 
-public class NevMeshPathfinding : MonoBehaviour
+public class NavMeshPathfinding : MonoBehaviour
 {
     [SerializeField] private Transform targetTransform;
 
