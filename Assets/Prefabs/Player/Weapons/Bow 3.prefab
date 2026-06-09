@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5589344883303221694}
   m_Layer: 0
-  m_Name: Bow
+  m_Name: Bow 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,13 @@ PrefabInstance:
     - target: {fileID: -2253911629886400664, guid: 97dad8ce970a03748b7d21976c6e2dec,
         type: 3}
       propertyPath: m_Name
-      value: Staff_Pink
+      value: Staff_Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 97dad8ce970a03748b7d21976c6e2dec,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1831379010745542821, guid: 6f654ecd4f1998445a4cf9276ae62827,
+      objectReference: {fileID: -1402968499526806654, guid: 97dad8ce970a03748b7d21976c6e2dec,
         type: 3}
     - target: {fileID: 7878350319992209165, guid: 97dad8ce970a03748b7d21976c6e2dec,
         type: 3}
