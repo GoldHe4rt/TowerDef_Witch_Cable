@@ -1050,8 +1050,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 79.311844}
-  m_SizeDelta: {x: 881.7537, y: 825.1637}
+  m_AnchoredPosition: {x: 5, y: 79.311844}
+  m_SizeDelta: {x: 800, y: 816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5729714330926380889
 GameObject:
@@ -1157,7 +1157,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Y to join/leave\n\nStart button to pause\n\nAttack Mode:\nRight stick
     to aim\nR2 to attack\n\nBuild Mode:\nX to toggle building \nR1 & L1 to switch
-    towers\nR2 to place tower"
+    object\nR2 to place"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 241c6acceca8b844baad6cbcf60cefc7, type: 2}
   m_sharedMaterial: {fileID: -699112959996641730, guid: 241c6acceca8b844baad6cbcf60cefc7,
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.4
+  m_fontSize: 53.75
   m_fontSizeBase: 56
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1309,14 +1309,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.09803922}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3b77621b9af30b642ab467feb30fab0e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

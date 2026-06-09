@@ -4,12 +4,12 @@ using UnityEngine.Events;
 public class HealthUI : MonoBehaviour
 {
     public GameObject[] lifeUI;
-    public UnityEvent loseLifeEvent;
+    private UnityEvent loseLifeEvent;
     private PlayerHealth playerHealth;
-    private int currentHealth;
+    public int currentHealth = 5;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         loseLifeEvent ??= new UnityEvent();
 
@@ -24,7 +24,7 @@ public class HealthUI : MonoBehaviour
         currentHealth = healthAmount;
         loseLifeEvent.Invoke();
     }
-    private void LoseLife()
+    public void LoseLife()
     {
         switch (currentHealth)
         {
