@@ -1276,6 +1276,7 @@ GameObject:
   - component: {fileID: 106392763321327027}
   - component: {fileID: 6095688525757647814}
   - component: {fileID: 6095688525757647815}
+  - component: {fileID: 6095688525757647816}
   m_Layer: 0
   m_Name: SFXVolume
   m_TagString: Untagged
@@ -3283,6 +3284,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7164157467651876441}
+        m_TargetAssemblyTypeName: AudioScripts.PlayAudioEvent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5792767893186096072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3497,6 +3510,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6095688525757647816}
+        m_TargetAssemblyTypeName: AudioScripts.PlayAudioEvent, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6095688525757647815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3510,6 +3535,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   channel: 2
+--- !u!114 &6095688525757647816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131284145706460291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1863297deb0f18c48b15cf50c24ef655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventId: Player_Attack
 --- !u!224 &6148318766184019918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3784,6 +3822,7 @@ GameObject:
   - component: {fileID: 356574032581286244}
   - component: {fileID: 5778020328528074476}
   - component: {fileID: 7164157467651876440}
+  - component: {fileID: 7164157467651876441}
   m_Layer: 0
   m_Name: UIVolume
   m_TagString: Untagged
@@ -3804,6 +3843,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   channel: 3
+--- !u!114 &7164157467651876441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164157467651876439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1863297deb0f18c48b15cf50c24ef655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventId: UI_ButtonClick
 --- !u!224 &7196407509972892704
 RectTransform:
   m_ObjectHideFlags: 0
