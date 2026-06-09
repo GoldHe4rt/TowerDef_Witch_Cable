@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 7818096274672545356}
   - component: {fileID: 339672453680074175}
   - component: {fileID: 1321725417186419019}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +957,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1185,7 +1185,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -29.1567, y: 33.2995}
-  m_SizeDelta: {x: 340.8124, y: 271.7005}
+  m_SizeDelta: {x: 340, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4827938680208120197
 MonoBehaviour:
@@ -1500,7 +1500,7 @@ GameObject:
   - component: {fileID: 4578951125404640948}
   - component: {fileID: 5257739691927976880}
   - component: {fileID: 4621047090685945006}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ControlsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2311,6 +2311,7 @@ MonoBehaviour:
   requirePlayers: 0
   requiredPlayerCount: 1
   _controllerManager: {fileID: 0}
+  currentSceneName: 
 --- !u!114 &7462205668292120730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2737,7 +2738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3255811853251378536}
   - component: {fileID: 1118563469360833361}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MusicPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3643,7 +3644,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -7645,6 +7646,7 @@ MonoBehaviour:
   requirePlayers: 0
   requiredPlayerCount: 1
   _controllerManager: {fileID: 0}
+  currentSceneName: 
 --- !u!1 &7855826170988678677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +7795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3582759579951340538}
   - component: {fileID: 8808436150465080231}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AudioEventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8791,6 +8793,7 @@ MonoBehaviour:
   requirePlayers: 0
   requiredPlayerCount: 1
   _controllerManager: {fileID: 0}
+  currentSceneName: 
 --- !u!1 &8958317580463987786
 GameObject:
   m_ObjectHideFlags: 0
@@ -8804,7 +8807,7 @@ GameObject:
   - component: {fileID: 1270739954706102333}
   - component: {fileID: 200494046997979931}
   - component: {fileID: 3430799511062632600}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9027,7 +9030,7 @@ GameObject:
   - component: {fileID: 3150161165414456078}
   - component: {fileID: 8712718053587299479}
   - component: {fileID: 8350771520505301293}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ControlsBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
