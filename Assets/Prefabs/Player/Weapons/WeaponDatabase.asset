@@ -26,7 +26,7 @@ MonoBehaviour:
     - {fileID: 8581967954523261283, guid: 7d0f7b4c8806baa479112713e61a4eff, type: 3}
     - {fileID: 8581967954523261283, guid: 7d0f7b4c8806baa479112713e61a4eff, type: 3}
     <HitboxSpeed>k__BackingField: 0
-    <AttackCooldown>k__BackingField: 3
+    <AttackCooldown>k__BackingField: 0.4
     <Lifetime>k__BackingField: 0.2
     <StickToWeapon>k__BackingField: 1
   - <Name>k__BackingField: Bow
@@ -42,6 +42,6 @@ MonoBehaviour:
     - {fileID: 4574143891459564430, guid: 2cffdf461b3946249a3c811827580513, type: 3}
     - {fileID: 4574143891459564430, guid: 2cffdf461b3946249a3c811827580513, type: 3}
     <HitboxSpeed>k__BackingField: 15
-    <AttackCooldown>k__BackingField: 2
+    <AttackCooldown>k__BackingField: 1
     <Lifetime>k__BackingField: 1
     <StickToWeapon>k__BackingField: 0
