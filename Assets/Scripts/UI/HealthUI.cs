@@ -1,30 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class HealthUI : MonoBehaviour
 {
-    public GameObject[] lifeUI;
-    private UnityEvent loseLifeEvent;
+    public List<GameObject> lifeUI;
     private PlayerHealth playerHealth;
     public int currentHealth = 5;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-        loseLifeEvent ??= new UnityEvent();
-
-        foreach (var life in lifeUI) life.SetActive(true);
-
-        loseLifeEvent.AddListener(LoseLife);
-        
-    }
 
     private void UpdateHealth(int healthAmount)
     {
         currentHealth = healthAmount;
-        loseLifeEvent.Invoke();
+        //loseLifeEvent.Invoke();
+
+        for (int i = 0; i < lifeUI.Count; i++) lifeUI[i].SetActive(i < currentHealth);
     }
-    public void LoseLife()
+
+    #region UnusedForNow
+    /*private UnityEvent loseLifeEvent;private void
+     Start() { loseLifeEvent ??= new UnityEvent(); foreach (var life in lifeUI) life.SetActive(true); loseLifeEvent.AddListener(LoseLife); }
+     public void LoseLife()
     {
         switch (currentHealth)
         {
@@ -59,5 +54,8 @@ public class HealthUI : MonoBehaviour
                 lifeUI[0].SetActive(false);
                 break;
         }
-    }
+    }*/
+
+    #endregion
+    
 }

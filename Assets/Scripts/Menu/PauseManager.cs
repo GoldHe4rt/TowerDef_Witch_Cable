@@ -4,7 +4,6 @@ namespace Menu
 {
     public class PauseManager : MonoBehaviour
     {
-        [SerializeField] private InputManager inputManager;
         public GameObject pauseMenuUI;
         public GameObject statsUI;
         public static bool isPaused;
