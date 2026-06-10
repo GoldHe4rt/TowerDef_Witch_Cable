@@ -10,7 +10,7 @@ namespace AudioScripts.ScriptableObjectAudioScripts
         public static AudioDatabase Instance { get; private set; }
         public AudioEvent[] events;
 
-        private Dictionary<string, AudioEvent> lookup;
+        private Dictionary<string, AudioEvent> lookupEventName;
 
         private void OnEnable()
         {
@@ -20,23 +20,23 @@ namespace AudioScripts.ScriptableObjectAudioScripts
 
         private void Initialize()
         {
-            if (lookup != null) return;
+            if (lookupEventName != null) return;
 
-            lookup = new Dictionary<string, AudioEvent>();
+            lookupEventName = new Dictionary<string, AudioEvent>();
 
-            foreach (var e in events)
+            foreach (AudioEvent audioEvent in events)
             {
-                if (e == null || string.IsNullOrEmpty(e.eventId)) continue;
+                if (audioEvent == null || string.IsNullOrEmpty(audioEvent.eventId)) continue;
 
-                lookup.TryAdd(e.eventId, e);
+                lookupEventName.TryAdd(audioEvent.eventId, audioEvent);
             }
         }
 
         public AudioEvent GetEvent(string id)
         {
-            if (lookup == null)Initialize();
-            Debug.Assert(lookup != null, nameof(lookup) + " != null");
-            lookup.TryGetValue(id, out var audioEvent);
+            if (lookupEventName == null)Initialize();
+            Debug.Assert(lookupEventName != null, nameof(lookupEventName) + " != null");
+            lookupEventName.TryGetValue(id, out var audioEvent);
             return audioEvent;
         }
     }

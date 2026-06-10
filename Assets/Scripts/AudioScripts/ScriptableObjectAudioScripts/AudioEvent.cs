@@ -10,7 +10,7 @@ namespace AudioScripts.ScriptableObjectAudioScripts
         public string eventId;
         
         [Header("Channel")]
-        public AudioChannel audioChannel = AudioChannel.SFX; //default just to avoid forgetting to set one manually. For now.
+        public AudioChannel audioChannel = AudioChannel.SFX; //default just to avoid forgetting to set one manually.
         
         [Header("Audio Clips")]
         public AudioClip[] clips;
