@@ -91,7 +91,7 @@ public class CampHealth : MonoBehaviour
                 screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, healAmount);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
-        
+        defeatAnimator.SetInteger("Health", (int)((float)currentHealthPoints / (float)maxHealth * 100));
         Debug.Log("Camp healed " + healAmount + " Health!");
 
         
@@ -118,7 +118,7 @@ public class CampHealth : MonoBehaviour
                 screenUI.UpdateHealthDisplay(maxHealth, currentHealthPoints, -damageAmount);
         }
         healthDisplay.text = currentHealthPoints.ToString("0") + " / " + maxHealth.ToString("0") + " hp";
-        
+        defeatAnimator.SetInteger("Health", (int)((float)currentHealthPoints / (float)maxHealth * 100));
         Debug.Log("Camp took " + damageAmount + " Damage!");
 
         if (DamageIFramesEnabled == true)
@@ -179,10 +179,11 @@ public class CampHealth : MonoBehaviour
             defeatCamera.SetActive(true);
         Time.timeScale = 0.1f;
         defeatAnimator.SetBool("Defeat", true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.2f * 0.1f);
         if (screenUI.globalReferanceManager.soundManager != null)
             screenUI.globalReferanceManager.soundManager.PlayBaseDestroySound();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(3f * 0.1f);
         screenUI.DefeatScreen();
+        Debug.Log("Defeat");
     }
 }

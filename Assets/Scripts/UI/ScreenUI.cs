@@ -78,7 +78,7 @@ public class ScreenUI : MonoBehaviour
         Rigidbody2D currencyChangeRb = currentChangeDisplay.GetComponent<Rigidbody2D>();
         if (currencyChangeRb != null)
         {
-            currencyChangeRb.linearVelocity = Vector2.down * 2f;
+            currencyChangeRb.linearVelocity = Vector2.down * 200f;
         }
         StartCoroutine(TextFade(currentChangeDisplay, changeText, 1f, 3f, false));
     }
