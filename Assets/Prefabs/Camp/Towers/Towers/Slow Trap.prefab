@@ -293,7 +293,7 @@ MonoBehaviour:
   DamageIFramesEnabled: 1
   damageFrames: 1
   bulletCountText: {fileID: 1946422935480717267}
-  maxBulletAmount: 50
+  maxBulletAmount: -1
   hitboxPrefab: {fileID: 2430491045449836502, guid: 358c69183cb700b4eb34960dee00be86,
     type: 3}
   hitboxSpeed: 0

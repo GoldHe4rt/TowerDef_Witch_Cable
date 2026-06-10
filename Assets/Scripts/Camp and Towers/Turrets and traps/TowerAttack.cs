@@ -61,7 +61,14 @@ public class TowerAttack : MonoBehaviour
         bulletAmount = maxBulletAmount;
         if (towerType != TowerType.Barricade)
         {
-            bulletCountText.text = bulletAmount.ToString();
+            if (bulletAmount == -1)
+            {
+                bulletCountText.text = "";
+            }
+            else
+            {
+                bulletCountText.text = bulletAmount.ToString();
+            }
         } else
         {
             bulletCountText.text = currentHealth.ToString();
@@ -141,7 +148,7 @@ public class TowerAttack : MonoBehaviour
         damageDealer.StartCoroutine(damageDealer.DestroyHitboxAfterTime(hitboxLifetime, hitboxDamageTime));
     
         //Update bullets where -1 is infinite
-        if (bulletAmount != -1)
+        if (bulletAmount == -1)
         {
             bulletCountText.text = "";
         }
