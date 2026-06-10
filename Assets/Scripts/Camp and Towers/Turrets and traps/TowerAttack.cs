@@ -143,6 +143,10 @@ public class TowerAttack : MonoBehaviour
         //Update bullets where -1 is infinite
         if (bulletAmount != -1)
         {
+            bulletCountText.text = "";
+        }
+        else
+        {
             bulletAmount--;
             bulletCountText.text = bulletAmount.ToString();
             if (bulletAmount <= 0)

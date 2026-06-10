@@ -1626,6 +1626,7 @@ MonoBehaviour:
   playerHealth: {fileID: 5456439724232751079}
   playerMovement: {fileID: 2170188157618631205}
   currencyManager: {fileID: 0}
+  spawnpoint: {fileID: 8189594889266188534}
   playerID: 1
 --- !u!114 &2170188157618631205
 MonoBehaviour:
@@ -4085,6 +4086,7 @@ MonoBehaviour:
   playerID: 1
   currencyManager: {fileID: 0}
   playerMovement: {fileID: 2170188157618631205}
+  globalReferanceManager: {fileID: 0}
   weaponDisplay: {fileID: 2157340379924333608}
 --- !u!1 &8153152333941000259
 GameObject:

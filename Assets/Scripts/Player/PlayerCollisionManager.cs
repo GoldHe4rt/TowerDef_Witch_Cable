@@ -8,6 +8,9 @@ public class PlayerCollisionManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private CurrencyManager currencyManager;
 
+    [Header("SpawnPoint")]
+    [SerializeField] private Transform spawnpoint;
+
     [Header("Collision Settings")]
     [SerializeField] private int playerID = 1;
 
@@ -66,6 +69,12 @@ public class PlayerCollisionManager : MonoBehaviour
             currencyManager.AddCurrency(coin.amount, playerID, false);
 
             Destroy(collision.gameObject);
+        }
+
+        //Teleport to Spawn
+        if (collision.gameObject.CompareTag("Teleport"))
+        {
+            gameObject.transform.position = spawnpoint.position;
         }
     }
 

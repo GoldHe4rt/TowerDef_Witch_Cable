@@ -12,6 +12,7 @@ TagManager:
   - Enemy Hazard
   - Barricade
   - Coin
+  - Teleport
   layers:
   - Default
   - TransparentFX

@@ -30,7 +30,6 @@ public enum GameDifficulty
     Easy,
     Normal,
     Hard,
-    Nightmare,
     Endless
 }
 
@@ -47,7 +46,6 @@ public class WaveDifficultys
     public List<Wave> easyWaves;
     public List<Wave> normalWaves;
     public List<Wave> hardWaves;
-    public List<Wave> nightmareWaves;
 }
 
 public class WaveSpawner : MonoBehaviour
@@ -239,9 +237,6 @@ public class WaveSpawner : MonoBehaviour
                 break;
             case GameDifficulty.Hard:
                 waves = waveDifficultys.hardWaves;
-                break;
-            case GameDifficulty.Nightmare:
-                waves = waveDifficultys.nightmareWaves;
                 break;
             case GameDifficulty.Endless:
                 endlessMode = true;
