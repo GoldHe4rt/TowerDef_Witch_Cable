@@ -17,6 +17,8 @@ public class ControlsPopupManager : MonoBehaviour
     public void HideControls()
     {
         controlsUI.SetActive(false);
-        pauseManager.pauseMenuUI.SetActive(true);
+        PauseManager.canPause = true;
+        PauseManager.isPaused = true;
+        pauseManager.Pause();
     }
 }

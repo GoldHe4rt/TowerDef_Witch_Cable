@@ -27,8 +27,8 @@ namespace Menu
         private void HideSettings()
         {
             settingsPopup.SetActive(false);
-            pauseManager.canPause = true;
-            pauseManager.isPaused = true;
+            PauseManager.canPause = true;
+            PauseManager.isPaused = true;
             pauseManager.Pause();
         }
 

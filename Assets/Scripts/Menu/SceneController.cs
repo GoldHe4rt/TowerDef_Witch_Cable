@@ -66,8 +66,7 @@ namespace Menu
         { SceneManager.LoadScene(sceneBuildIndex: 0); }
         
         public void SettingsScene() 
-        { SceneManager.LoadScene("Settings");
-        }
+        { SceneManager.LoadScene("Settings"); }
 
         public void ControlsScene()
         { SceneManager.LoadScene("Controls"); }

@@ -15,7 +15,6 @@ namespace Menu
             statsUI.SetActive(false);
         }
         
-        //Call this when the win condition is met. Shows Win Menu and sets the time to 0.
         public void Win()
         {
             musicPlayer.PlayWinJingle();
