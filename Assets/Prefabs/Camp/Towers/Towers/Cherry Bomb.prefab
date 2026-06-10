@@ -386,9 +386,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 1
   weaponHolder: {fileID: 708434608865312946}
+  mainGameObject: {fileID: 6357641688738196149}
+  animator: {fileID: 8746756736976950710}
   attackRangeObject: {fileID: 9031600094810170879}
   attackSpeed: 1
-  rotationSpeed: 5000
+  attackDelay: 0.3
+  rotationSpeed: 0
   spreadAngle: 0
   maxHealth: 100
   DamageIFramesEnabled: 1
@@ -398,8 +401,8 @@ MonoBehaviour:
   hitboxPrefab: {fileID: 2430491045449836502, guid: 60c14715e5a294a4b94f14660dddeee9,
     type: 3}
   hitboxSpeed: 0
-  hitboxLifetime: 1.5
-  hitboxDamageTime: 0.5
+  hitboxLifetime: 0.38
+  hitboxDamageTime: 0.38
   playerID: -1
 --- !u!1 &6933879255387413975
 GameObject:
@@ -784,6 +787,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CherryBomb_Pink
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: b1b01f53458ec944b8057d247c8a5ad7,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ac3699305908bab43b53c51310a85df5, type: 2}
     - target: {fileID: 3626916397498700004, guid: b1b01f53458ec944b8057d247c8a5ad7,
         type: 3}
       propertyPath: m_SortingLayer
@@ -858,6 +866,12 @@ PrefabInstance:
 --- !u!4 &300990106554148723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: b1b01f53458ec944b8057d247c8a5ad7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7600054408850266238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8746756736976950710 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1160356261127867848, guid: b1b01f53458ec944b8057d247c8a5ad7,
     type: 3}
   m_PrefabInstance: {fileID: 7600054408850266238}
   m_PrefabAsset: {fileID: 0}

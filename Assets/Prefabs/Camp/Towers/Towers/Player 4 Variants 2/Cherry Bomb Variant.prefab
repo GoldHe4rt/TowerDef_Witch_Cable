@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 268362136768781653, guid: 8d49bf8cd6ea979449e950805668e3fe,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 7244231039593257328}
     - target: {fileID: 5506174152508641400, guid: 8d49bf8cd6ea979449e950805668e3fe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -92,6 +97,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CherryBomb_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 158a63e4546663f4d806479c889c9d51,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 57d7d9dfee8760f4ea14bed974d8fe9b, type: 2}
     - target: {fileID: 3626916397498700004, guid: 158a63e4546663f4d806479c889c9d51,
         type: 3}
       propertyPath: m_SortingLayer
@@ -166,6 +176,12 @@ PrefabInstance:
 --- !u!4 &1857525661846318005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 158a63e4546663f4d806479c889c9d51,
+    type: 3}
+  m_PrefabInstance: {fileID: 8399992174224987320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7244231039593257328 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1160356261127867848, guid: 158a63e4546663f4d806479c889c9d51,
     type: 3}
   m_PrefabInstance: {fileID: 8399992174224987320}
   m_PrefabAsset: {fileID: 0}

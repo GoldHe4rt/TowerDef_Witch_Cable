@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike Trap Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6110185705668032739, guid: 466d696a71601e34a982466b6049aa89,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6609478708335325978}
     - target: {fileID: 7339917202010367404, guid: 466d696a71601e34a982466b6049aa89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -92,6 +97,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeTrap_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: a70b2040f93e63f4faf49db9b68cf06e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 84ae78b4f0095c540acfe476c62bc261, type: 2}
     - target: {fileID: 3626916397498700004, guid: a70b2040f93e63f4faf49db9b68cf06e,
         type: 3}
       propertyPath: m_SortingLayer
@@ -181,6 +191,12 @@ PrefabInstance:
 --- !u!4 &2807565408519881183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: a70b2040f93e63f4faf49db9b68cf06e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5450477062885801682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6609478708335325978 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1160356261127867848, guid: a70b2040f93e63f4faf49db9b68cf06e,
     type: 3}
   m_PrefabInstance: {fileID: 5450477062885801682}
   m_PrefabAsset: {fileID: 0}

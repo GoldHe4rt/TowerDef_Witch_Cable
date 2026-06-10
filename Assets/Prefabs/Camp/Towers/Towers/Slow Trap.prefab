@@ -282,8 +282,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 2
   weaponHolder: {fileID: 3989364745939544682}
+  mainGameObject: {fileID: 919219935157804709}
+  animator: {fileID: 0}
   attackRangeObject: {fileID: 3389370534130013609}
   attackSpeed: 1.5
+  attackDelay: 0
   rotationSpeed: 0
   spreadAngle: 0
   maxHealth: 100

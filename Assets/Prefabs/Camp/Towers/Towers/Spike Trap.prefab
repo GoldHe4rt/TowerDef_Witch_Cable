@@ -282,8 +282,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 2
   weaponHolder: {fileID: 3989364745939544682}
+  mainGameObject: {fileID: 919219935157804709}
+  animator: {fileID: 194580613326290782}
   attackRangeObject: {fileID: 3389370534130013609}
   attackSpeed: 1.5
+  attackDelay: 0.625
   rotationSpeed: 0
   spreadAngle: 0
   maxHealth: 100
@@ -294,8 +297,8 @@ MonoBehaviour:
   hitboxPrefab: {fileID: 2430491045449836502, guid: 7227460c9cd150c4c9586683efbfdae4,
     type: 3}
   hitboxSpeed: 0
-  hitboxLifetime: 1
-  hitboxDamageTime: 1
+  hitboxLifetime: 0.35
+  hitboxDamageTime: 0.35
   playerID: -1
 --- !u!1 &1741218018115434495
 GameObject:
@@ -794,6 +797,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeTrap_Pink
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: 6b098338bd518904f8ba3e236bae91fa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5c4964f0819969a4da5de0762685b9ea, type: 2}
     - target: {fileID: 3626916397498700004, guid: 6b098338bd518904f8ba3e236bae91fa,
         type: 3}
       propertyPath: m_SortingLayer
@@ -885,6 +893,12 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 6b098338bd518904f8ba3e236bae91fa,
     type: 3}
+--- !u!95 &194580613326290782 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1160356261127867848, guid: 6b098338bd518904f8ba3e236bae91fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1344645367187174038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9222428697672846747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 6b098338bd518904f8ba3e236bae91fa,

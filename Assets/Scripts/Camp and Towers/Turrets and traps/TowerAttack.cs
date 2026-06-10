@@ -17,10 +17,13 @@ public class TowerAttack : MonoBehaviour
     [Header("Tower Settings")]
     [SerializeField] public TowerType towerType = TowerType.Turret;
     [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private GameObject mainGameObject;
+    [SerializeField] private Animator animator;
 
     [Header("Attack Settings")]
     [SerializeField] private GameObject attackRangeObject;
     [SerializeField] private float attackSpeed = 1f;
+    [SerializeField] private float attackDelay = 0f;
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float spreadAngle = 10f;
     private AttackRange attackRangeScript;
@@ -100,6 +103,22 @@ public class TowerAttack : MonoBehaviour
         }
         // Implement attack logic here
 
+        //Start Attack Animation
+        if (animator != null)
+        animator.SetTrigger("Activate");
+
+        //Spawn DamageDealer
+        StartCoroutine(SpawnDamageDealer());
+
+        // Reset the attack cooldown
+        attackSpeedTimer = attackSpeed; 
+        
+    }
+
+    IEnumerator SpawnDamageDealer()
+    {
+        yield return new WaitForSeconds(attackDelay);
+
         //Set Aim Direction
         Vector2 currentAimDirection = weaponHolder.transform.rotation * Vector2.up;
         Quaternion spreadRotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(-spreadAngle, spreadAngle));
@@ -120,8 +139,7 @@ public class TowerAttack : MonoBehaviour
 
         //Destroy after set time
         damageDealer.StartCoroutine(damageDealer.DestroyHitboxAfterTime(hitboxLifetime, hitboxDamageTime));
-        attackSpeedTimer = attackSpeed; // Reset the attack cooldown
-
+    
         //Update bullets where -1 is infinite
         if (bulletAmount != -1)
         {
@@ -129,9 +147,7 @@ public class TowerAttack : MonoBehaviour
             bulletCountText.text = bulletAmount.ToString();
             if (bulletAmount <= 0)
                 DestroySelf();
-            
         }
-        
     }
 
     public void TakeDamage(int damageAmount)
@@ -175,7 +191,7 @@ public class TowerAttack : MonoBehaviour
                 placedObjectIndex = -1;
                 return;
             }
-        Destroy(gameObject);
+        Destroy(mainGameObject);
     }
 
     internal void Freeze()
