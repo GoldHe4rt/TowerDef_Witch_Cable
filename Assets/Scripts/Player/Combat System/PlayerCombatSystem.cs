@@ -125,10 +125,7 @@ public class PlayerCombatSystem : MonoBehaviour
             currentAttack.transform.localRotation = Quaternion.identity;
         }
 
-        //Set Owner of Attack
-        DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();
-        damageDealer.playerOwner = playerID;
-        damageDealer.currencyManager = currencyManager;
+        
 
         if (currentlyLockRotation)
         {
@@ -138,6 +135,23 @@ public class PlayerCombatSystem : MonoBehaviour
         if (currentlyIsLazer)
         {
             currentLaserAttack = currentAttack;
+            foreach (Transform child in currentLaserAttack.transform)
+            {
+                DamageDealer damageDealer = child.GetComponent<DamageDealer>();
+                if (damageDealer != null)
+                {
+                    damageDealer.playerOwner = playerID;
+                    damageDealer.currencyManager = currencyManager;
+                }
+                
+            }
+        }
+        else
+        {
+            //Set Owner of Attack
+            DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();
+            damageDealer.playerOwner = playerID;
+            damageDealer.currencyManager = currencyManager;
         }
 
         //Destroy after set time
