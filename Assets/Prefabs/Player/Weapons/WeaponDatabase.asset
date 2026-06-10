@@ -25,11 +25,6 @@ MonoBehaviour:
     - {fileID: 8581967954523261283, guid: 7d0f7b4c8806baa479112713e61a4eff, type: 3}
     - {fileID: 8581967954523261283, guid: 7d0f7b4c8806baa479112713e61a4eff, type: 3}
     - {fileID: 8581967954523261283, guid: 7d0f7b4c8806baa479112713e61a4eff, type: 3}
-    <HitboxSpeed>k__BackingField: 0
-    <AttackCooldown>k__BackingField: 0.4
-    <Lifetime>k__BackingField: 0.2
-    <StickToWeapon>k__BackingField: 1
-  - <Name>k__BackingField: Bow
     <ID>k__BackingField: 1
     <Prefab>k__BackingField:
     - {fileID: 7338093106453869921, guid: 48d5a5d96cecef14eb65d1aade70d973, type: 3}

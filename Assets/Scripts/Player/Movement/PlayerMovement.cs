@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public bool movementEnabled = true;
     internal bool knockbackRunning = false;
+    internal bool LockRotation = false;
     [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 500f;
     internal float movementSpeedModifier = 1f;
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("MoveY", lastInputDirection.y);
 
         //Aim
+        if (LockRotation) return;
         if (lookInput != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, lookInput);

@@ -16,13 +16,21 @@ public class PlayerCombatSystem : MonoBehaviour
     internal int currentWeaponID = -1;
     private GameObject currentWeaponPrefab;
     private GameObject currentHitboxPrefab;
+    private GameObject currentLaserAttack;
     private float currentHitboxSpeed;
+    private float currentLifetime;
     private bool currentlyStickToWeapon;
-
+    private bool currentlyIsLazer;
+    private bool currentlyLockRotation;
+    private float currentlyLazerRange;
     internal List<float> currentCoolDowns = new List<float>();
+
+    RaycastHit2D hit;
+    LayerMask lazerLayerMask;
 
     void Start()
     {
+        lazerLayerMask = LayerMask.GetMask("Wall", "Character");
         for (int i = 0; i < databaseSO.weaponData.Count; i++)
         {
             currentCoolDowns.Add(0);
@@ -55,10 +63,16 @@ public class PlayerCombatSystem : MonoBehaviour
         }
         currentWeaponID = newWeaponID;
         currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab[playerID-1], weaponHolder.transform.position, weaponHolder.transform.rotation);
-        currentHitboxPrefab = databaseSO.weaponData[newWeaponID].HitboxPrefab[playerID-1];
         currentWeaponPrefab.transform.SetParent(weaponHolder.transform);
-        currentHitboxSpeed = databaseSO.weaponData[newWeaponID].HitboxSpeed;
+        currentLifetime = databaseSO.weaponData[newWeaponID].Lifetime;
         currentlyStickToWeapon = databaseSO.weaponData[newWeaponID].StickToWeapon;
+        currentlyIsLazer = databaseSO.weaponData[newWeaponID].IsLazer;
+        currentHitboxPrefab = databaseSO.weaponData[newWeaponID].HitboxPrefab[playerID-1];
+        currentHitboxSpeed = databaseSO.weaponData[newWeaponID].HitboxSpeed;
+        currentlyLockRotation = databaseSO.weaponData[newWeaponID].LockRotationOnAttack;
+        currentlyLazerRange = databaseSO.weaponData[newWeaponID].LazerRange;
+
+        
         // Initialize combat system if needed
         weaponDisplay.UpdateSelectionDisplay(currentWeaponID);
     }
@@ -71,7 +85,12 @@ public class PlayerCombatSystem : MonoBehaviour
             Destroy(currentWeaponPrefab);
         }
         currentWeaponPrefab = null;
+        currentlyStickToWeapon = false;
+        currentlyIsLazer = false;
         currentHitboxPrefab = null;
+        currentHitboxSpeed = 0;
+        currentlyLockRotation = false;
+        currentlyLazerRange = 0;
     }
 
     public void Attack(bool shortenTimer)
@@ -86,13 +105,12 @@ public class PlayerCombatSystem : MonoBehaviour
         }
         // Implement attack logic here
 
-
         //Spawn Damage dealer
         GameObject currentAttack;
         currentAttack = Instantiate(currentHitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation);
+        Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
 
         //Stick to weapon if needed and add velocity to it
-        Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
         if (!currentlyStickToWeapon)
         {
             // Add Velocity to Damage dealer and add or subtract playerspeed to it based on the direction of the attack and movement
@@ -106,22 +124,83 @@ public class PlayerCombatSystem : MonoBehaviour
             currentAttack.transform.localPosition = Vector3.zero;
             currentAttack.transform.localRotation = Quaternion.identity;
         }
-        if (globalReferanceManager.soundManager != null)
-            globalReferanceManager.soundManager.PlayPlayerAttackSound();
 
         //Set Owner of Attack
         DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();
         damageDealer.playerOwner = playerID;
         damageDealer.currencyManager = currencyManager;
 
+        if (currentlyLockRotation)
+        {
+            playerMovement.LockRotation = true;
+        }
+
+        if (currentlyIsLazer)
+        {
+            currentLaserAttack = currentAttack;
+        }
+
         //Destroy after set time
-        StartCoroutine(DestroyHitboxAfterTime(currentAttack, databaseSO.weaponData[currentWeaponID].Lifetime));
+        StartCoroutine(DestroyHitboxAfterTime(currentAttack, currentlyLockRotation));
+
+        if (globalReferanceManager.soundManager != null)
+            globalReferanceManager.soundManager.PlayPlayerAttackSound();
+        
         currentCoolDowns[currentWeaponID] = databaseSO.weaponData[currentWeaponID].AttackCooldown; // Reset the attack cooldown
     }
 
-    private IEnumerator DestroyHitboxAfterTime(GameObject currentAttack, float lifetime)
+    void FixedUpdate()
     {
-        yield return new WaitForSeconds(lifetime);
+        if (currentLaserAttack == null)
+            return;
+
+        float rayDistance = currentlyLazerRange;
+        hit = Physics2D.Raycast(weaponHolder.transform.position, weaponHolder.transform.TransformDirection(Vector2.up), currentlyLazerRange, lazerLayerMask);
+
+        if (hit)
+        {
+            rayDistance = hit.distance;
+            Debug.DrawRay(weaponHolder.transform.position, weaponHolder.transform.TransformDirection(Vector2.up) * hit.distance, Color.yellow);
+        }
+        else
+        {
+            Debug.DrawRay(weaponHolder.transform.position, weaponHolder.transform.TransformDirection(Vector2.up) * currentlyLazerRange, Color.white);
+        }
+
+        UpdateLaserVisuals(currentLaserAttack, rayDistance);
+    }
+
+    private void UpdateLaserVisuals(GameObject laser, float length)
+    {
+        if (laser == null)
+            return;
+
+        Transform lazerStart = laser.transform.Find("Start");
+        Transform lazerMiddle = laser.transform.Find("Middle");
+        Transform lazerEnd = laser.transform.Find("End");
+
+        if (lazerStart == null || lazerMiddle == null || lazerEnd == null)
+            return;
+
+        lazerStart.localPosition = Vector2.zero;
+        lazerEnd.localPosition = Vector2.up * length;
+        lazerMiddle.localPosition = Vector2.up * (length * 0.5f);
+        lazerMiddle.localScale = new Vector2(lazerMiddle.localScale.x, Mathf.Max(0.001f, length));
+    }
+
+    private IEnumerator DestroyHitboxAfterTime(GameObject currentAttack, bool lockedRotation)
+    {
+        yield return new WaitForSeconds(currentLifetime);
+        if (lockedRotation)
+        {
+            playerMovement.LockRotation = false;
+        }
+
+        if (currentAttack == currentLaserAttack)
+        {
+            currentLaserAttack = null;
+        }
+
         Destroy(currentAttack);
     }
 
