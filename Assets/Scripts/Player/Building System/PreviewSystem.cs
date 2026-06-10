@@ -33,7 +33,7 @@ public class PreviewSystem : MonoBehaviour
         NewPrepareDisplay(dismantleIndicator, Vector2Int.one, "Dismantle", -1, -1);
         foreach (var data in databaseSO.objectData)
         {
-            NewPrepareDisplay(data.Prefabs[playerID-1], data.Size, data.Name, data.Cost, data.ID);
+            NewPrepareDisplay(data.Prefabs[playerID-1], data.DisplaySize, data.Name, data.Cost, data.ID);
             rectSize += 60f;
         }
         
@@ -210,12 +210,12 @@ public class PreviewSystem : MonoBehaviour
         if (size.x > size.y)
         {
             scale = scale / size.x;
-            offset = new Vector2(0, size.y - scale / 40);
+            offset = new Vector2(0, scale / 100);
         }
         else if (size.y > size.x)
         {
             scale = scale / size.y;
-            offset = new Vector2(size.x - scale / 40, 0);
+            offset = new Vector2(scale / 100, 0);
         }
         else
         {

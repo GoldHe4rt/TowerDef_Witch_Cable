@@ -17,6 +17,7 @@ MonoBehaviour:
     <ID>k__BackingField: 0
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
+    <DisplaySize>k__BackingField: {x: 1, y: 1}
     <Prefabs>k__BackingField:
     - {fileID: 5244249521014304568, guid: 63c3b2099b3efe34c85d4a5e18ecf660, type: 3}
     - {fileID: 3000305489195403070, guid: 845d5030aae05e641a679a47da3c6951, type: 3}
@@ -27,6 +28,7 @@ MonoBehaviour:
     <ID>k__BackingField: 1
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
+    <DisplaySize>k__BackingField: {x: 1, y: 2}
     <Prefabs>k__BackingField:
     - {fileID: 558740756833163604, guid: 621974ba53aeaef4fba64edddd5c87cc, type: 3}
     - {fileID: 3124595705920457947, guid: a180030503282dc4abb446e9a3fd52b2, type: 3}
@@ -37,6 +39,7 @@ MonoBehaviour:
     <ID>k__BackingField: 2
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
+    <DisplaySize>k__BackingField: {x: 1, y: 2}
     <Prefabs>k__BackingField:
     - {fileID: 620859107784793046, guid: 089ef22263fa14a48886b38896bf9f32, type: 3}
     - {fileID: 369380821442156760, guid: 5bddca01f941333499b1bb38991b6d33, type: 3}
@@ -47,6 +50,7 @@ MonoBehaviour:
     <ID>k__BackingField: 3
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 2, y: 2}
+    <DisplaySize>k__BackingField: {x: 2, y: 2}
     <Prefabs>k__BackingField:
     - {fileID: 6798596546578905586, guid: 2fa4200e8179a5c459849855559b6db7, type: 3}
     - {fileID: 5585331550217924931, guid: 2aca7b4dbc66d3740921d7c41b7ff575, type: 3}
@@ -57,6 +61,7 @@ MonoBehaviour:
     <ID>k__BackingField: 4
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 2, y: 2}
+    <DisplaySize>k__BackingField: {x: 2, y: 2}
     <Prefabs>k__BackingField:
     - {fileID: 8520582972588674631, guid: caa81ce99572c5340a55745dac7e2c9e, type: 3}
     - {fileID: 5457794831105466990, guid: 3acb4e0da45035d4fa11d974020c3fae, type: 3}
@@ -67,6 +72,7 @@ MonoBehaviour:
     <ID>k__BackingField: 5
     <IsFloor>k__BackingField: 1
     <Size>k__BackingField: {x: 2, y: 2}
+    <DisplaySize>k__BackingField: {x: 2, y: 2}
     <Prefabs>k__BackingField:
     - {fileID: 823360834523489809, guid: 96000058a68e287409dce4e8291a9e4a, type: 3}
     - {fileID: 2052426431774816113, guid: 55168aeb35b07e347be2c8fce1e13a1f, type: 3}

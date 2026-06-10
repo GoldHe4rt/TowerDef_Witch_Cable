@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4558930248281919010}
   - component: {fileID: 604216799396456287}
   - component: {fileID: 313299959459890268}
-  - component: {fileID: 5659002190523312674}
   m_Layer: 12
   m_Name: Sword Hitbox
   m_TagString: Damage Dealer
@@ -127,35 +126,6 @@ MonoBehaviour:
   freezeDuration: 5
   playerOwner: -1
   pierceAmount: 3
---- !u!114 &5659002190523312674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8581967954523261283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc497ab31cd09d147a5e22d240271378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnabled: 1
-  is2D: 1
-  isMovementEnabled: 0
-  loopMovement: 0
-  movement: []
-  isRotationEnabled: 1
-  loopRotation: 0
-  rotation:
-  - rotateEnabled: 1
-    randomizeDirection: 0
-    rotationSpeed: 5
-    duration: 0.2
-    rotationDirection2D: 200
-    rotationDirection3D: {x: 0, y: 0, z: 0}
-  isScaleEnabled: 0
-  loopScale: 0
-  scale: []
 --- !u!1001 &8375666104186628825
 PrefabInstance:
   m_ObjectHideFlags: 0

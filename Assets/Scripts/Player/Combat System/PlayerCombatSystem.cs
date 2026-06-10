@@ -34,12 +34,12 @@ public class PlayerCombatSystem : MonoBehaviour
     {
         for (int i = 0; i < databaseSO.weaponData.Count; i++)
         {
-            if (currentCoolDowns[i] > 0)
+            if (currentCoolDowns[i] > -1)
             {
                 currentCoolDowns[i] -= Time.deltaTime;
             } else
             {
-                currentCoolDowns[i] = 0;
+                currentCoolDowns[i] = -1;
             }
             
         }
@@ -74,13 +74,13 @@ public class PlayerCombatSystem : MonoBehaviour
         currentHitboxPrefab = null;
     }
 
-    public void Attack()
+    public void Attack(bool shortenTimer)
     {
         if (currentWeaponID == -1)
         {
             return;
         }
-        if (currentCoolDowns[currentWeaponID] > 0)
+        if (shortenTimer ? currentCoolDowns[currentWeaponID] > 0 : currentCoolDowns[currentWeaponID] > -0.3f)
         {
             return;
         }
@@ -143,12 +143,5 @@ public class PlayerCombatSystem : MonoBehaviour
             index = databaseSO.weaponData.Count - 1; // Wrap around to the last weapon
         }
         NewWeapon(index);
-    }
-
-    private IEnumerator AttackDelay()
-    {
-        yield return new WaitForSeconds(currentCoolDowns[currentWeaponID]);
-        currentCoolDowns[currentWeaponID] = 0;
-        Attack();
     }
 }

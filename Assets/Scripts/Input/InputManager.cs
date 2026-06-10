@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.InputSystem.LowLevel;
+using Menu;
 
 public class InputManager : MonoBehaviour
 {
@@ -21,11 +22,13 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        if (playerMovement.knockbackRunning || !playerMovement.movementEnabled || PauseManager.isPaused)
+            return;
         if (isPlacing)
         {
             if (!isBuilding)
             {
-                playerCombatSystem.Attack();
+                playerCombatSystem.Attack(false);
             }
             if (isPlacingInputTimer > 0)
             {
@@ -45,17 +48,22 @@ public class InputManager : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+        if (playerMovement.knockbackRunning || !playerMovement.movementEnabled || PauseManager.isPaused)
+            return;
         playerMovement.moveInput = value.Get<Vector2>();
     }
 
     public void OnLook(InputValue value)
     {
+        if (playerMovement.knockbackRunning || !playerMovement.movementEnabled || PauseManager.isPaused)
+            return;
+        
         playerMovement.lookInput = value.Get<Vector2>();
     }
 
     public void OnPlaceAttack(InputValue value)
     {
-        if (playerMovement.knockbackRunning || !playerMovement.movementEnabled)
+        if (playerMovement.knockbackRunning || !playerMovement.movementEnabled || PauseManager.isPaused)
         {
             isPlacing = false;
             return;
@@ -70,7 +78,7 @@ public class InputManager : MonoBehaviour
             }
             if (!isBuilding)
             {
-                playerCombatSystem.Attack();
+                playerCombatSystem.Attack(true);
             }
         }
         else
@@ -82,6 +90,8 @@ public class InputManager : MonoBehaviour
 
     public void OnBuildToggle(InputValue value)
     {
+        if (playerMovement.knockbackRunning || !playerMovement.movementEnabled || PauseManager.isPaused)
+            return;
         if (value.isPressed)
         {
             if (globalReferanceManager.buildingEnabled == false)
@@ -110,16 +120,10 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public void OnDismantleToggle(InputValue value)
-    {
-        if (value.isPressed)
-        {
-
-        }
-    }
-
     public void OnSelectRight(InputValue value)
     {
+        if (PauseManager.isPaused)
+            return;
         if (value.isPressed)
         {
             if (isBuilding)
@@ -138,6 +142,8 @@ public class InputManager : MonoBehaviour
 
     public void OnSelectLeft(InputValue value)
     {
+        if (PauseManager.isPaused)
+            return;
         if (value.isPressed)
         {
             if (isBuilding)
