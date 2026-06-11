@@ -2,11 +2,13 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 public class PlayerCombatSystem : MonoBehaviour
 {
     [SerializeField] public WeaponDatabaseSO databaseSO;
     [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private GameObject playerChar;
     [SerializeField] private int playerID = 1;
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private PlayerMovement playerMovement;
@@ -14,6 +16,7 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private WeaponDisplay weaponDisplay;
 
     internal bool shieldActive = false;
+    internal bool lockSelection = false;
 
     internal int currentWeaponID = -1;
     private GameObject currentWeaponPrefab;
@@ -24,8 +27,10 @@ public class PlayerCombatSystem : MonoBehaviour
     private bool currentlyStickToWeapon;
     private bool currentlyIsLazer;
     private bool currentlyLockRotation;
+    private bool currentlyLockSelection;
     private float currentlyLazerRange;
     internal List<float> currentCoolDowns = new List<float>();
+    internal float cooldownSpeedModifier = 1f;
 
     RaycastHit2D hit;
     LayerMask lazerLayerMask;
@@ -46,7 +51,7 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             if (currentCoolDowns[i] > -1)
             {
-                currentCoolDowns[i] -= Time.deltaTime;
+                currentCoolDowns[i] -= Time.deltaTime * cooldownSpeedModifier;
             } else
             {
                 currentCoolDowns[i] = -1;
@@ -64,8 +69,19 @@ public class PlayerCombatSystem : MonoBehaviour
             return;
         }
         currentWeaponID = newWeaponID;
-        currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab[playerID-1], weaponHolder.transform.position, weaponHolder.transform.rotation);
-        currentWeaponPrefab.transform.SetParent(weaponHolder.transform);
+        
+        if (databaseSO.weaponData[currentWeaponID].IsSupport)
+        {
+            currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab[playerID-1], playerChar.transform.position, playerChar.transform.rotation);
+            currentWeaponPrefab.transform.SetParent(playerChar.transform);
+        }
+        else
+        {
+            currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab[playerID-1], weaponHolder.transform.position, weaponHolder.transform.rotation);
+            currentWeaponPrefab.transform.SetParent(weaponHolder.transform);
+        }
+        
+
         currentLifetime = databaseSO.weaponData[newWeaponID].Lifetime;
         currentlyStickToWeapon = databaseSO.weaponData[newWeaponID].StickToWeapon;
         currentlyIsLazer = databaseSO.weaponData[newWeaponID].IsLazer;
@@ -73,7 +89,7 @@ public class PlayerCombatSystem : MonoBehaviour
         currentHitboxSpeed = databaseSO.weaponData[newWeaponID].HitboxSpeed;
         currentlyLockRotation = databaseSO.weaponData[newWeaponID].LockRotationOnAttack;
         currentlyLazerRange = databaseSO.weaponData[newWeaponID].LazerRange;
-
+        currentlyLockSelection = databaseSO.weaponData[newWeaponID].LockSelectionOnAttack;
         
         // Initialize combat system if needed
         weaponDisplay.UpdateSelectionDisplay(currentWeaponID);
@@ -110,7 +126,15 @@ public class PlayerCombatSystem : MonoBehaviour
 
         //Spawn Damage dealer
         GameObject currentAttack;
-        currentAttack = Instantiate(currentHitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation);
+        if (databaseSO.weaponData[currentWeaponID].IsSupport)
+        {
+            shieldActive = true;
+            currentAttack = Instantiate(currentHitboxPrefab, playerChar.transform.position, playerChar.transform.rotation);
+        } else
+        {
+            currentAttack = Instantiate(currentHitboxPrefab, weaponHolder.transform.position, weaponHolder.transform.rotation);
+        }
+        
         Rigidbody2D rb = currentAttack.GetComponent<Rigidbody2D>();
 
         //Stick to weapon if needed and add velocity to it
@@ -124,8 +148,8 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             Destroy(rb);
             currentAttack.transform.SetParent(weaponHolder.transform);
-            currentAttack.transform.localPosition = Vector3.zero;
-            currentAttack.transform.localRotation = Quaternion.identity;
+            //currentAttack.transform.localPosition = Vector3.zero;
+            //currentAttack.transform.localRotation = Quaternion.identity;
         }
 
         
@@ -133,6 +157,10 @@ public class PlayerCombatSystem : MonoBehaviour
         if (currentlyLockRotation)
         {
             playerMovement.LockRotation = true;
+        }
+        if (currentlyLockSelection)
+        {
+            lockSelection = true;
         }
 
         if (currentlyIsLazer)
@@ -160,10 +188,7 @@ public class PlayerCombatSystem : MonoBehaviour
             }
         }
 
-        if (databaseSO.weaponData[currentWeaponID].IsSupport)
-        {
-            shieldActive = true;
-        }
+        
 
         //Destroy after set time
         StartCoroutine(DestroyHitboxAfterTime(currentAttack, currentlyLockRotation));
@@ -216,9 +241,24 @@ public class PlayerCombatSystem : MonoBehaviour
     private IEnumerator DestroyHitboxAfterTime(GameObject currentAttack, bool lockedRotation)
     {
         yield return new WaitForSeconds(currentLifetime);
+        DestroyHitbox(currentAttack, lockedRotation);
+    }
+
+    private void DestroyHitbox(GameObject currentAttack, bool lockedRotation)
+    {
         if (lockedRotation)
         {
             playerMovement.LockRotation = false;
+        }
+
+        if (lockSelection)
+        {
+            lockSelection = false;
+        }
+
+        if (shieldActive)
+        {
+            shieldActive = false;
         }
 
         if (currentAttack == currentLaserAttack)
@@ -226,7 +266,7 @@ public class PlayerCombatSystem : MonoBehaviour
             currentLaserAttack = null;
         }
 
-        Destroy(currentAttack);
+        Destroy(currentAttack);        
     }
 
     public void IncreaseWeaponID()

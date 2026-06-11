@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 500f;
     internal float movementSpeedModifier = 1f;
+    internal float movementSpeedMultiplier = 1f;
 
 
     //private PlayerInput playerInput;
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         if (!movementEnabled || knockbackRunning) return;
-        rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * movementSpeedModifier * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + moveInput.normalized * moveSpeed * movementSpeedModifier * movementSpeedMultiplier * Time.fixedDeltaTime);
 
         if (moveInput != Vector2.zero)
         {

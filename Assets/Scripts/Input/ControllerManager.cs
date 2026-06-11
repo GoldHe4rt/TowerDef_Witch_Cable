@@ -117,19 +117,57 @@ public class ControllerManager : MonoBehaviour
     private void AssignGamepadToPlayer(Gamepad gamepad, int playerIndex, bool recordOrder = true)
     {
         Debug.Log($"Assigning Gamepad {gamepad.deviceId} to Player {playerIndex + 1}");
+
+        if (playerIndex < 0 || playerIndex >= players.Length)
+        {
+            Debug.LogWarning($"Invalid playerIndex {playerIndex} when assigning gamepad {gamepad.deviceId}.");
+            return;
+        }
+
         var player = players[playerIndex];
+        if (player == null)
+        {
+            Debug.LogWarning($"Player input at index {playerIndex} is null. Cannot assign gamepad {gamepad.deviceId}.");
+            return;
+        }
 
         player.enabled = true;
         activePlayerAmount++;
-        multiplayerScreenManager.playerData[playerIndex].isActive = true;
+
         if (multiplayerScreenManager != null)
-            multiplayerScreenManager.UpdatePlayerAmount();
-        
-        player.SwitchCurrentControlScheme(gamepad);
-        
+        {
+            try
+            {
+                if (multiplayerScreenManager.playerData != null)
+                    multiplayerScreenManager.playerData[playerIndex].isActive = true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"Could not set playerData[{playerIndex}].isActive: {e.Message}");
+            }
+
+            try
+            {
+                multiplayerScreenManager.UpdatePlayerAmount();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"multiplayerScreenManager.UpdatePlayerAmount() threw: {e.Message}");
+            }
+        }
+
+        try
+        {
+            player.SwitchCurrentControlScheme(gamepad);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"SwitchCurrentControlScheme failed for player {playerIndex}: {e.Message}");
+        }
+
         gamepadToPlayer.Add(gamepad, playerIndex);
         takenSlots.Add(playerIndex);
-        
+
         // Save the assignment and optionally record join order for future scenes
         savedGamepadAssignments[gamepad.deviceId] = playerIndex;
         if (recordOrder)
@@ -139,8 +177,10 @@ public class ControllerManager : MonoBehaviour
                 savedGamepadOrder.Add(gamepad.deviceId);
             }
         }
-        if (globalReferanceManager.soundManager != null)
+
+        if (globalReferanceManager != null && globalReferanceManager.soundManager != null)
             globalReferanceManager.soundManager.PlayPlayerJoinSound();
+
         Debug.Log($"Player {playerIndex + 1} joined. Active players: {activePlayerAmount}");
     }
     
@@ -182,26 +222,51 @@ public class ControllerManager : MonoBehaviour
 
     void Leave(Gamepad gamepad)
     {
-        int index = gamepadToPlayer[gamepad];
-        var player = players[index];
+        if (!gamepadToPlayer.TryGetValue(gamepad, out int index))
+        {
+            Debug.LogWarning($"Tried to remove gamepad {gamepad.deviceId} which was not assigned.");
+            return;
+        }
 
-        // Disable input (or whole player if you want)
-        player.enabled = false;
+        var player = (index >= 0 && index < players.Length) ? players[index] : null;
+        if (player != null)
+            player.enabled = false;
+
         activePlayerAmount--;
         if (activePlayerAmount < 0) activePlayerAmount = 0; // Safety check
-        multiplayerScreenManager.playerData[index].isActive = false;
+
         if (multiplayerScreenManager != null)
-            multiplayerScreenManager.UpdatePlayerAmount();
+        {
+            try
+            {
+                if (multiplayerScreenManager.playerData != null)
+                    multiplayerScreenManager.playerData[index].isActive = false;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"Could not set playerData[{index}].isActive: {e.Message}");
+            }
+
+            try
+            {
+                multiplayerScreenManager.UpdatePlayerAmount();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"multiplayerScreenManager.UpdatePlayerAmount() threw: {e.Message}");
+            }
+        }
 
         gamepadToPlayer.Remove(gamepad);
         takenSlots.Remove(index);
-        
+
         // Remove from saved assignments and join order
         savedGamepadAssignments.Remove(gamepad.deviceId);
         savedGamepadOrder.Remove(gamepad.deviceId);
-        
-        if (globalReferanceManager.soundManager != null)
+
+        if (globalReferanceManager != null && globalReferanceManager.soundManager != null)
             globalReferanceManager.soundManager.PlayPlayerDisconnectSound();
+
         Debug.Log($"Player {index + 1} left. Active players: {activePlayerAmount}");
 
     }

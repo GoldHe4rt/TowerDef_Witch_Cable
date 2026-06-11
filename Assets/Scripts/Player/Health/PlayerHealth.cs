@@ -16,8 +16,8 @@ public class PlayerHealth : MonoBehaviour
 
 
     [Header("Health")]
-    [SerializeField] private int maxHealth = 5;
-    [SerializeField] private int currentHealthPoints = 5;
+    [SerializeField] private int maxHealth = 10;
+    [SerializeField] private int currentHealthPoints = 10;
     [SerializeField] private bool HealingIFramesEnabled = true;
     [SerializeField] private bool DamageIFramesEnabled = true;
     
