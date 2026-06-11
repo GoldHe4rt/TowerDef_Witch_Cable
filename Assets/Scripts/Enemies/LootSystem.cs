@@ -6,10 +6,19 @@ public class LootSystem : MonoBehaviour
     public struct LootItem
     {
         public string itemName;
+        public GameObject dropItem;
         [Range(0, 100)] public float dropChance; 
     }
 
     public LootItem[] possibleLoot;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            RollLoot();
+        }
+    }
 
     public void RollLoot()
     {
@@ -31,6 +40,8 @@ public class LootSystem : MonoBehaviour
             if (randomRoll <= cumulativeChance)
             {
                 Debug.Log($"You rolled: {item.itemName}");
+                if (item.dropItem != null)
+                    Instantiate(item.dropItem, transform.position, Quaternion.identity);
                 return;
             }
         }

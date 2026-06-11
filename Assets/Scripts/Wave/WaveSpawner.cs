@@ -21,6 +21,7 @@ public class Wave
     public string waveName;
     public List<EnemySettings> enemySettings;
     public float spwanInterval;
+    public float speedMultiplier;
     public bool difficultyRangeActive = false;
     [Range(1, 100)] public int difficultyModifier = 10;
 }
@@ -189,6 +190,7 @@ public class WaveSpawner : MonoBehaviour
                 randomEnemyObject,
                 target,
                 audioEventManager,
+                currentWave.speedMultiplier,
                 currentWave.difficultyModifier, 
                 currentWave.difficultyRangeActive);
             currentWave.enemySettings[randomEnemy].noOfEnemy--;

@@ -334,7 +334,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5490b862c60b243867594aa1ad7f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleLoot: []
+  possibleLoot:
+  - itemName: Nothing
+    dropItem: {fileID: 0}
+    dropChance: 75
+  - itemName: Small Coin
+    dropItem: {fileID: 7906199548634801658, guid: 801a8b7caf37056408709181c9afff74,
+      type: 3}
+    dropChance: 15
+  - itemName: Normal Coin
+    dropItem: {fileID: 7906199548634801658, guid: 006ac1a5f593c154291c949336de4fd8,
+      type: 3}
+    dropChance: 7.5
+  - itemName: Big Coin
+    dropItem: {fileID: 7906199548634801658, guid: 6c5a59b282dfda64692526df150de36e,
+      type: 3}
+    dropChance: 2.5
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0

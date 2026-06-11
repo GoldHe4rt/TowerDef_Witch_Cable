@@ -23,9 +23,10 @@ public class NavMeshPathfinding : MonoBehaviour
     [SerializeField] public bool isActive = true;
     [SerializeField] private Vector2 minMaxSpeed = new Vector2(1f, 15f);
     [SerializeField] private float speed = 5f;
+    
     [SerializeField] internal float speedModifier = 1;
 
-
+    internal float speedMultiplier = 1f;
     private float currentSpeed;
     private NavMeshAgent agent;
     private Animator animator;
@@ -36,6 +37,7 @@ public class NavMeshPathfinding : MonoBehaviour
 
     void Start()
     {
+        speed = speed * speedMultiplier;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         agent.destination = TargetBase.position;
