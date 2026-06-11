@@ -51,6 +51,7 @@ public class NavMeshPathfinding : MonoBehaviour
     {
         Debug.Log(stuck + " is stuck?");
         currentSpeed = speed * speedModifier;
+        Debug.Log(currentSpeed);
         agent.speed = currentSpeed;
         if (stuck)
         {
