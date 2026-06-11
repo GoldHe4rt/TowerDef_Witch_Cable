@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ffaefb557c1125a499988f3f768bc190
+guid: 34f9eadfb511c36408f1d15285b55bc2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4308413289280609291
-    second: Placeholder_Background_0
+      213: 6850352397346096737
+    second: MainMenuBackground_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Placeholder_Background_0
+      name: MainMenuBackground_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1500
-        height: 1000
+        width: 400
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f36bdab0f07534c0800000000000000
-      internalID: -4308413289280609291
+      spriteID: 1664f0ee537511f50800000000000000
+      internalID: 6850352397346096737
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Placeholder_Background_0: -4308413289280609291
+      MainMenuBackground_0: 6850352397346096737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
