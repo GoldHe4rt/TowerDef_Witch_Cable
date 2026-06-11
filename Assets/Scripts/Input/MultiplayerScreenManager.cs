@@ -35,7 +35,7 @@ public class MultiplayerScreenManager : MonoBehaviour
 
     [Header("UI Settings")]
     [SerializeField] private List<UIFliper> flipUiX;
-    [SerializeField] private List<UIFliper> flipUiY;
+    [SerializeField] internal List<UIFliper> flipUiY;
 
     [Header("Player Data")]
     [SerializeField] public List<PlayerData> playerData;
@@ -301,7 +301,7 @@ public class MultiplayerScreenManager : MonoBehaviour
         //Update Text
         if (playerCountText != null)
         {
-            movingObject.transform.localPosition = new Vector2(175f, 500f);
+            movingObject.transform.localPosition = new Vector2(0f, -200f);
             movingObject.transform.localScale = new Vector2(1, 1);
             playerCountText.text = playerCountString[4];
         }

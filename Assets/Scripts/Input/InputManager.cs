@@ -122,7 +122,7 @@ public class InputManager : MonoBehaviour
 
     public void OnSelectRight(InputValue value)
     {
-        if (PauseManager.isPaused || playerMovement.LockRotation)
+        if (PauseManager.isPaused || playerCombatSystem.lockSelection)
             return;
         if (value.isPressed)
         {

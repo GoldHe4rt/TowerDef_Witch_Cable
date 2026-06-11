@@ -285,7 +285,7 @@ MonoBehaviour:
   mainGameObject: {fileID: 919219935157804709}
   animator: {fileID: 194580613326290782}
   attackRangeObject: {fileID: 3389370534130013609}
-  attackSpeed: 1.5
+  attackSpeed: 5
   attackDelay: 0.625
   rotationSpeed: 0
   spreadAngle: 0

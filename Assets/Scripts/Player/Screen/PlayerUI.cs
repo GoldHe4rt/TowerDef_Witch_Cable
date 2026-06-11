@@ -7,6 +7,8 @@ public class PlayerUI : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GlobalReferanceManager globalReferenceManager;
+    [SerializeField] private MultiplayerScreenManager multiplayerScreenManager;
+    [SerializeField] private int playerID = -1;
 
     [Header("Health")]
     [SerializeField] private GameObject[] healthDisplay;
@@ -58,6 +60,7 @@ public class PlayerUI : MonoBehaviour
         currencyDisplay.text = currencyAmount.ToString("0");
         DisplayChangeAmount(changeAmount, changeObject, currencyDisplay.transform, true);
     }
+
     void DisplayChangeAmount(float changeAmount, GameObject changeObject, Transform parentLocation, bool shouldMove)
     {
         GameObject currentChangeDisplay = Instantiate(changeObject, parentLocation.position, Quaternion.identity, parentLocation);
@@ -82,7 +85,14 @@ public class PlayerUI : MonoBehaviour
         Rigidbody2D currencyChangeRb = currentChangeDisplay.GetComponent<Rigidbody2D>();
         if (currencyChangeRb != null && shouldMove)
         {
-            currencyChangeRb.linearVelocity = Vector2.down * 2f;
+            if (multiplayerScreenManager.flipUiY[playerID].isFlipped)
+            {
+                currencyChangeRb.linearVelocity = Vector2.down * 2f;
+            } 
+            else if (!multiplayerScreenManager.flipUiY[playerID].isFlipped)
+            {
+                currencyChangeRb.linearVelocity = Vector2.up * 2f;
+            }
         }
         StartCoroutine(TextFade(currentChangeDisplay, changeText, 1f, 3f, false));
     }

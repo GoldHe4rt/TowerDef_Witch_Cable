@@ -45,7 +45,7 @@ MonoBehaviour:
     - {fileID: 369380821442156760, guid: 5bddca01f941333499b1bb38991b6d33, type: 3}
     - {fileID: 1325349028965787335, guid: 6050e8a08da1b014e9bc9d4de3cdf09c, type: 3}
     - {fileID: 5665954806951728969, guid: f6d0d18274ed0f741baafbb71a58dca7, type: 3}
-    <Cost>k__BackingField: 200
+    <Cost>k__BackingField: 300
   - <Name>k__BackingField: Barricade
     <ID>k__BackingField: 3
     <IsFloor>k__BackingField: 1

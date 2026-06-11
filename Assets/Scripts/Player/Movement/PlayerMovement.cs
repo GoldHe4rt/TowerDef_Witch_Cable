@@ -105,7 +105,6 @@ public class PlayerMovement : MonoBehaviour
             // 3. Interpolate between start and end values
             movementSpeedModifier = Mathf.Lerp(startValue, endValue, exponentialT);
 
-            Debug.Log($"Current Value: {movementSpeedModifier}");
             yield return null; // Wait for the next frame
         }
 

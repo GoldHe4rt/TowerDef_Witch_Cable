@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public void Spawn(GameObject randomEnemy, Transform target, AudioEventManager audioEventManager, float speedMultiplier, int difficultyModifier, bool isRangedDifficulty)
+    public void Spawn(GameObject randomEnemy, Transform target, AudioEventManager audioEventManager, float speedMultiplier, float healthMultiplier, int difficultyModifier, bool isRangedDifficulty)
     {
         GameObject cloneObject = Instantiate(randomEnemy, transform.position, Quaternion.identity);
         cloneObject.SetActive(true);
@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
         nevMeshPathfinding.speedMultiplier = speedMultiplier;
         enemyAttack.audioEventManager = audioEventManager;
         enemyHealth.audioEventManager = audioEventManager;
+        enemyHealth.healthPoints = (int)((float)enemyHealth.healthPoints * healthMultiplier);
 
 
         if (isRangedDifficulty)

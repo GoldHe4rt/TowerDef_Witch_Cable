@@ -148,10 +148,10 @@ MonoBehaviour:
   mainGameObject: {fileID: 919219935157804709}
   animator: {fileID: 0}
   attackRangeObject: {fileID: 3389370534130013609}
-  attackSpeed: 1.5
+  attackSpeed: 1
   attackDelay: 0
   rotationSpeed: 5000
-  spreadAngle: 10
+  spreadAngle: 20
   maxHealth: 100
   DamageIFramesEnabled: 1
   damageFrames: 1

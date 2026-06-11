@@ -16,7 +16,6 @@ public class EnemyRange : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("EnemyRange: OnTriggerStay2D: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("EnemyRange: Player in range");
@@ -39,7 +38,6 @@ public class EnemyRange : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("EnemyRange: OnTriggerExit2D: " + collision.gameObject.name);
         if (collision.gameObject == currentAimTarget)
             currentAimTarget = null;
     }

@@ -10,6 +10,7 @@ public class EnemyCollisionManager : MonoBehaviour
     [SerializeField] private NavMeshPathfinding navMeshPathfinding;
     private List<Collider2D> damageCooldown = new List<Collider2D>();
 
+    Coroutine freezeCoroutine;
 
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -37,7 +38,10 @@ public class EnemyCollisionManager : MonoBehaviour
             if (hazard.freezeTarget)
             {
                 Debug.Log("Enemy frozen!");
-                StartCoroutine(navMeshPathfinding.SpeedRecovery(hazard.freezeDuration, 2f, 0.3f, 1f));
+                if (freezeCoroutine != null)
+                    StopCoroutine(freezeCoroutine);
+                
+                freezeCoroutine = StartCoroutine(navMeshPathfinding.SpeedRecovery(hazard.freezeDuration, 2f, 0.3f, 1f));
             }
             if (enemyHealth.healthPoints <= 0)
             {

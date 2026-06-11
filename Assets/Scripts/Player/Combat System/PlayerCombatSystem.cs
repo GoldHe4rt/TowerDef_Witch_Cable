@@ -108,6 +108,7 @@ public class PlayerCombatSystem : MonoBehaviour
         currentHitboxPrefab = null;
         currentHitboxSpeed = 0;
         currentlyLockRotation = false;
+        currentlyLockSelection = false;
         currentlyLazerRange = 0;
     }
 

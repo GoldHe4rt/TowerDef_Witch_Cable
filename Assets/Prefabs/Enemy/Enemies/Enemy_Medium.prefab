@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: minMaxSpeed.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1609697661151736234, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -46,18 +51,34 @@ PrefabInstance:
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: canAttack
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: campDamage
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: hitboxSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: hitboxPrefab
+      value: 
+      objectReference: {fileID: 1633932423762308225, guid: 2160aadd036917d4b8fdb806ecf30577,
+        type: 3}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxCampDamage.x
@@ -214,6 +235,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234344164485187379, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234344164485187379, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234344164485187379, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234344164485187379, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7919924977023777896, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}

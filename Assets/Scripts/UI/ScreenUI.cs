@@ -38,7 +38,7 @@ public class ScreenUI : MonoBehaviour
 
     public void UpdateHealthDisplay(int maxHealth, int healthPoints, int changeAmount)
     {
-        healthDisplay.text = healthPoints.ToString("0");
+        healthDisplay.text = healthPoints.ToString("0") + "/" + maxHealth.ToString("0");
         DisplayChangeAmount((float)changeAmount, changeObject, healthDisplay.transform);
     }
 
