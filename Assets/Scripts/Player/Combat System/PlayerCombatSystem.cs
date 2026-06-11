@@ -13,6 +13,8 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private GlobalReferanceManager globalReferanceManager;
     [SerializeField] private WeaponDisplay weaponDisplay;
 
+    internal bool shieldActive = false;
+
     internal int currentWeaponID = -1;
     private GameObject currentWeaponPrefab;
     private GameObject currentHitboxPrefab;
@@ -103,6 +105,7 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             return;
         }
+        
         // Implement attack logic here
 
         //Spawn Damage dealer
@@ -150,8 +153,16 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             //Set Owner of Attack
             DamageDealer damageDealer = currentAttack.GetComponent<DamageDealer>();
-            damageDealer.playerOwner = playerID;
-            damageDealer.currencyManager = currencyManager;
+            if (damageDealer != null)
+            {
+                damageDealer.playerOwner = playerID;
+                damageDealer.currencyManager = currencyManager;
+            }
+        }
+
+        if (databaseSO.weaponData[currentWeaponID].IsSupport)
+        {
+            shieldActive = true;
         }
 
         //Destroy after set time

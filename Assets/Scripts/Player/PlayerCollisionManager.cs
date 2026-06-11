@@ -6,6 +6,7 @@ public class PlayerCollisionManager : MonoBehaviour
     [Header("Referances")]
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerCombatSystem playerCombatSystem;
     [SerializeField] private CurrencyManager currencyManager;
 
     [Header("SpawnPoint")]
@@ -22,6 +23,7 @@ public class PlayerCollisionManager : MonoBehaviour
         {
             if (playerHealth.dead) return;
             if (!playerHealth.canTakeDamage) return;
+            if (playerCombatSystem.shieldActive) return;
             Hazard hazard = collision.gameObject.GetComponent<Hazard>();
             if (hazard == null)
             {

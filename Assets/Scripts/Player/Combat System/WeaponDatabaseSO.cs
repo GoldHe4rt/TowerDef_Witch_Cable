@@ -35,5 +35,8 @@ public class WeaponData
     public bool LockRotationOnAttack { get; private set;} = false;
     [field: SerializeField]
     public float LazerRange { get; private set;} = 5f;
+    [field: Header("Support Settings")]
+    [field: SerializeField]
+    public bool IsSupport { get; private set;} = false;
 
 }
