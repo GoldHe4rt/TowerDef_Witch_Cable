@@ -1798,7 +1798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 5456439724232751079}
   playerMovement: {fileID: 2170188157618631205}
-  playerCombatSystem: {fileID: 0}
+  playerCombatSystem: {fileID: 1445228770092813555}
   currencyManager: {fileID: 0}
   spawnpoint: {fileID: 8189594889266188534}
   playerID: 1
@@ -2872,7 +2872,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
