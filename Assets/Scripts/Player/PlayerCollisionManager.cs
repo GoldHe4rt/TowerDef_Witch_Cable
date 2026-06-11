@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerCollisionManager : MonoBehaviour
 {
@@ -73,10 +74,27 @@ public class PlayerCollisionManager : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.CompareTag("Support"))
+        {
+            Debug.Log("Support");
+            SupportWeapon supportWeapon = collision.gameObject.GetComponent<SupportWeapon>();
+            playerMovement.movementSpeedMultiplier = 1.5f;
+            playerCombatSystem.cooldownSpeedModifier = 1.5f;
+        
+        }
+
         //Teleport to Spawn
         if (collision.gameObject.CompareTag("Teleport"))
         {
             gameObject.transform.position = spawnpoint.position;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Support"))
+        {
+            playerMovement.movementSpeedMultiplier = 1f;
         }
     }
 

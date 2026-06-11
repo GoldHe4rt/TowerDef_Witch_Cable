@@ -13,6 +13,7 @@ TagManager:
   - Barricade
   - Coin
   - Teleport
+  - Support
   layers:
   - Default
   - TransparentFX

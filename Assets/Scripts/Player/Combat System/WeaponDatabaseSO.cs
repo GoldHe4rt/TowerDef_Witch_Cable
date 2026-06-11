@@ -19,6 +19,10 @@ public class WeaponData
     public GameObject[] Prefab { get; private set;}
     [field: SerializeField]
     public float AttackCooldown { get; private set;} = 0f;
+    [field: SerializeField]
+    public bool LockRotationOnAttack { get; private set;} = false;
+    [field: SerializeField]
+    public bool LockSelectionOnAttack { get; private set;} = false;
     [field: Header("Hitbox Settings")]
     [field: SerializeField]
     public GameObject[] HitboxPrefab { get; private set;}
@@ -31,8 +35,6 @@ public class WeaponData
     [field: Header("Lazer Settings")]
     [field: SerializeField]
     public bool IsLazer { get; private set;} = false;
-    [field: SerializeField]
-    public bool LockRotationOnAttack { get; private set;} = false;
     [field: SerializeField]
     public float LazerRange { get; private set;} = 5f;
     [field: Header("Support Settings")]
