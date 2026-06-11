@@ -16,14 +16,14 @@ public class NavMeshPathfinding : MonoBehaviour
     public float AttackDistance;
     public bool isStopped;
     public bool AttackObstacle;
-    internal Transform TargetBase;
+    public Transform TargetBase;
     private Transform TargetBarricade;
 
     [Header("Movement")]
     [SerializeField] public bool isActive = true;
     [SerializeField] private Vector2 minMaxSpeed = new Vector2(1f, 15f);
     [SerializeField] private float speed = 5f;
-    
+
     [SerializeField] internal float speedModifier = 1;
 
     internal float speedMultiplier = 1f;
@@ -49,6 +49,7 @@ public class NavMeshPathfinding : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(stuck + " is stuck?");
         currentSpeed = speed * speedModifier;
         agent.speed = currentSpeed;
         if (stuck)
