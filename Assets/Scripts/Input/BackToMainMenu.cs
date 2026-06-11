@@ -2,18 +2,18 @@ using System;
 using Menu;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class BackToMainMenu : MonoBehaviour
 {
     [SerializeField] private InputActionReference backAction;
-    [SerializeField]private SceneController sceneController;
 
 
     private void Update()
     {
         if (backAction.ToInputAction().triggered)
         {
-            sceneController.MainMenu();
+            SceneManager.LoadScene(sceneBuildIndex: 0);
         }
     }
     
