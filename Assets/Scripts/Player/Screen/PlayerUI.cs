@@ -91,6 +91,7 @@ public class PlayerUI : MonoBehaviour
                 currencyChangeRb.linearVelocity = Vector2.down * 2f;
             }
             else if (!multiplayerScreenManager.flipUiY[playerID - 1].isFlipped)
+
             {
                 currencyChangeRb.linearVelocity = Vector2.up * 2f;
             }
