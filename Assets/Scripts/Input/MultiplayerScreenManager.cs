@@ -107,8 +107,9 @@ public class MultiplayerScreenManager : MonoBehaviour
                 if (flipUiX[playerData[i].ID].isFlipped)
                     FlipUI(true, playerData[i].ID);
                 //Flip UI Y
-                if (flipUiY[playerData[i].ID].isFlipped)
-                    FlipUI(false, playerData[i].ID);
+                if (flipUiY.Count == 4)
+                    if (flipUiY[playerData[i].ID].isFlipped)
+                        FlipUI(false, playerData[i].ID);
                 
             } else
             {
@@ -332,26 +333,30 @@ public class MultiplayerScreenManager : MonoBehaviour
         } 
         else 
         {
-            if (!flipUiY[playerID].isFlipped)
-                flipUiY[playerID].isFlipped = true;
-            else
-                flipUiY[playerID].isFlipped = false;
-            
-
-            if (flipUiY[playerID].flipObj != null)
+            if (flipUiY.Count == 4)
             {
-                for (int o = 0; o < flipUiY[playerID].flipObj.Count; o++)
+
+                if (!flipUiY[playerID].isFlipped)
+                    flipUiY[playerID].isFlipped = true;
+                else
+                    flipUiY[playerID].isFlipped = false;
+            
+            
+                if (flipUiY[playerID].flipObj != null)
                 {
-                    if (flipUiY[playerID].flipObj[o] != null)
+                    for (int o = 0; o < flipUiY[playerID].flipObj.Count; o++)
                     {
-                        Vector2 flipObject = flipUiY[playerID].flipObj[o].localPosition;
-                        flipObject.y *= -1;
-                        flipUiY[playerID].flipObj[o].localPosition = flipObject;
-                        /*/
-                        Vector2 flipObject = flipUiY[playerID].flipObj[o].localScale;
-                        flipObject.y *= -1;
-                        flipUiY[playerID].flipObj[o].localScale = flipObject;
-                        /*/
+                        if (flipUiY[playerID].flipObj[o] != null)
+                        {
+                            Vector2 flipObject = flipUiY[playerID].flipObj[o].localPosition;
+                            flipObject.y *= -1;
+                            flipUiY[playerID].flipObj[o].localPosition = flipObject;
+                            /*/
+                            Vector2 flipObject = flipUiY[playerID].flipObj[o].localScale;
+                            flipObject.y *= -1;
+                            flipUiY[playerID].flipObj[o].localScale = flipObject;
+                            /*/
+                        }
                     }
                 }
             }

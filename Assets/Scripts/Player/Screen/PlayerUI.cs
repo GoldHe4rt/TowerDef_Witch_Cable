@@ -86,15 +86,21 @@ public class PlayerUI : MonoBehaviour
         Rigidbody2D currencyChangeRb = currentChangeDisplay.GetComponent<Rigidbody2D>();
         if (currencyChangeRb != null && shouldMove)
         {
-            if (multiplayerScreenManager.flipUiY[playerID - 1].isFlipped)
+            if (multiplayerScreenManager.flipUiY.Count == 4)
+            {
+                if (multiplayerScreenManager.flipUiY[playerID - 1].isFlipped)
+                {
+                    currencyChangeRb.linearVelocity = Vector2.down * 2f;
+                }
+                else if (!multiplayerScreenManager.flipUiY[playerID - 1].isFlipped)
+                {
+                    currencyChangeRb.linearVelocity = Vector2.up * 2f;
+                }
+            } else
             {
                 currencyChangeRb.linearVelocity = Vector2.down * 2f;
             }
-            else if (!multiplayerScreenManager.flipUiY[playerID - 1].isFlipped)
-
-            {
-                currencyChangeRb.linearVelocity = Vector2.up * 2f;
-            }
+            
         }
         StartCoroutine(TextFade(currentChangeDisplay, changeText, 1f, 3f, false));
     }
