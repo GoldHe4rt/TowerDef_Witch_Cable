@@ -23,10 +23,25 @@ PrefabInstance:
       propertyPath: minMaxSpeed.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -889120198094431616, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 134069677393523474, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: navMeshPathfinding
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1609697661151736234, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: attackRange
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609697661151736234, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: nevMeshPathfinding
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -316,10 +331,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -889120198094431616, guid: ae79eb1b1145050479fd3f1f95b89879, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: -9194567061272969697}
     - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       insertIndex: -1
@@ -331,6 +351,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6386752087834729233}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-9194567061272969697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204799974450761455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256163f6897558f48b0d0b3028e2c2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &-2025920800589062080
 NavMeshAgent:
   m_ObjectHideFlags: 0

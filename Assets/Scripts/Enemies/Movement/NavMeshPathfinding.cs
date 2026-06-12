@@ -1,3 +1,4 @@
+
 using System.Data.Common;
 using NavMeshPlus.Extensions;
 using Unity.VisualScripting;
@@ -65,7 +66,6 @@ public class NavMeshPathfinding : MonoBehaviour
                 if (agent.pathStatus != NavMeshPathStatus.PathComplete)
                 {
                     stuck = true;
-
                 }
             }
         }
