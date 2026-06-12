@@ -59,6 +59,7 @@ public class NavMeshPathfinding : MonoBehaviour
         {
             if (targetTransform != null)
             {
+                Debug.Log("stuck");
                 transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
 
                 if (agent.pathStatus != NavMeshPathStatus.PathComplete)
@@ -67,8 +68,6 @@ public class NavMeshPathfinding : MonoBehaviour
 
                 }
             }
-
-            FreezeEnemyRotation();
         }
 
 

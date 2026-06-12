@@ -47,7 +47,8 @@ public class PlayerUI : MonoBehaviour
             if (i < currentHealthPoints)
             {
                 healthDisplay[i].SetActive(true);
-            } else
+            }
+            else
             {
                 healthDisplay[i].SetActive(false);
             }
@@ -66,8 +67,8 @@ public class PlayerUI : MonoBehaviour
         GameObject currentChangeDisplay = Instantiate(changeObject, parentLocation.position, Quaternion.identity, parentLocation);
         currentChangeDisplay.SetActive(true);
         TextMeshProUGUI changeText = currentChangeDisplay.GetComponent<TextMeshProUGUI>();
-        
-        
+
+
         if (changeAmount > 0)
         {
             changeText.text = "+" + changeAmount.ToString("0");
@@ -77,7 +78,7 @@ public class PlayerUI : MonoBehaviour
         {
             changeText.text = changeAmount.ToString("0");
             changeText.color = Color.red;
-        } 
+        }
         else
         {
             changeText.text = "";
@@ -85,11 +86,11 @@ public class PlayerUI : MonoBehaviour
         Rigidbody2D currencyChangeRb = currentChangeDisplay.GetComponent<Rigidbody2D>();
         if (currencyChangeRb != null && shouldMove)
         {
-            if (multiplayerScreenManager.flipUiY[playerID].isFlipped)
+            if (multiplayerScreenManager.flipUiY[playerID - 1].isFlipped)
             {
                 currencyChangeRb.linearVelocity = Vector2.down * 2f;
-            } 
-            else if (!multiplayerScreenManager.flipUiY[playerID].isFlipped)
+            }
+            else if (!multiplayerScreenManager.flipUiY[playerID - 1].isFlipped)
             {
                 currencyChangeRb.linearVelocity = Vector2.up * 2f;
             }
@@ -105,7 +106,7 @@ public class PlayerUI : MonoBehaviour
         while (timeElapsed < duration)
         {
             timeElapsed += Time.deltaTime;
-            
+
             // 1. Calculate normalized time (always 0 to 1)
             float t = timeElapsed / duration;
 
@@ -127,9 +128,10 @@ public class PlayerUI : MonoBehaviour
         {
             textColor.a = 1;
             myText.color = textColor;
-        } else
+        }
+        else
             Destroy(currentChangeDisplay, 0.1f);
-        
+
     }
 
     internal void UpdateRespawnDisplay(float respawnTime)

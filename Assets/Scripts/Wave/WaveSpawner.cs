@@ -28,7 +28,7 @@ public class Wave
 }
 
 public enum GameDifficulty
-{ 
+{
     Easy,
     Normal,
     Hard,
@@ -36,7 +36,7 @@ public enum GameDifficulty
 }
 
 public enum EnemyType
-{ 
+{
     Light,
     Medium,
     Heavy
@@ -55,7 +55,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("Difficulty")]
     public GameDifficulty difficulty;
     [SerializeField] private WaveDifficultys waveDifficultys;
-    
+
     internal List<Wave> waves = new List<Wave>();
 
     [Header("Other")]
@@ -139,7 +139,7 @@ public class WaveSpawner : MonoBehaviour
                 //Wave is in progress
             }
         }
-        
+
     }
 
     void WaveAnim()
@@ -149,7 +149,7 @@ public class WaveSpawner : MonoBehaviour
             WavesMissingError();
             return;
         }
-        globalReferenceManager.waveDisplay.text = (currentWaveNumber + 1).ToString("0") +"/"+ (waves.Count).ToString("0");
+        globalReferenceManager.waveDisplay.text = (currentWaveNumber + 1).ToString("0") + "/" + (waves.Count).ToString("0");
         Debug.Log("animate wave ting");
         waveName.text = waves[currentWaveNumber].waveName;
         anim.SetTrigger("WaveComplete");
@@ -187,33 +187,36 @@ public class WaveSpawner : MonoBehaviour
             }
             GameObject randomEnemyObject = currentWave.enemySettings[randomEnemy].enemyPrefab;
             EnemySpawner randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
             randomPoint.Spawn(
                 randomEnemyObject,
                 target,
                 audioEventManager,
                 currentWave.speedMultiplier,
                 currentWave.healthMultiplier,
-                currentWave.difficultyModifier, 
+                currentWave.difficultyModifier,
                 currentWave.difficultyRangeActive);
             currentWave.enemySettings[randomEnemy].noOfEnemy--;
             nextSpawnTime = Time.time + Random.Range(
-                currentWave.spwanInterval - currentWave.spwanInterval * 0.3f, 
+                currentWave.spwanInterval - currentWave.spwanInterval * 0.3f,
                 currentWave.spwanInterval + currentWave.spwanInterval * 0.3f);
         }
     }
 
-    public int GetRandomEnemy() 
+    public int GetRandomEnemy()
     {
         float totalEnemyCount = 0;
-        
+
         foreach (var enemy in currentWave.enemySettings) totalEnemyCount += enemy.noOfEnemy; // Sum all enemy counts
 
         float randomValue = Random.Range(0, totalEnemyCount); // Pick random within total
         float cumulativeWeight = 0;
 
-        foreach (var enemy in currentWave.enemySettings) {
+        foreach (var enemy in currentWave.enemySettings)
+        {
             cumulativeWeight += enemy.noOfEnemy;
-            if (randomValue <= cumulativeWeight) { // Select enemy when threshold is met
+            if (randomValue <= cumulativeWeight)
+            { // Select enemy when threshold is met
                 return currentWave.enemySettings.IndexOf(enemy);
             }
         }
@@ -293,7 +296,7 @@ public class WaveSpawner : MonoBehaviour
         //Create new Wave
         Wave newWave = new Wave();
         newWave.waveName = "Endless Wave " + (currentWaveNumber + 1);
-        
+
         newWave.enemySettings = new List<EnemySettings>();
         for (int i = 0; i < endlessEnemyPrefabs.Count; i++)
         {
