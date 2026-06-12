@@ -7,12 +7,12 @@ public class InfoNavigation : MonoBehaviour
     [SerializeField] private GameObject[] infoUI;
     private GameObject uitoShow;
     public int clickAmount;
+    [SerializeField] private LevelSelection levelSelection;
 
     private void Start()
     {
         clickAmount = 0;
         infoUI[0].SetActive(true);
-        for (int i = 1; i < 3; i++) infoUI[i].SetActive(false);
     }
 
     private void ShowandHideUI(int uiIndex)
@@ -63,6 +63,7 @@ public class InfoNavigation : MonoBehaviour
                 ShowandHideUI(3);
                 break;
             case 3: Debug.Log("Case 3");
+                levelSelection.LoadSelectedLevel();
                 break;
         }
     }

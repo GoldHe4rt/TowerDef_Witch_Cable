@@ -1276,6 +1276,7 @@ MonoBehaviour:
   - {fileID: 1096605490}
   - {fileID: 1550714690}
   clickAmount: 0
+  levelSelection: {fileID: 388064172}
 --- !u!1 &238419759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,6 +2255,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 388064170}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &388064172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7651174482905665561, guid: ae5b0dcaffcf82648a2c5b41362b3413,
+    type: 3}
+  m_PrefabInstance: {fileID: 388064170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562604f16f04fc041aa4ff84ddff40f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &430619600
 PrefabInstance:
   m_ObjectHideFlags: 0
