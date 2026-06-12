@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec282c35c0ff845458b1a844650ae8c2
+guid: 96fa1ea1808c5f646a753a196bc99acd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2369695099217442206
-    second: Enemy_Medium_01_0
+      213: -7072911511971209724
+    second: Medium Enemy Damage Frames_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy_Medium_01_0
+      name: Medium Enemy Damage Frames_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 29
-        height: 25
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26a0929ccd62d1fd0800000000000000
-      internalID: -2369695099217442206
+      spriteID: 40e5f292478f7dd90800000000000000
+      internalID: -7072911511971209724
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Enemy_Medium_01_0: -2369695099217442206
+      Medium Enemy Damage Frames_0: -7072911511971209724
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

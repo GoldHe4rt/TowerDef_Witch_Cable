@@ -79,7 +79,7 @@ public class PlayerCollisionManager : MonoBehaviour
             Debug.Log("Support");
             SupportWeapon supportWeapon = collision.gameObject.GetComponent<SupportWeapon>();
             playerMovement.movementSpeedMultiplier = 1.5f;
-            playerCombatSystem.cooldownSpeedModifier = 1.5f;
+            playerCombatSystem.cooldownSpeedModifier = 2f;
         
         }
 
@@ -95,6 +95,7 @@ public class PlayerCollisionManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Support"))
         {
             playerMovement.movementSpeedMultiplier = 1f;
+            playerCombatSystem.cooldownSpeedModifier = 1f;
         }
     }
 

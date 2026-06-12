@@ -214,6 +214,9 @@ MonoBehaviour:
   newHazardSpeed: 5
   newHazardLifetime: 2
   pierceAmount: 5
+  changeSize: 0
+  changeSizeTimer: 1
+  newRadius: 1
 --- !u!114 &3361311684034789732
 MonoBehaviour:
   m_ObjectHideFlags: 0

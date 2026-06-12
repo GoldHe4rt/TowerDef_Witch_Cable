@@ -51,7 +51,7 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             if (currentCoolDowns[i] > -1)
             {
-                currentCoolDowns[i] -= Time.deltaTime * cooldownSpeedModifier;
+                currentCoolDowns[i] -= (Time.deltaTime * cooldownSpeedModifier);
             } else
             {
                 currentCoolDowns[i] = -1;

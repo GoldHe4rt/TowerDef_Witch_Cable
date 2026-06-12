@@ -53,7 +53,7 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator IFrames(float damageFrames)
     {
-        yield return new WaitForSeconds(damageFrames);
+        yield return new WaitForSeconds(damageFrames * 0.5f);
         canTakeDamageDisplay.SetActive(false);
         //invinsible = false;
     }

@@ -18,6 +18,16 @@ PrefabInstance:
       propertyPath: minMaxSpeed.x
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03125
+      objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: campDamage
@@ -57,7 +67,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4cf551df7fd026a4ba6d3221c217ac26,
+      objectReference: {fileID: 21300000, guid: 749c0a0f63f727441bc4f08cec362362,
         type: 3}
     - target: {fileID: 4066872348330389213, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}

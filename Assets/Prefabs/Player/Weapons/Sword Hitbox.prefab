@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
-  hurtTime: 2
+  hurtTime: 1
   freezeTarget: 0
   freezeDuration: 5
   playerOwner: -1
