@@ -9,12 +9,9 @@ namespace Menu
         [SerializeField] private bool requirePlayers;
         [SerializeField] private int requiredPlayerCount = 1;
         [SerializeField] private ControllerManager _controllerManager;
-        [SerializeField] private String currentSceneName;
-
-        private void Start()
-        { currentSceneName = SceneManager.GetActiveScene().name; }
-
-
+        public int[] levelIndexes = { 4, 5, 6 };
+        public int creditsIndex = 9;
+        
         private bool EnoughPlayers()
         { 
             if (!requirePlayers) return true;
@@ -31,15 +28,6 @@ namespace Menu
 
         public void Credits()
         { SceneManager.LoadScene("Credits"); }
-        
-        public void Level1()
-        { if(EnoughPlayers()) SceneManager.LoadScene("Level 1"); else Debug.Log("Not enough players"); }
-
-        public void Level2()
-        { if(EnoughPlayers()) SceneManager.LoadScene("Level 2"); else Debug.Log("Not enough players"); }
-
-        public void Level3()
-        { if(EnoughPlayers()) SceneManager.LoadScene("Level 3");else Debug.Log("Not enough players"); }
 
         public void Restart()
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
@@ -47,18 +35,14 @@ namespace Menu
         //Used for NEXT_LEVEL_BUTTON in the Win Menu. Need to test to see if this works.
         public void NextLevel()
         {
-            switch (currentSceneName)
-            {
-                case "Level 1":
-                    SceneManager.LoadScene("Level 2");
-                    break;
-                case "Level 2":
-                    SceneManager.LoadScene("Level 3");
-                    break;
-                case "Level 3":
-                    Credits();
-                    break;
-            }
+            int current = SceneManager.GetActiveScene().buildIndex;
+
+            for (int i = 0; i < levelIndexes.Length; i++)
+                if (current == levelIndexes[i])
+                {
+                    SceneManager.LoadScene(i + 1 < levelIndexes.Length ? levelIndexes[i + 1] : creditsIndex);
+                    return;
+                }
         }
     
         public void MainMenu()
