@@ -46,8 +46,6 @@ public class InfoNavigation : MonoBehaviour
                 break;
         }
     }
-
-    
     
     public void ClickNext()
     {
