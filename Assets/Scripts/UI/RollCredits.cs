@@ -6,7 +6,10 @@ public class RollCredits : MonoBehaviour
     private RectTransform rectTransform;
 
     private void Start()
-    { rectTransform = GetComponent<RectTransform>(); }
+    {
+        Time.timeScale = 1f;
+        rectTransform = GetComponent<RectTransform>();
+    }
 
     private void Update()
     { rectTransform.anchoredPosition += new Vector2(0, scrollSpeed * Time.deltaTime); }

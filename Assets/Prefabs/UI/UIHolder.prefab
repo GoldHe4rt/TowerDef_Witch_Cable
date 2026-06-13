@@ -2599,7 +2599,8 @@ MonoBehaviour:
   requirePlayers: 0
   requiredPlayerCount: 1
   _controllerManager: {fileID: 0}
-  currentSceneName: 
+  levelIndexes: 040000000500000006000000
+  creditsIndex: 9
 --- !u!114 &7462205668292120730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7766,7 +7767,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7379869311630429386}
         m_TargetAssemblyTypeName: Menu.SceneController, Assembly-CSharp
-        m_MethodName: ChooseLevel
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8262,7 +8263,8 @@ MonoBehaviour:
   requirePlayers: 0
   requiredPlayerCount: 1
   _controllerManager: {fileID: 0}
-  currentSceneName: 
+  levelIndexes: 040000000500000006000000
+  creditsIndex: 9
 --- !u!1 &7855826170988678677
 GameObject:
   m_ObjectHideFlags: 0
@@ -9592,7 +9594,8 @@ MonoBehaviour:
   requirePlayers: 0
   requiredPlayerCount: 1
   _controllerManager: {fileID: 0}
-  currentSceneName: 
+  levelIndexes: 040000000500000006000000
+  creditsIndex: 9
 --- !u!1 &8958317580463987786
 GameObject:
   m_ObjectHideFlags: 0
