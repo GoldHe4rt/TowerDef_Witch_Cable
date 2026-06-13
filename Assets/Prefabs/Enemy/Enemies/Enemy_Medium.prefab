@@ -338,6 +338,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
+      insertIndex: 2
+      addedObject: {fileID: -2012144554913083833}
+    - targetCorrespondingSourceObject: {fileID: 4278096698909005310, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
       insertIndex: -1
       addedObject: {fileID: -2025920800589062080}
   m_SourcePrefab: {fileID: 100100000, guid: ae79eb1b1145050479fd3f1f95b89879, type: 3}
@@ -347,6 +351,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6386752087834729233}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2012144554913083833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204799974450761455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d8848fc2384ae428ed1168c93cc937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
+  AttackDistance: 0
+  isStopped: 0
+  AttackObstacle: 0
+  TargetBase: {fileID: 0}
+  isActive: 1
+  minMaxSpeed: {x: 1, y: 10}
+  speed: 2
+  speedModifier: 1
 --- !u!195 &-2025920800589062080
 NavMeshAgent:
   m_ObjectHideFlags: 0
