@@ -28,11 +28,10 @@ namespace Menu
 
         public void InfoScene()
         { SceneManager.LoadScene("Info"); }
-        public void MariusLevel()
-        { if (EnoughPlayers()) SceneManager.LoadScene("Marius"); else Debug.Log("Not enough players"); }
 
-        //public void Tutorial() { if(EnoughPlayers()) SceneManager.LoadScene("Tutorial"); else Debug.Log("Not enough players"); }
-
+        public void Credits()
+        { SceneManager.LoadScene("Credits"); }
+        
         public void Level1()
         { if(EnoughPlayers()) SceneManager.LoadScene("Level 1"); else Debug.Log("Not enough players"); }
 
@@ -57,7 +56,7 @@ namespace Menu
                     SceneManager.LoadScene("Level 3");
                     break;
                 case "Level 3":
-                    SceneManager.LoadScene("LevelSelect");
+                    Credits();
                     break;
             }
         }
