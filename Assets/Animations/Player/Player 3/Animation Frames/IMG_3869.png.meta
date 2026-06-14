@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41b5fb86db86e02408c08708a30e40ee
+guid: 8af09de49b4d4864ea55f9139d5e08e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5317152211792585177
-    second: Player_Cha1_Front_Moving2_Fin_0
+      213: -4971559269203701831
+    second: IMG_3869_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,33 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Cha1_Front_Moving2_Fin_0
+      name: IMG_3869_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 6
         y: 1
-        width: 19
-        height: 29
+        width: 16
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 72e9b6f1c3ea536b0800000000000000
-      internalID: -5317152211792585177
+      spriteID: 9bf00536f29710bb0800000000000000
+      internalID: -4971559269203701831
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Cha1_Front_Moving2_Fin_0: -5317152211792585177
+      IMG_3869_0: -4971559269203701831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

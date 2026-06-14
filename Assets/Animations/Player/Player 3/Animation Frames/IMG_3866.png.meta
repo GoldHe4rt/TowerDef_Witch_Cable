@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a7952c125f7dd0541aab3afabef25c00
+guid: b2e925159c8d8e8468a511826567d1e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -875132483810819964
-    second: Player_Cha1_Front_Still_Fin_0
+      213: 2696677548213218573
+    second: IMG_3866_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,33 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Cha1_Front_Still_Fin_0
+      name: IMG_3866_0
       rect:
         serializedVersion: 2
         x: 7
         y: 1
-        width: 19
+        width: 16
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4800d0384a7ead3f0800000000000000
-      internalID: -875132483810819964
+      spriteID: d0d250741f58c6520800000000000000
+      internalID: 2696677548213218573
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Cha1_Front_Still_Fin_0: -875132483810819964
+      IMG_3866_0: 2696677548213218573
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

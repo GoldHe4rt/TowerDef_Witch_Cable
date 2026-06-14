@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d15d86b8b2e0cd444825439b41bc96b7
+guid: 41d3c0a54b1d7b346a17a3d6c4499f8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1373849809199508571
-    second: Player_Cha1_Left_Moving1_Fin_0
+      213: 4159916404999561967
+    second: IMG_3865_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,33 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Cha1_Left_Moving1_Fin_0
+      name: IMG_3865_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 8
         y: 1
-        width: 18
+        width: 15
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5c231c5f15e01310800000000000000
-      internalID: 1373849809199508571
+      spriteID: fe2a15f1eedfab930800000000000000
+      internalID: 4159916404999561967
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Cha1_Left_Moving1_Fin_0: 1373849809199508571
+      IMG_3865_0: 4159916404999561967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
