@@ -24,6 +24,9 @@ namespace AudioScripts.ScriptableObjectAudioScripts
         [Range(0.5f, 2f)] public float minPitch = 0.9f;
         [Range(0.5f, 2f)] public float maxPitch = 1.1f;
 
+        [Header("Loop setting")]
+        public bool loop;
+
         public AudioClip GetRandomClip()
         {
             if (clips == null || clips.Length == 0) return null;
@@ -33,5 +36,6 @@ namespace AudioScripts.ScriptableObjectAudioScripts
         }
 
         public float GetRandomPitch() => !randomizePitch ? 1f : Random.Range(minPitch, maxPitch);
+        
     }
 }

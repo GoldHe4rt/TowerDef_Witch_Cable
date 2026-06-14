@@ -34,6 +34,7 @@ namespace AudioScripts
         
         public void PlayLoseJingle()
         { if (!string.IsNullOrEmpty(musicProfile.loseEventId)) AudioSystem.Play(musicProfile.loseEventId); }
+        
         #endregion
     }
 }

@@ -24,7 +24,6 @@ namespace AudioScripts
             }
 
             Instance = this;
-           // DontDestroyOnLoad(gameObject);
         }
 
         public void PlaySFX(AudioEvent audioEvent)
@@ -51,7 +50,7 @@ namespace AudioScripts
             if (clip == null) return;
 
             musicSource.clip = clip;
-            musicSource.loop = true;
+            musicSource.loop = audioEvent.loop;
             musicSource.pitch = audioEvent.GetRandomPitch();
             musicSource.volume = audioEvent.baseVolume;
             musicSource.Play();
