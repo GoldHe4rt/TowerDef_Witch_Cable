@@ -36,12 +36,12 @@ PrefabInstance:
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -55,8 +55,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
+      propertyPath: attackDelay
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
       propertyPath: attackSpeed
-      value: 1.25
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: hitboxSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -83,12 +93,32 @@ PrefabInstance:
       propertyPath: minMaxCurrencyOnDeath.y
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3134175583017071886, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5f6602840b1adf46b1385103d61b399, type: 2}
     - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 749c0a0f63f727441bc4f08cec362362,
+      objectReference: {fileID: 21300000, guid: 4cf551df7fd026a4ba6d3221c217ac26,
         type: 3}
+    - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.50980395
+      objectReference: {fileID: 0}
     - target: {fileID: 4066872348330389213, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Sprite

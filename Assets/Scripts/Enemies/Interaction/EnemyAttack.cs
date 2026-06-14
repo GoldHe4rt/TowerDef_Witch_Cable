@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using AudioScripts;
+using Unity.VisualScripting;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -10,8 +11,10 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private GameObject hitboxPrefab;
     [SerializeField] private GameObject attackRangeObject;
+    [SerializeField] private Animator animator;
 
     [Header("Attack Settings")]
+    [SerializeField] private float attackDelay = 1;
     [SerializeField] private float hitboxLifetime = 2f;
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float spreadAngle = 10f;
@@ -53,7 +56,7 @@ public class EnemyAttack : MonoBehaviour
             Aim();
             if (attackSpeedTimer <= 0)
             {
-                Attack();
+                StartCoroutine(Attack());
             }
         }
 
@@ -67,13 +70,17 @@ public class EnemyAttack : MonoBehaviour
         weaponHolder.transform.rotation = Quaternion.RotateTowards(weaponHolder.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
     }
 
-    public void Attack()
+    public IEnumerator Attack()
     {
         if (attackSpeedTimer > 0)
         {
-            return;
+            yield break;
         }
         // Implement attack logic here
+        if (animator != null)
+            animator.SetTrigger("Attack");
+        attackSpeedTimer = attackSpeed; // Reset the attack cooldown
+        yield return new WaitForSeconds(attackDelay);
 
         //Set Aim Direction
         Vector2 currentAimDirection = weaponHolder.transform.rotation * Vector2.up;
@@ -94,7 +101,7 @@ public class EnemyAttack : MonoBehaviour
         //Destroy after set time
         Hazard hazard = currentAttack.GetComponent<Hazard>();
         hazard.StartCoroutine(hazard.DestroyHitboxAfterTime(hitboxLifetime));
-        attackSpeedTimer = attackSpeed; // Reset the attack cooldown
+        
     }
 
     internal void SetDifficultyModifier(float difficultyModifier)

@@ -32,7 +32,7 @@ MonoBehaviour:
     <Lifetime>k__BackingField: 0.5
     <StickToWeapon>k__BackingField: 0
     <IsLazer>k__BackingField: 0
-    <LazerRange>k__BackingField: 5
+    <LazerRange>k__BackingField: 0
     <IsSupport>k__BackingField: 0
   - <Name>k__BackingField: Lazer
     <ID>k__BackingField: 1
@@ -58,12 +58,12 @@ MonoBehaviour:
   - <Name>k__BackingField: Shield
     <ID>k__BackingField: 2
     <Prefab>k__BackingField:
-    - {fileID: 7338093106453869921, guid: 48d5a5d96cecef14eb65d1aade70d973, type: 3}
-    - {fileID: 7338093106453869921, guid: 1defccf3b1aaa0c44a333b7c019d1bba, type: 3}
-    - {fileID: 7338093106453869921, guid: fb5488676331311469415fff0bf08d9a, type: 3}
-    - {fileID: 7338093106453869921, guid: 33f48e5912913fa4793097cce86d2166, type: 3}
-    <AttackCooldown>k__BackingField: 15
-    <LockRotationOnAttack>k__BackingField: 1
+    - {fileID: 1189284084198202574, guid: e68e5e98b54f30848963ed2b00e77c49, type: 3}
+    - {fileID: 1189284084198202574, guid: e68e5e98b54f30848963ed2b00e77c49, type: 3}
+    - {fileID: 1189284084198202574, guid: e68e5e98b54f30848963ed2b00e77c49, type: 3}
+    - {fileID: 1189284084198202574, guid: e68e5e98b54f30848963ed2b00e77c49, type: 3}
+    <AttackCooldown>k__BackingField: 30
+    <LockRotationOnAttack>k__BackingField: 0
     <LockSelectionOnAttack>k__BackingField: 0
     <HitboxPrefab>k__BackingField:
     - {fileID: 8581967954523261283, guid: 3602235e5ba796f4b8ab8e0af7384396, type: 3}
@@ -71,8 +71,8 @@ MonoBehaviour:
     - {fileID: 8581967954523261283, guid: 3602235e5ba796f4b8ab8e0af7384396, type: 3}
     - {fileID: 8581967954523261283, guid: 3602235e5ba796f4b8ab8e0af7384396, type: 3}
     <HitboxSpeed>k__BackingField: 0
-    <Lifetime>k__BackingField: 3
+    <Lifetime>k__BackingField: 5
     <StickToWeapon>k__BackingField: 1
     <IsLazer>k__BackingField: 0
-    <LazerRange>k__BackingField: 15
+    <LazerRange>k__BackingField: 0
     <IsSupport>k__BackingField: 1

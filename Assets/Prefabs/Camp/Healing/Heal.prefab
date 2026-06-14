@@ -237,6 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4318fd12f23df7249ba02c30080ab7a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 3
+  healAmount: 2
   healTimeDelay: 1
   destroyOnTrigger: 1

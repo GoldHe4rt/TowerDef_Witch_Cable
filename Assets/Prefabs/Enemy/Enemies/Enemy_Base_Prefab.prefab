@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4587128515164208727}
   - component: {fileID: 4066872348330389213}
+  - component: {fileID: 3134175583017071886}
   m_Layer: 14
   m_Name: Enemy Sprite
   m_TagString: Untagged
@@ -88,6 +89,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3134175583017071886
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9471428280741188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &345014264256253867
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +393,7 @@ MonoBehaviour:
   healthDisplay: {fileID: 4449110839341595158}
   canTakeDamageDisplay: {fileID: 8957306761276025106}
   lootSystem: {fileID: 7463422487274418855}
+  enemyDeathAniObj: {fileID: 0}
   healthPoints: 5
   currencyOnDeath: 15
   iFramesEnabled: 1
@@ -408,6 +432,8 @@ MonoBehaviour:
   hitboxPrefab: {fileID: 1633932423762308225, guid: 31f7083c791e87246998f165120d986d,
     type: 3}
   attackRangeObject: {fileID: 8213743868711875269}
+  animator: {fileID: 3134175583017071886}
+  attackDelay: 1
   hitboxLifetime: 2
   rotationSpeed: 500
   spreadAngle: 10
@@ -603,7 +629,7 @@ Transform:
   m_GameObject: {fileID: 6665298948864286073}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

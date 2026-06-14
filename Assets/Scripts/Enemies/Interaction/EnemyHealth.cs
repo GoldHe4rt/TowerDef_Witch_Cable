@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthDisplay;
     [SerializeField] private GameObject canTakeDamageDisplay;
     [SerializeField] private LootSystem lootSystem;
+    [SerializeField] private GameObject enemyDeathAniObj;
     
     [Header("Default Values")]
     [SerializeField] internal int healthPoints = 10;
@@ -79,6 +80,8 @@ public class EnemyHealth : MonoBehaviour
     internal void Death()
     {
         lootSystem.RollLoot();
+        if (enemyDeathAniObj != null)
+            Instantiate(enemyDeathAniObj, transform.position, transform.rotation);
         if (audioEventManager != null)
             audioEventManager.PlayEnemyDefeatSound();
         Destroy(gameObject);

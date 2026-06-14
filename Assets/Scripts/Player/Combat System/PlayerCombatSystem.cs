@@ -148,7 +148,14 @@ public class PlayerCombatSystem : MonoBehaviour
         else
         {
             Destroy(rb);
-            currentAttack.transform.SetParent(weaponHolder.transform);
+            if (databaseSO.weaponData[currentWeaponID].IsSupport)
+            {
+                currentAttack.transform.SetParent(playerChar.transform);
+            }
+            else
+            {
+                currentAttack.transform.SetParent(weaponHolder.transform);
+            }
             //currentAttack.transform.localPosition = Vector3.zero;
             //currentAttack.transform.localRotation = Quaternion.identity;
         }
