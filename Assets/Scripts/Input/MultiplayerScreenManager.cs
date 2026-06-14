@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 using System;
@@ -7,10 +6,7 @@ using System.Collections.Generic;
 [Serializable] public class PlayerData
 {
     [SerializeField] public int ID;
-    [SerializeField] public GameObject playerDisconnectedObj;
-    [SerializeField] public GameObject playerObj;
-    [SerializeField] public GameObject playerChar;
-    [SerializeField] public GameObject playerSpawn;
+    [SerializeField] public GameObject playerDisconnectedObj, playerObj, playerChar, playerSpawn;
     [SerializeField] public Camera playerCam;
     [SerializeField] public bool isActive = false;
     internal int currentPlayerOrder;

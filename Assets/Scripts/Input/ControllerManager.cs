@@ -200,13 +200,15 @@ public class ControllerManager : MonoBehaviour
                 gamepad.yButton.wasPressedThisFrame)
             {
                 TryJoin(gamepad);
+                return;
             }
 
             // LEAVE (B button)
             if (gamepadToPlayer.ContainsKey(gamepad) &&
-                gamepad.bButton.wasPressedThisFrame)
+                gamepad.yButton.wasPressedThisFrame)
             {
                 Leave(gamepad);
+                return;
             }
         }
     }

@@ -29,10 +29,6 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Vector2 minMaxAttackSpeed = new Vector2(2f, 0.5f);
     [SerializeField] private Vector2 minMaxCampDamage = new Vector2(1, 15);
 
-
-
-
-
     private EnemyRange attackRangeScript;
     private float attackSpeedTimer = 0f;
     private Vector2 currentAimDirectionTarget = Vector2.up;
