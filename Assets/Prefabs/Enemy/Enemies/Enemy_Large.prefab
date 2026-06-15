@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -62,6 +62,11 @@ PrefabInstance:
         type: 3}
       propertyPath: campDamage
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: attackDelay
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 1983155555985423677, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -126,6 +131,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
+      propertyPath: enemyDeathAniObj
+      value: 
+      objectReference: {fileID: 5741390046383566655, guid: a69a6ba9749a96e4f816781ccc310723,
+        type: 3}
+    - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
       propertyPath: minMaxHealthPoints.x
       value: 10
       objectReference: {fileID: 0}
@@ -144,17 +155,22 @@ PrefabInstance:
       propertyPath: minMaxCurrencyOnDeath.y
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 3134175583017071886, guid: ae79eb1b1145050479fd3f1f95b89879,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bfaff341b3d805a4c90db3339c578fcc, type: 2}
     - target: {fileID: 3374036433186117619, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 3014350427971737073, guid: 1f2321a3fa539da44b8ac4c7134006b9,
+      objectReference: {fileID: 21300000, guid: 7a9a0a307b9404e42a810b49db961bb5,
         type: 3}
     - target: {fileID: 4066872348330389213, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1922484197113216012, guid: 937fe384539d20e4ea368079b3e48807,
+      objectReference: {fileID: 21300000, guid: f2b62c870e3b616429d61996a56d05f1,
         type: 3}
     - target: {fileID: 4066872348330389213, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -249,7 +265,7 @@ PrefabInstance:
     - target: {fileID: 4587128515164208727, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4587128515164208727, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
@@ -264,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 4587128515164208727, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6765335692943290478, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
