@@ -12,6 +12,7 @@ using System.Collections;
 public class NavMeshPathfinding : MonoBehaviour
 {
     [SerializeField] private Transform targetTransform;
+    [SerializeField] private EnemyRange enemyRange;
 
     [Header("Pathfinding")]
     public float AttackDistance;
@@ -50,23 +51,29 @@ public class NavMeshPathfinding : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("stuck:  " + stuck);
+        Debug.Log("Partial:  " + (agent.pathStatus == NavMeshPathStatus.PathPartial));
+        Debug.Log("invalid:  " + (agent.pathStatus == NavMeshPathStatus.PathInvalid));
+        Debug.Log("complete:  " + (agent.pathStatus == NavMeshPathStatus.PathComplete));
+        if (agent.pathStatus == NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
+        {
+            Debug.Log("stuck");
+            stuck = true;
+            agent.destination = transform.position;
+            findNearestBarricade();
+        }
         currentSpeed = speed * speedModifier;
         agent.speed = currentSpeed;
         if (stuck)
         {
-            transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
         }
         else
         {
             if (targetTransform != null)
             {
-                Debug.Log("stuck");
-                transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
 
-                if (agent.pathStatus != NavMeshPathStatus.PathComplete)
-                {
-                    stuck = true;
-                }
+                //transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
             }
         }
 
@@ -95,6 +102,12 @@ public class NavMeshPathfinding : MonoBehaviour
         currentRotation.x = 0f;
 
         transform.eulerAngles = currentRotation;
+    }
+    void findNearestBarricade()
+    {
+        if (enemyRange.isBarricade)
+            GameObject.FindGameObjectsWithTag("Barricade");
+
     }
 
     internal void SetDifficultyModifier(float difficultyModifier)

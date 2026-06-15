@@ -7,6 +7,7 @@ public class EnemyRange : MonoBehaviour
     [SerializeField] private NavMeshPathfinding nevMeshPathfinding;
     [SerializeField] float attackRange = 10f;
     internal GameObject currentAimTarget;
+    internal bool isBarricade = false;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class EnemyRange : MonoBehaviour
                 return;
             if (currentAimTarget != null)
                 return;
-
+            isBarricade = true;
             currentAimTarget = collision.gameObject;
         }
     }
@@ -39,6 +40,10 @@ public class EnemyRange : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == currentAimTarget)
+        {
             currentAimTarget = null;
+            isBarricade = false;
+        }
+
     }
 }

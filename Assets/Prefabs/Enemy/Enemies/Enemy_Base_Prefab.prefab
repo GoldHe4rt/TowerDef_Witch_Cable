@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
+  enemyRange: {fileID: 1609697661151736234}
   AttackDistance: 0
   isStopped: 0
   AttackObstacle: 0
