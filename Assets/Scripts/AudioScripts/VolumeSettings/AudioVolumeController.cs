@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace AudioScripts
+namespace AudioScripts.VolumeSettings
 {
     public class AudioVolumeController : MonoBehaviour
     {

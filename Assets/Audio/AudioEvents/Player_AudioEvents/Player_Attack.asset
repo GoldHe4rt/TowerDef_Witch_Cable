@@ -29,3 +29,8 @@ MonoBehaviour:
   randomizePitch: 0
   minPitch: 0.9
   maxPitch: 1.1
+  loop: 0
+  cooldown: 1
+  maxInstances: 3
+  lastPlayTime: -999
+  currentInstances: 0

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AudioScripts
+namespace AudioScripts.VolumeSettings
 {
    public class AudioSlider : MonoBehaviour
    {

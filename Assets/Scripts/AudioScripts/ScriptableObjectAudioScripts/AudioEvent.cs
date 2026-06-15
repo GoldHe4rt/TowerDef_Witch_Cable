@@ -27,6 +27,15 @@ namespace AudioScripts.ScriptableObjectAudioScripts
         [Header("Loop setting")]
         public bool loop;
 
+        [Header("Anti-sound spam settings")] 
+        public float cooldown;
+        public int maxInstances = 3;
+
+        [HideInInspector] public float lastPlayTime = -999f;
+        [HideInInspector] public int currentInstances;
+
+        public bool CanPlay() => Time.time >= lastPlayTime + cooldown;
+
         public AudioClip GetRandomClip()
         {
             if (clips == null || clips.Length == 0) return null;

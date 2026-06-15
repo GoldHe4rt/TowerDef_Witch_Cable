@@ -178,9 +178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 7505951605690525418}
-  sfxSource: {fileID: 8888697906010364347}
   uiSource: {fileID: 8582460104544640364}
+  initialPoolSize: 10
+  sfxMixerGroup: {fileID: -6223475361773419355, guid: b855e717521357644a3c2975f5b15d66,
+    type: 2}
   audioDatabase: {fileID: 11400000, guid: bb729a275ba4bf949b8ddad8d8c7c7bd, type: 2}
+  globalSfxCooldown: 0.05
 --- !u!1 &1654767795034069516
 GameObject:
   m_ObjectHideFlags: 0

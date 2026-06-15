@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 2417380492654856197}
   statsUI: {fileID: 9005918997925251689}
-  musicPlayer: {fileID: 1118563469360833361}
+  jingleManager: {fileID: 7107785155342042101}
 --- !u!223 &2081561383331668306
 Canvas:
   m_ObjectHideFlags: 0
@@ -2650,7 +2650,7 @@ Transform:
   - {fileID: 5501814318438651499}
   - {fileID: 3255811853251378536}
   - {fileID: 3582759579951340538}
-  - {fileID: 8007392169159820259}
+  - {fileID: 3204691706087124414}
   m_Father: {fileID: 73046891792118329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2294819560309268062
@@ -2881,6 +2881,52 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &2486459904380950356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3204691706087124414}
+  - component: {fileID: 7107785155342042101}
+  m_Layer: 5
+  m_Name: JingleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3204691706087124414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486459904380950356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8758447189021472545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7107785155342042101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486459904380950356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b14dc14d2b2ee41b7b61ba9a943ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winJingleEventId: Win_Jingle
+  loseJingleEventId: Lose_Jingle
 --- !u!1 &2651125763759420425
 GameObject:
   m_ObjectHideFlags: 0
@@ -8646,9 +8692,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2714075896558671135}
-  sfxSource: {fileID: 164140608291507522}
   uiSource: {fileID: 3355157064409658724}
+  initialPoolSize: 10
+  sfxMixerGroup: {fileID: -6223475361773419355, guid: b855e717521357644a3c2975f5b15d66,
+    type: 2}
   audioDatabase: {fileID: 11400000, guid: bb729a275ba4bf949b8ddad8d8c7c7bd, type: 2}
+  globalSfxCooldown: 0.05
 --- !u!1 &8445093804805329086
 GameObject:
   m_ObjectHideFlags: 0
@@ -9042,38 +9091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 4585623627811452281}
   statsUI: {fileID: 9005918997925251689}
-  musicPlayer: {fileID: 1118563469360833361}
---- !u!1 &8652416532920995263
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8007392169159820259}
-  m_Layer: 5
-  m_Name: UIInputListener
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8007392169159820259
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8652416532920995263}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8758447189021472545}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  jingleManager: {fileID: 7107785155342042101}
 --- !u!1 &8656606349149751534
 GameObject:
   m_ObjectHideFlags: 0

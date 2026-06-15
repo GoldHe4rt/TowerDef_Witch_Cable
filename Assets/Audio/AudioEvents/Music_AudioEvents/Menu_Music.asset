@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48de57b4f5ab79840b7dbd2aeec68e47, type: 3}
   m_Name: Menu_Music
   m_EditorClassIdentifier: 
-  eventId: Menu Music
+  eventId: Menu_Music
   audioChannel: 1
   clips:
-  - {fileID: 8300000, guid: f14c543e87dcf9845a04d16e0b768169, type: 3}
-  baseVolume: 1
+  - {fileID: 8300000, guid: ac4576320b8e7004286517f2b549149a, type: 3}
+  baseVolume: 0.14
   volumeOffsetDecibels: 0
   randomizePitch: 0
   minPitch: 0.9
   maxPitch: 1.1
   loop: 1
+  cooldown: 0
+  maxInstances: 3
+  lastPlayTime: -999
+  currentInstances: 0

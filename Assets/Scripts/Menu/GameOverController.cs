@@ -1,4 +1,3 @@
-using AudioScripts;
 using UnityEngine;
 
 namespace Menu
@@ -7,18 +6,17 @@ namespace Menu
     {
         public GameObject gameOverUI;
         public GameObject statsUI;
-        [SerializeField] private MusicPlayer musicPlayer;
+        [SerializeField] private JingleManager jingleManager;
 
         private void Start()
         {
             gameOverUI.SetActive(false);
             statsUI.SetActive(false);
         }
-
-        //A loss function should call this.
+        
         public void ShowGameOver()
         {
-            musicPlayer.PlayLoseJingle();
+            jingleManager.PlayLoseJingle();
             gameOverUI.SetActive(true);
             statsUI.SetActive(true);
             Time.timeScale = 0f;

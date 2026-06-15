@@ -1,3 +1,4 @@
+using System;
 using AudioScripts.ScriptableObjectAudioScripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,7 +12,16 @@ namespace AudioScripts
         private int lastIndex = -1;
 
         private void Start()
-        { PlayRandomTrack(); }
+        {
+            switch (musicProfile.musicType)
+            {
+                case MusicType.MainMenu:
+                case MusicType.Level:
+                case MusicType.Credits:   
+                    PlayRandomTrack();
+                    break;
+            }
+        }
 
         private void PlayRandomTrack()
         {
@@ -27,14 +37,5 @@ namespace AudioScripts
             
             AudioSystem.Play(musicProfile.musicEventIds[index]);
         }
-
-        #region Play Specific Music
-        public void PlayWinJingle()
-        { if (!string.IsNullOrEmpty(musicProfile.winEventId)) AudioSystem.Play(musicProfile.winEventId); }
-        
-        public void PlayLoseJingle()
-        { if (!string.IsNullOrEmpty(musicProfile.loseEventId)) AudioSystem.Play(musicProfile.loseEventId); }
-        
-        #endregion
     }
 }

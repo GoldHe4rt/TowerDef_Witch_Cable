@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a205255cad14eb4c9425ab9e232504b, type: 3}
-  m_Name: MusicProfile
+  m_Name: MenuMusicProfile
   m_EditorClassIdentifier: 
+  musicType: 0
   musicEventIds:
-  - Placeholder_Main_Theme
   - Menu_Music
-  winEventId: Win_Jingle
-  loseEventId: Lose_Jingle
   shuffle: 0

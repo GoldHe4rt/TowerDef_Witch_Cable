@@ -1,5 +1,4 @@
 using UnityEngine;
-using AudioScripts;
 
 namespace Menu
 {
@@ -7,7 +6,7 @@ namespace Menu
     {
         public GameObject winMenu;
         public GameObject statsUI;
-        [SerializeField] private MusicPlayer musicPlayer;
+        [SerializeField] private JingleManager jingleManager;
 
         private void Start()
         {
@@ -17,7 +16,7 @@ namespace Menu
         
         public void Win()
         {
-            musicPlayer.PlayWinJingle();
+            jingleManager.PlayWinJingle();
             winMenu.SetActive(true);
             statsUI.SetActive(true);
             Time.timeScale = 0f;
