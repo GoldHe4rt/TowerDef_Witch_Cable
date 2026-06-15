@@ -113,17 +113,10 @@ public class NavMeshPathfinding : MonoBehaviour
         {
             canUnstuck = true;
         }
+
     }
 
-    private void FreezeEnemyRotation()
-    {
-        Vector3 currentRotation = transform.eulerAngles;
 
-        //currentRotation.y = 0f;
-        currentRotation.x = 0f;
-
-        transform.eulerAngles = currentRotation;
-    }
     void findNearestBarricade()
     {
 
