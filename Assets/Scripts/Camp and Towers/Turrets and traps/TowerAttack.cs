@@ -45,6 +45,7 @@ public class TowerAttack : MonoBehaviour
 
     [Header("Hitbox Settings")]
     [SerializeField] private GameObject hitboxPrefab;
+    [SerializeField] private int hitboxSpawnAmount = 1;
     [SerializeField] private float hitboxSpeed = 5f;
     [SerializeField] private float hitboxLifetime = 2f;
     [SerializeField] private float hitboxDamageTime = 1f;
@@ -115,7 +116,8 @@ public class TowerAttack : MonoBehaviour
         animator.SetTrigger("Activate");
 
         //Spawn DamageDealer
-        StartCoroutine(SpawnDamageDealer());
+        for (int i = 0; i < hitboxSpawnAmount; i++)
+            StartCoroutine(SpawnDamageDealer());
 
         // Reset the attack cooldown
         attackSpeedTimer = attackSpeed; 
