@@ -14,6 +14,8 @@ public class NavMeshPathfinding : MonoBehaviour
     [SerializeField] private Transform targetTransform;
     [SerializeField] private EnemyRange enemyRange;
 
+    GameObject[] barricade;
+
     [Header("Pathfinding")]
     public float AttackDistance;
     public bool isStopped;
@@ -55,12 +57,18 @@ public class NavMeshPathfinding : MonoBehaviour
         Debug.Log("Partial:  " + (agent.pathStatus == NavMeshPathStatus.PathPartial));
         Debug.Log("invalid:  " + (agent.pathStatus == NavMeshPathStatus.PathInvalid));
         Debug.Log("complete:  " + (agent.pathStatus == NavMeshPathStatus.PathComplete));
-        if (agent.pathStatus == NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
+        if (agent.pathStatus != NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
         {
             Debug.Log("stuck");
             stuck = true;
             agent.destination = transform.position;
             findNearestBarricade();
+        }
+        else
+        {
+            Debug.Log("unstuck");
+            stuck = false;
+            agent.destination = transform.position;
         }
         currentSpeed = speed * speedModifier;
         agent.speed = currentSpeed;
@@ -105,8 +113,15 @@ public class NavMeshPathfinding : MonoBehaviour
     }
     void findNearestBarricade()
     {
-        if (enemyRange.isBarricade)
-            GameObject.FindGameObjectsWithTag("Barricade");
+
+
+        barricade = GameObject.FindGameObjectsWithTag("Barricade");
+
+        foreach (GameObject barricadeInScene in barricade)
+        {
+            agent.destination = barricadeInScene.transform.position;
+        }
+
 
     }
 
