@@ -9,6 +9,7 @@ public class SelectDifficulty : MonoBehaviour
 
     private void Start()
     { 
+        currentDifficulty = dataManager.gameDifficulty;
         levelButtons.SetActive(false);
     }
 
