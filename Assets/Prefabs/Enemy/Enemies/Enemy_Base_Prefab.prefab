@@ -34,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 827813580379149763}
   - {fileID: 3651633609659366065}
+  - {fileID: 1815589705118232906}
   m_Father: {fileID: 4174907970339112430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4066872348330389213
@@ -288,7 +289,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4587128515164208727}
-  - {fileID: 1815589705118232906}
   - {fileID: 2770401330988967047}
   - {fileID: 7234344164485187379}
   m_Father: {fileID: 0}
@@ -376,15 +376,15 @@ MonoBehaviour:
   possibleLoot:
   - itemName: Nothing
     dropItem: {fileID: 0}
-    dropChance: 35
+    dropChance: 40
   - itemName: Small Coin
     dropItem: {fileID: 7906199548634801658, guid: 801a8b7caf37056408709181c9afff74,
       type: 3}
-    dropChance: 30
+    dropChance: 25
   - itemName: Normal Coin
     dropItem: {fileID: 7906199548634801658, guid: 006ac1a5f593c154291c949336de4fd8,
       type: 3}
-    dropChance: 20
+    dropChance: 15
   - itemName: Big Coin
     dropItem: {fileID: 7906199548634801658, guid: 6c5a59b282dfda64692526df150de36e,
       type: 3}
@@ -1121,7 +1121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4174907970339112430}
+  m_Father: {fileID: 4587128515164208727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3374036433186117619
 SpriteRenderer:

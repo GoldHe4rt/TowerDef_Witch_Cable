@@ -356,7 +356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 169.6, y: 313.4}
+  m_AnchoredPosition: {x: 169.59998, y: 313.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &407982643946363898
@@ -1836,7 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUI: {fileID: 7910766570708414330}
-  currencyAmount: 500
+  currencyAmount: 100
 --- !u!1 &2297437469206357984
 GameObject:
   m_ObjectHideFlags: 0
