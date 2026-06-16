@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3651633609659366065}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: Minimap Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2264713733548318411}
   - component: {fileID: 149274574754297361}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8056364465310722761}
   - component: {fileID: 5020655130315294225}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7648707262320290291}
   - component: {fileID: 1133587176746712918}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 2372070145302935789}
   - component: {fileID: 1609697661151736234}
   - component: {fileID: 6445173774389249329}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: Attack range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
