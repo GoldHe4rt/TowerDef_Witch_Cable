@@ -66,10 +66,10 @@ public class NavMeshPathfinding : MonoBehaviour
             {
                 Debug.Log("stuck");
                 stuck = true;
-                //agent.destination = transform.position;
+
                 findNearestBarricade();
                 canUnstuck = false;
-                //StartCoroutine(waitBeforeCanUnStuck());
+
             }
             StartCoroutine(canSeeCamp());
 
