@@ -3,14 +3,27 @@ using UnityEngine;
 public class Freezerotation : MonoBehaviour
 
 {
-    private Rigidbody2D rb;
+    [SerializeField] private Transform parent;
+    private SpriteRenderer sr;
+    private Transform oldPosition;
+    private Transform currentPosition;
 
     void Start()
     {
-        // Get the Rigidbody2D component attached to the sprite
-        rb = GetComponent<Rigidbody2D>();
-
-        // Freeze the Z-axis rotation from physics calculations
-        rb.freezeRotation = true;
+        rb = parent.GetComponent<Rigidbody2D>();
+    }
+    void Update()
+    {
+        sr.transform.position =
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, parent.transform.rotation.z * -1f);
+        if (rb.linearVelocity.x < 0f)
+        {
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+        Debug.Log(rb.linearVelocity.x);
     }
 }
