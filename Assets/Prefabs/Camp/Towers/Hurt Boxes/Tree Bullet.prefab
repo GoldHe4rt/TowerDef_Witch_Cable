@@ -120,12 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd61c87c5481b60488fcd06c5454bbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
+  damageAmount: 3
   hurtTime: 1
   freezeTarget: 0
   freezeDuration: 5
   playerOwner: -1
-  pierceAmount: 1
+  pierceAmount: 3
 --- !u!1001 &2151038739692045675
 PrefabInstance:
   m_ObjectHideFlags: 0

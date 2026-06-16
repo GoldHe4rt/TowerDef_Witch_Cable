@@ -153,17 +153,17 @@ PrefabInstance:
     - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxHealthPoints.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxCurrencyOnDeath.x
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2897402382982837266, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: minMaxCurrencyOnDeath.y
-      value: 150
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3134175583017071886, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
