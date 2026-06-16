@@ -1856,10 +1856,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "SFX\nFenris\nMAIN THEME\nMarius\nVICTORY FANFARE\n Real Trumpet Fanfare
-    1 by qubodup\nhttps://freesound.org/s/855457/ -- License: Creative Commons 0\nDEFEAT
-    MUSIC\nTrumpet Taps by trumpetplayer\nhttps://freesound.org/s/651204/ -- License:
-    Creative Commons 0\n"
+  m_text: "SFX\nFenris\nMAIN THEME\nMarius\nMAIN MENU MUSIC\nCleyton Kauffman - https://soundcloud.com/cleytonkauffman\nVICTORY
+    FANFARE\n Real Trumpet Fanfare 1 by qubodup\nhttps://freesound.org/s/855457/
+    -- License: Creative Commons 0\nDEFEAT MUSIC\nTrumpet Taps by trumpetplayer\nhttps://freesound.org/s/651204/
+    -- License: Creative Commons 0\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 241c6acceca8b844baad6cbcf60cefc7, type: 2}
   m_sharedMaterial: {fileID: -699112959996641730, guid: 241c6acceca8b844baad6cbcf60cefc7,
