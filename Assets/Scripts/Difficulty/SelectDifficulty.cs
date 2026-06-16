@@ -9,7 +9,8 @@ public class SelectDifficulty : MonoBehaviour
 
     private void Start()
     { 
-        levelButtons.SetActive(false); }
+        levelButtons.SetActive(false);
+    }
 
     #region ChangeDifficulty
     public void ChangeToEasy() => OnDifficultyChanged(difficulty: GameDifficulty.Easy);
