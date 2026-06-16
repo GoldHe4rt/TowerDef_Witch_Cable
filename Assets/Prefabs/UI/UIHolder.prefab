@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 2417380492654856197}
   statsUI: {fileID: 9005918997925251689}
-  jingleManager: {fileID: 7107785155342042101}
+  loseJingleEventId: Lose_Jingle
 --- !u!223 &2081561383331668306
 Canvas:
   m_ObjectHideFlags: 0
@@ -6607,7 +6607,7 @@ MonoBehaviour:
     type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: 2bcd2660ca9b64942af0de543d8d7100,
     type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
@@ -9091,7 +9091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 4585623627811452281}
   statsUI: {fileID: 9005918997925251689}
-  jingleManager: {fileID: 7107785155342042101}
+  winJingleEventId: Win_Jingle
 --- !u!1 &8656606349149751534
 GameObject:
   m_ObjectHideFlags: 0

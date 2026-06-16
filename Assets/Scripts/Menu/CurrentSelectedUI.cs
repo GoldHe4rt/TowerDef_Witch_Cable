@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 namespace Menu

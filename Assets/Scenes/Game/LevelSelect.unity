@@ -2028,6 +2028,11 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 9030290875948835258}
+    - target: {fileID: 234174207331881604, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 272f6d14-89ba-496f-b7ff-215263d3219f
+      objectReference: {fileID: 0}
     - target: {fileID: 475858653233904310, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
       propertyPath: currencyManager
@@ -2193,6 +2198,11 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 9030290875948835258}
+    - target: {fileID: 2342133183056962239, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 272f6d14-89ba-496f-b7ff-215263d3219f
+      objectReference: {fileID: 0}
     - target: {fileID: 2443083284716520975, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
       propertyPath: displayLocation
@@ -2758,6 +2768,11 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 9030290875948835258}
+    - target: {fileID: 5891502980023847868, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 272f6d14-89ba-496f-b7ff-215263d3219f
+      objectReference: {fileID: 0}
     - target: {fileID: 6036562229502776875, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
       propertyPath: m_SortingLayer
@@ -3023,6 +3038,11 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 9030290875948835258}
+    - target: {fileID: 8692728114940050312, guid: 30000a49c263b0843a6578f532b8e050,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 272f6d14-89ba-496f-b7ff-215263d3219f
+      objectReference: {fileID: 0}
     - target: {fileID: 8774622717907803960, guid: 30000a49c263b0843a6578f532b8e050,
         type: 3}
       propertyPath: displayLocation
@@ -11830,7 +11850,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 1224849673}
   m_TrackedDevicePositionAction: {fileID: 695945893}
   m_TrackedDeviceOrientationAction: {fileID: 916786631}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
