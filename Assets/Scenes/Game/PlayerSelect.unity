@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9585e8650e2aeef47aee9b90b0d2e648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myEventSystem: {fileID: 0}
+  myEventSystem: {fileID: 7347115396500526806}
   selectUI: {fileID: 190525973}
 --- !u!1 &213449422
 GameObject:

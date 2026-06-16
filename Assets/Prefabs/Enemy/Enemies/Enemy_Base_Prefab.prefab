@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3651633609659366065}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Minimap Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2264713733548318411}
   - component: {fileID: 149274574754297361}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 1
 --- !u!114 &24442664452354538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,7 +646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7648707262320290291}
   - component: {fileID: 1133587176746712918}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 550952061542083401}
   - component: {fileID: 8110077662477720373}
   - component: {fileID: 1272057798216910541}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 7606605516371279611}
   - component: {fileID: 416029891125578782}
   - component: {fileID: 4449110839341595158}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

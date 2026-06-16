@@ -42,7 +42,7 @@ PrefabInstance:
         type: 3}
       propertyPath: nevMeshPathfinding
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -2012144554913083833}
     - target: {fileID: 1815589705118232906, guid: ae79eb1b1145050479fd3f1f95b89879,
         type: 3}
       propertyPath: m_LocalScale.x

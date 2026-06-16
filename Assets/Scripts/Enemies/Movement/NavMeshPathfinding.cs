@@ -14,8 +14,6 @@ public class NavMeshPathfinding : MonoBehaviour
     [SerializeField] private Transform targetTransform;
     [SerializeField] private EnemyRange enemyRange;
 
-    GameObject[] barricade;
-
     [Header("Pathfinding")]
     public float AttackDistance;
     public bool isStopped;
@@ -37,7 +35,8 @@ public class NavMeshPathfinding : MonoBehaviour
     private float distance;
     internal bool stuck = false;
 
-
+    private bool canUnstuck = false;
+    private float timeBeforeCanUnstuck = 1f;
 
     void Start()
     {
@@ -49,6 +48,10 @@ public class NavMeshPathfinding : MonoBehaviour
         agent.avoidancePriority = Random.Range(10, 65);
         float RadiusValue = Random.Range(0.5f, 0.8f);
         agent.radius = Mathf.Round(RadiusValue * 10) * 0.1f;
+
+
+        currentSpeed = speed * speedModifier;
+        agent.speed = currentSpeed;
     }
 
     void Update()
@@ -59,69 +62,80 @@ public class NavMeshPathfinding : MonoBehaviour
         Debug.Log("complete:  " + (agent.pathStatus == NavMeshPathStatus.PathComplete));
         if (agent.pathStatus != NavMeshPathStatus.PathComplete || agent.pathStatus == NavMeshPathStatus.PathInvalid || agent.pathStatus == NavMeshPathStatus.PathPartial)
         {
-            Debug.Log("stuck");
-            stuck = true;
-            agent.destination = transform.position;
-            findNearestBarricade();
-        }
-        else
-        {
-            Debug.Log("unstuck");
-            stuck = false;
-            agent.destination = transform.position;
-        }
-        currentSpeed = speed * speedModifier;
-        agent.speed = currentSpeed;
-        if (stuck)
-        {
-            //transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
-        }
-        else
-        {
-            if (targetTransform != null)
+            if (!stuck)
             {
+                Debug.Log("stuck");
+                stuck = true;
+                //agent.destination = transform.position;
+                findNearestBarricade();
+                canUnstuck = false;
+                //StartCoroutine(waitBeforeCanUnStuck());
+            }
+            StartCoroutine(canSeeCamp());
 
-                //transform.position = Vector2.MoveTowards(transform.position, agent.nextPosition, speed * speedModifier * Time.deltaTime);
+        }
+        else
+        {
+            if (stuck && canUnstuck)
+            {
+                Debug.Log("unstuck");
+                stuck = false;
+                agent.destination = TargetBase.position;
             }
         }
 
+        if (agent.pathPending)
+        {
+            canUnstuck = false;
+        }
 
-
-        /*/
-                
-                if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
-                {
-                    waypoint = waypoint.GetNextWaypoint();
-                    if (waypoint == null)
-                    {
-                        Destroy(gameObject);
-                        return;
-                    }
-                    SetNewWaypoint(waypoint);
-                }
-        /*/
     }
-
-    private void FreezeEnemyRotation()
+    IEnumerator waitBeforeCanUnStuck()
     {
-        Vector3 currentRotation = transform.eulerAngles;
-
-        //currentRotation.y = 0f;
-        currentRotation.x = 0f;
-
-        transform.eulerAngles = currentRotation;
+        yield return new WaitForSeconds(timeBeforeCanUnstuck);
+        //canUnstuck = true;
     }
+    IEnumerator canSeeCamp()
+    {
+        yield return new WaitForSeconds(5f);
+        agent.destination = TargetBase.position;
+        //yield return new WaitForSeconds(0.5f);
+
+        while (agent.pathPending)
+            yield return null;
+
+        if (agent.pathStatus != NavMeshPathStatus.PathComplete)
+        {
+            findNearestBarricade();
+            StartCoroutine(canSeeCamp());
+        }
+        else
+        {
+            canUnstuck = true;
+        }
+
+    }
+
+
     void findNearestBarricade()
     {
 
+        Debug.Log("findBC");
+        GameObject[] barricades = GameObject.FindGameObjectsWithTag("Barricade");
 
-        barricade = GameObject.FindGameObjectsWithTag("Barricade");
+        GameObject barricadePosition = barricades[0];
 
-        foreach (GameObject barricadeInScene in barricade)
+        foreach (GameObject barricadeInScene in barricades)
         {
-            agent.destination = barricadeInScene.transform.position;
-        }
+            float b1 = Vector2.Distance(transform.position, barricadeInScene.transform.position);
+            float b2 = Vector2.Distance(transform.position, barricadePosition.transform.position);
+            if (b1 < b2)
+            {
+                barricadePosition = barricadeInScene;
+            }
 
+        }
+        agent.destination = barricadePosition.transform.position;
 
     }
 
