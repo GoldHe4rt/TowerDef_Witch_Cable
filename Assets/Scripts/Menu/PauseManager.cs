@@ -18,10 +18,6 @@ namespace Menu
             Time.timeScale = 1f;
         }
 
-        //For testing & keyboard.
-        private void Update()
-        { if (Input.GetKeyDown(KeyCode.P)) TogglePause(); }
-
         public void TogglePause()
         {
             if (!isPaused && canPause)

@@ -31,8 +31,7 @@ namespace Menu
 
         public void Restart()
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
-
-        //Used for NEXT_LEVEL_BUTTON in the Win Menu. Need to test to see if this works.
+        
         public void NextLevel()
         {
             int current = SceneManager.GetActiveScene().buildIndex;

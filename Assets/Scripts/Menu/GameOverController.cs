@@ -1,3 +1,4 @@
+using AudioScripts;
 using UnityEngine;
 
 namespace Menu
@@ -6,7 +7,8 @@ namespace Menu
     {
         public GameObject gameOverUI;
         public GameObject statsUI;
-        [SerializeField] private JingleManager jingleManager;
+        [Header("Defeat jingle")] [SerializeField]
+        private string loseJingleEventId = "Lose_Jingle";
 
         private void Start()
         {
@@ -16,10 +18,11 @@ namespace Menu
         
         public void ShowGameOver()
         {
-            jingleManager.PlayLoseJingle();
+            PlayLoseJingle();
             gameOverUI.SetActive(true);
             statsUI.SetActive(true);
             Time.timeScale = 0f;
         }
+        private void PlayLoseJingle() => AudioSystem.Play(loseJingleEventId);
     }
 }

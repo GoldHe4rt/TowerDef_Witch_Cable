@@ -1,3 +1,4 @@
+using AudioScripts;
 using UnityEngine;
 
 namespace Menu
@@ -6,7 +7,8 @@ namespace Menu
     {
         public GameObject winMenu;
         public GameObject statsUI;
-        [SerializeField] private JingleManager jingleManager;
+        [Header("Victory Jingle")] 
+        [SerializeField] private string winJingleEventId = "Win_Jingle";
 
         private void Start()
         {
@@ -16,10 +18,12 @@ namespace Menu
         
         public void Win()
         {
-            jingleManager.PlayWinJingle();
+            PlayWinJingle();
             winMenu.SetActive(true);
             statsUI.SetActive(true);
             Time.timeScale = 0f;
         }
+
+        private void PlayWinJingle() => AudioSystem.Play(winJingleEventId);
     }
 }
