@@ -366,11 +366,11 @@ MonoBehaviour:
   - itemName: Small Coin
     dropItem: {fileID: 7906199548634801658, guid: 801a8b7caf37056408709181c9afff74,
       type: 3}
-    dropChance: 25
+    dropChance: 30
   - itemName: Normal Coin
     dropItem: {fileID: 7906199548634801658, guid: 006ac1a5f593c154291c949336de4fd8,
       type: 3}
-    dropChance: 15
+    dropChance: 20
   - itemName: Big Coin
     dropItem: {fileID: 7906199548634801658, guid: 6c5a59b282dfda64692526df150de36e,
       type: 3}
@@ -378,7 +378,7 @@ MonoBehaviour:
   - itemName: Health
     dropItem: {fileID: 2272201108070810424, guid: f6993477566e7a44dab91e3e62d34300,
       type: 3}
-    dropChance: 20
+    dropChance: 10
 --- !u!114 &2897402382982837266
 MonoBehaviour:
   m_ObjectHideFlags: 0

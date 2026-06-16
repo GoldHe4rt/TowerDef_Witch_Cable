@@ -289,13 +289,14 @@ MonoBehaviour:
   attackDelay: 0
   rotationSpeed: 0
   spreadAngle: 0
-  maxHealth: 30
+  maxHealth: 10
   DamageIFramesEnabled: 1
   damageFrames: 1
   bulletCountText: {fileID: 1946422935480717267}
   maxBulletAmount: 50
   hitboxPrefab: {fileID: 2430491045449836502, guid: 6a1dd702236bfb34e88a9f0891a46bb1,
     type: 3}
+  hitboxSpawnAmount: 1
   hitboxSpeed: 0
   hitboxLifetime: 1
   hitboxDamageTime: 1

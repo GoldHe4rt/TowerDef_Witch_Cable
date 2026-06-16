@@ -150,8 +150,6 @@ public class PreviewSystem : MonoBehaviour
                 float scale = 0f;
                 indicator.transform.localScale = new Vector3(scale, scale, scale);
             }
-
-            
         }
     }
 
@@ -190,7 +188,6 @@ public class PreviewSystem : MonoBehaviour
                 {
                     costText.text = cost.ToString();
                 }
-                
             }
         }
 

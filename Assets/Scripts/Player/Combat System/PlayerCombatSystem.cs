@@ -72,12 +72,18 @@ public class PlayerCombatSystem : MonoBehaviour
         
         if (databaseSO.weaponData[currentWeaponID].IsSupport)
         {
-            currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab[playerID-1], playerChar.transform.position, playerChar.transform.rotation);
+            currentWeaponPrefab = Instantiate(
+                databaseSO.weaponData[newWeaponID].Prefab[playerID-1], 
+                playerChar.transform.position, 
+                playerChar.transform.rotation);
             currentWeaponPrefab.transform.SetParent(playerChar.transform);
         }
         else
         {
-            currentWeaponPrefab = Instantiate(databaseSO.weaponData[newWeaponID].Prefab[playerID-1], weaponHolder.transform.position, weaponHolder.transform.rotation);
+            currentWeaponPrefab = Instantiate(
+                databaseSO.weaponData[newWeaponID].Prefab[playerID-1], 
+                weaponHolder.transform.position, 
+                weaponHolder.transform.rotation);
             currentWeaponPrefab.transform.SetParent(weaponHolder.transform);
         }
         
@@ -160,8 +166,6 @@ public class PlayerCombatSystem : MonoBehaviour
             //currentAttack.transform.localRotation = Quaternion.identity;
         }
 
-        
-
         if (currentlyLockRotation)
         {
             playerMovement.LockRotation = true;
@@ -195,8 +199,6 @@ public class PlayerCombatSystem : MonoBehaviour
                 damageDealer.currencyManager = currencyManager;
             }
         }
-
-        
 
         //Destroy after set time
         StartCoroutine(DestroyHitboxAfterTime(currentAttack, currentlyLockRotation));
