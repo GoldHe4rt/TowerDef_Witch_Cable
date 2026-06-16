@@ -23,11 +23,6 @@ public class DamageDealer : MonoBehaviour
 
     internal CurrencyManager currencyManager;
 
-    private void Start()
-    {
-        
-    }
-
     public void HitTarget()
     {
         if (pierceAmount == -1) return; //-1 is infinite

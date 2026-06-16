@@ -33,8 +33,8 @@ public class EnemyCollisionManager : MonoBehaviour
                 }
                     
             }
-
             enemyHealth.LoseHealth(hazard.damageAmount, hazard.hurtTime);
+
             if (hazard.freezeTarget)
             {
                 Debug.Log("Enemy frozen!");
@@ -43,6 +43,7 @@ public class EnemyCollisionManager : MonoBehaviour
                 
                 freezeCoroutine = StartCoroutine(navMeshPathfinding.SpeedRecovery(hazard.freezeDuration, 2f, 0.3f, 1f));
             }
+
             if (enemyHealth.healthPoints <= 0)
             {
                 hazard.KilledTarget(enemyHealth.currencyOnDeath);
@@ -53,12 +54,6 @@ public class EnemyCollisionManager : MonoBehaviour
             StartCoroutine(DamageDealerHurtCooldown(collision, hazard));
             hazard.HitTarget();
         } 
-        else if (collision.gameObject.CompareTag("Support"))
-        {
-            SupportWeapon supportWeapon = collision.gameObject.GetComponent<SupportWeapon>();
-            
-        }
-        
     }
 
     private IEnumerator DamageDealerHurtCooldown(Collider2D savedCollider,DamageDealer hazard)

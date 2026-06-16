@@ -59,6 +59,16 @@ public class EnemyHealth : MonoBehaviour
         //invinsible = false;
     }
 
+    internal void Death()
+    {
+        lootSystem.RollLoot();
+        if (enemyDeathAniObj != null)
+            Instantiate(enemyDeathAniObj, transform.position, transform.rotation);
+        if (audioEventManager != null)
+            audioEventManager.PlayEnemyDefeatSound();
+        Destroy(gameObject);
+    }
+
     internal void SetDifficultyModifier(float difficultyModifier)
     {
         if (difficultyModifier <= 1)
@@ -77,15 +87,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    internal void Death()
-    {
-        lootSystem.RollLoot();
-        if (enemyDeathAniObj != null)
-            Instantiate(enemyDeathAniObj, transform.position, transform.rotation);
-        if (audioEventManager != null)
-            audioEventManager.PlayEnemyDefeatSound();
-        Destroy(gameObject);
-    }
+    
 
 }
 
