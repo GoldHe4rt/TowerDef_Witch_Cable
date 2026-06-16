@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class SelectDifficulty : MonoBehaviour
 {
@@ -6,11 +7,12 @@ public class SelectDifficulty : MonoBehaviour
     private string difficultyKey;
     public GameDifficulty currentDifficulty;
     [SerializeField] private GameObject levelButtons;
+    [SerializeField] private TextMeshProUGUI selectedDifficultyText;
 
     private void Start()
     { 
         currentDifficulty = dataManager.gameDifficulty;
-        levelButtons.SetActive(false);
+        DisallowLevelSelection();
     }
 
     #region ChangeDifficulty
@@ -26,6 +28,21 @@ public class SelectDifficulty : MonoBehaviour
         dataManager.gameDifficulty = difficulty;
         SaveDifficulty();
         AllowLevelSelection();
+        switch (difficulty)
+        {
+            case GameDifficulty.Easy:
+                selectedDifficultyText.text = "Easy";
+                break;
+            case GameDifficulty.Normal:
+                selectedDifficultyText.text = "Normal";
+                break;
+            case GameDifficulty.Hard:
+                selectedDifficultyText.text = "Hard";
+                break;
+            case GameDifficulty.Endless:
+                selectedDifficultyText.text = "Endless";
+                break;
+        }
     }
 
     private void SaveDifficulty()
@@ -36,5 +53,13 @@ public class SelectDifficulty : MonoBehaviour
     }
     
     private void AllowLevelSelection()
-    { levelButtons.SetActive(true); }
+    { 
+        levelButtons.SetActive(true); 
+        }
+
+    private void DisallowLevelSelection()
+    { 
+        levelButtons.SetActive(false); 
+        selectedDifficultyText.text = "";
+    }
 }
