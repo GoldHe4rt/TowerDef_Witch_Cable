@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Freezerotation : MonoBehaviour
@@ -5,25 +6,31 @@ public class Freezerotation : MonoBehaviour
 {
     [SerializeField] private Transform parent;
     private SpriteRenderer sr;
-    private Transform oldPosition;
-    private Transform currentPosition;
+    private float oldPositionX;
 
     void Start()
     {
-        rb = parent.GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
-        sr.transform.position =
+
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, parent.transform.rotation.z * -1f);
-        if (rb.linearVelocity.x < 0f)
+
+        float differance;
+        differance = transform.position.x - oldPositionX;
+
+        if (differance < 0.001f)
         {
-            transform.localScale = new Vector2(-1, 1);
+            sr.flipX = true;
+
         }
-        else
+        else if (differance > 0.001f)
         {
-            transform.localScale = new Vector2(1, 1);
+            sr.flipX = false;
         }
-        Debug.Log(rb.linearVelocity.x);
+        Debug.Log(differance);
+
+        oldPositionX = transform.position.x;
     }
 }
