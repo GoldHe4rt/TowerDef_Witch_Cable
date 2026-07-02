@@ -26,7 +26,7 @@ namespace AudioScripts.ScriptableObjectAudioScripts
 
             foreach (AudioEvent audioEvent in events)
             {
-                if (audioEvent == null || string.IsNullOrEmpty(audioEvent.eventId)) continue;
+                if (!audioEvent || string.IsNullOrEmpty(audioEvent.eventId)) continue;
 
                 lookupEventName.TryAdd(audioEvent.eventId, audioEvent);
             }

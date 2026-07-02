@@ -15,12 +15,12 @@ namespace AudioScripts
         public AudioSource musicSource;
         public AudioSource uiSource;
 
-        [Header("SFX audiosource pool settings")] 
+        [Header("SFX audio source pool settings")] 
         [SerializeField] private int initialPoolSize = 10; //might change this
         [SerializeField] private AudioMixerGroup sfxMixerGroup;
-
         private List<AudioSource> sfxPool;
         
+        [Header("Database")]
         [SerializeField] private AudioDatabase audioDatabase;
 
         [Header("Global Anti-spam")] 
@@ -79,7 +79,7 @@ namespace AudioScripts
         
         public void PlaySFX(AudioEvent audioEvent)
         {
-            if (audioEvent == null) return;
+            if (!audioEvent) return;
             //Max instances at once
             if (audioEvent.currentInstances >= audioEvent.maxInstances) return; 
             //Per-event cooldown
@@ -98,7 +98,7 @@ namespace AudioScripts
             lastGlobalSfxTime = Time.time;
             
             var clip = audioEvent.GetRandomClip();
-            if (clip != null)
+            if (clip)
             {
                 AudioSource audioSource = GetFreeSource();
                 audioSource.pitch = audioEvent.GetRandomPitch();
@@ -111,12 +111,11 @@ namespace AudioScripts
             audioEvent.currentInstances--;
         }
         #endregion
-        
 
         public void PlayUI(AudioEvent audioEvent)
         {
             var clip = audioEvent.GetRandomClip();
-            if (clip == null) return;
+            if (!clip) return;
 
             uiSource.pitch = audioEvent.GetRandomPitch();
             uiSource.PlayOneShot(clip, audioEvent.baseVolume);
@@ -125,7 +124,7 @@ namespace AudioScripts
         public void PlayMusic(AudioEvent audioEvent)
         {
             var clip = audioEvent.GetRandomClip();
-            if (clip == null) return;
+            if (!clip) return;
 
             musicSource.clip = clip;
             musicSource.loop = audioEvent.loop;

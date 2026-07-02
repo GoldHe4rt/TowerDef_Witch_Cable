@@ -28,5 +28,4 @@ MonoBehaviour:
   loop: 0
   cooldown: 1
   maxInstances: 3
-  lastPlayTime: -999
   currentInstances: 0

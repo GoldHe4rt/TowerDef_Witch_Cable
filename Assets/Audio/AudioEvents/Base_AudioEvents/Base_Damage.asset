@@ -26,7 +26,6 @@ MonoBehaviour:
   minPitch: 0.9
   maxPitch: 1.1
   loop: 0
-  cooldown: 1
+  cooldown: 0.4
   maxInstances: 3
-  lastPlayTime: -999
   currentInstances: 0

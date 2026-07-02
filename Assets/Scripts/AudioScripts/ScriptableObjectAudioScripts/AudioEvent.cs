@@ -5,7 +5,6 @@ namespace AudioScripts.ScriptableObjectAudioScripts
     [CreateAssetMenu(fileName = "AudioEvent", menuName = "Scriptable Objects/AudioEvent")]
     public class AudioEvent : ScriptableObject
     {
-        //Wip for better sound system stuff. ScriptableObjects are better to use than the SoundList
         [Header("Name")]
         public string eventId;
         
@@ -31,7 +30,7 @@ namespace AudioScripts.ScriptableObjectAudioScripts
         public float cooldown;
         public int maxInstances = 3;
 
-        [HideInInspector] public float lastPlayTime = -999f;
+        internal float lastPlayTime = -999f;
         [HideInInspector] public int currentInstances;
 
         public bool CanPlay() => Time.time >= lastPlayTime + cooldown;
